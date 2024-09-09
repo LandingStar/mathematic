@@ -231,13 +231,12 @@ In this section:\\
 \indent Let 0 be zero element of K\\
 \indent 1 be the unity of K
 \subsection{K-module}
-\subsubsection[Def]{Def}
+\subsubsection{Def}
 
-Let $(V,+)$ be a commutative group.We call left K-module structure:\\
-\indent any mapping $\Phi$:$K\times V\rightarrow V$\\We call right K-module structure:\\
-\indent any mapping $\Phi$:$(\lambda,x)\mapsto \Phi(\lambda,x)$
+Let $(V,+)$ be a commutative group.We call left/right K-module structure:\\
+\indent any mapping $\Phi$:$K\times V\rightarrow V$
 \begin{itemize}
-    \item $\forall(a,b)\in K\times K,\forall x\in V\quad \Phi(ab,x)=\Phi(a,\Phi(b,x))$
+    \item $\forall(a,b)\in K\times K,\forall x\in V\quad \Phi(ab,x)=\Phi(a,\Phi(b,x))/\Phi(b,\Phi(a,x))$
     \item $\forall (a,b)\in K\times K,\forall x\in V,\Phi(a+b,x)=\Phi(a,x)+\Phi(b,x)$
     \item $\forall a\in K,\forall(x,y)\in V\times V,\Phi(a,x+y)=\Phi(a,x)\Phi(a,y)$
     \item $\forall x\in V,\Phi(1,x)=x$
@@ -253,24 +252,23 @@ A commutative group (V,+) equipped with a left/right K-module structure is calle
 Then $K^{op}$ forms a unitary ring\\
 Any left $K^{op}-module$ is a right K-module\\
 Any right $K^{op}-module$ is a left K-module\\
-$(K^{op})^{op}=K$\\
-Notation:
+$(K^{op})^{op}=K$
+\subsubsection{Notation}
 
-When we talk about a left K-module $(V,+)$,we often write its left K-module structure as $K\times V\rightarrow V\quad (a,x)\mapsto ax$\\
-\indent The axions become:\begin{align*}
-    &\forall(a,b)\in K\times K,\forall x\in V\quad (ab)x=a(bx)\\
+When we talk about a left/right K-module $(V,+)$,we often write its left K-module structure as $K\times V\rightarrow V\quad (a,x)\mapsto ax$\\
+\indent The axioms become:\begin{align*}
+    &\forall(a,b)\in K\times K,\forall x\in V\quad (ab)x=a(bx)/b(ax)\\
     &\forall(a,b)\in K\times K,\forall x\in V\quad (a+b)x=ax+bx\\
     &\forall a\in K,\forall(x,y)\in V\times V\quad a(x+y)=ax+ay\\
     &\forall x\in V\quad 1x=x
 \end{align*}
-right K-module the similar way\\
-Remark:
+\subsubsection{K-vector space}
 
-If K is commutative,then $K^{op}=K$,so left K-module and right K-module structure are the sae .We simply call them K-module structure. A commutative group equipped with a K-module structure is called a K-module.If K is a field,a K-module is also called a K-vector space
+If K is commutative,then $K^{op}=K$,so left K-module and right K-module structure are the same .We simply call them K-module structure. A commutative group equipped with a K-module structure is called a K-module.If K is a field,a K-module is also called a K-vector space
 
-Let $\Phi:K\times V\rightarrow V$ be a left or right K-module structure$$\forall x\in V,\Phi(\cdot,x):K\rightarrow V,(a\in K)\mapsto\Phi(a,x)$$\indent is a morphism of addition groups.Hence $\Phi(0,x)=0,\Phi(-a,x)=-\Phi(a,x)$\\
+Let $\Phi:K\times V\rightarrow V$ be a left or right K-module structure$$\forall x\in V,\Phi(\cdot,x):K\rightarrow V\quad(a\in K)\mapsto\Phi(a,x)$$\indent is a morphism of addition groups.Hence $\Phi(0,x)=0,\Phi(-a,x)=-\Phi(a,x)$\\
 $\forall a\in K,\Phi(a,\cdot):V\rightarrow V$ is a morphism of groups.Hence $\Phi(a,0)=0,\Phi(a,-x)=-\Phi(a,x)(\cdot \ is\ a\ var)$
-Association:
+\subsubsection{Association:}
 $\forall x\in K$
 \begin{align*}
     (f(f+g)+h)(x)=(f+g)(x)+h(x)=f(x)+g(x)+h(x)\\
@@ -280,8 +278,8 @@ $\forall x\in K$
 Let $0:I\rightarrow K:x\mapsto0 \quad \forall f\in K^I\quad f+0=f$\\
 Let $-f: f+(-f)=0$\\
 The mapping $K\times K^I\rightarrow K^I:(a,f)\mapsto af\quad (af)(x)=af(x)$ is a left K-module structure\\
-The mapping $K\times K^I\rightarrow K^I:(a\in I)\mapsto ((x\in I)\mapsto f(x)a)\quad (af)(x)=af(x)$ is a right K-module structure\\
-Notation:
+The mapping $K\times K^I\rightarrow K^I:(a\in I)\mapsto ((x\in I)\mapsto f(x)a)\quad (af)(x)=af(x)$ is a right K-module structure
+\subsubsection{Remark:}
 
 We can also write an element $\mu\ of\ K^I$ is the form of a family $(\mu_i)_{i\in I}$ of elements in K ($\mu_i$is the image of $i\in I\ by\ \mu$)\\
 Then \begin{align*}
@@ -289,27 +287,30 @@ Then \begin{align*}
     &a(\mu_i)_{i\in I}:=(a\mu_i)_{i\in I}\\
     &(\mu_i)_{i\in I}a=(\mu_ia)_{i\in I}
 \end{align*}
-Def:
+\subsection{sub K-module}
+\subsubsection{Def}
 
 Let V be a left/right K-module.If W is a subgroup of V. Such that $\forall a\in K,\forall x\in W\quad ax/xa\in W$, then we say that W si left/right sub-K-module of V.
-Example:
+\subsubsection{Example}
 
 Let I be a set .Let $K^{\bigoplus I}$ be the sebset of $K^I$ composed of mappings $f:I\rightarrow K$ such that $I_f={x\in I\mid f(x)\not=0}$ is finite. It is a left and right sub-K-module of $K^I$\\
 \indent In fact,$\forall (f,g)\in K^{\bigoplus I}\times K^I\quad I_{f-g}={x\in I\mid f(x)-g(x)\not=0}\subseteq I_f\cup I_g$\\
 \indent Hence $f-g\in K^{\bigoplus I}$ So $K^{\bigoplus I}$ is a subgroup of $K^I$\\
 \indent $\forall a\in K,\forall f\in K^{\bigoplus I}\quad I_{af}\subseteq I_f,I_{(x\mapsto f(x)a)}\subseteq I_f$
-Def:
+\subsection{morphism of K-modules}
+\subsubsection{Def}
 
-Let V and W be left K-module, A morphism of groups$\phi:V\rightarrow W$ is called a morphism of left K-modules if $\forall(a,x)\in K\times V,\phi(ax)=a\phi(x)$\\
-\indent If K is commutative, a morphism of K-modules is also called a K-lines mapping. We denote by $\hom_{K-Mod}(V,W)$ the set of all morphism of left-K-module from V to W.This is a subgroup of $W^V$\\
-Theorem:
+Let V and W be left K-module, A morphism of groups $\phi:V\rightarrow W$ is called a morphism of left K-modules if $\forall(a,x)\in K\times V,\phi(ax)=a\phi(x)$
+\subsubsection{K-lines mapping}
+\indent If K is commutative, a morphism of K-modules is also called a K-lines mapping. We denote by $\hom_{K-Mod}(V,W)$ the set of all morphism of left-K-module from V to W.This is a subgroup of $W^V$
+\subsubsection{Theorem}
 
 Let V be a left K-module. Let I be a set.\\
 The mapping $\hom_{K-Mod}(K^{\bigoplus I},V)\rightarrow V^I$ is a bijection where $e_i:I\rightarrow K:j\mapsto\left\{\begin{aligned}
     1\quad j=i\\
     0\quad j\not=i
-\end{aligned} \right.\quad\phi\rightarrow (\phi(e_i))_{i\in I}$\\
-Remark:
+\end{aligned} \right.\quad\phi\rightarrow (\phi(e_i))_{i\in I}$
+\subsubsection{Remark:column}
 
 In the case where $I={1,2,3,...,n}\ V^I is denoted as V^n,K^I is denoted as K^n$\\
 For any $(x_1,...,x_n)\in V^n$,by the theorem, there exists a unique morphism of left K-modules $\phi:K^n\rightarrow V$ such that $\forall i\in{1,...,n}\phi(e_i)=x_i$\\

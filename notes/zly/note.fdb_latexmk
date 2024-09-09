@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1725884026.74126 "d:/Users/38761/Documents/Visual Studio Code/mathematic/mathematica/notes/zly/note.tex" "note.pdf" "note" 1725884027.72013 0
+["pdflatex"] 1725889198.80328 "d:/Users/38761/Documents/Visual Studio Code/mathematic/mathematica/notes/zly/note.tex" "note.pdf" "note" 1725889199.79892 0
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1723695729 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1723696812 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1723696368 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -67,9 +67,9 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1723702255 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1723702766 8239318 376cec5f4ccca965a504ba0f5257356b ""
   "c:/texlive/2024/texmf.cnf" 1723702206 713 e69b156964470283e0530f5060668171 ""
-  "d:/Users/38761/Documents/Visual Studio Code/mathematic/mathematica/notes/zly/note.tex" 1725884025 17728 12b82717983317fb7862300fee3832c0 ""
-  "note.aux" 1725884027 1257 d48352abb3f1610468ff6ed30a1d2a18 "pdflatex"
-  "note.tex" 1725884025 17728 12b82717983317fb7862300fee3832c0 ""
+  "d:/Users/38761/Documents/Visual Studio Code/mathematic/mathematica/notes/zly/note.tex" 1725889197 17865 f47b5d12f0a8ea677b870e43ff1e60a3 ""
+  "note.aux" 1725889199 2361 d1cdd92fffb1fe5de5c26220b485a399 "pdflatex"
+  "note.tex" 1725889197 17865 f47b5d12f0a8ea677b870e43ff1e60a3 ""
   (generated)
   "note.aux"
   "note.log"
