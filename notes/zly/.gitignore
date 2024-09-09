@@ -1,0 +1,5 @@
+*.aux
+*.fdf_latemk
+*.fls
+*.log
+*.synctex.gz
