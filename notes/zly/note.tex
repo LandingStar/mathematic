@@ -5,7 +5,16 @@
 \usepackage{amsmath}
 \usepackage{indentfirst}
 \usepackage{color}
+\usepackage{hyperref}  
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+
 \begin{document}
+\tableofcontents
 \chapter{Set}
 \section{Ring}
 \subsection{morphism}
@@ -237,7 +246,7 @@ Let $(V,+)$ be a commutative group.We call left/right K-module structure:\\
 \begin{itemize}
     \item $\forall(a,b)\in K\times K,\forall x\in V\quad \Phi(ab,x)=\Phi(a,\Phi(b,x))/\Phi(b,\Phi(a,x))$
     \item $\forall (a,b)\in K\times K,\forall x\in V,\Phi(a+b,x)=\Phi(a,x)+\Phi(b,x)$
-    \item $\forall a\in K,\forall(x,y)\in V\times V,\Phi(a,x+y)=\Phi(a,x)\Phi(a,y)$
+    \item $\forall a\in K,\forall(x,y)\in V\times V,\Phi(a,x+y)=\Phi(a,x)+\Phi(a,y)$
     \item $\forall x\in V,\Phi(1,x)=x$
 \end{itemize}
 A commutative group (V,+) equipped with a left/right K-module structure is called a left/right K-module.
@@ -289,10 +298,10 @@ Then \begin{align*}
 \subsection{sub K-module}
 \subsubsection{Def}
 
-Let V be a left/right K-module.If W is a subgroup of V. Such that $\forall a\in K,\forall x\in W\quad ax/xa\in W$, then we say that W si left/right sub-K-module of V.
+Let V be a left/right K-module.If W is a subgroup of V. Such that $\forall a\in K,\forall x\in W\quad ax/xa\in W$, then we say that W is left/right sub-K-module of V.
 \subsubsection{Example}
 
-Let I be a set .Let $K^{\bigoplus I}$ be the sebset of $K^I$ composed of mappings $f:I\rightarrow K$ such that $I_f={x\in I\mid f(x)\not=0}$ is finite. It is a left and right sub-K-module of $K^I$\\
+Let I be a set .Let $K^{\bigoplus I}$ be the subset of $K^I$ composed of mappings $f:I\rightarrow K$ such that $I_f=\{x\in I\mid f(x)\not=0\}$ is finite. It is a left and right sub-K-module of $K^I$\\
 \indent In fact,$\forall (f,g)\in K^{\bigoplus I}\times K^I\quad I_{f-g}={x\in I\mid f(x)-g(x)\not=0}\subseteq I_f\cup I_g$\\
 \indent Hence $f-g\in K^{\bigoplus I}$ So $K^{\bigoplus I}$ is a subgroup of $K^I$\\
 \indent $\forall a\in K,\forall f\in K^{\bigoplus I}\quad I_{af}\subseteq I_f,I_{(x\mapsto f(x)a)}\subseteq I_f$
@@ -305,17 +314,109 @@ Let V and W be left K-module, A morphism of groups $\phi:V\rightarrow W$ is call
 \subsubsection{Theorem}
 
 Let V be a left K-module. Let I be a set.\\
-The mapping $\hom_{K-Mod}(K^{\bigoplus I},V)\rightarrow V^I$ is a bijection where $e_i:I\rightarrow K:j\mapsto\left\{\begin{aligned}
+The mapping $\hom_{K-Mod}(K^{\bigoplus I},V)\rightarrow V^I:\ \phi\rightarrow (\phi(e_i))_{i\in I}$ is a bijection where $e_i:I\rightarrow K:j\mapsto\left\{\begin{aligned}
     1\quad j=i\\
     0\quad j\not=i
-\end{aligned} \right.\quad\phi\rightarrow (\phi(e_i))_{i\in I}$
+\end{aligned} \right.$
 \subsubsection{Remark:column}
 
-In the case where $I={1,2,3,...,n}\ V^I is denoted as V^n,K^I is denoted as K^n$\\
+In the case where $I={1,2,3,...,n}\ V^I$ is denoted as $V^n,K^I$ is denoted as $K^n$\\
 For any $(x_1,...,x_n)\in V^n$,by the theorem, there exists a unique morphism of left K-modules $\phi:K^n\rightarrow V$ such that $\forall i\in{1,...,n}\phi(e_i)=x_i$\\
 We write this $\phi$ as a column$\begin{pmatrix}
     x_1\\
     ...\\
     x_n
 \end{pmatrix}$It sends $(a_1,...,a_n)\in K^n$ to $a_1x_1+...+a_nx_n$
+\subsection{kernel}
+\subsubsection{Prop}
+
+Let G and H be groups and $f:G\rightarrow H$ be a morphism of groups\begin{itemize}
+    \item $I_m(f)\subseteq H $ is a subgroup of H
+    \item $\ker(f)=\{x\in G\mid f(x)=e_H\}$
+    \item $f$ is injection iff $\ker(f)=\{e_G\}$
+\end{itemize}
+\subsubsection{Def}
+
+$\ker(f)$ is called the kernel of $f$
+\subsubsection{Proof:\quad$f$ is injection iff $\ker(f)=\{e_G\}$}
+Let $e_G$ and $e_H$ be neutral element of G and H respectively
+\begin{itemize}
+    \item [(1)]Let x and y be element of G\\$f(x)f(y)^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f).$ So $Im(f)$ is a subgroup of H
+    \item [(2)]Let x and y be element of $\ker(f)$ One has $f(xy^{-1})=f(x)f(y)^{-1}=e_H\quad e_H^{-1}=e_H.$ So $xy^{-1}\in\ker(f)$ So $\ker(f)$ is a subgroup of G
+    \item [(3)]Suppose that f is injection.\\ Since $f(E_G)=e_H$ one has $\ker(f)=f^{-1}(\{e_H\})=\{e_G\}$ Suppose that $\ker(f)=\{e_G\}$ If $f(x)=f(y)$then $f(xy^{-1})=f(x)f(y)^{-1}=e_H$\\Hence $xy^{-1}=e_G\ \Rightarrow\ x=y$
+\end{itemize}
+\subsubsection{Def}
+
+Let (V,+) be a commutative group, I be a set. We define a composition law + on $V^I$ as follows$$(x_i)_{i\in I}+(y_i)_{i\in I}\ :=(x_i+y_i)_{i\in I}$$
+Then $V^I$ forms a commutative group
+\subsubsection{Remark}
+
+Let E and F be left K-modules\\$\hom_{K=Mod}(E,F):=\{\text{morphisms of left K-modules from E to F}\}\subseteq F^E$ is a subgroup of $F^E$\\
+In fact f and g are elements of $\hom_{K-Mod}(E,F)$, then $f-g$ is also a morphism of left K-module\\$(f-g)(x+y)=f(x+y)-g(x+y)=(f(x)+f(y))-(g(x)+g(y))=(f(x)-g(x))+(f(y)-g(y))=(f-g)(x)+(f-y)(x)$
+\subsubsection{Theorem}
+
+Let V be a left K-module,I be a set The mapping $\hom_{K-Mod}(K^{\bigoplus I},V)\rightarrow V^I\ :\ \phi\mapsto(\phi(e_i))_i\in I$ is an isomorphism of groups, where $e_i:I\rightarrow K:j\mapsto\left\{\begin{aligned}
+    1\quad j=i\\
+    0\quad j\not=i
+\end{aligned} \right.$
+\subsubsection{Proof:}
+One has $(\phi+\psi)(e_i)=\phi(e_I)+\psi(e_i)$\\
+$\forall(\phi,psi)\in \hom_{K-Mod}(K^{\bigoplus I},V)^2$\\
+Hence $\Psi(\phi,\psi)=(\phi(e_i)+\psi(e_i))_{i\in I}=\Psi(\phi)+\Psi(\psi)$\\
+So $\Psi$ is a morphism of groups
+\begin{itemize}
+    \item [injectivity] Let $\phi\in \hom_{K-Mod}(K^{\bigoplus I},V)$ Such that $\forall i\in I(\forall \phi\in\ker(\Psi))\quad\phi(e_i)=0$\\Let $a =(a_i)_{i\in I}\in K^{\bigoplus I}$ One has $a=\sum\limits_{i\in I}a_ie_i$ \\ If fact,$\forall j\in I,a_j=\sum\limits_{i\in I,a_i\not=0}a_ie_i(j)$\\Thus $\phi(a)=\sum\limits_{i\in I,a_i\not=0}a-I\phi(e_i)=0$\\Hence $\phi$ is the neutral element.
+    \item [surjectivity] Let $x=(x_i)_{i\in I}\in V^I$ We define $\phi_x:K^{\bigoplus I}\rightarrow V$ such that $\forall a=(a_i)_{i\in I}\in K^{\bigoplus I},\phi_x(a)=\sum\limits_{i\in I,a_i\not=0}a_ix_i$\\This is a morphism of left K-modules\\$forall i\in I,\phi_x(e_i)=1x_i=x_i$  So $\Psi(\phi_x)=x$
+\end{itemize}
+{\color{blue}Suppose that K' is a unitary ring,and V is also equipped with a right K'-module structure, Then $\hom_{K-Mod}(K^{\bigoplus I},V)\subseteq V^{K^{\bigoplus I}}$ is a right sub-k'-module ,and $\Psi$ in the theorem is a right K'-module isomorphism}
+\section{Monotone mappings}
+\subsection{Def}
+
+Let I and X be partially ordered sets,$f:I\rightarrow X$ be a mapping.
+\begin{itemize}
+    \item If $\forall(a,b)\in I\times I$ such that $a<b$. One has $f(a)\leq f(b)/f(a)<f(b)$,then we say that $f$ is increasing/strictly increasing. decreasing takes similar way.
+    \item If $f$ is (strictly) increasing or decreasing, we say that $f$ is (strictly) monotone.
+\end{itemize}
+\subsection{Prop.}
+
+Let  X,Y,Z be partially ordered sets.$f:X\rightarrow Y, g:Y\rightarrow Z$ be mappings
+\begin{itemize}
+    \item If $f$ and $g$ have the same monotonicity, then $g\circ f$ is increasing
+    \item If $f$ and $g$ have different monotonicities, then $g\circ f$ is decreasing
+\end{itemize}
+strict monotonicities takes the same
+\subsection{Def}
+
+Let $f$ be a function from a partially ordered set I to another partially ordered set .If $f\mid_{Dom(f)}\rightarrow X$ is (strictly) increasing/decreasing then we say that $f$ is (strictly) increasing/decreasing
+\subsection{Prop.}
+
+Let I and X be partially ordered sets. $f$ be function from I to X.
+\begin{itemize}
+    \item If $f$ is increasing/decreasing and $f$ is injection, then $f$ is strictly increasing/decreasing
+    \item Assume that I is totally ordered and $f$ is strictly monotone, then $f$ is injection
+\end{itemize}
+\subsection{Prop}
+
+Let A be totally ordered set, B be a partially ordered set, $f$ be an injective function from A to B\\
+If $f$ is increasing/decreasing ,then so is $f^{-1}$
+\subsection{Def}
+Let X and Y be partially ordered sets. $f:X\rightarrow Y$ be a bijection. If both $f$ and $f^{-1}$ are increasing ,then we say that $f$ is an isomorphism of partially ordered sets.\\
+\indent(If X is totally, then a mapping $f:X\rightarrow Y$ is an isomorphism of partially ordered sets iff $f$ is a bijection and $f$ is increasing)
+\subsection{Prop.}
+Let I be a subset of $\mathbb{N} $ which is infinite. Then there is a unique increasing bijection $\lambda_I:\mathbb{N} \rightarrow I$
+\subsection{Proof}
+\subsubsection{bijection}
+We construct $f:\mathbb{N} \rightarrow I$ by induction as follows.\\
+Let $f(0)=\min I$ Suppose that $f(0),...,f(n)$ are constructed\\
+then we take $f(n+1):=\min(I\backslash\{f(0),...,f(n)\})$\\
+Since $I\backslash\{f(0),...,f(n-1)\}\supseteq I\backslash\{f(0),...,f(n)\}.$Therefore $f(n)\leq f(n+1)\\
+Since f(n+1)]not\in\{f(0),...,f(n)\}$,we have $f(n)<f(n+1)$\\
+Hence $f$ is strictly increasing and ths is injective\\
+If $f$ is not surjective,then $I\backslash Im(f)$ has a element N. \\
+Let $m=\min\{n\in\mathbb{N} \mid N\leq f(n)\}$.\\
+Since $N\not\in Im(f),N<f(m)$.\\
+So $m\not=0$.Hence $f(m-1)<N<f(m)=\min(I\backslash\{f(0),...,f(m-1)\})$ \\
+By definition,$N\in I\backslash Im(f)\subseteq I\backslash \{f(0),...,f(m-1)\}$,\\Hence $f(m)\leq N$,causing contradiction.
+\subsubsection{uniqueness}
+exercise: Prove that $Id_\mathbb{N} \rightarrow$ is the only isomorphism of partially ordered sets from $\mathbb{N} $ to $\mathbb{N} $
 \end{document}
