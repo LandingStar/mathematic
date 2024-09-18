@@ -15,24 +15,24 @@
 
 \begin{document}
 \tableofcontents
-\chapter{Set}
-\section{Ring}
-\subsection{morphism}
-    \subsubsection*{Def}
+\part{Set}
+\chapter{Ring}
+\section{morphism}
+    \subsection*{Def}
     \indent Let A and B be unitary rings .We call morphism of unitary rings from A to B .only mapping $A\rightarrow B$is a morphism of group from (A,+) to (B,+),and a morphism of monoid from $(A,\cdot)\ to\ (B,\cdot)$
-    \subsubsection*{Properties}
+    \subsection*{Properties}
     \begin{itemize}
         \item Let R be a unitary ting. There is a unique morphism from $\mathbb{Z}\ to\ R$
         \item 
     \end{itemize}
-\subsubsection*{algebra}
+\subsection*{algebra}
 
 we call k-algebra any pair(R,f),when R is a unitary ring ,and $f:k\rightarrow R$ is a morphism of unitary rings such that $\forall (b,x)\in k\times R,f(b)x=xf(b)$
 
 Example:    For any unitary ring R,the unique morphism of unitary rings $\mathbb{Z}\rightarrow R$ define a structure of $\mathbb{Z}-algebra$ on R (extra: $\mathbb{Z}$ is commutative despite R isn't guaranteed)
 
 Notation: Let k be a commutative unitary ring ,(A,f) be a k-algebra. If there is no ambiguity on f,for any$ (\lambda,a )\in k\times A$,we denote $f(\lambda)a\ as\ \lambda a$
-\subsubsection*{Formal power series}
+\subsection*{Formal power series}
 reminder: $n\in\mathbb{N}$ is possible infinite ,so $\sum\limits_{n\in \mathbb{N}}$ couldn't be executed directly.
 Def:
 
@@ -69,8 +69,8 @@ exp
 
 We denote $exp(T)\in k[T]$ as $\sum\limits_{n\in\mathbb{N}}{1\over n!}T^n$,which fulfil the differential equation $\mathcal{D}(exp(T))=exp(T)$(interesting)\\
 Cauchy sequence: $(F_i(T))_{i\in\mathbb{N}}$ be a sequence of elements in k[T],and $F(T)\in k[T]$We say that $(F_i(T))_{i\in \mathbb{N}}$ is a Cauchy sequence if $\forall l \in \mathbb{N}$,there exists $N(l)\in \mathbb{N}$ such that $\forall(i,j)\in\mathbb{N}^2_{\geq N(l)},ord(F_i(T)-F_j(T))\geq l$
-\chapter{Sequences}
-\section{Supremum and infimum}
+\part{Sequences}
+\chapter{Supremum and infimum}
 Def:
 
 Let $(X,\le)$ be a partially ordered set A and Y be subsets of X,such that $A\subseteq Y$
@@ -119,7 +119,7 @@ Let $(X,\leq)$be a partially ordered set ,I be a set and $f,g:I\rightarrow X$ be
     \item If $\inf f$ and $\inf g$ exists,then $\inf f\leq \inf g$ 
     \item If $\sup f$ and $\sup g$ exists,then $\sup f\leq \sup g$ 
 \end{itemize}
-\section{Interval}
+\chapter{Interval}
 We fix a totally ordered set $(X,\leq)$\\
 Notation:
 
@@ -170,7 +170,7 @@ Let $(X,\leq)$ be a thick totally ordered set. $(a,b)\in X\times X,a<b$ If I is 
 Proof:
 
 Since X is thick,there exists $x_0\in]a,b[$ By definition,b is an upper bound of I. If b is not the supremum of I,there exists an upper bound M of I such that M<b. Since X is thick ,there is $M'\in X$ such that $x_0\leq M,M'<b$ Since $[x,b[\subseteq]a,b[\in I$ Hence M and M' belong to I,which conflicts with the uniqueness of supremum.
-\section{Enhanced real line}
+\chapter{Enhanced real line}
 Def:
 
 Let $+\infty$ and $-infty$ be two symbols that are different and don not belong to $\mathbb{R}$ We extend the usual total order $\leq\ on\ \mathbb{R}\ to\ \mathbb{R}\cup\{-\infty,+\infty\}$ such that $$\forall x\in \mathbb{R} ,-\infty<x<+\infty$$ 
@@ -232,13 +232,13 @@ Corollary:
 Let I be a non-empty set,$f:I\rightarrow[-\infty,+\infty],g:J\rightarrow[-\infty,+\infty]$\\
 Then $\sup\limits_{x\in I,\{f(x),g(y)\}\not=\{+\infty,-\infty\}}(f(x)+g(x))\leq(\sup\limits_{x\in I}f(x))(\sup\limits_{x\in I}g(x))$\\
 \indent $\inf$ takes the similar($\leq\rightarrow\geq$) (provided when the sum are defined)
-\section{Vector space}
+\chapter{Vector space}
 In this section:\\
 \indent K denotes a unitary ring.\\
 \indent Let 0 be zero element of K\\
 \indent 1 be the unity of K
-\subsection{K-module}
-\subsubsection{Def}
+\section{K-module}
+\subsection{Def}
 
 Let $(V,+)$ be a commutative group.We call left/right K-module structure:\\
 \indent any mapping $\Phi$:$K\times V\rightarrow V$
@@ -249,7 +249,7 @@ Let $(V,+)$ be a commutative group.We call left/right K-module structure:\\
     \item $\forall x\in V,\Phi(1,x)=x$
 \end{itemize}
 A commutative group (V,+) equipped with a left/right K-module structure is called a left/right K-module.
-\subsubsection{Remark}\quad Let $K^{op}$ be the set K equipped with the following composition laws:
+\subsection{Remark}\quad Let $K^{op}$ be the set K equipped with the following composition laws:
 \begin{itemize}
     \item $K\times K\rightarrow K$
     \item $(a,b)\mapsto a+b$
@@ -260,7 +260,7 @@ Then $K^{op}$ forms a unitary ring\\
 Any left $K^{op}-module$ is a right K-module\\
 Any right $K^{op}-module$ is a left K-module\\
 $(K^{op})^{op}=K$
-\subsubsection{Notation}
+\subsection{Notation}
 
 When we talk about a left/right K-module $(V,+)$,we often write its left K-module structure as $K\times V\rightarrow V\quad (a,x)\mapsto ax$\\
 \indent The axioms become:\begin{align*}
@@ -269,13 +269,13 @@ When we talk about a left/right K-module $(V,+)$,we often write its left K-modul
     &\forall a\in K,\forall(x,y)\in V\times V\quad a(x+y)=ax+ay\\
     &\forall x\in V\quad 1x=x
 \end{align*}
-\subsubsection{K-vector space}
+\subsection{K-vector space}
 
 If K is commutative,then $K^{op}=K$,so left K-module and right K-module structure are the same .We simply call them K-module structure. A commutative group equipped with a K-module structure is called a K-module.If K is a field,a K-module is also called a K-vector space
 
 Let $\Phi:K\times V\rightarrow V$ be a left or right K-module structure$$\forall x\in V,\Phi(\cdot,x):K\rightarrow V\quad(a\in K)\mapsto\Phi(a,x)$$\indent is a morphism of addition groups.Hence $\Phi(0,x)=0,\Phi(-a,x)=-\Phi(a,x)$\\
 $\forall a\in K,\Phi(a,\cdot):V\rightarrow V$ is a morphism of groups.Hence $\Phi(a,0)=0,\Phi(a,-x)=-\Phi(a,x)(\cdot \ is\ a\ var)$
-\subsubsection{Association:}
+\subsection{Association:}
 $\forall x\in K$
 \begin{align*}
     (f(f+g)+h)(x)=(f+g)(x)+h(x)=f(x)+g(x)+h(x)\\
@@ -286,7 +286,7 @@ Let $0:I\rightarrow K:x\mapsto0 \quad \forall f\in K^I\quad f+0=f$\\
 Let $-f: f+(-f)=0$\\
 The mapping $K\times K^I\rightarrow K^I:(a,f)\mapsto af\quad (af)(x)=af(x)$ is a left K-module structure\\
 The mapping $K\times K^I\rightarrow K^I:(a\in I)\mapsto ((x\in I)\mapsto f(x)a)\quad (af)(x)=af(x)$ is a right K-module structure
-\subsubsection{Remark:}
+\subsection{Remark:}
 
 We can also write an element $\mu\ of\ K^I$ is the form of a family $(\mu_i)_{i\in I}$ of elements in K ($\mu_i$is the image of $i\in I\ by\ \mu$)\\
 Then \begin{align*}
@@ -294,30 +294,30 @@ Then \begin{align*}
     &a(\mu_i)_{i\in I}:=(a\mu_i)_{i\in I}\\
     &(\mu_i)_{i\in I}a=(\mu_ia)_{i\in I}
 \end{align*}
-\subsection{sub K-module}
-\subsubsection{Def}
+\section{sub K-module}
+\subsection{Def}
 
 Let V be a left/right K-module.If W is a subgroup of V. Such that $\forall a\in K,\forall x\in W\quad ax/xa\in W$, then we say that W is left/right sub-K-module of V.
-\subsubsection{Example}
+\subsection{Example}
 
 Let I be a set .Let $K^{\bigoplus I}$ be the subset of $K^I$ composed of mappings $f:I\rightarrow K$ such that $I_f=\{x\in I\mid f(x)\not=0\}$ is finite. It is a left and right sub-K-module of $K^I$\\
 \indent In fact,$\forall (f,g)\in K^{\bigoplus I}\times K^I\quad I_{f-g}={x\in I\mid f(x)-g(x)\not=0}\subseteq I_f\cup I_g$\\
 \indent Hence $f-g\in K^{\bigoplus I}$ So $K^{\bigoplus I}$ is a subgroup of $K^I$\\
 \indent $\forall a\in K,\forall f\in K^{\bigoplus I}\quad I_{af}\subseteq I_f,I_{(x\mapsto f(x)a)}\subseteq I_f$
-\subsection{morphism of K-modules}
-\subsubsection{Def}
+\section{morphism of K-modules}
+\subsection{Def}
 
 Let V and W be left K-module, A morphism of groups $\phi:V\rightarrow W$ is called a morphism of left K-modules if $\forall(a,x)\in K\times V,\phi(ax)=a\phi(x)$
-\subsubsection{K-linear mapping}
+\subsection{K-linear mapping}
 \indent If K is commutative, a morphism of K-modules is also called a K-linear mapping. We denote by $\hom_{K-Mod}(V,W)$ the set of all morphism of left-K-module from V to W.This is a subgroup of $W^V$
-\subsubsection{Theorem}
+\subsection{Theorem}
 
 Let V be a left K-module. Let I be a set.\\
 The mapping $\hom_{K-Mod}(K^{\bigoplus I},V)\rightarrow V^I:\ \phi\rightarrow (\phi(e_i))_{i\in I}$ is a bijection where $e_i:I\rightarrow K:j\mapsto\left\{\begin{aligned}
     1\quad j=i\\
     0\quad j\not=i
 \end{aligned} \right.$
-\subsubsection{Remark:column}
+\subsection{Remark:column}
 
 In the case where $I={1,2,3,...,n}\ V^I$ is denoted as $V^n,K^I$ is denoted as $K^n$\\
 For any $(x_1,...,x_n)\in V^n$,by the theorem, there exists a unique morphism of left K-modules $\phi:K^n\rightarrow V$ such that $\forall i\in{1,...,n}\phi(e_i)=x_i$\\
@@ -326,39 +326,41 @@ We write this $\phi$ as a column$\begin{pmatrix}
     ...\\
     x_n
 \end{pmatrix}$It sends $(a_1,...,a_n)\in K^n$ to $a_1x_1+...+a_nx_n$
-\subsection{kernel}
-\subsubsection{Prop}
+\section{kernel}
+\subsection{Prop}
 
 Let G and H be groups and $f:G\rightarrow H$ be a morphism of groups\begin{itemize}
     \item $I_m(f)\subseteq H $ is a subgroup of H
     \item $\ker(f)=\{x\in G\mid f(x)=e_H\}$
     \item $f$ is injection iff $\ker(f)=\{e_G\}$
 \end{itemize}
-\subsubsection{Def}
+\subsection{Def}
 
 $\ker(f)$ is called the kernel of $f$
-\subsubsection{Proof:\quad$f$ is injection iff $\ker(f)=\{e_G\}$}
+\subsection{Theorem}
+$f$ is injection iff $\ker(f)=\{e_G\}$
+\subsection{Proof}
 Let $e_G$ and $e_H$ be neutral element of G and H respectively
 \begin{itemize}
     \item [(1)]Let x and y be element of G\\$f(x)f(y)^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f).$ So $Im(f)$ is a subgroup of H
     \item [(2)]Let x and y be element of $\ker(f)$ One has $f(xy^{-1})=f(x)f(y)^{-1}=e_H\quad e_H^{-1}=e_H.$ So $xy^{-1}\in\ker(f)$ So $\ker(f)$ is a subgroup of G
     \item [(3)]Suppose that f is injection.\\ Since $f(E_G)=e_H$ one has $\ker(f)=f^{-1}(\{e_H\})=\{e_G\}$ Suppose that $\ker(f)=\{e_G\}$ If $f(x)=f(y)$then $f(xy^{-1})=f(x)f(y)^{-1}=e_H$\\Hence $xy^{-1}=e_G\ \Rightarrow\ x=y$
 \end{itemize}
-\subsubsection{Def}
+\subsection{Def}
 
 Let (V,+) be a commutative group, I be a set. We define a composition law + on $V^I$ as follows$$(x_i)_{i\in I}+(y_i)_{i\in I}\ :=(x_i+y_i)_{i\in I}$$
 Then $V^I$ forms a commutative group
-\subsubsection{Remark}
+\subsection{Remark}
 
 Let E and F be left K-modules\\$\hom_{K=Mod}(E,F):=\{\text{morphisms of left K-modules from E to F}\}\subseteq F^E$ is a subgroup of $F^E$\\
 In fact f and g are elements of $\hom_{K-Mod}(E,F)$, then $f-g$ is also a morphism of left K-module\\$(f-g)(x+y)=f(x+y)-g(x+y)=(f(x)+f(y))-(g(x)+g(y))=(f(x)-g(x))+(f(y)-g(y))=(f-g)(x)+(f-y)(x)$
-\subsubsection{Theorem}
+\subsection{Theorem}
 
 Let V be a left K-module,I be a set The mapping $\hom_{K-Mod}(K^{\bigoplus I},V)\rightarrow V^I\ :\ \phi\mapsto(\phi(e_i))_i\in I$ is an isomorphism of groups, where $e_i:I\rightarrow K:j\mapsto\left\{\begin{aligned}
     1\quad j=i\\
     0\quad j\not=i
 \end{aligned} \right.$
-\subsubsection{Proof:}
+\subsection{Proof:}
 One has $(\phi+\psi)(e_i)=\phi(e_I)+\psi(e_i)$\\
 $\forall(\phi,psi)\in \hom_{K-Mod}(K^{\bigoplus I},V)^2$\\
 Hence $\Psi(\phi,\psi)=(\phi(e_i)+\psi(e_i))_{i\in I}=\Psi(\phi)+\Psi(\psi)$\\
@@ -368,15 +370,15 @@ So $\Psi$ is a morphism of groups
     \item [surjectivity] Let $x=(x_i)_{i\in I}\in V^I$ We define $\phi_x:K^{\bigoplus I}\rightarrow V$ such that $\forall a=(a_i)_{i\in I}\in K^{\bigoplus I},\phi_x(a)=\sum\limits_{i\in I,a_i\not=0}a_ix_i$\\This is a morphism of left K-modules\\$forall i\in I,\phi_x(e_i)=1x_i=x_i$  So $\Psi(\phi_x)=x$
 \end{itemize}
 {\color{blue}Suppose that K' is a unitary ring,and V is also equipped with a right K'-module structure, Then $\hom_{K-Mod}(K^{\bigoplus I},V)\subseteq V^{K^{\bigoplus I}}$ is a right sub-k'-module ,and $\Psi$ in the theorem is a right K'-module isomorphism}
-\section{Monotone mappings}
-\subsection{Def}
+\chapter{Monotone mappings}
+\section{Def}
 
 Let I and X be partially ordered sets,$f:I\rightarrow X$ be a mapping.
 \begin{itemize}
     \item If $\forall(a,b)\in I\times I$ such that $a<b$. One has $f(a)\leq f(b)/f(a)<f(b)$,then we say that $f$ is increasing/strictly increasing. decreasing takes similar way.
     \item If $f$ is (strictly) increasing or decreasing, we say that $f$ is (strictly) monotone.
 \end{itemize}
-\subsection{Prop.}
+\section{Prop.}
 
 Let  X,Y,Z be partially ordered sets.$f:X\rightarrow Y, g:Y\rightarrow Z$ be mappings
 \begin{itemize}
@@ -384,27 +386,27 @@ Let  X,Y,Z be partially ordered sets.$f:X\rightarrow Y, g:Y\rightarrow Z$ be map
     \item If $f$ and $g$ have different monotonicities, then $g\circ f$ is decreasing
 \end{itemize}
 strict monotonicities takes the same
-\subsection{Def}
+\section{Def}
 
 Let $f$ be a function from a partially ordered set I to another partially ordered set .If $f\mid_{Dom(f)}\rightarrow X$ is (strictly) increasing/decreasing then we say that $f$ is (strictly) increasing/decreasing
-\subsection{Prop.}
+\section{Prop.}
 
 Let I and X be partially ordered sets. $f$ be function from I to X.
 \begin{itemize}
     \item If $f$ is increasing/decreasing and $f$ is injection, then $f$ is strictly increasing/decreasing
     \item Assume that I is totally ordered and $f$ is strictly monotone, then $f$ is injection
 \end{itemize}
-\subsection{Prop}
+\section{Prop}
 
 Let A be totally ordered set, B be a partially ordered set, $f$ be an injective function from A to B\\
 If $f$ is increasing/decreasing ,then so is $f^{-1}$
-\subsection{Def}
+\section{Def}
 Let X and Y be partially ordered sets. $f:X\rightarrow Y$ be a bijection. If both $f$ and $f^{-1}$ are increasing ,then we say that $f$ is an isomorphism of partially ordered sets.\\
 \indent(If X is totally, then a mapping $f:X\rightarrow Y$ is an isomorphism of partially ordered sets iff $f$ is a bijection and $f$ is increasing)
-\subsection{Prop.}
+\section{Prop.}
 Let I be a subset of $\mathbb{N} $ which is infinite. Then there is a unique increasing bijection $\lambda_I:\mathbb{N} \rightarrow I$
-\subsection{Proof}
-\subsubsection{bijection}
+\section{Proof}
+\subsection{bijection}
 We construct $f:\mathbb{N} \rightarrow I$ by induction as follows.\\
 Let $f(0)=\min I$ Suppose that $f(0),...,f(n)$ are constructed\\
 then we take $f(n+1):=\min(I\backslash\{f(0),...,f(n)\})$\\
@@ -416,38 +418,38 @@ Let $m=\min\{n\in\mathbb{N} \mid N\leq f(n)\}$.\\
 Since $N\not\in Im(f),N<f(m)$.\\
 So $m\not=0$.Hence $f(m-1)<N<f(m)=\min(I\backslash\{f(0),...,f(m-1)\})$ \\
 By definition,$N\in I\backslash Im(f)\subseteq I\backslash \{f(0),...,f(m-1)\}$,\\Hence $f(m)\leq N$,causing contradiction.
-\subsubsection{uniqueness}
+\subsection{uniqueness}
 exercise: Prove that $Id_\mathbb{N}$ is the only isomorphism of partially ordered sets from $\mathbb{N} $ to $\mathbb{N} $
-\section{sequence and series}
+\chapter{sequence and series}
 Let $I\subseteq \mathbb{N}$ be a infinite subset
-\subsection{Def} Let X be a set.We call sequence in X parametrized by I a mapping from I to X.
-\subsection{Remark}
+\section{Def} Let X be a set.We call sequence in X parametrized by I a mapping from I to X.
+\section{Remark}
 If K is a unitary ring and E is a left K-module then the set of sequence $E^I$ admits a left-K-module structure. If $x=(x_n)_{n\in I}$ is a sequence in E, we define a sequence $\sum(x):=(\sum\limits_{i\in I,i\leq n}x_i)_{n\in \mathbb{N}}$,called the series associated with the sequence x.
-\subsection{Prop}
+\section{Prop}
 $\sum:E^I\rightarrow E^\mathbb{N}$ is a morphism of left-K-module
-\subsection{proof}
+\section{proof}
 Let $x=(x_i)_{i\in I}$ and $y=(y_i)_{i\in I}$ be elements of $E^I$\\
 $\sum\limits_{i\in I,i\leq n}(x_i+y_i)=(\sum\limits_{i\in I,i\leq n}x_i)+(\sum\limits_{i\in I,i\leq n}y_i),\lambda\sum\limits_{i\in I,i\leq n}x_i=\sum\limits_{i\in I,i\leq n}\lambda x_i$
-\subsection{Prop}
+\section{Prop}
 Let I be a totally ordered set . X be a partially ordered set,$f:I\rightarrow X$ be a mapping ,$J\in I$ Assume that J does not have any upper bound in I
 \begin{itemize}
     \item If $f$ is increasing ,then $f(I)$ and $f(J)$ have the same upper bounds in X
     \item If $f$ is decreasing ,then $f(I)$ and $f(J)$ have the same lower bounds in X
 \end{itemize}
-\subsection{limit}
-\subsubsection{Def}
+\section{limit}
+\subsection{Def}
 Let $i\subseteq\mathbb{N}$ be a infinite subset.$\forall (x_i)_{n\in I}\in [-\infty,+\infty]^I$ where $[-\infty,+\infty]$ denotes $\mathbb{R}\cup\{-\infty,+\infty\}$,we define:
 $$\limsup\limits_{n\in I,n\rightarrow +\infty}x_n:=\inf\limits_{n\in I}(\sup\limits_{i\in I,i\geq n}x_i)$$
 $$\liminf\limits_{n\in I,n\rightarrow +\infty}x_n:=\sup\limits_{n\in I}(\inf\limits_{i\in I,i\geq n}x_i)$$
 If $\limsup\limits_{n\in I,n\rightarrow +\infty}x_n=\liminf\limits_{n\in I,n\rightarrow +\infty}x_n=l$, we then say that $(x_n)_{n\in I}$ tends to $l$ and that $l$ is the limit of $(x_n)_{n\in I}$. If in addition $(x_n)_{n\in I}\in \mathbb{R}^I$ and $l\in \mathbb{R}$,we say that $(x_n)_{n\in I}$ converges to $l$
-\subsubsection{Remark}
+\subsection{Remark}
 If $J\subseteq\mathbb{N}$ is an infinite subset, then: $$\limsup\limits_{n\in I,n\rightarrow +\infty}=\inf\limits_{n\in J}(\sup\limits_{i\in I,i\geq n}x_i)$$
 $$\liminf\limits_{n\in I,n\rightarrow +\infty}x_n=\sup\limits_{n\in J}(\inf\limits_{i\in I,i\geq n}x_i)$$
 Therefore ,if we change the values of finitely many terms in $(x_i)_{i\in I}$ the limit superior and the limit inferior do not change.\\
 In fact, if we take $J=\mathbb{N}\backslash\{0,...,m\}$, then $\inf\limits_{n\in J}(...)$ and $\sup\limits_{n\in J}(...)$ only depends on the values of $x_i,i\in I,i\geq m$
-\subsubsection{Prop}
+\subsection{Prop}
 $\forall (x_n)_{n\in I}\in [-\infty,+\infty]^I,\ \liminf\limits_{n\in I,n\rightarrow+\infty}x_n\leq\limsup\limits_{n\in I,n\rightarrow+\infty}x_n$
-\subsubsection{Prop}
+\subsection{Prop}
 Let $(x_n)_{n\in I}\in[-\infty,+\infty]^I$
 \begin{align*}
     &\forall c\in\mathbb{R} & \begin{aligned}
@@ -461,21 +463,77 @@ Let $(x_n)_{n\in I}\in[-\infty,+\infty]^I$
         \limsup\limits_{n\in I,n\rightarrow+\infty}(\lambda x_n)=\lambda\liminf\limits_{n\in I,n\rightarrow+\infty}x_n\\\liminf\limits_{n\in I,n\rightarrow+\infty}(\lambda x_n)=\lambda\limsup\limits_{n\in I,n\rightarrow+\infty}x_n
     \end{aligned}
 \end{align*}
-\subsubsection{Prop}
+\subsection{Prop}
 Let $(x_n)_{n\in I}$ be elements in $[-\infty,+\infty]^I$. Suppose that there exists $N_0\in \mathbb{N}$ such that $\forall n\in I,n\geq N_0$,one has $x_n\leq y_n$ Then $$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n)\leq\limsup\limits_{n\in I,n\rightarrow+\infty}y_n$$ ,$$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n)\geq\liminf\limits_{n\in I,n\rightarrow+\infty}y_n$$
-\subsubsection{Theorem}
+\subsection{Theorem}
 Let $(x_n)_{n\in I},(y_n)_{n\in I},(z_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$\\
 Suppose that \begin{itemize}
     \item $\exists N-N\in\mathbb{N},\forall n\in I,n\geq N_0$ one has $x_n\leq y_n\leq z_n$
     \item $(x_n)_{n\in I}$ and $(z_n)_{n\in I}$ tend to the same limit $l$
 \end{itemize}
 Then $(y_n)_{n\in I}$ tends to $l$
-\subsubsection{Def}
+\subsection{Def}
 Let I be an infinite subset of $\mathbb{N}$, and $(x_n)_{n\in I}$ be a sequence in some set X. We call subsequence of $(x_n)_{n\in I}$ a sequence of the form $(x_n)_{n\in J}$,where J is an infinite subset of I
-\subsubsection{Prop}
+\subsection{Prop}
 Let I and J be infinite subset of $\mathbb{N}$ such that $J\subseteq I$\\
 $\forall (x_n)_{n\in I}\in[-\infty,+\infty]^I$,one has $$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n)\leq\liminf\limits_{n\in I,n\rightarrow+\infty}y_n$$$$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n)\geq\limsup\limits_{n\in I,n\rightarrow+\infty}y_n$$
 In particular, if $(x_n)_{n\in I}$ tends to $l\in[-\infty,+\infty]$,then $(x_n)_{n\in J}$ tends to $l$
-\subsubsection{Prop}
+\subsection{Prop}
 $\forall n\in \mathbb{N} $,one has $$\liminf\limits_{n\in J,n\rightarrow+\infty}(x_n)\geq\liminf\limits_{n\in I,n\rightarrow+\infty}y_n$$$$\limsup\limits_{n\in J,n\rightarrow+\infty}(x_n)\leq\limsup\limits_{n\in I,n\rightarrow+\infty}y_n$$
+\subsection{Theorem}
+Let $I\subseteq\mathbb{N} $ be an infinite subset and $(x_N)_{n\in I}$ be a sequence in $[-\infty,+\infty]$
+\begin{itemize}
+    \item If the mapping $(n\in I)\mapsto x_n$ is increasing,then $(x_N)_{i\in I}$ tends to $\sup\limits_{n\in I}x_n$
+    \item If the mapping $(n\in I)\mapsto x_n$ is decreasing,then $(x_N)_{i\in I}$ tends to $\inf\limits_{n\in I}x_n$
+\end{itemize}
+\subsection{Def}
+If a sequence $(x_N)_{n\in I}\in [-\infty,+\infty]$ tends to some $l\in[-\infty,+\infty]$ the expression $\lim\limits_{n\in I,n\rightarrow}x_n$ denotes this limit $l$
+\subsection{Corollary}
+Let $(x_n)_{n\in I}$ be a sequence in $\mathbb{N} _{\geq0}$ Then the series $\sum\limits_{n\in I}x_n$(the sequence $(\sum\limits_{i\in I,i\leq n})_{n\in \mathbb{N} }$) tends to an element in $\mathbb{N} _{\geq0}\cup\{+\infty\}$ It converges in $\mathbb{R} $ iff it is bounded from above (namely has an upper bound in $\mathbb{R} $)
+\subsection{Notation}
+If a series $\sum\limits_{n\in I}x_n$ in $[-\infty,+\infty]$ tends to some limit, we use the expression $\sum\limits_{n\in I}x_n$ to denote the limit
+\subsection{Theorem: Bolzano-Weierstrass}
+Let $(x_n)_{n\in I}$ be a sequence in $[-\infty,+\infty]$ There exists a subsequence of $(x_n)_{n\in I}$ that tends to $\limsup\limits_{n\in I,n\rightarrow +\infty}x_n$ There exists a subsequence of $(x_n)_{n\in I}$ that rends to $\liminf\limits_{n\in I,n\rightarrow +\infty}x_n$
+\subsection{Proof}
+Let $J=\{n\in I\mid\forall m\in I,\ $if$\ m\leq n\ $then$\ x_m\leq x_n\}$\\
+\indent If $J$ is infinite, the sequence $(x_N)_{n\in J}$ is decreasing so it tends to $\inf\limits_{n\in J}x_n$\\
+\indent $\forall n\in J$ by definition $x_n=\sup\limits_{i\in I,i\geq n}x_i$ so $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=\inf\limits_{n\in J}\sup\limits_{i\in I,i\geq n}x_i=\inf\limits_{n\in J}x_n=\lim\limits_{n\in J,n\rightarrow+\infty}x_n$\\
+\indent Assume that $J$ is finite. Let $n_0\in I$ such that $\forall n\in J,n<n_0$.Denote by $l=\sup\limits_{n\in I,n\geq n_0}$\\\indent 
+Let $N\in\mathbb{N}$ such that $N\geq n_0$. By definition $\sup\limits_{i\in  I,i\geq n_0}x_i\leq l$. If the strict inequality $\sup\limits_{i\in I,i\geq N}x_i<l$ holds, then $\sup\limits_{i\in I,i\geq N}x_i$ is NOT an upper bound of $\{x_n\mid n\in I,n_0\leq n<N\}$\\\indent 
+So there exists $n\in I$ such that $n_0\leq n<N$ such that $x_n>\sup\limits_{i\in I,i\geq N}x_i$ We may also assume that $n $ is largest among elements of {$I\cap[n_0,N[$} that satisfies this inequality. Then $\forall m\in I$ if $m\geq n$ then $x_m\leq x_n$ Thus $n\in J$ that contradicts the maximality of $n_0$ Therefore $l=\sup\limits_{i\in I,i\geq N}x_i$, which leads to $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=l$\\\indent 
+Moreover, if $m\in I,m\geq n_0$ then $m\not\in J$,so $x_m<l$(since otherwise $x_m=\sup\limits_{i\in I,i\geq m}x_i$ and hence $m\in J$)Hence,$\forall\ finite\ subset\ I'\ of\{m\in I\mid m\geq n_0\}$\\\indent 
+$\max\limits_{i\in I}x_i<l$ and hence $\exists n\in I$,such that $n>\max I'$,and $\max\limits_{i\in I'}x_i<x_n$\\
+We construct by induction an increasing sequence $(n_j)_{j\in \mathbb{N} }$ in $I$\\\indent 
+Let $n_0$ be as above. Let $f:\mathbb{N} \rightarrow I_{\geq n_0}$ be a surjective mapping.\\\indent 
+If $n_j$ is chosen, we choose $n_{j+1}\in I$ such that $n_{j+1}>n_j, x_{n_{j+1}}>\max\{x_{f(j)},x_{n_j}\}$ Hence the sequence $(x_{n_j})_{j\in \mathbb{N} }$ is increasing, and $\sup\limits_{j\in \mathbb{N} }x_{n_j}\leq\sup\limits_{j\in\mathbb{N} }x_{f(j)}=\sup\limits_{n\in I,n\geq n_0}x_n=l$\\\indent 
+$l=\sup\limits_{n\in I,n\geq n_0}$\\\indent 
+So $(x_{n_j})_{j\in\mathbb{N} }$ tends to $l$
+\chapter{Cauchy sequence}
+\section{Def}
+Let $(x_n)_{n\in I}$ be a sequence in $\mathbb{R} $\\
+If $\inf\limits_{N\in \mathbb{N} }\sup\limits_{(n,m)\in I\times I,\ n,m\geq N}\lvert x_n-x_m\rvert=\lim\limits_{N\rightarrow+\infty}\sup\limits_{(n,m)\in I\times I,\ n,m\geq N}\lvert x_n-x_m\rvert=0$ then we say that $(x_n)_{n\in I}$ is a Cauchy sequence
+\section{Prop}
+\begin{itemize}
+    \item If $(x_n)_{i\in I}\in \mathbb{R} ^I$ converges to some $l\in \mathbb{R} $, then it is a Cauchy sequence
+    \item If $(x_N)_{i\in I}$ is a Cauchy sequence, there exists $M>0$ such that $ \forall n\in I\quad \lvert x_n\rvert\leq M$
+    \item If $(x_n)_{n\in I}$ is a Cauchy sequence, then $\forall J\subseteq I$ infinite,$(x_n)_{n\in I}$ is a Cauchy sequence.
+    \item If $(x_n)_{n\in I}$ is a Cauchy sequence, then $\forall J\subseteq I$ infinite and $l\in \mathbb{R} $ such that $(x_n)_{n\in I}$ converges to $l$, then $(x_n)_{n\in J}$ converges to $l $ too.
+\end{itemize}
+\section{Theorem: Completeness of real number}
+If $(x_n)_{n\in I}\in\mathbb{R} ^I$ is a Cauchy sequence,
+then it converges in $\mathbb{R} $
+\subsection{Proof}
+Since $(x_n)_{n\in I}$ is a Cauchy sequence, $\exists M\in \mathbb{R} _{>0}$ such that $-M\leq x_n\leq M\quad \forall x\in I$ So $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n\in \mathbb{R} $. By Bolzano-Weierstrass theorem. $\exists J\subseteq I$ infinite such that $(x_n)_{n\in I}$ converges to $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n\in\mathbb{R} $. Therefore $(x_n)_{n\in I}$ converges to the same limit.
+\section{Absolutely converge}
+We say that a series $\sum\limits_{n\in I}x_n\in \mathbb{R} $ converges absolutely if $\sum\limits_{n\in I}\lvert x_n\rvert<+\infty$
+\subsection{Prop}
+If a series $\sum\limits_{n\in I}x_n$ converges absolutely, then it converges in $\mathbb{R} $
+\chapter{Comparison and Technics of Computation}
+\section{Def}
+Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be sequence in $\mathbb{R} $
+\begin{itemize}
+    \item If there exists $M\in\mathbb{R} _{>0}$ and $N\in \mathbb{N} $ such that $\forall n\in I_{\geq N},\lvert x_N\rvert\leq M\lvert y_m\rvert$ then we write $x_n=O(y_n),n\in I,n\rightarrow+\infty$
+    \item If there exists $(\epsilon_n)_{n\in I}\in \mathbb{R} ^I$ and $N\in\mathbb{N} $ such that $\lim\limits_{n\in I,n\rightarrow+\infty}\epsilon_n=0$ and $\forall n\in I_{\geq N},\lvert x_N\rvert\leq \lvert \epsilon y_m\rvert$, then we write $x_n=\circ(y_n),n\in I,n\rightarrow +\infty$ \\Example:
+        $$\lim\limits_{n\rightarrow+\infty}{1\over n}=0$$
+\end{itemize}
 \end{document}
