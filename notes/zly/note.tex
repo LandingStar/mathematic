@@ -536,4 +536,79 @@ Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be sequence in $\mathbb{R} $
     \item If there exists $(\epsilon_n)_{n\in I}\in \mathbb{R} ^I$ and $N\in\mathbb{N} $ such that $\lim\limits_{n\in I,n\rightarrow+\infty}\epsilon_n=0$ and $\forall n\in I_{\geq N},\lvert x_N\rvert\leq \lvert \epsilon y_m\rvert$, then we write $x_n=\circ(y_n),n\in I,n\rightarrow +\infty$ \\Example:
         $$\lim\limits_{n\rightarrow+\infty}{1\over n}=0$$
 \end{itemize}
+\section{Prop.}
+Let I and X be partially ordered sets and $f:I\rightarrow X$ be an increasing/decreasing mapping. Let J ba a subset of I. Assume that any elements of I has an upper bound in J. Then $f(I)$ and $f(J)$ have the same upper/lower bounds in X
+\section{Theorem}
+Let I be a totally ordered set, $f:I\rightarrow[-\infty,+\infty]$ and $g:I\rightarrow[-\infty,+\infty]$ be two mappings that are both increasing/decreasing.Then the following equalities holds,provided that the sum on the right hand side of the equality is wel defined.
+$$\sup\limits_{x\in I,\{f(x),g(x)\}\not =\{-\infty,+\infty\}}=(\sup\limits_{x\in I}f(x))+(\sup\limits_{y\in I}g(y))$$
+$$\inf\limits_{x\in I,\{f(x),g(x)\}\not =\{-\infty,+\infty\}}=(\inf\limits_{x\in I}f(x))+(\inf\limits_{y\in I}g(y))$$
+\subsection*{Proof}
+We can assume $f$ and $g$ increasing. Let $a=\sup f(I)$,$b=\sup g(I)$
+
+Let $A=\{(x,y)\in I\times I\mid\{f(x),g(x)\}\not=\{-\infty,+\infty\}\}$
+
+We equip A with the following order relation.
+$$(x,y)\leq(x',y')\ iff\ x\leq x',y\leq y'$$
+
+Let $B=A\cap\Delta_I=\{(x,y)\in A\mid x=y\}$.\\ Consider $$h: A\rightarrow[-\infty,+\infty]\quad h(x,y)=f(x)+g(y)$$
+$h$ is increasing.\\
+Let $(x,y)\in A$. Assume that $x\leq y$\\
+If $\{f(y),g(y)\}\not=\{-\infty,+\infty\}$ then $(y,y)\in B$ and $(x,y)\leq(y,y)$\\
+If $\{f(y),g(y)\}=\{-\infty,+\infty\}$ and for $(x,y)\in A\Rightarrow f(y)=+\infty,g(y)=-\infty$. So $a=+\infty$, Hence $b>-\infty$\\
+So $\exists z\in I$ such that $g(z)>-\infty$. We should have $y\leq z$ Hence $f(z)+g(z)$ is well defined,$(z,z)\in B$ and $(x,y)\leq(z,z)$ Similarly, if$x\geq y,\ (x,y)$ has also an upper bound in B. Therefore: $\sup h(A)=\sup h(B)$
+\section{Prop.}
+Let $I\subseteq\mathbb{N} $ be an infinite subset. Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ such that ,$\forall n\in I\quad \{x_n,y_n\}\not=\{-\infty,+\infty\}$. Then the following inequalities holds, provided that the sum on the right hand side is well defined.
+$$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\leq(\limsup\limits_{n\in I,n\rightarrow+\infty}x_n)+(\limsup\limits_{n\in I,n\rightarrow+\infty}y_n)$$
+$$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\liminf\limits_{n\in I,n\rightarrow+\infty}x_n)+(\liminf\limits_{n\in I,n\rightarrow+\infty}y_n)$$
+\subsection{Proof}
+$\forall n\in\mathbb{N} ,$ let $A_N=\sup\limits_{n\in I,n\geq N}x_n\quad B_N=\sup\limits_{n\in I,n\geq N}y_n$. $(A_N)_{N\in \mathbb{N} }$ and $(B_N)_{N\in \mathbb{N} }$ are decreasing, and $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=\inf\limits_{N\in \mathbb{N} }A_N\quad\limsup\limits_{n\in I,n\rightarrow+\infty}y_n=\inf\limits_{N\in \mathbb{N} }B_N$\\
+By theorem:
+$$\inf\limits_{N\in \mathbb{N} }A_N+\inf\limits_{N\in \mathbb{N} }B_N=\inf\limits_{N\in \mathbb{N},\{A_N,B_N\}\not=\{-\infty,+\infty\} }(A_N+B_N)$$
+Let $C_N=\sup\limits_{n\in I,n\geq N}(x_n+y_n)\leq A_N+B_N$ if $A_N+B_N$ is defined.\\
+Therefore $$\inf\limits_{N\in \mathbb{N} }C_N\leq\inf\limits_{N\in \mathbb{N},\{A_N,B_N\}\not=\{-\infty,+\infty\} }(A_N+B_N)=\inf\limits_{N\in \mathbb{N} }A_N+\inf\limits_{N\in \mathbb{N} }B_N$$
+\section{Prop.}
+Let $I\subseteq\mathbb{N} $ be an infinite subset. Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ such that ,$\forall n\in I\quad \{x_n,y_n\}\not=\{-\infty,+\infty\}$. Then the following inequalities holds, provided that the sum on the right hand side is well defined.
+$$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\limsup\limits_{n\in I,n\rightarrow+\infty}x_n)+(\limsup\limits_{n\in I,n\rightarrow+\infty}y_n)$$
+$$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\liminf\limits_{n\in I,n\rightarrow+\infty}x_n)+(\liminf\limits_{n\in I,n\rightarrow+\infty}y_n)$$
+\subsection{Proof}
+a tricky proof?:\\
+$$\limsup\limits_{n\in I,n\rightarrow}x_n=\limsup\limits_{n\in I,n\rightarrow}(x_n+y_n-y_n)\leq\limsup\limits_{n\in I,n\rightarrow}(x_n+y_n)-\liminf\limits_{n\in I,n\rightarrow}y_n$$
+to have a true proof,only need to discuss conditions with $\infty$
+\section{Theorem}
+Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ . Assume that $\forall n\in I,y_n\in\mathbb{R} $ and $(y_n)_{n\in I}$ converges to some $i\in \mathbb{R} $.\\Then:
+$$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)=(\limsup\limits_{n\in I,n\rightarrow+\infty}x_n)+l$$
+$$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)=(\liminf\limits_{n\in I,n\rightarrow+\infty}x_n)+l$$
+\section{Prop.}
+Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ \\
+Then:
+$$\liminf\limits_{n\in I,n\rightarrow+\infty}\max\{x_n,y_n\}=\max\{\liminf\limits_{n\in I,n\rightarrow+\infty}x_n,\liminf\limits_{n\in I,n\rightarrow+\infty}y_n\}$$
+$$\liminf\limits_{n\in I,n\rightarrow+\infty}\min\{x_n,y_n\}=\min\{\liminf\limits_{n\in I,n\rightarrow+\infty}x_n,\liminf\limits_{n\in I,n\rightarrow+\infty}y_n\}$$
+\subsection*{Proof}
+About the first inequality.Since $\max\{x_n,y_n\}\geq x_n\quad \max\{x_n,y_N\}\geq y_n$
+
+By the theorem of Bolzano-Weierstrass theorem, there exists an infinite subset $J$ of $I$ such that$$\lim\limits_{n\in J,n\rightarrow+\infty}=\limsup\limits_{n\in J,n\rightarrow+\infty}\max\{x_n,y_n\}$$
+Let $J_1=\{n\in J\mid x_n\geq y_n\}\quad J_1=\{n\in J\mid x_n\leq y_n\}$\\
+$J_1\cup J_2=J$ So either $J_1$ or $J_2$ is infinite\\
+Suppose that $J_1$ is infinite, then
+$$\lim\limits_{n\in J,n\rightarrow}\max\{x_n,y_n\}=\lim\limits_{n\in J_1,n\rightarrow}\max\{x_n,y_n\}=\lim\limits_{n\in J,n\rightarrow}x_n\leq\limsup\limits_{n\in I,n\rightarrow+\infty}x_n$$
+If $J_2$ is infinite
+$$\limsup\limits_{n\in I,n\rightarrow+\infty}=\lim\limits_{n\in J_2,n\rightarrow+\infty}\max\{x_n,y_n\}\leq\limsup\limits_{n\in I,n\rightarrow+\infty}y_n$$
+\section{Theorem}
+Let $(a_N)_{n\in I}\in \mathbb{R} ^I\ l\in\mathbb{R} $. The following statements are equivalent
+\begin{itemize}
+    \item $(a_N)_{n\in I}$ converges to $l$
+    \item $\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=0$
+\end{itemize}
+\subsection*{Proof}
+$$\lvert a_n-l\rvert=\max\{a_n-l,l-a_n\}$$
+$$\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=\max\{(\limsup\limits_{n\in I,n\rightarrow+\infty}a_n)-l,l-(\liminf\limits_{n\in I,n\rightarrow+\infty}a_n)\}$$
+$(1)\Rightarrow(2)$:
+
+If $(a_n)_{n\in \mathbb{N} }$ converges to $l$, then $\limsup\limits_{n\in I,n\rightarrow+\infty}a_n=\liminf\limits_{n\in I,n\rightarrow+\infty}a_n=l$\\
+$(2)\Rightarrow(1)$:
+
+If $\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=0$ ,then $\limsup\limits_{n\in I,n\rightarrow+\infty}a_n\leq l\leq\liminf\limits_{n\in I,n\rightarrow+\infty}a_n$
+
+Therefore:$\limsup\limits_{n\in I,n\rightarrow+\infty}a_n=\liminf\limits_{n\in I,n\rightarrow+\infty}a_n=l$
+
 \end{document}
