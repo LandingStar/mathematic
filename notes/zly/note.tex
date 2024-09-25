@@ -542,7 +542,7 @@ Let I and X be partially ordered sets and $f:I\rightarrow X$ be an increasing/de
 Let I be a totally ordered set, $f:I\rightarrow[-\infty,+\infty]$ and $g:I\rightarrow[-\infty,+\infty]$ be two mappings that are both increasing/decreasing.Then the following equalities holds,provided that the sum on the right hand side of the equality is wel defined.
 $$\sup\limits_{x\in I,\{f(x),g(x)\}\not =\{-\infty,+\infty\}}=(\sup\limits_{x\in I}f(x))+(\sup\limits_{y\in I}g(y))$$
 $$\inf\limits_{x\in I,\{f(x),g(x)\}\not =\{-\infty,+\infty\}}=(\inf\limits_{x\in I}f(x))+(\inf\limits_{y\in I}g(y))$$
-\subsection*{Proof}
+\subsection{Proof}
 We can assume $f$ and $g$ increasing. Let $a=\sup f(I)$,$b=\sup g(I)$
 
 Let $A=\{(x,y)\in I\times I\mid\{f(x),g(x)\}\not=\{-\infty,+\infty\}\}$
@@ -583,7 +583,7 @@ Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ \
 Then:
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}\max\{x_n,y_n\}=\max\{\liminf\limits_{n\in I,n\rightarrow+\infty}x_n,\liminf\limits_{n\in I,n\rightarrow+\infty}y_n\}$$
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}\min\{x_n,y_n\}=\min\{\liminf\limits_{n\in I,n\rightarrow+\infty}x_n,\liminf\limits_{n\in I,n\rightarrow+\infty}y_n\}$$
-\subsection*{Proof}
+\subsection{Proof}
 About the first inequality.Since $\max\{x_n,y_n\}\geq x_n\quad \max\{x_n,y_N\}\geq y_n$
 
 By the theorem of Bolzano-Weierstrass theorem, there exists an infinite subset $J$ of $I$ such that$$\lim\limits_{n\in J,n\rightarrow+\infty}=\limsup\limits_{n\in J,n\rightarrow+\infty}\max\{x_n,y_n\}$$
@@ -599,16 +599,136 @@ Let $(a_N)_{n\in I}\in \mathbb{R} ^I\ l\in\mathbb{R} $. The following statements
     \item $(a_N)_{n\in I}$ converges to $l$
     \item $\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=0$
 \end{itemize}
-\subsection*{Proof}
+\subsection{Proof}
 $$\lvert a_n-l\rvert=\max\{a_n-l,l-a_n\}$$
 $$\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=\max\{(\limsup\limits_{n\in I,n\rightarrow+\infty}a_n)-l,l-(\liminf\limits_{n\in I,n\rightarrow+\infty}a_n)\}$$
 $(1)\Rightarrow(2)$:
 
-If $(a_n)_{n\in \mathbb{N} }$ converges to $l$, then $\limsup\limits_{n\in I,n\rightarrow+\infty}a_n=\liminf\limits_{n\in I,n\rightarrow+\infty}a_n=l$\\
+If $(a_n)_{n\in I }$ converges to $l$, then $\limsup\limits_{n\in I,n\rightarrow+\infty}a_n=\liminf\limits_{n\in I,n\rightarrow+\infty}a_n=l$\\
 $(2)\Rightarrow(1)$:
 
 If $\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=0$ ,then $\limsup\limits_{n\in I,n\rightarrow+\infty}a_n\leq l\leq\liminf\limits_{n\in I,n\rightarrow+\infty}a_n$
 
 Therefore:$\limsup\limits_{n\in I,n\rightarrow+\infty}a_n=\liminf\limits_{n\in I,n\rightarrow+\infty}a_n=l$
+\section{Remark}
+Let $(a_n)_{n\in I }$ be a sequence in $\mathbb{R} ,\ l\in \mathbb{R} $ \\\indent The sequence $(a_n)_{n\in I }$ converges to l iff $a_n-l=o(1),n\in I,n\rightarrow+\infty$
+\section{Calculates on O(),o()}
+\subsection{Plus}
+Let  $(a_n)_{n\in I }$ $(a_n')_{n\in I }$ and  $(b_n)_{n\in I }$ be elements in $\mathbb{R} ^I$
+\begin{itemize}
+    \item If $a_n=O(b_n),a_n'=O(b_n),n\in I,n\rightarrow+\infty$\\then $\forall(\lambda,\mu)\in\mathbb{R} ^2\quad\lambda a_n+\mu a_n'=O(b_n),n\in I,n\rightarrow+\infty$
+    \item If $a_n=o(b_n),a_n'=o(b_n),n\in I,n\rightarrow+\infty$\\then $\forall(\lambda,\mu)\in\mathbb{R} ^2\quad\lambda a_n+\mu a_n'=o(b_n),n\in I,n\rightarrow+\infty$
+\end{itemize}
+\subsection{Transform}
+Let $(a_n)_{n\in I }$ and $(b_n)_{n\in I }$ be two sequence in $\mathbb{R} $ If $a_n=o(b_n),n\in I,n\rightarrow+\infty$,then $a_n=O(b_n),n\in I,n\rightarrow+\infty$
+\subsection{Transition}
+Let $(a_n)_{n\in I},(b_n)_{n\in I}$ and $(c_n)_{n\in I}$  be elements in $\mathbb{R} ^I$
+\begin{itemize}
+    \item If $a_n=O(b_n)$ and $ b_n=O(c_n),n\in I,n\rightarrow+\infty$\\then$a_n=O(c_n),n\in I,n\rightarrow+\infty$
+    \item If $a_n=O(b_n)$ and $ b_n=o(c_n),n\in I,n\rightarrow+\infty$\\then$a_n=o(c_n),n\in I,n\rightarrow+\infty$
+    \item If $a_n=o(b_n)$ and $ b_n=O(c_n),n\in I,n\rightarrow+\infty$\\then$a_n=o(c_n),n\in I,n\rightarrow+\infty$
+\end{itemize} 
+\subsection{Times}
+Let $(a_n)_{n\in I},(b_n)_{n\in I},(c_n)_{n\in I},(d_n)_{n\in I}$ be sequences in $\mathbb{R} $\begin{itemize}
+    \item If $a-N=O(b_n),c_n=O(d_n),n\in I,n\rightarrow+\infty$\\then $a_nc_n=O(b_nd_n),n\in I,n\rightarrow+\infty$
+    \item If $a-N=o(b_n),c_n=O(d_n),n\in I,n\rightarrow+\infty$\\then $a_nc_n=o(b_nd_n),n\in I,n\rightarrow+\infty$
+\end{itemize}
+\section{On the limit}
+Let $(a_n)_{n\in I},(b_n)_{n\in I}$ be elements of $\mathbb{R}^I $ that converges to $l\in \mathbb{R} $ and $l'\in\mathbb{R} $ respectively. Then:\begin{itemize}
+    \item $(a_n+b_n)_{n\in I}$ converges to $l+l'$
+    \item $(a_nb_n)_{n\in I}$ converges to $ll'$
+\end{itemize}
+\section{Prop}Let $a\in\mathbb{R} $ THen $a^n=o(n!)\quad n\rightarrow+\infty$
+\subsection{Proof}Let $N\in \mathbb{N} $ such that $\lvert a\rvert<N$For $n\in\mathbb{N} $ such that $n\geq N$
+$$0\leq\frac{\lvert a^n\rvert}{n!}=\frac{\lvert a^N\rvert}{N!}\cdot\\frac{\lvert a^n-N\rvert}{n!\over N!}\leq\frac{\lvert a^N\rvert}{N!}(\frac{\lvert a\rvert}{N})^n-N$$
+And $0<\frac{\lvert a\rvert}<1\Rightarrow \lim\limits_{n\rightarrow+\infty}(\frac{\lvert a\rvert}{N})^n=0$. Therefore:
+$$\lim\limits_{n\rightarrow+\infty}\frac{\lvert a^n\rvert}{n!}=0$$
+namely:$$a^n=o(n!)$$
+\section{Prop}$n!=o(n^n)\quad n\rightarrow+\infty$
+\subsection{Proof}
+Let $N\in\mathbb{N} _{\geq1}$\\$0\leq\frac{n!}{n^n}\leq\frac{1}{n}\Rightarrow \lim\limits_{n\rightarrow+\infty}\frac{n!}{n^n}=0$
+\section{Prop}
+Let $(a_n)_{n\in I},(b_n)_{n\in I}$ be the elements of $\mathbb{R}^I$ If the series $\sum\limits_{n\in I}b_n$ converges absolutely and if $on=O(b_n)\quad n\rightarrow+\infty$Then $\sum\limits_{n\in I}a_n$ converges absolutely
+\subsection{Proof}
+By definition $\sum\limits_{n\in I}\lvert b_N\rvert<+\infty $ If $\lvert a_N\rvert\leq M\lvert b_N\rvert$ fro $n\in I,n\geq N$ where $N\in \mathbb{N} $ Then $$\sum\limits_{n\in I}\lvert a_n\rvert=\sum\limits_{n\in I,n<N}\lvert a_n\rvert+\sum\limits_{n\in I,n\geq N}\lvert a_n\rvert\leq\sum\limits_{n\in I,n<N}\lvert a_n\rvert+\sum\limits_{n\in I,n\geq N}\lvert b_n\rvert<+\infty$$
+\section{Theorem: d'Alembort ratio test}
+Let $(a_N)_{n\in \mathbb{N} }\in(\mathbb{R} \backslash\{0\})^\mathbb{N} $\begin{itemize}
+    \item If $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely
+    \item If $\liminf\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert>1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ does not converge (diverges)
+\end{itemize}
+\subsection{Proof}
+\subsubsection*{(1)}Let $\alpha\in\mathbb{R} $ such that $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha<1$, $alpha$ isn't a lower bound of $(\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert)_{N\in\mathbb{N} }$\\
+So $\exists N\in\mathbb{N} $ such that $\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha$Hence for $n\geq N\quad\lvert a_n\rvert\leq\alpha^{n-N}\lvert a_N\rvert$ since $$\frac{a_n}{a_N}=\frac{a_{N+1}}{a_N}
+\frac{a_{N+2}}{a_{N+1}}...\frac{a_n}{a_{n-1}}$$
+Therefore $a_n=O(\alpha^n)$ since $\sum\limits_{n\in\mathbb{N} }=\frac{1}{1-\alpha}<+\infty,\sum\limits_{n\in \mathbb{N} }a_n$ converge absolutely.
+\subsection{Lemma}
+If a series $\sum\limits_{n\in \mathbb{N} }a_n \in\mathbb{R} $ converges, then $\lim\limits_{n\rightarrow+\infty}a_n=0$
+\subsubsection{Proof}
+If $(\sum\limits_{i=0}^na_i)_{n\in \mathbb{N} }$ converges to some $l\in\mathbb{R} $ ,then $(\sum\limits_{i=0}^{n-1}a_i)_{n\in \mathbb{N},n\geq 1 }$ converges to $l$, too. Hence $\left(a_n=\left(\sum\limits_{i=0}^na_i\right)-\left(\sum\limits_{i=0}^{n-1}a_i\right)\right)_{n\in\mathbb{N} }$ converges to $l-l=0$
+\subsection{(2)}Let $\beta\in \mathbb{R} $ such that $1<\beta<\liminf\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert=\sup\limits_{N\in\mathbb{N} }\inf\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert$\\
+So there exists $N\in\mathbb{N} $ such that $\beta< \inf\limits_{n\geq N}\lvert \frac{a_{n+1}}{a_n}\rvert$\\
+$\forall n\in \mathbb{N} ,n\geq N\quad \lvert \frac{a_{n+1}}{a_n}\rvert\geq\beta$\\
+Hence $(\lvert a_n\rvert)_{n\in \mathbb{N} }$ is not bounded since $\lvert a_n\rvert\geq\beta^{n-N}\lvert a_n\rvert $\\
+By the lemma: $\sum\limits_{n\in\mathbb{N} }a_n$ diverges.
 
+\section{Prop}
+Let $a\in \mathbb{R} ,a>1$ Then $n=o(a^n),n\rightarrow +\infty$
+\subsection{Proof}
+Let $\epsilon>0$ such that $a=(1+\epsilon)^2$
+$$a^n=(1+\epsilon)^{2n}=(1+\epsilon)^n(1+\epsilon)^n\geq(1+n\epsilon)(1+n\epsilon)\geq\epsilon^2n^2$$
+Hence
+$$n\leq\frac{a^n}{\epsilon^2n}=o(a^n)$$
+\subsection{Corollary}
+Let $a>1,t\in \mathbb{R} _{\geq 0}$ Then $n^t=o(a^n),n\rightarrow+\infty$
+\subsubsection{Proof}
+Let $d\in\mathbb{N} _{\geq1}$ such that $t\leq d$Then $n^{t-d}\leq 1$
+So
+$$n^t=n^dn^{t-d}=O(n^d)$$
+Let $b=\sqrt[d]{a}>1$$$n^d=o((b^n)^d)=o(a^n)$$
+\indent Hence $n^t=o(a^n)$
+\subsection{Corollary}
+There exists $M\geq1$ such that $\forall x\in \mathbb{R} ,x\geq M,\ln(x)\leq x$
+\subsubsection{Proof}
+Let $a\in\mathbb{R} $ such that $1<a<e$
+\section{Theorem: Cauchy root test}
+Let $(a_n)_{n\in\mathbb{N} }$ be a sequence in $\mathbb{R} $. Let $\alpha=\limsup\limits_{n\rightarrow+\infty}\lvert a_n\rvert^{\frac{1}{n}}$\begin{itemize}
+    \item If $\alpha<1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely.
+    \item If $a>1$ then $\sum\limits_{n\in \mathbb{N} }a_n$ diverges
+\end{itemize}
+\subsection{Proof}
+\subsubsection{(1)}
+Let $\beta\in \mathbb{R} ,\alpha<\beta<1$. There exists $N\in \mathbb{N} $ such that $\lvert a_N \rvert^{\frac{1}{n}}\leq\beta$ for $n\geq N$. That means  $\lvert a_n\rvert=O(\beta ^n)$ since $0<\beta<1,\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely.
+\subsubsection{(2)}
+If $\alpha>1$ then $\forall N\in \mathbb{N} \quad \exists n \geq N$ such that $\lvert a_n\rvert ^{\frac{1}{n}}\geq1$, since otherwise $\exists N\in \mathbb{N} \ \forall n\geq N,\lvert a_n\rvert^\frac{1}{n}<1$ contradiction\\
+Hence $(\lvert a_n\rvert)_{n\in \mathbb{N} }$ cannot converge to 0.
+\part{Topology}
+\chapter{Absolute value and norms}
+\section{Def}
+Let K be a field . By absolute value on K, we mean a mapping $\lvert \cdot\rvert:K\rightarrow\mathbb{R} _{\geq0}$ that satisfies:\begin{itemize}
+    \item[(1)] $\forall a\in K\quad\lvert a\rvert=0 $ iff $a=0$
+    \item[(2)] $\forall (a,b)\in K^2\quad\lvert ab\rvert=\lvert a\rvert\cdot\lvert b\rvert$
+    \item[(3)] $\forall (a,b)\in K^2\quad\lvert a+b\rvert\leq\lvert a\rvert+\lvert b\rvert$(triangle inequality)
+\end{itemize}
+\section{Notation}
+$\mathbb{Q} $
+Take a prime num $p$
+$\forall \alpha \in \mathbb{Q} \backslash\{0\}$ there exists a integer $ord_p(\alpha)\frac{a}{b},$ where $\begin{aligned}
+    a\in \mathbb{Z} \backslash\{0\}\\
+    b\in\mathbb{N} \backslash\{0\}
+\end{aligned},p\nmid a,p\nmid b$
+\section{Prop}
+$$\lvert\cdot\rvert:\begin{aligned}
+    &\mathbb{Q} \rightarrow\mathbb{R} _{\geq0}\\
+    &\alpha\mapsto\left\{\begin{aligned}
+        &p^{-ord_p(\alpha)}&if\ \alpha\not=0\\
+        &0 &if\ \alpha=0
+    \end{aligned}\right.
+\end{aligned}$$ \indent is a absolute value on $\mathbb{Q} $
+\subsection{proof}
+\begin{itemize}
+    \item [(1)] Obviously
+    \item [(2)]If $\alpha=p^{ord_p(\alpha)}\frac{a}{b},\beta=p^{ord_p(\beta)}\frac{c}{d}\ \ p\nmid abcd$\\$\alpha\beta=p^{ord_p(\alpha)+ord_p(\beta)}\frac{ac}{bd}\quad p\nmid ac,p\nmid bd$
+    \item [(3)]$\alpha+\beta=p^{ord_p(\alpha)}\frac{a}{b}+p^{ord_p(\beta)}\frac{c}{d}$\\Assume $ord_p(\alpha)\geq ord_p(\beta)$\\$\alpha+\beta\\=p^{ord_p(\beta)}\left(p^{ord_p(\alpha)-ord_p(\beta)}\frac{a}{b}+\frac{c}{d}\right)\\=p^{ord_p(\beta)}\frac{p^{ord_p(\alpha)-ord_p(\beta)}ad+bc}{bd}\quad p\nmid bd$\\So $$ord_p(\alpha+\beta)\geq ord(\beta)$$
+    Hence $ord_p(\alpha+\beta)\geq \min\{ord_p(\alpha),ord_p(\beta)\}$\\So $\lvert\alpha+\beta\rvert _p=p^{-ord_p(\alpha+\beta)}\leq\max\{p^{-ord_p(\alpha)},p^{-ord_p(\beta)}\}=\\\max\{\lvert \alpha\rvert _p,\lvert \alpha\rvert _p\}\leq\lvert \alpha\rvert _p,\lvert \alpha\rvert _p $
+\end{itemize}
 \end{document}
