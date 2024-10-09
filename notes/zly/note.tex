@@ -495,7 +495,7 @@ If a series $\sum\limits_{n\in I}x_n$ in $[-\infty,+\infty]$ tends to some limit
 \subsection{Theorem: Bolzano-Weierstrass}
 Let $(x_n)_{n\in I}$ be a sequence in $[-\infty,+\infty]$ There exists a subsequence of $(x_n)_{n\in I}$ that tends to $\limsup\limits_{n\in I,n\rightarrow +\infty}x_n$ There exists a subsequence of $(x_n)_{n\in I}$ that rends to $\liminf\limits_{n\in I,n\rightarrow +\infty}x_n$
 \subsection{Proof}
-Let $J=\{n\in I\mid\forall m\in I,\ $if$\ m\leq n\ $then$\ x_m\leq x_n\}$\\
+Let $J=\{n\in I \mid \forall m\in I,\text{if }\ m\leq n\ \text{then}\ x_m\leq x_n\}$\\
 \indent If $J$ is infinite, the sequence $(x_N)_{n\in J}$ is decreasing so it tends to $\inf\limits_{n\in J}x_n$\\
 \indent $\forall n\in J$ by definition $x_n=\sup\limits_{i\in I,i\geq n}x_i$ so $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=\inf\limits_{n\in J}\sup\limits_{i\in I,i\geq n}x_i=\inf\limits_{n\in J}x_n=\lim\limits_{n\in J,n\rightarrow+\infty}x_n$\\
 \indent Assume that $J$ is finite. Let $n_0\in I$ such that $\forall n\in J,n<n_0$.Denote by $l=\sup\limits_{n\in I,n\geq n_0}$\\\indent 
@@ -571,7 +571,7 @@ Let $I\subseteq\mathbb{N} $ be an infinite subset. Let $(x_n)_{n\in I}$ and $(y_
 $$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\limsup\limits_{n\in I,n\rightarrow+\infty}x_n)+(\limsup\limits_{n\in I,n\rightarrow+\infty}y_n)$$
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\liminf\limits_{n\in I,n\rightarrow+\infty}x_n)+(\liminf\limits_{n\in I,n\rightarrow+\infty}y_n)$$
 \subsection{Proof}
-a tricky proof?:\\
+a tricky proof ?:
 $$\limsup\limits_{n\in I,n\rightarrow}x_n=\limsup\limits_{n\in I,n\rightarrow}(x_n+y_n-y_n)\leq\limsup\limits_{n\in I,n\rightarrow}(x_n+y_n)-\liminf\limits_{n\in I,n\rightarrow}y_n$$
 to have a true proof,only need to discuss conditions with $\infty$
 \section{Theorem}
@@ -651,7 +651,7 @@ Let $N\in\mathbb{N} _{\geq1}$\\$0\leq\frac{n!}{n^n}\leq\frac{1}{n}\Rightarrow \l
 Let $(a_n)_{n\in I},(b_n)_{n\in I}$ be the elements of $\mathbb{R}^I$ If the series $\sum\limits_{n\in I}b_n$ converges absolutely and if $on=O(b_n)\quad n\rightarrow+\infty$Then $\sum\limits_{n\in I}a_n$ converges absolutely
 \subsection{Proof}
 By definition $\sum\limits_{n\in I}\lvert b_N\rvert<+\infty $ If $\lvert a_N\rvert\leq M\lvert b_N\rvert$ fro $n\in I,n\geq N$ where $N\in \mathbb{N} $ Then $$\sum\limits_{n\in I}\lvert a_n\rvert=\sum\limits_{n\in I,n<N}\lvert a_n\rvert+\sum\limits_{n\in I,n\geq N}\lvert a_n\rvert\leq\sum\limits_{n\in I,n<N}\lvert a_n\rvert+\sum\limits_{n\in I,n\geq N}\lvert b_n\rvert<+\infty$$
-\section{Theorem: d'Alembort ratio test}
+\section{Theorem: d'Alembert ratio test}
 Let $(a_N)_{n\in \mathbb{N} }\in(\mathbb{R} \backslash\{0\})^\mathbb{N} $\begin{itemize}
     \item If $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely
     \item If $\liminf\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert>1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ does not converge (diverges)
@@ -730,5 +730,134 @@ $$\lvert\cdot\rvert:\begin{aligned}
     \item [(2)]If $\alpha=p^{ord_p(\alpha)}\frac{a}{b},\beta=p^{ord_p(\beta)}\frac{c}{d}\ \ p\nmid abcd$\\$\alpha\beta=p^{ord_p(\alpha)+ord_p(\beta)}\frac{ac}{bd}\quad p\nmid ac,p\nmid bd$
     \item [(3)]$\alpha+\beta=p^{ord_p(\alpha)}\frac{a}{b}+p^{ord_p(\beta)}\frac{c}{d}$\\Assume $ord_p(\alpha)\geq ord_p(\beta)$\\$\alpha+\beta\\=p^{ord_p(\beta)}\left(p^{ord_p(\alpha)-ord_p(\beta)}\frac{a}{b}+\frac{c}{d}\right)\\=p^{ord_p(\beta)}\frac{p^{ord_p(\alpha)-ord_p(\beta)}ad+bc}{bd}\quad p\nmid bd$\\So $$ord_p(\alpha+\beta)\geq ord(\beta)$$
     Hence $ord_p(\alpha+\beta)\geq \min\{ord_p(\alpha),ord_p(\beta)\}$\\So $\lvert\alpha+\beta\rvert _p=p^{-ord_p(\alpha+\beta)}\leq\max\{p^{-ord_p(\alpha)},p^{-ord_p(\beta)}\}=\\\max\{\lvert \alpha\rvert _p,\lvert \alpha\rvert _p\}\leq\lvert \alpha\rvert _p,\lvert \alpha\rvert _p $
+\end{itemize}\
+\chapter{Quotient Structure}
+\section{Def}
+
+Let X be a set and $\thicksim$  be a binary relation on X\\
+If :\begin{itemize}
+    \item $\forall x\in X,x\thicksim x$
+    \item $\forall (x,y)\in X\times X,$ if $x\thicksim y$ then $y\thicksim x$
+    \item $\forall (x,y,z)\in X^3$, if $x\thicksim y,y\thicksim z$ then $x\thicksim z$
+\end{itemize}
+then we say that $\thicksim$  is an equivalence relation
+\section{equivalence class}
+$\forall x\in X$ we denote by $[x]$ the set $\{y\in X\mid y\thicksim x\}$ and call it the equivalence class of $x$ on $X$.Let $X/\thicksim $ be the set $\{[x]\mid x\in X\}$
+\section{Prop.}
+Let X be a set and $\thicksim$  be an equivalence relation on X
+\begin{itemize}
+    \item $\forall x\in X,y\in [x]$ on has $[x]=[y]$
+    \item If $\alpha$ and $\beta$ are elements of $X/\thicksim $ such that $\alpha\not=\beta$ then $\alpha\cap\beta =\varnothing$
+    \item $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
+\end{itemize}
+\subsection{Proof}
+\begin{itemize}
+    \item Let $z\in [y]$. Then $y\thicksim z$. Since $y\in [x]$ on has $x\thicksim y$\\Therefore ,$x\thicksim z$ namely $z\in [x]$. This proves $y[]\subseteq [x]$. Moreover ,since $x\thicksim y$ , one has $x\in [y]$. Hence $[x]\subseteq[y]$. Thus we obtain $[x]=[y]$
+    \item Suppose that $\alpha\cap\beta\not=\varnothing,y\in \alpha\cap\beta$\\By (1),$\alpha=[y],\beta=[y]$, Thus leads to a contradiction.
+    \item $\forall x\in X\quad x\in [x]$ Hence $x\in \bigcup\limits_{\alpha\in X/\thicksim }\alpha$Hence $X\subseteq\bigcup\limits_{\alpha\in X/\thicksim }\alpha$.Conversely, $\forall \alpha\in X/\thicksim ,\alpha$ is a subset of $X$. Hence $\bigcup\limits_{\alpha\in X/\thicksim }\alpha\subseteq X$.Then $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
+\end{itemize}
+\section{Def}
+Let G be a group and X be a set \\
+We call left/right action of G on X ant mapping $G\times X\rightarrow X:(g,x)\mapsto gx/(g,x)\mapsto xg$ that satisfies:
+\begin{itemize}
+    \item $\forall x\in X\quad 1x=x\ /\ x1=x$
+    \item $\forall(g,h)\in G^2,x\in X\quad g(hx)=(gh)x\ /\ (xg)h=x(gh)$
+\end{itemize}
+\section{Remark}
+If we denote by $G^{op}$ the set G equipped with the composition law :$$G\times G\rightarrow G$$$$(g,h)\mapsto hg$$
+The a right action of G on X is just a left action of $G^{op}$ on X.
+\section{Prop}
+Let G be a group and X be a set . Assume given a left action of G on X. Then the binary relation $\thicksim$ on X defined as $x\thicksim y$ iff $\exists g\in G\quad y=gx$ is an equivalence relation
+\section{notation on equivalence class}
+We denote by $G/X$ the set $X/\thicksim $ $\forall x\in X$ the equivalence class of $x$ is denoted as $Gx/xG$ or $orb_G(x)$ call the orbit of x under the action of G
+
+\section{Proof}
+\begin{itemize}
+    \item $\forall x\in X\quad x=1x$ so $x\thicksim x$
+    \item $\forall (x,y)\in X^2$ if $y=gx$ for same $g\in G$ then $g^{-1}y=g^{-1}(gx)=(g^{-1}g)x=1x=x.(y\thicksim x)$
+    \item $\forall(x,y,z)\in X^3,$if $\exists(g,h)\in G^2$ , such that $y=gx$ and then $z=h(gx)=(hg)x$ So $x\thicksim z$
+\end{itemize}
+\section{Quotient set}
+Let X be a set and $\thicksim $ be an equivalence relation, the mapping $X\rightarrow X/\thicksim : (x\in X)\mapsto[x]$ is called the projection mapping.\\$X/\thicksim  $ is called the quotient set of X by equivalence relation $\thicksim $
+\subsection{Example}
+Let G be a group and H be a subgroup of G.Then the mapping $$H\times G\rightarrow G$$$$(h,g)\mapsto hg/(h,g)\mapsto gh$$
+is a left/right action of H on G. Thus we obtain         two quotient sets $H\backslash G$ and $G\backslash H$
+\section{Def}
+Let G be a group and H be a subgroup of G. Ig $\forall g\in G,h\in H\quad ghg^{-1}\in H,$ Then we say that H is a normal subgroup of G
+\section{Remark}
+$\forall g\in G, gH=Hg$, provided that H is a normal subgroup of G. In fact $\forall h\in $,\begin{itemize}
+    \item $\exists h'\in H$ such that $ghg^{-1}=h'$ Hence $gh=h'g$. This shows $gH\subseteq Hg$
+    \item $\exists h''\in H$ such that $g^{-1}hg=h''$ Hence $hg=gh''$. This shows $Hg\subseteq gH$
+\end{itemize}
+Thus $gH=Hg$
+\section{Prop}
+If G is commutative, any subgroup of G is normal
+\section{Theorem}
+Let G be a group and H be a normal subgroup of G. Then the mapping $$G\backslash H\times H\backslash G\rightarrow G\backslash H$$$$(xH,Hx)\mapsto(xy)H$$
+is well defined and determine a structure of group of quotient set $G\backslash H$ Moreover the projection mapping $$\pi:G\rightarrow G\backslash H$$$$ x\mapsto xH$$ is a morphism of groups.
+\subsection{Proof}
+\begin{itemize}
+    \item If $xH=x'H,yH=y'H$ then $\exists h_1\in H,h_2\in H$ such that $x'=xh_1,y'=yh_2$ Hence $x'y'=xh_1yh_2=(xy)(y^{-1}h_1y)h_2$. For $y^{-1}h_1y,h_2\in H$ then $(x'y')H=(xy)H.$ So the mapping is well defined.
+    \item $\forall (x,y,x)\in G^3\quad (xH)(yH\cdot zH)=xH((yx)H)=(x(yz)H=((xy)z)H=((xy)H)zH=(xH\cdot yH)zH)$
+    \item $\forall x\in G\quad 1H\cdot xH=xH\cdot 1H=xH\quad x^{-1}HxH=xHx^{-1}H=1H$
+    \item $\pi(xy)=(xy)H=xH\cdot yH=\pi(x)\pi(y)$
+\end{itemize}
+\section{Def}
+Let K be a unitary ring and E be a left K-module. We say that a subgroup F og $(E,+)$ is a left sub-K-module of E if $\forall(a,x)\in K\times F, ax\in F$
+\section{Prop}
+Let K be a unitary ring , E be a left K-module and F be a sub-K-module. Then the mapping $$K\times(E/ F)\rightarrow E / F$$$$(a,[x])\mapsto[ax]$$
+is well defined , and defines a left-K-module structure on $E/F$. Moreover, the projection mapping $pi:E\rightarrow E/F$ is a morphism of left-K-modules
+\subsection{Proof}
+Let x and x' be elements of E such that $[x]=[x']$, that meas: $x'-x\in F$ Hence $a(x'-x)=ax'-ax\in F$ So $[ax]=[ax']$\\
+Let us check that $E/F$ forms a left K-module.
+\begin{itemize}
+    \item $a([x]+[y])=a([x+y])=[a(x+y)]=[ax+ay]=[ax]+[ay]$
+    \item $(a+b)[x]=[(a+b)x]=[ax+bx]=[ax]+[bx]$
+    \item $1[x]=[1x]=[x]$
+    \item $a(b[x])=a[bx]=[a(bx)]=[(ab)x]=(ab)[x]$
+\end{itemize}
+By the provided proposition, $\pi $ is a morphism of groups. Moreover $\forall x\in E,a\in K\quad \pi(ax)=[ax]=a[x]=a\pi(x)$
+\section{Def}
+Let A be a unitary ring . We call two-sided ideal any subgroup I of $(A,+)$ that satisfies : $\forall x\in I,a\in A\quad \{ax,xa\}\subseteq I$() (I is a left and right sub-K-module of A)
+\section{Theorem}
+Let A be a unitary ring and I be a two sided ideal of A . The mapping $$(A/I)\times(A/I)\rightarrow A/I$$$$([a],[b])\mapsto[ab]$$ si well defined. Moreover , $A/I$ becomes a unitary ring under the addition and this composition law, and the projection mapping $$A\stackrel{\pi}{\longrightarrow} A/I$$ is a morphism of unitary ring (if is a morphism of additive groups and multiplicative monoids, namely $\pi(a+b)=\pi(a)+\pi(b), \pi(ab)=\pi(a)\pi(b),\pi(1)=1)$
+\subsection{Proof}
+If $a'\thicksim a,b'\thicksim b$ that means $a'-a\in I,b'-b\in I$ then $a'b'-ab=a'b'-a'b+a'b-ab=a'(b'-b)+(a'-a)b$. For $(a'-a),(b'-b)\in I$, then $a'b'-ab\in I$ Therefore $a'b'\sim ab$
+\subsection{Reside Class}
+Let $d\in \mathbb{Z} $ and $d\mathbb{Z} =\{n\in \mathbb{Z} \mid\exists m\in\mathbb{Z} ,n=dm\}$ $d\mathbb{Z} $ is a two sided ideal of $\mathbb{Z} $ If $m\in \mathbb{Z} $, for any $a\in \mathbb{Z} \quad adm=dma\in d\mathbb{Z}$\\
+Denote by $\mathbb{Z} /d\mathbb{Z} $ the quotient ring. The class of $n\in \mathbb{Z} $ in $\mathbb{Z} /d\mathbb{Z} $ is called the reside class of n modulo d\\
+If A is a commutative unitary ring, a two sided ideal of A is simply called an ideal of A
+\section{Theorem}
+Let $f:G\rightarrow H$ be a morphism of groups \begin{itemize}
+    \item $Im(f)$ is a subgroup of H
+    \item $\ker(f):=\{x\in G\mid f(x)=1_H\}$ is a normal subgroup of G
+    \item The mapping $$\begin{aligned}
+    \widetilde{f}:&G/Ker(f)\rightarrow Im(f)\\
+    &[x]\mapsto f(x)
+    \end{aligned}$$
+    is well defined and is an isomorphism of groups
+    \item $f$ is injective iff $\ker(f)=\{1_G\}$
+\end{itemize}
+\subsection{Proof}
+\begin{itemize}
+    \item Let $\alpha$ and $ \beta$ be elements of $Im(f)$. Let $(x,y )\in G^2$ such that $\alpha =f(x),\beta=f(y)$ Then $\alpha\beta^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f)$ So $Im(f)$ is a subgroup
+    \item Let x and y be elements of $\ker (f)$. \\One has $f(xy^{-1}) = f(x)f(y)^{-1} = 1_H1_H^{-1} = 1_H$ \\So $xy^{-1}\in \ker f.$ Hence $\ker f$ is a subgroup of G\\Let $x\in \ker f,y\in G$. \\One has $f(yxy^{-1}) = f(y)f(x)f(y)^{-1} = f(y)f(y)^{-1} = 1_H$ Hence $yxy^{-1}\in \ker f$. So $\ker f$ is a normal subgroup
+    \item If $x\sim y$ then $\exists z\in \ker f $ such that $y=xz$ Hence $f(y)=f(x)f(z)=f(x)1_H=f(x)$ So $f$ is well defined. \\Moreover $\widetilde{f}([x][y])=\widetilde{f}([xy])=f(xy)=f(x)f(y)=f([x])f([y])$ Hence $\widetilde{f}$ is a morphism of groups.\\By definition $Im(\widetilde{f})=Im(f)$\quad If x and y are elements of G such that $f(x)=f(y)$ then $f(xy^{-1})=1_H$ \\Hence $xy^{-1}\in \ker f$ Since $x=(xy^{-1})y,x\sin y$ that means $[x]=[y]$ \\Therefore $\widetilde{f}$ is injective.
+    \item If $f$ is injective ,$\forall x\in \ker f\quad f(x)=1_H=f(1_G)$, so $x=1_G$. Therefore $\ker f\{1_G\}$ \\Conversely , suppose that $\ker f =\{1_G\}\quad \forall (x,y)\in G^2$ if $f(x)=f(y)$ then $f(x)f(y)^{-1}=1_H$. Hence $xy^{-1}=1_G, x=y$
+\end{itemize}
+\section{Theorem}
+Let K be a unitary ring and $f:E\rightarrow F $ be a morphism of left K-modules. Then 
+\begin{itemize}
+    \item $Im(f)$ is a left-sub-K-module of F
+    \item $\ker(f)$ is a left-sub-K-module of E
+    \item $\begin{aligned}
+        \widetilde{f}:&E/\ker f\rightarrow Im (f)\\
+        &[x]\mapsto f(x)
+    \end{aligned}$ is a isomorphism of left K-modules
+\end{itemize}
+\subsection{Proof}
+\begin{itemize}
+    \item $\forall x\in E,\quad f(ax)=af(x)$ So $ af(x)\in Im(f)$
+    \item 
 \end{itemize}
 \end{document}
