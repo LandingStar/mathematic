@@ -746,15 +746,15 @@ $\forall x\in X$ we denote by $[x]$ the set $\{y\in X\mid y\thicksim x\}$ and ca
 \section{Prop.}
 Let X be a set and $\thicksim$  be an equivalence relation on X
 \begin{itemize}
-    \item $\forall x\in X,y\in [x]$ on has $[x]=[y]$
-    \item If $\alpha$ and $\beta$ are elements of $X/\thicksim $ such that $\alpha\not=\beta$ then $\alpha\cap\beta =\varnothing$
-    \item $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
+    \item[(1)] $\forall x\in X,y\in [x]$ on has $[x]=[y]$
+    \item[(2)] If $\alpha$ and $\beta$ are elements of $X/\thicksim $ such that $\alpha\not=\beta$ then $\alpha\cap\beta =\varnothing$
+    \item[(3)] $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
 \end{itemize}
 \subsection{Proof}
 \begin{itemize}
-    \item Let $z\in [y]$. Then $y\thicksim z$. Since $y\in [x]$ on has $x\thicksim y$\\Therefore ,$x\thicksim z$ namely $z\in [x]$. This proves $y[]\subseteq [x]$. Moreover ,since $x\thicksim y$ , one has $x\in [y]$. Hence $[x]\subseteq[y]$. Thus we obtain $[x]=[y]$
-    \item Suppose that $\alpha\cap\beta\not=\varnothing,y\in \alpha\cap\beta$\\By (1),$\alpha=[y],\beta=[y]$, Thus leads to a contradiction.
-    \item $\forall x\in X\quad x\in [x]$ Hence $x\in \bigcup\limits_{\alpha\in X/\thicksim }\alpha$Hence $X\subseteq\bigcup\limits_{\alpha\in X/\thicksim }\alpha$.Conversely, $\forall \alpha\in X/\thicksim ,\alpha$ is a subset of $X$. Hence $\bigcup\limits_{\alpha\in X/\thicksim }\alpha\subseteq X$.Then $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
+    \item[(1)] Let $z\in [y]$. Then $y\thicksim z$. Since $y\in [x]$ on has $x\thicksim y$\\Therefore ,$x\thicksim z$ namely $z\in [x]$. This proves $y[]\subseteq [x]$. Moreover ,since $x\thicksim y$ , one has $x\in [y]$. Hence $[x]\subseteq[y]$. Thus we obtain $[x]=[y]$
+    \item[(2)] Suppose that $\alpha\cap\beta\not=\varnothing,y\in \alpha\cap\beta$\\By (1),$\alpha=[y],\beta=[y]$, Thus leads to a contradiction.
+    \item[(3)] $\forall x\in X\quad x\in [x]$ Hence $x\in \bigcup\limits_{\alpha\in X/\thicksim }\alpha$Hence $X\subseteq\bigcup\limits_{\alpha\in X/\thicksim }\alpha$.Conversely, $\forall \alpha\in X/\thicksim ,\alpha$ is a subset of $X$. Hence $\bigcup\limits_{\alpha\in X/\thicksim }\alpha\subseteq X$.Then $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
 \end{itemize}
 \section{Def}
 Let G be a group and X be a set \\
@@ -768,7 +768,7 @@ If we denote by $G^{op}$ the set G equipped with the composition law :$$G\times 
 The a right action of G on X is just a left action of $G^{op}$ on X.
 \section{Prop}
 Let G be a group and X be a set . Assume given a left action of G on X. Then the binary relation $\thicksim$ on X defined as $x\thicksim y$ iff $\exists g\in G\quad y=gx$ is an equivalence relation
-\section{notation on equivalence class}
+\section{Notation on Equivalence Class}
 We denote by $G/X$ the set $X/\thicksim $ $\forall x\in X$ the equivalence class of $x$ is denoted as $Gx/xG$ or $orb_G(x)$ call the orbit of x under the action of G
 
 \section{Proof}
@@ -781,7 +781,7 @@ We denote by $G/X$ the set $X/\thicksim $ $\forall x\in X$ the equivalence class
 Let X be a set and $\thicksim $ be an equivalence relation, the mapping $X\rightarrow X/\thicksim : (x\in X)\mapsto[x]$ is called the projection mapping.\\$X/\thicksim  $ is called the quotient set of X by equivalence relation $\thicksim $
 \subsection{Example}
 Let G be a group and H be a subgroup of G.Then the mapping $$H\times G\rightarrow G$$$$(h,g)\mapsto hg/(h,g)\mapsto gh$$
-is a left/right action of H on G. Thus we obtain         two quotient sets $H\backslash G$ and $G\backslash H$
+is a left/right action of H on G. Thus we obtain         two quotient sets $H/ G$ and $G/ H$
 \section{Def}
 Let G be a group and H be a subgroup of G. Ig $\forall g\in G,h\in H\quad ghg^{-1}\in H,$ Then we say that H is a normal subgroup of G
 \section{Remark}
@@ -793,8 +793,8 @@ Thus $gH=Hg$
 \section{Prop}
 If G is commutative, any subgroup of G is normal
 \section{Theorem}
-Let G be a group and H be a normal subgroup of G. Then the mapping $$G\backslash H\times H\backslash G\rightarrow G\backslash H$$$$(xH,Hx)\mapsto(xy)H$$
-is well defined and determine a structure of group of quotient set $G\backslash H$ Moreover the projection mapping $$\pi:G\rightarrow G\backslash H$$$$ x\mapsto xH$$ is a morphism of groups.
+Let G be a group and H be a normal subgroup of G. Then the mapping $$G/ H\times H/ G\rightarrow G/ H$$$$(xH,Hx)\mapsto(xy)H$$
+is well defined and determine a structure of group of quotient set $G/ H$ Moreover the projection mapping $$\pi:G\rightarrow G/ H$$$$ x\mapsto xH$$ is a morphism of groups.
 \subsection{Proof}
 \begin{itemize}
     \item If $xH=x'H,yH=y'H$ then $\exists h_1\in H,h_2\in H$ such that $x'=xh_1,y'=yh_2$ Hence $x'y'=xh_1yh_2=(xy)(y^{-1}h_1y)h_2$. For $y^{-1}h_1y,h_2\in H$ then $(x'y')H=(xy)H.$ So the mapping is well defined.
@@ -822,42 +822,43 @@ Let A be a unitary ring . We call two-sided ideal any subgroup I of $(A,+)$ that
 \section{Theorem}
 Let A be a unitary ring and I be a two sided ideal of A . The mapping $$(A/I)\times(A/I)\rightarrow A/I$$$$([a],[b])\mapsto[ab]$$ si well defined. Moreover , $A/I$ becomes a unitary ring under the addition and this composition law, and the projection mapping $$A\stackrel{\pi}{\longrightarrow} A/I$$ is a morphism of unitary ring (if is a morphism of additive groups and multiplicative monoids, namely $\pi(a+b)=\pi(a)+\pi(b), \pi(ab)=\pi(a)\pi(b),\pi(1)=1)$
 \subsection{Proof}
-If $a'\thicksim a,b'\thicksim b$ that means $a'-a\in I,b'-b\in I$ then $a'b'-ab=a'b'-a'b+a'b-ab=a'(b'-b)+(a'-a)b$. For $(a'-a),(b'-b)\in I$, then $a'b'-ab\in I$ Therefore $a'b'\sim ab$
+If $a'\thicksim a,b'\thicksim b$ that means $a'-a\in I,b'-b\in I$ then $a'b'-ab=a'b'-a'b+a'b-ab=a'(b'-b)+(a'-a)b$. For $(a'-a),(b'-b)\in I$, then $a'b'-ab\in I$ Therefore $a'b'\thicksim ab$
 \subsection{Reside Class}
 Let $d\in \mathbb{Z} $ and $d\mathbb{Z} =\{n\in \mathbb{Z} \mid\exists m\in\mathbb{Z} ,n=dm\}$ $d\mathbb{Z} $ is a two sided ideal of $\mathbb{Z} $ If $m\in \mathbb{Z} $, for any $a\in \mathbb{Z} \quad adm=dma\in d\mathbb{Z}$\\
 Denote by $\mathbb{Z} /d\mathbb{Z} $ the quotient ring. The class of $n\in \mathbb{Z} $ in $\mathbb{Z} /d\mathbb{Z} $ is called the reside class of n modulo d\\
 If A is a commutative unitary ring, a two sided ideal of A is simply called an ideal of A
 \section{Theorem}
 Let $f:G\rightarrow H$ be a morphism of groups \begin{itemize}
-    \item $Im(f)$ is a subgroup of H
-    \item $\ker(f):=\{x\in G\mid f(x)=1_H\}$ is a normal subgroup of G
-    \item The mapping $$\begin{aligned}
+    \item[(1)] $Im(f)$ is a subgroup of H
+    \item[(2)] $\ker(f):=\{x\in G\mid f(x)=1_H\}$ is a normal subgroup of G
+    \item[(3)] The mapping $$\begin{aligned}
     \widetilde{f}:&G/Ker(f)\rightarrow Im(f)\\
     &[x]\mapsto f(x)
     \end{aligned}$$
     is well defined and is an isomorphism of groups
-    \item $f$ is injective iff $\ker(f)=\{1_G\}$
+    \item[(4)] $f$ is injective iff $\ker(f)=\{1_G\}$
 \end{itemize}
 \subsection{Proof}
 \begin{itemize}
-    \item Let $\alpha$ and $ \beta$ be elements of $Im(f)$. Let $(x,y )\in G^2$ such that $\alpha =f(x),\beta=f(y)$ Then $\alpha\beta^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f)$ So $Im(f)$ is a subgroup
-    \item Let x and y be elements of $\ker (f)$. \\One has $f(xy^{-1}) = f(x)f(y)^{-1} = 1_H1_H^{-1} = 1_H$ \\So $xy^{-1}\in \ker f.$ Hence $\ker f$ is a subgroup of G\\Let $x\in \ker f,y\in G$. \\One has $f(yxy^{-1}) = f(y)f(x)f(y)^{-1} = f(y)f(y)^{-1} = 1_H$ Hence $yxy^{-1}\in \ker f$. So $\ker f$ is a normal subgroup
-    \item If $x\sim y$ then $\exists z\in \ker f $ such that $y=xz$ Hence $f(y)=f(x)f(z)=f(x)1_H=f(x)$ So $f$ is well defined. \\Moreover $\widetilde{f}([x][y])=\widetilde{f}([xy])=f(xy)=f(x)f(y)=f([x])f([y])$ Hence $\widetilde{f}$ is a morphism of groups.\\By definition $Im(\widetilde{f})=Im(f)$\quad If x and y are elements of G such that $f(x)=f(y)$ then $f(xy^{-1})=1_H$ \\Hence $xy^{-1}\in \ker f$ Since $x=(xy^{-1})y,x\sin y$ that means $[x]=[y]$ \\Therefore $\widetilde{f}$ is injective.
-    \item If $f$ is injective ,$\forall x\in \ker f\quad f(x)=1_H=f(1_G)$, so $x=1_G$. Therefore $\ker f\{1_G\}$ \\Conversely , suppose that $\ker f =\{1_G\}\quad \forall (x,y)\in G^2$ if $f(x)=f(y)$ then $f(x)f(y)^{-1}=1_H$. Hence $xy^{-1}=1_G, x=y$
+    \item[(1)] Let $\alpha$ and $ \beta$ be elements of $Im(f)$. Let $(x,y )\in G^2$ such that $\alpha =f(x),\beta=f(y)$ Then $\alpha\beta^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f)$ So $Im(f)$ is a subgroup
+    \item[(2)] Let x and y be elements of $\ker (f)$. \\One has $f(xy^{-1}) = f(x)f(y)^{-1} = 1_H1_H^{-1} = 1_H$ \\So $xy^{-1}\in \ker f.$ Hence $\ker f$ is a subgroup of G\\Let $x\in \ker f,y\in G$. \\One has $f(yxy^{-1}) = f(y)f(x)f(y)^{-1} = f(y)f(y)^{-1} = 1_H$ Hence $yxy^{-1}\in \ker f$. So $\ker f$ is a normal subgroup
+    \item[(3)] If $x\thicksim y$ then $\exists z\in \ker f $ such that $y=xz$ Hence $f(y)=f(x)f(z)=f(x)1_H=f(x)$ So $f$ is well defined. \\Moreover $\widetilde{f}([x][y])=\widetilde{f}([xy])=f(xy)=f(x)f(y)=f([x])f([y])$ Hence $\widetilde{f}$ is a morphism of groups.\\By definition $Im(\widetilde{f})=Im(f)$\quad If x and y are elements of G such that $f(x)=f(y)$ then $f(xy^{-1})=1_H$ \\Hence $xy^{-1}\in \ker f$ Since $x=(xy^{-1})y,x\sin y$ that means $[x]=[y]$ \\Therefore $\widetilde{f}$ is injective.
+    \item[(4)] If $f$ is injective ,$\forall x\in \ker f\quad f(x)=1_H=f(1_G)$, so $x=1_G$. Therefore $\ker f\{1_G\}$ \\Conversely , suppose that $\ker f =\{1_G\}\quad \forall (x,y)\in G^2$ if $f(x)=f(y)$ then $f(x)f(y)^{-1}=1_H$. Hence $xy^{-1}=1_G, x=y$
 \end{itemize}
 \section{Theorem}
 Let K be a unitary ring and $f:E\rightarrow F $ be a morphism of left K-modules. Then 
 \begin{itemize}
-    \item $Im(f)$ is a left-sub-K-module of F
-    \item $\ker(f)$ is a left-sub-K-module of E
-    \item $\begin{aligned}
+    \item[(1)] $Im(f)$ is a left-sub-K-module of F
+    \item[(2)] $\ker(f)$ is a left-sub-K-module of E
+    \item[(3)] $\begin{aligned}
         \widetilde{f}:&E/\ker f\rightarrow Im (f)\\
         &[x]\mapsto f(x)
     \end{aligned}$ is a isomorphism of left K-modules
 \end{itemize}
 \subsection{Proof}
 \begin{itemize}
-    \item $\forall x\in E,\quad f(ax)=af(x)$ So $ af(x)\in Im(f)$
-    \item 
+    \item[(1)] $\forall x\in E,\quad f(ax)=af(x)$ So $ af(x)\in Im(f)$
+    \item [(2)]
+    \item [(3)]
 \end{itemize}
 \end{document}
