@@ -861,4 +861,98 @@ Let K be a unitary ring and $f:E\rightarrow F $ be a morphism of left K-modules.
     \item [(2)]
     \item [(3)]
 \end{itemize}
+\chapter{Topology}
+\section{Def}
+Let X be a set. We call topology on X any subset $\mathcal{J} $ of $\wp (x)$ that satisfies:\begin{itemize}
+    \item $\varnothing\in \mathcal{J} $ and $X\in \mathcal{J} $
+    \item If $(u_i)_{i\in I}$ is an arbitraty family of elements in $\mathcal{J} $, then $\bigcup\limits_{i\in I}u_i\in \mathcal{J} $
+    \item If $u$ and $v$ are elements of $\mathcal{J} $, then $u\cap v\in \mathcal{J} $
+\end{itemize}
+\section{Remark}
+If $(u_i)^n_i=1$ is a finite family of elements of $\mathcal{J} $, then $\bigcap\limits_{i=1}^{n}u_i\in \mathcal{J}$(by induction, this follows from (3))
+\subsection{Example}
+$\{\phi,X\}$ is a topology. call the trivial topology on $\wp (X)$ is a topology called the discrete topology.
+\section{Def}
+Let X be a set. We call metric on $X$ any mapping $d:\begin{aligned}
+    X\times X\rightarrow\mathbb{R} _{\geq 0}\\(x,y)\mapsto d(x,y)
+\end{aligned}$,that satisfies\begin{itemize}
+    \item $d(x,y)=0$ iff x=y
+    \item $\forall(x,y)\in X^2, d(x,y)=d(y,x)$
+    \item $\forall(x,y,z)\in X^3\quad d(x,z)\leq d(x,y)+d(y,z)$(triangle inequality)
+\end{itemize}
+$(X,d)$ is called a metric space
+\subsection{Example}
+Let X be a set$$\begin{aligned}
+    d:&X^2\rightarrow\mathbb{R} _{\geq0}\\ & d(x,y)=\left\{\begin{aligned}
+    &1 & if\ x\not=y\\
+    &0 & if\ x=y
+    \end{aligned}\right.
+\end{aligned}$$is a metric
+\section{Def}
+Let $(X,d)$ be a metric space. For any $x\in X,\epsilon \in \mathbb{R} _{\geq0}$, let $B(x,\epsilon):=\{y\in X\mid d(x,y)\leq\epsilon \}$ We call the open ball of radius $\epsilon$ centered at $x$
+\subsection{Example}
+Consider $(\mathbb{R} ,d)$ with $d(x,y)=\lvert x-y\rvert$,then $B(x,\epsilon)={]x-\epsilon,x+\epsilon[}$
+\section{Prop.}
+Let (X,d) be a metric space . let $\mathcal{J} _d$ be the set of $U\subseteq X$ such that $\forall x\in U\exists \epsilon >0\quad B(x,\epsilon)\subseteq U$ THen $\mathcal{J} _d$ is a topology on X
+\subsection{Proof}
+\begin{itemize}
+    \item $\varnothing\in \mathcal{J} _d\quad X\in \mathcal{J} _d$
+    \item Let $(u_i)_{i\in I}$ be a family of elements of $\mathcal{J} _d$ Let $U=\bigcup\limits_{i\in I}u_i$, $\forall x\in U,\exists i\in I$ such that $x\in u_i$. Since $u_i\in \mathcal{J} _d,\exists \epsilon>0$ such that $B(x,y)\subseteq u_i\subseteq U$ Hence $U\in \mathcal{J} _d$
+    \item Let U and V be elements of $\mathcal{J} _d$ Let $x\in U\cap V$ $\exists a,b\in \mathbb{R} _{\geq0}$ such that $B(x,a)\subseteq U, B(x,b)\subseteq V$ Taking $\epsilon=\min\{a,b\},$ Then $B(x,\epsilon)=B(x,a)\cap B(x,b)\subseteq U\cap V$ Therefore $U\cap V\in \mathcal{J} _d$ 
+\end{itemize}
+\section{Def}
+$\mathcal{J} _d$ is called the topology induced by the metric d
+\section{Def}
+We call topology space any pair $(X,\mathcal{J})$ where X is a set and $\mathcal{J}$ is a topology on X
+
+Given a topological space $(X,\mathcal{J})$ If $U\in \mathcal{J}$ then we say that $U$ is an open subset of X. If $F\in \wp(X)$ such that $X\backslash F\in \mathcal{J}$, then we say that $F$ is closed subset of $X$\\
+If there exists $d$ a metric on X such that $\mathcal{J}=\mathcal{J}_d$ then we say that $\mathcal{J}$ is metrizable
+\subsection{Example}
+Let X be a set . The discrete topology on X is metrizable. In fact,m if d denote the metric defined as $d(x,y)=\left\{\begin{aligned}
+    &1 & if\ x\not=y\\
+    &0 & if\ x=y
+    \end{aligned}\right.$\\
+$\forall x\in X\quad B(x,1)=\{x\}$ So $\{x\}\in \mathcal{J}_d$ Hence $\forall A\subseteq X\quad A=\bigcup\limits_{x\in A}\{x\}\in \mathcal{J}_d$ 
+\section{Axiom of choice}
+For any set I and any family $(A_i)_{i\in I}$ of non-empty sets , there exists a mapping $f:I\rightarrow \bigcup\limits_{i\in I}A_i$ such that $\forall i\in I, f(i)\in A_i$
+\section{Def} Let $(X,\leq)$ be a partially ordered set If $\forall A\subseteq X$ A is non-empty , there exists a least element of A then we say that $(X,\leq)$ is a well ordered set.
+\section{Theorem }
+For any set X, there exists an order relation $\leq$ on such that $(X,\leq)$ forms a well ordered set.
+\section{Zorn's lemma}
+Let $(X,\leq)$ be a partially ordered set . If $\forall A\subseteq X$ that is totally ordered with respect to $\leq $, there exists an upper bound of A inside X. Then , there exists a maximal element $x_0$ of $X$($\forall y\in X, y>x_0$ does not hold)
+\section{Prop.}
+Let $(X,\leq)$ be a well ordered set , $y\not\in X. $ We extends $\leq$ to $X\cup\{y\}$, such that $\forall x\in X,x<y.$ Then $(X\cup\{y\},\leq)$ is well ordered.
+\section{Proof}
+Let $A\subseteq X\cup\{y\},A\not=\varnothing$. If $A=\{y\}$ then $Y$ is the least element of A. If $A\not=\{y\}$ then $B=A\backslash\{y\}$ is non-empty. Let $b$ be the least element of B. Since $b<y$ it's also the least element of A
+\section{Def}
+Let $(X,\leq)$ be a well ordered set. $S\subseteq X,$ If $\forall s\in S,x\in X\quad x<s$ initial $x\in S(X_{<s}\subseteq S)$, then we say that S is an initial segment of X
+
+If S is a initial segment such that $S=X$ then we sat that S is a proper initial segment.
+\section{Example}$\forall x\in X\quad X_{<x}=\{s\in X\mid s<x\}$ Then $X_{<x}$ is a proper initial segment of X.
+\section{Prop.}Let $(X,\leq)$ be a well ordered set , If $(S_i)_{i\in I}$ is a family of initial segment of X, then $\bigcup\limits_{i\in I}S_i$ is an initial segment of X
+\section{Proof}
+$\forall s\in \bigcup\limits_{i\in I}S_i,\exists i\in I$ such that $s\in S_i,i\in I$ Therefore $X_{<s}\subseteq S_i\subseteq\bigcup\limits_{i\in I}S_i$
+\section{Prop.}
+Let $(X<\leq)$ be a well erodered set.
+\begin{itemize}
+    \item[(1)] Let S be a proper initial segment of X, $x= \min(X\backslash S)$ Then $S=X_{<x}$
+    \item[(2)] $\begin{aligned}
+        &X\rightarrow\wp(X)\\ &x\mapsto X_{<x}
+    \end{aligned}$
+    \item[(3)] The set of all initial segments of X forms a well ordered subset of $(\wp(x),\subseteq)$
+\end{itemize}
+\section{Proof}
+\begin{itemize}
+    \item [(1)] $\forall s\in S$ if $x\leq s$ then $x\in S$ contradiction.Hence $s<x$, This shows $S\subseteq X_{<x}$ Conversely , if $t\in X, t\not\in X\backslash S$ Hence $t\in S.$ Hence $X_{<x}\subseteq S$
+    \item [(2)]Let $x,y\in X,x<y$ By definition $X_{<x}\subseteq X_{<y}$ Moreover $x\in X_{<y}\backslash X_{<x}$ So $X_{<x}\subsetneqq X_{<y}$
+    \item [(3)]Let $\mathcal{F}\subseteq\wp(X)$ be a set of initial segments. $\mathcal{F}\not=\varnothing$. Then there exists $A\subseteq X$ such that $\mathcal{F}\backslash \{x\}=\{X_{<x}\mid x\in A\}$ If $A=\varnothing$ then $\mathcal{F}=\{X\}$, and $\{X\}$is the least element of $\mathcal{F}$ . Otherwise $A\not=\varnothing$ and A has a least element a. Then by(2) $X_<a$ is the least element of $\mathcal{F}$
+\end{itemize} 
+\section{Lemma}
+Let $(X,\leq)$ be a well ordered set, $f:X\rightarrow X$ be a strictly increasing mapping. Then $\forall x\in X, x\leq f(x)$
+\subsection{Proof}
+Let $A=\{x\in X\mid f(x)<x\}$ If $A\not=\varnothing$, let a be the least element of A. By definition $f(a)<a$. Hence $f(f(a))<f(a)$ since $f$ is strictly increasing . This shows $f(a)\in A$. But a is the least element of A, $f(a)<a$ cannot hold: contradiction.
+\section{Prop}
+Let $(X,\leq)$ be a well ordered set, S and T be two initial segment of X . If $f:S\rightarrow T$ is a bijection that's strictly increasing , then $S=T,f=Id_S$
+\subsection{Proof}
+We may assume $T\subseteq S$.Let $l:T\rightarrow S$ be the induction mapping and $g=l\circ f: S\rightarrow S$. Since $g$ is strictly increasing , by the lemma ,$ \forall s\in S,s\leq g(s)=f(s)\in T$. Since T is an initial segment, $s\in T.$ Hence $S=T$ \\Apply the lemma to $f^{-1}$ we get $\forall s\in S, s\leq f^{-1}(s)$ Hence $f(s)\leq s$ Therefore $f(s)=s$
 \end{document}
