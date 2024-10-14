@@ -820,7 +820,7 @@ By the provided proposition, $\pi $ is a morphism of groups. Moreover $\forall x
 \section{Def}
 Let A be a unitary ring . We call two-sided ideal any subgroup I of $(A,+)$ that satisfies : $\forall x\in I,a\in A\quad \{ax,xa\}\subseteq I$() (I is a left and right sub-K-module of A)
 \section{Theorem}
-Let A be a unitary ring and I be a two sided ideal of A . The mapping $$(A/I)\times(A/I)\rightarrow A/I$$$$([a],[b])\mapsto[ab]$$ si well defined. Moreover , $A/I$ becomes a unitary ring under the addition and this composition law, and the projection mapping $$A\stackrel{\pi}{\longrightarrow} A/I$$ is a morphism of unitary ring (if is a morphism of additive groups and multiplicative monoids, namely $\pi(a+b)=\pi(a)+\pi(b), \pi(ab)=\pi(a)\pi(b),\pi(1)=1)$
+Let A be a unitary ring and I be a two sided ideal of A . The mapping $$(A/I)\times(A/I)\rightarrow A/I$$$$([a],[b])\mapsto[ab]$$ is well defined. Moreover , $A/I$ becomes a unitary ring under the addition and this composition law, and the projection mapping $$A\stackrel{\pi}{\longrightarrow} A/I$$ is a morphism of unitary ring (if is a morphism of additive groups and multiplicative monoids, namely $\pi(a+b)=\pi(a)+\pi(b), \pi(ab)=\pi(a)\pi(b),\pi(1)=1)$
 \subsection{Proof}
 If $a'\thicksim a,b'\thicksim b$ that means $a'-a\in I,b'-b\in I$ then $a'b'-ab=a'b'-a'b+a'b-ab=a'(b'-b)+(a'-a)b$. For $(a'-a),(b'-b)\in I$, then $a'b'-ab\in I$ Therefore $a'b'\thicksim ab$
 \subsection{Reside Class}
@@ -924,7 +924,7 @@ Let $(X,\leq)$ be a partially ordered set . If $\forall A\subseteq X$ that is to
 Let $(X,\leq)$ be a well ordered set , $y\not\in X. $ We extends $\leq$ to $X\cup\{y\}$, such that $\forall x\in X,x<y.$ Then $(X\cup\{y\},\leq)$ is well ordered.
 \section{Proof}
 Let $A\subseteq X\cup\{y\},A\not=\varnothing$. If $A=\{y\}$ then $Y$ is the least element of A. If $A\not=\{y\}$ then $B=A\backslash\{y\}$ is non-empty. Let $b$ be the least element of B. Since $b<y$ it's also the least element of A
-\section{Def}
+\section{Def: Initial Segment}
 Let $(X,\leq)$ be a well ordered set. $S\subseteq X,$ If $\forall s\in S,x\in X\quad x<s$ initial $x\in S(X_{<s}\subseteq S)$, then we say that S is an initial segment of X
 
 If S is a initial segment such that $S=X$ then we sat that S is a proper initial segment.
@@ -955,4 +955,69 @@ Let $A=\{x\in X\mid f(x)<x\}$ If $A\not=\varnothing$, let a be the least element
 Let $(X,\leq)$ be a well ordered set, S and T be two initial segment of X . If $f:S\rightarrow T$ is a bijection that's strictly increasing , then $S=T,f=Id_S$
 \subsection{Proof}
 We may assume $T\subseteq S$.Let $l:T\rightarrow S$ be the induction mapping and $g=l\circ f: S\rightarrow S$. Since $g$ is strictly increasing , by the lemma ,$ \forall s\in S,s\leq g(s)=f(s)\in T$. Since T is an initial segment, $s\in T.$ Hence $S=T$ \\Apply the lemma to $f^{-1}$ we get $\forall s\in S, s\leq f^{-1}(s)$ Hence $f(s)\leq s$ Therefore $f(s)=s$
+\section{Def}
+Let $(X,\leq)$ and $(Y,\leq)$ be partially ordered sets. If  $\exists f: X\rightarrow Y $ that's increasing and bijective, we say that $(X,\leq)$ and $(Y,\leq)$ are isomorphic
+\section{Def}
+Let $(X,\leq)$ and $(Y,\leq)$ be well ordered sets. If $(X,\leq)$ is isomorphic to an initial segment of Y. We note $X\preceq Y$ or $Y\succeq X$. If X is isomorphic to Y, we note $X\thicksim Y$. If $X\preceq Y$ but $X\not\sim Y$, we note $X\prec Y$ or $Y\prec X$
+\section{Prop.}
+Let X and Y be well ordered sets. Among the following condition, one and only one holds.$$X\prec Y\quad X\sim Y\quad X\succ Y$$
+\subsection{Proof}
+We construct a correspondence $f$ from X to Y, such that $(x,y)\in \Gamma_f$, iff $X_{<x}\sim Y_{<y}$\\By the last proposition of Oct. 11, $f$ is a function.\begin{itemize}
+    \item If $a,b\in Dom(f)^2,a<b$,then $X_{<a}\subsetneqq X_{<b}$\\
+By definition, $Y_{<f(b)}\sim X_{<b}\quad Y_{<f(a)}\sim X_{<a}$\\
+Hence $Y_{<f(a)}$ is isomorphic to a proper initial segment of $Y{<f(b)}$. Therefore $Y_{f(a)}$ is a proper initial segment of $Y_<{f(B)}$. We then get $f(a)<f(b)$. Thus $f$ is strictly increasing.
+    \item Let $a\in Dom(f)$ Let $x\in X,x<a$ Then $X_{<x}$ is a initial segment of $X_{<a}\sim Y_{<f(a)}$ Hence $\exists y\in Y\quad X_{<x}\sim Y_{<y}$ This shows that $x\in Dom(f)$. Hence $Dom(f)$ is an initial segment of X. Applying this to $f^{-1}$, we get : $Im(f)=Dom(f)$ is an initial segment of Y
+    \item Either $Dom (f)=X$ or $Im(f)=Y$.\\ Assume that $x\in X\backslash Dom (f),y\in Y\backslash Im(f)$ are respectively the least elements of $X\backslash Dom (f)$ and $Y\backslash Im(f)$. Then we get $Dom(f)=X_{<x},Im(f)=Y_{<y}$. \\We obtain $X_{<x}\sim Y_{<y},(x,y)\in \Gamma_{f}$. Contradiction
+    \item\indent \begin{itemize}
+    \item [Case 1] $Dom(f)=X,Im(f)\subsetneqq Y\quad X\prec Y$
+    \item [Case 2]$Dom(f)\subsetneqq X, Im(f)=Y\quad X\succ Y$
+    \item [Case 3]$Dom(f)=X,Im(f)=Y\quad X\sim Y$
+\end{itemize}
+\end{itemize}
+\section{Lemma}
+Let $(X,\leq)$ be a partially ordered set . $\mathfrak{S} \subseteq\wp(X)$. Assume that\begin{itemize}
+    \item $\forall A\in \mathfrak{S} , (A,\leq) $ is a well-ordered set .
+    \item $\forall (A,B)\in \mathfrak{S} ^2$, either A is an initial segment of B, or B is a initial segment of A.
+\end{itemize}
+Let $Y=\bigcup\limits_{A\in \mathfrak{S} }A.$ Then $(Y,\leq)$ is a well ordered set, and ,$\forall A\in \mathfrak{S} ,A$ is an initial segment of Y.
+\subsection{Proof}
+\begin{itemize}
+    \item Let $A\in \mathfrak{S} ,x\in A,y\in Y,y<x$.Since $Y=\bigcup\limits_{B\in \mathfrak{S} }B$,$\exists B\in \mathfrak{S} $, such that $y\in B$. If $y\not\in A$ then $B\not\subseteq A$. Hence A is an initial segment of B. Hence $y\in A$. Contradiction
+    \item Let $Z\subseteq Y,Z\not=\varnothing$. Then $\exists A\in \mathfrak{S} , A\cap Z\not=\mathfrak{S} $. Let m be the least element of $A\cap Z.$ Let $z\in Z,B\in \mathfrak{S} $, such that $z\in B$. If $z\in A$, then $m\leq z$. If $z\not\in A$ , then A is an initial segment of B.
+\end{itemize}
+Since B is well ordered , if $m\not\leq z$ then $z<m$. Since $m\in A$, we het $z\in A$. Contradiction.
+
+Therefore, m is the least element of Z.
+\section{Theorem(Zorn's lemma)}
+Let $(X,\leq)$ be a partially ordered set. Suppose that any well-ordered subset of X has an upper bound on X, the X has a maximal element(a maximal element m of $\{x\mid x> m\}=\varnothing)$
+\subsection{Proof}
+Suppose that X doesn't have any maximal element. $\forall A\in \omega.\exists f(A) $ such that $\forall a\in A,a<f(A)$\\Let $\omega=\{\text{well ordered subset of X}\}$. (guaranteed by axiom of choice) Let $f:\omega\rightarrow X$ such that $f(A)$ is an upper bound of $A\in \omega$. If $A\in \omega$ satisfies $\forall a\in A a=f(A_{<a})$ , we say that $A$ is a $f$-set\\
+Let $\mathfrak{S} =\{f-sets\}$ Note that $\varnothing\in \mathfrak{S} $ If $A\in \mathfrak{S} $, $A\cap\{f(A)\}\in \mathfrak{S} $
+
+In fact, if $a\in A$, then $A_{<a}=(A\cup\{f(A)\})_{<a}$. If $a=f(A)\not\in A$, then $(A\cup\{f(A)\})_{<a}=A$
+
+Let A and B be elements of $\mathfrak{S}$. Let I be the union of all common initial segments of A and B. This is also a common initial segment of A and B.\\If $I\not=A$ and $I\not=B$, then $\exists (a,b)\in A\times B, I=A_{<a}=B_{<b}\quad f(I)=f(A_{<a})=f(B_{<b})$. Hence $a=b$. Then $I\cup\{a\}$ is also a common initial segment of A and B, contradiction.
+
+By the lemma , $Y:=\bigcup\limits_{A\in\mathfrak{S}}A$ is well-ordered , and any $A\in \mathfrak{S}$ is an initial segment of Y.
+
+$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in A$. Since A is an initial segment of Y. $A_{<a}=Y_{<a}$. Hence $f(Y_{<a})=f(A_{<a})=a$. Hence $y\in \mathfrak{S}$. Thus Y is the greastest element of $(\mathfrak{S},\subseteq)$.
+However, $Y\cup\{f(Y)\}\in \mathfrak{S}$. Hence $f(y)\in Y$.
+
+If $f(y)$ is not a maximal element of X, $\exists x\in X,f(y)<x$
+\chapter{Filter}
+\section{Def}
+Let Xbe a set. We call filter if X any $\mathcal{F}\subseteq \wp(x)$ that satisfies:
+\begin{itemize}
+    \item [(1)]$\mathcal{F}\not=\varnothing,\varnothing\not\in \mathcal{F}$
+    \item [(2)]$\forall A\in\mathcal{F},\forall B\in \wp(X)$, if $A\subseteq B$, then $B\in \mathcal{F}$
+    \item [(3)]$\forall (A,B)\in \mathcal{F}\times\mathcal{F},A\cap B\in \mathcal{F}$
+\end{itemize}
+\subsection{Example}
+\begin{itemize}
+    \item [(1)]Let $Y\subseteq X, Y\not=\varnothing.$ $\mathcal{F}_Y:=\{A\in \wp(X)\mid Y\subseteq A\}$ is a filter, called the principal filter of Y.
+    \item [(2)]Let X be an infinite set.$$\mathcal{F}_{F_r}(X):=\{A\in \wp(X)\mid X\backslash A\text{is infinite}\}$$ is a filter called the Frechet filter of X.
+    \item [(3)]Let $(X,\mathcal{J} )$ be a topological space, $x\in X$ We call neighborhood of $x$ any $V\in \wp(X)$ such that $\exists u\in\mathcal{J} ,$ satisfying $x\in U\subseteq V$. Then $\mathcal{V}=\{\text{neighborhoods of x}\}$ is a filter. 
+\end{itemize}
+\section{}
+
 \end{document}
