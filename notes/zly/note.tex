@@ -495,18 +495,38 @@ If a series $\sum\limits_{n\in I}x_n$ in $[-\infty,+\infty]$ tends to some limit
 \subsection{Theorem: Bolzano-Weierstrass}
 Let $(x_n)_{n\in I}$ be a sequence in $[-\infty,+\infty]$ There exists a subsequence of $(x_n)_{n\in I}$ that tends to $\limsup\limits_{n\in I,n\rightarrow +\infty}x_n$ There exists a subsequence of $(x_n)_{n\in I}$ that rends to $\liminf\limits_{n\in I,n\rightarrow +\infty}x_n$
 \subsection{Proof}
-Let $J=\{n\in I \mid \forall m\in I,\text{if }\ m\leq n\ \text{then}\ x_m\leq x_n\}$\\
-\indent If $J$ is infinite, the sequence $(x_N)_{n\in J}$ is decreasing so it tends to $\inf\limits_{n\in J}x_n$\\
-\indent $\forall n\in J$ by definition $x_n=\sup\limits_{i\in I,i\geq n}x_i$ so $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=\inf\limits_{n\in J}\sup\limits_{i\in I,i\geq n}x_i=\inf\limits_{n\in J}x_n=\lim\limits_{n\in J,n\rightarrow+\infty}x_n$\\
-\indent Assume that $J$ is finite. Let $n_0\in I$ such that $\forall n\in J,n<n_0$.Denote by $l=\sup\limits_{n\in I,n\geq n_0}$\\\indent 
-Let $N\in\mathbb{N}$ such that $N\geq n_0$. By definition $\sup\limits_{i\in  I,i\geq n_0}x_i\leq l$. If the strict inequality $\sup\limits_{i\in I,i\geq N}x_i<l$ holds, then $\sup\limits_{i\in I,i\geq N}x_i$ is NOT an upper bound of $\{x_n\mid n\in I,n_0\leq n<N\}$\\\indent 
-So there exists $n\in I$ such that $n_0\leq n<N$ such that $x_n>\sup\limits_{i\in I,i\geq N}x_i$ We may also assume that $n $ is largest among elements of {$I\cap[n_0,N[$} that satisfies this inequality. Then $\forall m\in I$ if $m\geq n$ then $x_m\leq x_n$ Thus $n\in J$ that contradicts the maximality of $n_0$ Therefore $l=\sup\limits_{i\in I,i\geq N}x_i$, which leads to $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=l$\\\indent 
-Moreover, if $m\in I,m\geq n_0$ then $m\not\in J$,so $x_m<l$(since otherwise $x_m=\sup\limits_{i\in I,i\geq m}x_i$ and hence $m\in J$)Hence,$\forall\ finite\ subset\ I'\ of\{m\in I\mid m\geq n_0\}$\\\indent 
-$\max\limits_{i\in I}x_i<l$ and hence $\exists n\in I$,such that $n>\max I'$,and $\max\limits_{i\in I'}x_i<x_n$\\
-We construct by induction an increasing sequence $(n_j)_{j\in \mathbb{N} }$ in $I$\\\indent 
-Let $n_0$ be as above. Let $f:\mathbb{N} \rightarrow I_{\geq n_0}$ be a surjective mapping.\\\indent 
-If $n_j$ is chosen, we choose $n_{j+1}\in I$ such that $n_{j+1}>n_j, x_{n_{j+1}}>\max\{x_{f(j)},x_{n_j}\}$ Hence the sequence $(x_{n_j})_{j\in \mathbb{N} }$ is increasing, and $\sup\limits_{j\in \mathbb{N} }x_{n_j}\leq\sup\limits_{j\in\mathbb{N} }x_{f(j)}=\sup\limits_{n\in I,n\geq n_0}x_n=l$\\\indent 
-$l=\sup\limits_{n\in I,n\geq n_0}$\\\indent 
+Let $J=\{n\in I \mid \forall m\in I,\text{if}\ m\leq n\ \text{then}\ x_m\leq x_n\}$
+
+\indent If $J$ is infinite, the sequence $(x_N)_{n\in J}$ is decreasing so it tends to $\inf\limits_{n\in J}x_n$
+
+\indent $\forall n\in J$ by definition $x_n=\sup\limits_{i\in I,i\geq n}x_i$ so $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=\inf\limits_{n\in J}\sup\limits_{i\in I,i\geq n}x_i=\inf\limits_{n\in J}x_n=\lim\limits_{n\in J,n\rightarrow+\infty}x_n$
+
+\indent Assume that $J$ is finite. Let $n_0\in I$ such that $\forall n\in J,n<n_0$.Denote by $l=\sup\limits_{n\in I,n\geq n_0}$
+
+\indent Let $N\in\mathbb{N}$ such that $N\geq n_0$. By definition $\sup\limits_{i\in  I,i\geq n_0}x_i\leq l$. If the strict inequality $\sup\limits_{i\in I,i\geq N}x_i<l$ holds, then $\sup\limits_{i\in I,i\geq N}x_i$ is NOT an upper bound of $\{x_n\mid n\in I,n_0\leq n<N\}$
+
+\indent So there exists $n\in I$ such that $n_0\leq n<N$ such that $x_n>\sup\limits_{i\in I,i\geq N}x_i$ We may also assume that $n $ is largest among elements of {$I\cap[n_0,N[$} that satisfies this inequality.
+
+Then $\forall m\in I$ if $m\geq n$ then $x_m\leq x_n$ Thus $n\in J$ that contradicts the maximality of $n_0$
+
+Therefore $$l=\sup\limits_{i\in I,i\geq N}x_i$$, which leads to $$\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=l$$
+
+Moreover, if $m\in I,m\geq n_0$ then $m\not\in J$,so $x_m<l$(since otherwise $x_m=\sup\limits_{i\in I,i\geq m}x_i$ and hence $m\in J$)Hence,$\forall\ finite\ subset\ I'\ of\{m\in I\mid m\geq n_0\}$
+
+$\max\limits_{i\in I}x_i<l$ and hence $\exists n\in I$,such that $n>\max I'$,and $\max\limits_{i\in I'}x_i<x_n$
+
+We construct by induction an increasing sequence $(n_j)_{j\in \mathbb{N} }$ in $I$
+
+Let $n_0$ be as above. Let $f:\mathbb{N} \rightarrow I_{\geq n_0}$ be a surjective mapping.
+
+If $n_j$ is chosen, we choose $n_{j+1}\in I$ such that $$n_{j+1}>n_j, x_{n_{j+1}}>\max\{x_{f(j)},x_{n_j}\}$$
+
+Hence the sequence $(x_{n_j})_{j\in \mathbb{N} }$ is increasing
+
+And $$\sup\limits_{j\in \mathbb{N} }x_{n_j}\leq\sup\limits_{j\in\mathbb{N} }x_{f(j)}=\sup\limits_{n\in I,n\geq n_0}x_n=l$$
+
+$$l=\sup\limits_{n\in I,n\geq n_0}$$
+ 
 So $(x_{n_j})_{j\in\mathbb{N} }$ tends to $l$
 \chapter{Cauchy sequence}
 \section{Def}
@@ -967,7 +987,7 @@ We construct a correspondence $f$ from X to Y, such that $(x,y)\in \Gamma_f$, if
 By definition, $Y_{<f(b)}\sim X_{<b}\quad Y_{<f(a)}\sim X_{<a}$\\
 Hence $Y_{<f(a)}$ is isomorphic to a proper initial segment of $Y{<f(b)}$. Therefore $Y_{f(a)}$ is a proper initial segment of $Y_<{f(B)}$. We then get $f(a)<f(b)$. Thus $f$ is strictly increasing.
     \item Let $a\in Dom(f)$ Let $x\in X,x<a$ Then $X_{<x}$ is a initial segment of $X_{<a}\sim Y_{<f(a)}$ Hence $\exists y\in Y\quad X_{<x}\sim Y_{<y}$ This shows that $x\in Dom(f)$. Hence $Dom(f)$ is an initial segment of X. Applying this to $f^{-1}$, we get : $Im(f)=Dom(f)$ is an initial segment of Y
-    \item Either $Dom (f)=X$ or $Im(f)=Y$.\\ Assume that $x\in X\backslash Dom (f),y\in Y\backslash Im(f)$ are respectively the least elements of $X\backslash Dom (f)$ and $Y\backslash Im(f)$. Then we get $Dom(f)=X_{<x},Im(f)=Y_{<y}$. \\We obtain $X_{<x}\sim Y_{<y},(x,y)\in \Gamma_{f}$. Contradiction
+    \item Either $Dom (f)=X$ or $Im(f)=Y$.\\ Assume that $x\in X\backslash Dom (f),y\in Y\backslash Im(f)$ are respectively the least elements of $X\backslash Dom (f)$ and $Y\backslash Im(f)$. \\Then we get $Dom(f)=X_{<x},Im(f)=Y_{<y}$. \\We obtain $X_{<x}\sim Y_{<y},(x,y)\in \Gamma_{f}$. Contradiction
     \item\indent \begin{itemize}
     \item [Case 1] $Dom(f)=X,Im(f)\subsetneqq Y\quad X\prec Y$
     \item [Case 2]$Dom(f)\subsetneqq X, Im(f)=Y\quad X\succ Y$
@@ -1000,7 +1020,7 @@ Let A and B be elements of $\mathfrak{S}$. Let I be the union of all common init
 
 By the lemma , $Y:=\bigcup\limits_{A\in\mathfrak{S}}A$ is well-ordered , and any $A\in \mathfrak{S}$ is an initial segment of Y.
 
-$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in A$. Since A is an initial segment of Y. $A_{<a}=Y_{<a}$. Hence $f(Y_{<a})=f(A_{<a})=a$. Hence $y\in \mathfrak{S}$. Thus Y is the greastest element of $(\mathfrak{S},\subseteq)$.
+$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in A$. Since A is an initial segment of Y. $A_{<a}=Y_{<a}$. Hence $f(Y_{<a})=f(A_{<a})=a$. Hence $y\in \mathfrak{S}$. Thus Y is the greatest element of $(\mathfrak{S},\subseteq)$.
 However, $Y\cup\{f(Y)\}\in \mathfrak{S}$. Hence $f(y)\in Y$.
 
 If $f(y)$ is not a maximal element of X, $\exists x\in X,f(y)<x$
@@ -1015,9 +1035,100 @@ Let Xbe a set. We call filter if X any $\mathcal{F}\subseteq \wp(x)$ that satisf
 \subsection{Example}
 \begin{itemize}
     \item [(1)]Let $Y\subseteq X, Y\not=\varnothing.$ $\mathcal{F}_Y:=\{A\in \wp(X)\mid Y\subseteq A\}$ is a filter, called the principal filter of Y.
-    \item [(2)]Let X be an infinite set.$$\mathcal{F}_{F_r}(X):=\{A\in \wp(X)\mid X\backslash A\text{is infinite}\}$$ is a filter called the Frechet filter of X.
+    \item [(2)]Let X be an infinite set.$$\mathcal{F}_{Fr}(X):=\{A\in \wp(X)\mid X\backslash A\text{is infinite}\}$$ is a filter called the Fréchet filter of X.
     \item [(3)]Let $(X,\mathcal{J} )$ be a topological space, $x\in X$ We call neighborhood of $x$ any $V\in \wp(X)$ such that $\exists u\in\mathcal{J} ,$ satisfying $x\in U\subseteq V$. Then $\mathcal{V}=\{\text{neighborhoods of x}\}$ is a filter. 
 \end{itemize}
-\section{}
 
+\section{Def: Filter Basis}
+Let X ba a set. $\mathscr{B}\subseteq\wp(X).$ If $\varnothing\not\in\mathscr{B}$ and $\forall (B_1,b_2)\in\mathscr{B}^2,\exists B\in\mathscr{B}$, such that $B\subseteq B_1\cap B_2$. We say that $\mathscr{B}$ is a filter basis.
+\subsection{Remark}
+If $\mathscr{B}$ is a filter basis, then $\mathcal{F}(\mathscr{B})=\{A\subseteq X\mid \exists B\in\mathscr{B}\quad B\subseteq A\}$ is a filter
+\subsection{Proof}
+$\varnothing\not\in \mathcal{F}(\mathscr{B}),\mathcal{F}(\mathscr{B})\not=\varnothing$ since $0\not=B\subseteq \mathcal{F}(\mathscr{B})$. If $A\in\mathcal{F}(\mathscr{B}),A'\in\wp(X)$such that $A\subseteq A'$, then $\exists B\in \mathscr{B}$ such that $B\subseteq A\subseteq A'$. Hence $A'\in\mathcal{F}(\mathscr{B})$ If $A_1,A_2\in\mathcal{F}(\mathscr{B})$, then $\exists(B_1,B_2)\in\mathscr{B}^2$ such that $B_1\subseteq A_1, B_2\subseteq A_2$. Since $\mathscr{B}$ is a filter basis, $\exists B\in\mathscr{B}$ such that $B\subseteq B_1\cap B_2\subseteq A_1\cap A_2$ Hence $A_1\cap A_2\in A_1\cap A_2\in \mathcal{F}(\mathscr{B})$
+\subsection{Example}
+\begin{itemize}
+    \item Let $Y\subseteq X, Y\not=\varnothing$ \\$\mathscr{B}=\{Y\}$ is a filter basis. $\mathcal{F}(\mathscr{B})=\mathcal{F}_Y=\{A\subseteq X\mid Y\subseteq A\}$
+    \item Let $(X,\mathcal{J})$ be a topological space $x\in X$. If $\mathscr{B}_x$ is a filter basis such that $\mathcal{F}(\mathscr{B_x})=\mathcal{V}_x=\{\text{neighborhood of }x\}$, then we say that $\mathscr{B}_x$ is a neighborhood basis of x
+\end{itemize}
+\section{Remark}
+Let $\mathscr{B}_x$ is a neighborhood basis of x iff\begin{itemize}
+    \item $\mathscr{B}_x\subseteq\mathcal{V}_x$
+    \item $\forall V\in \mathcal{V}_x\quad \exists U\in \mathscr{B}_x$ such that $U\subseteq V$
+    \item Let $(X,d)$ be a metric space , $x\in X$$\forall \epsilon>0$, Let $$B(x,\epsilon)=\{y\in X\mid d(x,y)<\epsilon\}$$$$\overline{B}(x,\epsilon)=\{y\in X\mid d(x,y)\leq\epsilon\}$$Then \begin{itemize}
+    \item $\{B(x,\epsilon)\mid \epsilon>0\}$ is a neighborhood basis of x
+    \item $\{\overline{B}(x,\frac{1}{n})\mid n\in \mathbb{N}_{\geq 1}\}$ is a neighborhood basis of x
+    \item $\{B(x,\epsilon)\mid \epsilon>0\}$ is a neighborhood basis of x
+    \item $\{\overline{B}(x,\frac{1}{n})\mid n\in \mathbb{N}_{\geq 1}\}$ is a neighborhood basis of x
+    \end{itemize}
+\end{itemize}
+\subsection{Example}$\mathcal{V}_x\cap\mathcal{J}$ is a neighborhood basis of x
+\section{Def}
+$V\in \wp(X)$ is called a neighborhood of $x$ if $\exists U|in \mathcal{J}$ such that $ x\in U\subseteq V$
+\section{Remark}
+Let $(X,\mathcal{J})$ be a topological space, $x\in X$ and $\mathscr{B}_x$ a neighborhood basis os x. Suppose that $\mathscr{B}$ is countable . We choose a surjective mapping $(B_n)_{n\in \mathbb{N} }$ from $\mathbb{N} $ to$\mathscr{B}_x$. For any $n\in \mathbb{N} $, let $A_n=B_0\cap B_1\cap...\cap B_n\in\mathcal{V}_x$ The sequence $(A_n)_{n\in \mathbb{N} }$ is decreasing adn $\{A_n\mid n\in\mathbb{N} \}$ is a neighborhood basis of x.
+\section{Extra Episode}$\wp(\mathbb{N} )$is NOT countable
+
+Suppose that $f:\wp(\mathbb{N} )\rightarrow\mathbb{N} $ injective. Then $\exists g:\mathbb{N} \rightarrow\wp(\mathbb{N} )$ surjective. Taking $A=\{n\in \mathbb{N} \mid n\not\in g(n)\}$. Since $g$ is surjective, $\exists a\in \mathbb{N} $ such that $A=g(a)$. \begin{itemize}
+    \item[If] $a\in A$, then $a\in g(a)$, hence $a\not\in A$
+    \item[If] $a\not\in A$, then $a\in g(a)=A$
+\end{itemize}
+Contradiction
+\section{Prop.}
+Let Y and R be sets, $g:Y\rightarrow E$ be a mapping ,\begin{itemize}
+    \item If $\mathcal{F}$ is a filter of Y, then $$G_*(\mathcal{F}):=\{A\in\wp(E)\mid g^{-1}(A)\in\mathcal{F}\}$$ is a filter on E
+    \item If $\mathscr{B}$ is a filter basis of Y, then $$g(\mathscr{B}):=\{g(B)\mid B\in \mathscr{B}\}$$is a filter of E, adn $\mathcal{F}(g(\mathscr{B}))=g_*(\mathcal{F}(\mathscr{B}))$ 
+\end{itemize}
+\subsection{Proof}
+\begin{itemize}
+    \item [(1)]$E\in g_x(\mathcal{F})$ since $g^{-1}(E)=Y$\\$\varnothing \not\in g_x(\mathcal{F})$ since $g^{-1}(\varnothing)=\varnothing$
+    \begin{itemize}
+    \item [If] $A\in g_x(\mathcal{F})$ and $A'\supseteq A$, then $g^{-1}(A')\supseteq g^{-1}(A)\in\mathcal{J}$, so $g^{-1}(A')\in\mathcal{J},$ Hence $A'\in g_x(\mathcal{F})$
+    \item [If] $A_1,A_2\in g_x(\mathcal{F})$. Then $g^{-1}(A_1)\in \mathcal{F},g^{-1}(A_2)\in \mathcal{F}$ Hence $g^{-1}(A_1\cap A_2)=g^{-1}(A_1)\cap g^{-1}(A_2)\in \mathcal{F}$. So $A_1\cap A_2\in g_x(\mathcal{F})$.
+    \end{itemize}
+    \item [(2)]Since $g$ is a mapping , and $\varnothing \not\in \mathscr{B}$, we get $\varnothing \not\in g(\mathscr{B})$,since $\mathscr{B}\not=\varnothing, g(\mathscr{B})\not=\varnothing$. 
+    
+\end{itemize}Let $B_1,B_2\in\mathscr{B}$, there exists $C\in \mathscr{B}$ such that $C\subseteq B_1\cap B_2$. Hence $g(C)\subseteq g(B_1)\cap g(B_2)$, namely $g(\mathscr{B})$ is a filter basis.
+\chapter{Limit point and accumulation point}
+We fix a topological space $(X,\mathcal{J})$
+\section{Def}
+Let $\mathcal{F}$ be a filter of X and $x\in X$\begin{itemize}
+    \item If $\mathcal{V}_x\subseteq \mathcal{F}$ then we say that $x$ is an limit point of $\mathcal{F}$
+    \item If $\forall (A,V)\in\mathcal{F}\times \mathcal{V}_x,A\cap V\not=\varnothing$, we say that $x$ is an accumulation point of $\mathcal{F}$
+\end{itemize} 
+So any limit point of $\mathcal{F}$ is necessarily a accumulation point of $mathcal{F}$ 
+\section{Prop}
+Let $\mathscr{B}$ be a filter basis of X, $x\in X,\mathscr{B}_x$ a neighborhood basis of x. Then $x$ is an accumulation point of $\mathcal{F}(\mathscr{B})$ iff $\forall (B,U)\in \mathscr{B}\times \mathscr{B}_x, B\cap U\not =\varnothing$
+\subsection{Proof}
+\subsubsection{Necessity}
+Since $\mathscr{B}\subseteq \mathcal{F}(\mathscr{B}),\mathscr{B}\subseteq \mathcal{V}_x$, the necessity is true.
+\subsubsection{Sufficiency}
+Let $(A,V)\in \mathcal{F}(\mathscr{B})\times\mathcal{V}_x$. There exist $B\in \mathscr{B},U\in \mathscr{B}_x$, such that $B\subseteq A, U\subseteq V$. Hence $\varnothing \not=B\cap U\subseteq A\cap V$
+\section{Def}
+Let $Y\subseteq X, Y\not=\varnothing$. W call accumulation point of Y any accumulation point of the principal filter $\mathcal{F}=\{A\subseteq X\mid Y\subseteq A\}$. We denote by $\overline{Y}=\{\text{accumulation points of }Y\}.$ Note that $x\in\overline{Y}$ iff $\forall U\in \mathscr{B}_x,Y\cap U\not=\varnothing$\\By convention $\overline{\varnothing}=\varnothing$
+\section{Prop}
+Let $Y\subseteq X$. Then $\overline{Y}$ is the smallest closed subset of X containing Y.
+\subsection{Proof}
+$\forall x\in X\backslash \overline{Y}$, then there exists $U_x=\mathcal{V}\cap \mathcal{J}$, such that $Y\cap U_x=\varnothing$. Moreover , $\forall y\in U_x, U_x\in \mathcal{V}_y\cap\mathcal{J}$. This shows that $\forall y\in U_x,y\not\in \overline{Y}$. Therefore $X\backslash\overline{Y}=\bigcap\limits_{x\in X\backslash\overline{Y}}U_x\in \mathcal{J}$
+
+Let $Z\subseteq X$ be a closed subset that contain Y. Suppose that $\exists y\in \overline{Y}\backslash Z.$ Then $U=X\backslash Z\in \mathcal{V}_y\cap\mathcal{J}$ and $U\cap Y\subseteq U\cap Z=\varnothing$. So $y\not\in \overline{ Y}$ contradiction. Hence $\overline{Y}\subseteq Z.$
+\chapter{Limit of mappings}
+\section{Def}
+Let $(E,\mathcal{J}_E)$ be a topological space . $f: Y\rightarrow E$ a mapping , and $\mathcal{F}$ eb a filter of Y. If $a\in E$ is a limit point of $F_*(\mathcal{F})$ namely , $\forall \text{neighborhood} V \text{of} a,f^{-1}(V)\in \mathcal{F}$, then we say that $a$ is a limit of the filter $\mathcal{F}$ by $f$
+\section{Remark}
+Let $\mathscr{B}_a$ be a neighborhood basis of $a$. Then $\mathcal{V}_a\subseteq f_x(\mathcal{F})$, iff $\mathscr{B}\subseteq f_* (\mathcal{F})$ Therefore , $a$ is a limit of $\mathcal{F}$ by $f$ iff $\forall V\in\mathscr{B}_a,f^{-1}(V)\in\mathcal{F}$
+\subsection{Example}
+Let $(E,\mathcal{J}_E)$ be a topological space. $I\subseteq\mathbb{N} $ be an infinite subset, $x=(x_n)_{n\in I}\in E^I$. If the Fréchet filter $\mathcal{F}_{Fr}(I)$ has a limit $a\in E$ by the mapping $x:I\rightarrow E$, we say that $(x_n)_{n\in I}$ converges to a ,denote as $$a=\lim\limits_{n\in I, n\rightarrow +\infty}x_n$$
+\section{Remark}
+$a=\lim\limits_{n\in I, n\rightarrow +\infty}x_n$ iff, $\forall U\in \mathscr{B}_a$(where $\mathscr{B}_a$ is a neighborhood basis of $a$), $\exists N\in \mathbb{N} $ such that $x_n\in U$ for any $n\in I_{\geq N}$
+
+Suppose that $\mathcal{J}_E$ is induced by a metric $d$.$\{B(a,\epsilon)\mid\epsilon>0\},\{\overline{B}(a,\epsilon)\mid\epsilon>0\}\{B(a,\frac{1}{n})\mid n\in \mathbb{N} _{\geq 1}\}\{\overline{B}(a,\frac{1}{n})\mid n\in \mathbb{N} _{\geq 1}\}$
+are all neighborhood basis of $a$ .There fore , the following are equivalent
+\begin{itemize}
+    \item $a=\lim\limits_{n\in i,n\rightarrow+\infty}x_n$
+    \item $\forall \epsilon>0, \exists N\in \mathbb{N} ,\forall n\in I_{\geq N},d(x_n,a)<\epsilon$
+    \item $\forall \epsilon>0, \exists N\in \mathbb{N} ,\forall n\in I_{\geq N},d(x_n,a)\leq\epsilon$
+    \item $\forall k\in \mathbb{N} _{\geq 1},\exists N\in \mathbb{N} ,\forall n\in I_{\geq N},d(x_n,a)<\frac{1}{n}$
+    \item $\forall k\in \mathbb{N} _{\geq 1},\exists N\in \mathbb{N} ,\forall n\in I_{\geq N},d(x_n,a)\leq\frac{1}{n}$
+\end{itemize}
+($x^{-1}(B(a,\epsilon))=\{n\in I\mid d(x_n,a)<\epsilon\}$? unknown position )
 \end{document}
