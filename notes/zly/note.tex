@@ -339,7 +339,7 @@ Let G and H be groups and $f:G\rightarrow H$ be a morphism of groups\begin{itemi
 $\ker(f)$ is called the kernel of $f$
 \subsection{Theorem}
 $f$ is injection iff $\ker(f)=\{e_G\}$
-\subsection{Proof}
+\subsection*{Proof}
 Let $e_G$ and $e_H$ be neutral element of G and H respectively
 \begin{itemize}
     \item [(1)]Let x and y be element of G\\$f(x)f(y)^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f).$ So $Im(f)$ is a subgroup of H
@@ -494,7 +494,7 @@ Let $(x_n)_{n\in I}$ be a sequence in $\mathbb{N} _{\geq0}$ Then the series $\su
 If a series $\sum\limits_{n\in I}x_n$ in $[-\infty,+\infty]$ tends to some limit, we use the expression $\sum\limits_{n\in I}x_n$ to denote the limit
 \subsection{Theorem: Bolzano-Weierstrass}
 Let $(x_n)_{n\in I}$ be a sequence in $[-\infty,+\infty]$ There exists a subsequence of $(x_n)_{n\in I}$ that tends to $\limsup\limits_{n\in I,n\rightarrow +\infty}x_n$ There exists a subsequence of $(x_n)_{n\in I}$ that rends to $\liminf\limits_{n\in I,n\rightarrow +\infty}x_n$
-\subsection{Proof}
+\subsection*{Proof}
 Let $J=\{n\in I \mid \forall m\in I,\text{if}\ m\leq n\ \text{then}\ x_m\leq x_n\}$
 
 \indent If $J$ is infinite, the sequence $(x_N)_{n\in J}$ is decreasing so it tends to $\inf\limits_{n\in J}x_n$
@@ -542,7 +542,7 @@ If $\inf\limits_{N\in \mathbb{N} }\sup\limits_{(n,m)\in I\times I,\ n,m\geq N}\l
 \section{Theorem: Completeness of real number}
 If $(x_n)_{n\in I}\in\mathbb{R} ^I$ is a Cauchy sequence,
 then it converges in $\mathbb{R}$
-\subsection{Proof}
+\subsection*{Proof}
 Since $(x_n)_{n\in I}$ is a Cauchy sequence, $\exists M\in \mathbb{R} _{>0}$ such that $-M\leq x_n\leq M\quad \forall x\in I$ So $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n\in \mathbb{R} $. By Bolzano-Weierstrass theorem. $\exists J\subseteq I$ infinite such that $(x_n)_{n\in I}$ converges to $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n\in\mathbb{R} $. Therefore $(x_n)_{n\in I}$ converges to the same limit.
 \section{Absolutely converge}
 We say that a series $\sum\limits_{n\in I}x_n\in \mathbb{R} $ converges absolutely if $\sum\limits_{n\in I}\lvert x_n\rvert<+\infty$
@@ -562,7 +562,7 @@ Let I and X be partially ordered sets and $f:I\rightarrow X$ be an increasing/de
 Let I be a totally ordered set, $f:I\rightarrow[-\infty,+\infty]$ and $g:I\rightarrow[-\infty,+\infty]$ be two mappings that are both increasing/decreasing.Then the following equalities holds,provided that the sum on the right hand side of the equality is wel defined.
 $$\sup\limits_{x\in I,\{f(x),g(x)\}\not =\{-\infty,+\infty\}}=(\sup\limits_{x\in I}f(x))+(\sup\limits_{y\in I}g(y))$$
 $$\inf\limits_{x\in I,\{f(x),g(x)\}\not =\{-\infty,+\infty\}}=(\inf\limits_{x\in I}f(x))+(\inf\limits_{y\in I}g(y))$$
-\subsection{Proof}
+\subsection*{Proof}
 We can assume $f$ and $g$ increasing. Let $a=\sup f(I)$,$b=\sup g(I)$
 
 Let $A=\{(x,y)\in I\times I\mid\{f(x),g(x)\}\not=\{-\infty,+\infty\}\}$
@@ -580,7 +580,7 @@ So $\exists z\in I$ such that $g(z)>-\infty$. We should have $y\leq z$ Hence $f(
 Let $I\subseteq\mathbb{N} $ be an infinite subset. Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ such that ,$\forall n\in I\quad \{x_n,y_n\}\not=\{-\infty,+\infty\}$. Then the following inequalities holds, provided that the sum on the right hand side is well defined.
 $$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\leq(\limsup\limits_{n\in I,n\rightarrow+\infty}x_n)+(\limsup\limits_{n\in I,n\rightarrow+\infty}y_n)$$
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\liminf\limits_{n\in I,n\rightarrow+\infty}x_n)+(\liminf\limits_{n\in I,n\rightarrow+\infty}y_n)$$
-\subsection{Proof}
+\subsection*{Proof}
 $\forall n\in\mathbb{N} ,$ let $A_N=\sup\limits_{n\in I,n\geq N}x_n\quad B_N=\sup\limits_{n\in I,n\geq N}y_n$. $(A_N)_{N\in \mathbb{N} }$ and $(B_N)_{N\in \mathbb{N} }$ are decreasing, and $\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=\inf\limits_{N\in \mathbb{N} }A_N\quad\limsup\limits_{n\in I,n\rightarrow+\infty}y_n=\inf\limits_{N\in \mathbb{N} }B_N$\\
 By theorem:
 $$\inf\limits_{N\in \mathbb{N} }A_N+\inf\limits_{N\in \mathbb{N} }B_N=\inf\limits_{N\in \mathbb{N},\{A_N,B_N\}\not=\{-\infty,+\infty\} }(A_N+B_N)$$
@@ -590,7 +590,7 @@ Therefore $$\inf\limits_{N\in \mathbb{N} }C_N\leq\inf\limits_{N\in \mathbb{N},\{
 Let $I\subseteq\mathbb{N} $ be an infinite subset. Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ such that ,$\forall n\in I\quad \{x_n,y_n\}\not=\{-\infty,+\infty\}$. Then the following inequalities holds, provided that the sum on the right hand side is well defined.
 $$\limsup\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\limsup\limits_{n\in I,n\rightarrow+\infty}x_n)+(\limsup\limits_{n\in I,n\rightarrow+\infty}y_n)$$
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}(x_n+y_n)\geq(\liminf\limits_{n\in I,n\rightarrow+\infty}x_n)+(\liminf\limits_{n\in I,n\rightarrow+\infty}y_n)$$
-\subsection{Proof}
+\subsection*{Proof}
 a tricky proof ?:
 $$\limsup\limits_{n\in I,n\rightarrow}x_n=\limsup\limits_{n\in I,n\rightarrow}(x_n+y_n-y_n)\leq\limsup\limits_{n\in I,n\rightarrow}(x_n+y_n)-\liminf\limits_{n\in I,n\rightarrow}y_n$$
 to have a true proof,only need to discuss conditions with $\infty$
@@ -603,7 +603,7 @@ Let $(x_n)_{n\in I}$ and $(y_n)_{n\in I}$ be elements of $[-\infty,+\infty]^I$ \
 Then:
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}\max\{x_n,y_n\}=\max\{\liminf\limits_{n\in I,n\rightarrow+\infty}x_n,\liminf\limits_{n\in I,n\rightarrow+\infty}y_n\}$$
 $$\liminf\limits_{n\in I,n\rightarrow+\infty}\min\{x_n,y_n\}=\min\{\liminf\limits_{n\in I,n\rightarrow+\infty}x_n,\liminf\limits_{n\in I,n\rightarrow+\infty}y_n\}$$
-\subsection{Proof}
+\subsection*{Proof}
 About the first inequality.Since $\max\{x_n,y_n\}\geq x_n\quad \max\{x_n,y_N\}\geq y_n$
 
 By the theorem of Bolzano-Weierstrass theorem, there exists an infinite subset $J$ of $I$ such that$$\lim\limits_{n\in J,n\rightarrow+\infty}=\limsup\limits_{n\in J,n\rightarrow+\infty}\max\{x_n,y_n\}$$
@@ -619,7 +619,7 @@ Let $(a_N)_{n\in I}\in \mathbb{R} ^I\ l\in\mathbb{R} $. The following statements
     \item $(a_N)_{n\in I}$ converges to $l$
     \item $\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=0$
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 $$\lvert a_n-l\rvert=\max\{a_n-l,l-a_n\}$$
 $$\limsup\limits_{n\in I,n\rightarrow+\infty}\lvert a_n-l\rvert=\max\{(\limsup\limits_{n\in I,n\rightarrow+\infty}a_n)-l,l-(\liminf\limits_{n\in I,n\rightarrow+\infty}a_n)\}$$
 $(1)\Rightarrow(2)$:
@@ -659,31 +659,31 @@ Let $(a_n)_{n\in I},(b_n)_{n\in I}$ be elements of $\mathbb{R}^I $ that converge
     \item $(a_nb_n)_{n\in I}$ converges to $ll'$
 \end{itemize}
 \section{Prop}Let $a\in\mathbb{R} $ THen $a^n=o(n!)\quad n\rightarrow+\infty$
-\subsection{Proof}Let $N\in \mathbb{N} $ such that $\lvert a\rvert<N$For $n\in\mathbb{N} $ such that $n\geq N$
+\subsection*{Proof}Let $N\in \mathbb{N} $ such that $\lvert a\rvert<N$For $n\in\mathbb{N} $ such that $n\geq N$
 $$0\leq\frac{\lvert a^n\rvert}{n!}=\frac{\lvert a^N\rvert}{N!}\cdot\\frac{\lvert a^n-N\rvert}{n!\over N!}\leq\frac{\lvert a^N\rvert}{N!}(\frac{\lvert a\rvert}{N})^n-N$$
 And $0<\frac{\lvert a\rvert}<1\Rightarrow \lim\limits_{n\rightarrow+\infty}(\frac{\lvert a\rvert}{N})^n=0$. Therefore:
 $$\lim\limits_{n\rightarrow+\infty}\frac{\lvert a^n\rvert}{n!}=0$$
 namely:$$a^n=o(n!)$$
 \section{Prop}$n!=o(n^n)\quad n\rightarrow+\infty$
-\subsection{Proof}
+\subsection*{Proof}
 Let $N\in\mathbb{N} _{\geq1}$\\$0\leq\frac{n!}{n^n}\leq\frac{1}{n}\Rightarrow \lim\limits_{n\rightarrow+\infty}\frac{n!}{n^n}=0$
 \section{Prop}
 Let $(a_n)_{n\in I},(b_n)_{n\in I}$ be the elements of $\mathbb{R}^I$ If the series $\sum\limits_{n\in I}b_n$ converges absolutely and if $on=O(b_n)\quad n\rightarrow+\infty$Then $\sum\limits_{n\in I}a_n$ converges absolutely
-\subsection{Proof}
+\subsection*{Proof}
 By definition $\sum\limits_{n\in I}\lvert b_N\rvert<+\infty $ If $\lvert a_N\rvert\leq M\lvert b_N\rvert$ fro $n\in I,n\geq N$ where $N\in \mathbb{N} $ Then $$\sum\limits_{n\in I}\lvert a_n\rvert=\sum\limits_{n\in I,n<N}\lvert a_n\rvert+\sum\limits_{n\in I,n\geq N}\lvert a_n\rvert\leq\sum\limits_{n\in I,n<N}\lvert a_n\rvert+\sum\limits_{n\in I,n\geq N}\lvert b_n\rvert<+\infty$$
 \section{Theorem: d'Alembert ratio test}
 Let $(a_N)_{n\in \mathbb{N} }\in(\mathbb{R} \backslash\{0\})^\mathbb{N} $\begin{itemize}
     \item If $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely
     \item If $\liminf\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert>1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ does not converge (diverges)
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 \subsubsection*{(1)}Let $\alpha\in\mathbb{R} $ such that $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha<1$, $alpha$ isn't a lower bound of $(\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert)_{N\in\mathbb{N} }$\\
 So $\exists N\in\mathbb{N} $ such that $\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha$Hence for $n\geq N\quad\lvert a_n\rvert\leq\alpha^{n-N}\lvert a_N\rvert$ since $$\frac{a_n}{a_N}=\frac{a_{N+1}}{a_N}
 \frac{a_{N+2}}{a_{N+1}}...\frac{a_n}{a_{n-1}}$$
 Therefore $a_n=O(\alpha^n)$ since $\sum\limits_{n\in\mathbb{N} }=\frac{1}{1-\alpha}<+\infty,\sum\limits_{n\in \mathbb{N} }a_n$ converge absolutely.
 \subsection{Lemma}
 If a series $\sum\limits_{n\in \mathbb{N} }a_n \in\mathbb{R} $ converges, then $\lim\limits_{n\rightarrow+\infty}a_n=0$
-\subsubsection{Proof}
+\subsubsection*{Proof}
 If $(\sum\limits_{i=0}^na_i)_{n\in \mathbb{N} }$ converges to some $l\in\mathbb{R} $ ,then $(\sum\limits_{i=0}^{n-1}a_i)_{n\in \mathbb{N},n\geq 1 }$ converges to $l$, too. Hence $\left(a_n=\left(\sum\limits_{i=0}^na_i\right)-\left(\sum\limits_{i=0}^{n-1}a_i\right)\right)_{n\in\mathbb{N} }$ converges to $l-l=0$
 \subsection{(2)}Let $\beta\in \mathbb{R} $ such that $1<\beta<\liminf\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert=\sup\limits_{N\in\mathbb{N} }\inf\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert$\\
 So there exists $N\in\mathbb{N} $ such that $\beta< \inf\limits_{n\geq N}\lvert \frac{a_{n+1}}{a_n}\rvert$\\
@@ -693,14 +693,14 @@ By the lemma: $\sum\limits_{n\in\mathbb{N} }a_n$ diverges.
 
 \section{Prop}
 Let $a\in \mathbb{R} ,a>1$ Then $n=o(a^n),n\rightarrow +\infty$
-\subsection{Proof}
+\subsection*{Proof}
 Let $\epsilon>0$ such that $a=(1+\epsilon)^2$
 $$a^n=(1+\epsilon)^{2n}=(1+\epsilon)^n(1+\epsilon)^n\geq(1+n\epsilon)(1+n\epsilon)\geq\epsilon^2n^2$$
 Hence
 $$n\leq\frac{a^n}{\epsilon^2n}=o(a^n)$$
 \subsection{Corollary}
 Let $a>1,t\in \mathbb{R} _{\geq 0}$ Then $n^t=o(a^n),n\rightarrow+\infty$
-\subsubsection{Proof}
+\subsubsection*{Proof}
 Let $d\in\mathbb{N} _{\geq1}$ such that $t\leq d$Then $n^{t-d}\leq 1$
 So
 $$n^t=n^dn^{t-d}=O(n^d)$$
@@ -708,14 +708,14 @@ Let $b=\sqrt[d]{a}>1$$$n^d=o((b^n)^d)=o(a^n)$$
 \indent Hence $n^t=o(a^n)$
 \subsection{Corollary}
 There exists $M\geq1$ such that $\forall x\in \mathbb{R} ,x\geq M,\ln(x)\leq x$
-\subsubsection{Proof}
+\subsubsection*{Proof}
 Let $a\in\mathbb{R} $ such that $1<a<e$
 \section{Theorem: Cauchy root test}
 Let $(a_n)_{n\in\mathbb{N} }$ be a sequence in $\mathbb{R} $. Let $\alpha=\limsup\limits_{n\rightarrow+\infty}\lvert a_n\rvert^{\frac{1}{n}}$\begin{itemize}
     \item If $\alpha<1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely.
     \item If $a>1$ then $\sum\limits_{n\in \mathbb{N} }a_n$ diverges
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 \subsubsection{(1)}
 Let $\beta\in \mathbb{R} ,\alpha<\beta<1$. There exists $N\in \mathbb{N} $ such that $\lvert a_N \rvert^{\frac{1}{n}}\leq\beta$ for $n\geq N$. That means  $\lvert a_n\rvert=O(\beta ^n)$ since $0<\beta<1,\sum\limits_{n\in \mathbb{N} }a_n$ converges absolutely.
 \subsubsection{(2)}
@@ -744,7 +744,7 @@ $$\lvert\cdot\rvert:\begin{aligned}
         &0 &if\ \alpha=0
     \end{aligned}\right.
 \end{aligned}$$ \indent is a absolute value on $\mathbb{Q} $
-\subsection{proof}
+\subsection*{Proof}
 \begin{itemize}
     \item [(1)] Obviously
     \item [(2)]If $\alpha=p^{ord_p(\alpha)}\frac{a}{b},\beta=p^{ord_p(\beta)}\frac{c}{d}\ \ p\nmid abcd$\\$\alpha\beta=p^{ord_p(\alpha)+ord_p(\beta)}\frac{ac}{bd}\quad p\nmid ac,p\nmid bd$
@@ -770,7 +770,7 @@ Let X be a set and $\thicksim$  be an equivalence relation on X
     \item[(2)] If $\alpha$ and $\beta$ are elements of $X/\thicksim $ such that $\alpha\not=\beta$ then $\alpha\cap\beta =\varnothing$
     \item[(3)] $X=\bigcup\limits_{\alpha\in X/\thicksim }\alpha$
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item[(1)] Let $z\in [y]$. Then $y\thicksim z$. Since $y\in [x]$ on has $x\thicksim y$\\Therefore ,$x\thicksim z$ namely $z\in [x]$. This proves $y[]\subseteq [x]$. Moreover ,since $x\thicksim y$ , one has $x\in [y]$. Hence $[x]\subseteq[y]$. Thus we obtain $[x]=[y]$
     \item[(2)] Suppose that $\alpha\cap\beta\not=\varnothing,y\in \alpha\cap\beta$\\By (1),$\alpha=[y],\beta=[y]$, Thus leads to a contradiction.
@@ -815,7 +815,7 @@ If G is commutative, any subgroup of G is normal
 \section{Theorem}
 Let G be a group and H be a normal subgroup of G. Then the mapping $$G/ H\times H/ G\rightarrow G/ H$$$$(xH,Hx)\mapsto(xy)H$$
 is well defined and determine a structure of group of quotient set $G/ H$ Moreover the projection mapping $$\pi:G\rightarrow G/ H$$$$ x\mapsto xH$$ is a morphism of groups.
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item If $xH=x'H,yH=y'H$ then $\exists h_1\in H,h_2\in H$ such that $x'=xh_1,y'=yh_2$ Hence $x'y'=xh_1yh_2=(xy)(y^{-1}h_1y)h_2$. For $y^{-1}h_1y,h_2\in H$ then $(x'y')H=(xy)H.$ So the mapping is well defined.
     \item $\forall (x,y,x)\in G^3\quad (xH)(yH\cdot zH)=xH((yx)H)=(x(yz)H=((xy)z)H=((xy)H)zH=(xH\cdot yH)zH)$
@@ -827,7 +827,7 @@ Let K be a unitary ring and E be a left K-module. We say that a subgroup F og $(
 \section{Prop}
 Let K be a unitary ring , E be a left K-module and F be a sub-K-module. Then the mapping $$K\times(E/ F)\rightarrow E / F$$$$(a,[x])\mapsto[ax]$$
 is well defined , and defines a left-K-module structure on $E/F$. Moreover, the projection mapping $pi:E\rightarrow E/F$ is a morphism of left-K-modules
-\subsection{Proof}
+\subsection*{Proof}
 Let x and x' be elements of E such that $[x]=[x']$, that meas: $x'-x\in F$ Hence $a(x'-x)=ax'-ax\in F$ So $[ax]=[ax']$\\
 Let us check that $E/F$ forms a left K-module.
 \begin{itemize}
@@ -841,7 +841,7 @@ By the provided proposition, $\pi $ is a morphism of groups. Moreover $\forall x
 Let A be a unitary ring . We call two-sided ideal any subgroup I of $(A,+)$ that satisfies : $\forall x\in I,a\in A\quad \{ax,xa\}\subseteq I$() (I is a left and right sub-K-module of A)
 \section{Theorem}
 Let A be a unitary ring and I be a two sided ideal of A . The mapping $$(A/I)\times(A/I)\rightarrow A/I$$$$([a],[b])\mapsto[ab]$$ is well defined. Moreover , $A/I$ becomes a unitary ring under the addition and this composition law, and the projection mapping $$A\stackrel{\pi}{\longrightarrow} A/I$$ is a morphism of unitary ring (if is a morphism of additive groups and multiplicative monoids, namely $\pi(a+b)=\pi(a)+\pi(b), \pi(ab)=\pi(a)\pi(b),\pi(1)=1)$
-\subsection{Proof}
+\subsection*{Proof}
 If $a'\thicksim a,b'\thicksim b$ that means $a'-a\in I,b'-b\in I$ then $a'b'-ab=a'b'-a'b+a'b-ab=a'(b'-b)+(a'-a)b$. For $(a'-a),(b'-b)\in I$, then $a'b'-ab\in I$ Therefore $a'b'\thicksim ab$
 \subsection{Reside Class}
 Let $d\in \mathbb{Z} $ and $d\mathbb{Z} =\{n\in \mathbb{Z} \mid\exists m\in\mathbb{Z} ,n=dm\}$ $d\mathbb{Z} $ is a two sided ideal of $\mathbb{Z} $ If $m\in \mathbb{Z} $, for any $a\in \mathbb{Z} \quad adm=dma\in d\mathbb{Z}$\\
@@ -858,7 +858,7 @@ Let $f:G\rightarrow H$ be a morphism of groups \begin{itemize}
     is well defined and is an isomorphism of groups
     \item[(4)] $f$ is injective iff $\ker(f)=\{1_G\}$
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item[(1)] Let $\alpha$ and $ \beta$ be elements of $Im(f)$. Let $(x,y )\in G^2$ such that $\alpha =f(x),\beta=f(y)$ Then $\alpha\beta^{-1}=f(x)f(y)^{-1}=f(xy^{-1})\in Im(f)$ So $Im(f)$ is a subgroup
     \item[(2)] Let x and y be elements of $\ker (f)$. \\One has $f(xy^{-1}) = f(x)f(y)^{-1} = 1_H1_H^{-1} = 1_H$ \\So $xy^{-1}\in \ker f.$ Hence $\ker f$ is a subgroup of G\\Let $x\in \ker f,y\in G$. \\One has $f(yxy^{-1}) = f(y)f(x)f(y)^{-1} = f(y)f(y)^{-1} = 1_H$ Hence $yxy^{-1}\in \ker f$. So $\ker f$ is a normal subgroup
@@ -875,7 +875,7 @@ Let K be a unitary ring and $f:E\rightarrow F $ be a morphism of left K-modules.
         &[x]\mapsto f(x)
     \end{aligned}$ is a isomorphism of left K-modules
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item[(1)] $\forall x\in E,\quad f(ax)=af(x)$ So $ af(x)\in Im(f)$
     \item [(2)]
@@ -914,7 +914,7 @@ Let $(X,d)$ be a metric space. For any $x\in X,\epsilon \in \mathbb{R} _{\geq0}$
 Consider $(\mathbb{R} ,d)$ with $d(x,y)=\lvert x-y\rvert$,then $B(x,\epsilon)={]x-\epsilon,x+\epsilon[}$
 \section{Prop.}
 Let (X,d) be a metric space . let $\mathcal{J} _d$ be the set of $U\subseteq X$ such that $\forall x\in U\exists \epsilon >0\quad B(x,\epsilon)\subseteq U$ THen $\mathcal{J} _d$ is a topology on X
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item $\varnothing\in \mathcal{J} _d\quad X\in \mathcal{J} _d$
     \item Let $(u_i)_{i\in I}$ be a family of elements of $\mathcal{J} _d$ Let $U=\bigcup\limits_{i\in I}u_i$, $\forall x\in U,\exists i\in I$ such that $x\in u_i$. Since $u_i\in \mathcal{J} _d,\exists \epsilon>0$ such that $B(x,y)\subseteq u_i\subseteq U$ Hence $U\in \mathcal{J} _d$
@@ -969,11 +969,11 @@ Let $(X<\leq)$ be a well erodered set.
 \end{itemize} 
 \section{Lemma}
 Let $(X,\leq)$ be a well ordered set, $f:X\rightarrow X$ be a strictly increasing mapping. Then $\forall x\in X, x\leq f(x)$
-\subsection{Proof}
+\subsection*{Proof}
 Let $A=\{x\in X\mid f(x)<x\}$ If $A\not=\varnothing$, let a be the least element of A. By definition $f(a)<a$. Hence $f(f(a))<f(a)$ since $f$ is strictly increasing . This shows $f(a)\in A$. But a is the least element of A, $f(a)<a$ cannot hold: contradiction.
 \section{Prop}
 Let $(X,\leq)$ be a well ordered set, S and T be two initial segment of X . If $f:S\rightarrow T$ is a bijection that's strictly increasing , then $S=T,f=Id_S$
-\subsection{Proof}
+\subsection*{Proof}
 We may assume $T\subseteq S$.Let $l:T\rightarrow S$ be the induction mapping and $g=l\circ f: S\rightarrow S$. Since $g$ is strictly increasing , by the lemma ,$ \forall s\in S,s\leq g(s)=f(s)\in T$. Since T is an initial segment, $s\in T.$ Hence $S=T$ \\Apply the lemma to $f^{-1}$ we get $\forall s\in S, s\leq f^{-1}(s)$ Hence $f(s)\leq s$ Therefore $f(s)=s$
 \section{Def}
 Let $(X,\leq)$ and $(Y,\leq)$ be partially ordered sets. If  $\exists f: X\rightarrow Y $ that's increasing and bijective, we say that $(X,\leq)$ and $(Y,\leq)$ are isomorphic
@@ -981,7 +981,7 @@ Let $(X,\leq)$ and $(Y,\leq)$ be partially ordered sets. If  $\exists f: X\right
 Let $(X,\leq)$ and $(Y,\leq)$ be well ordered sets. If $(X,\leq)$ is isomorphic to an initial segment of Y. We note $X\preceq Y$ or $Y\succeq X$. If X is isomorphic to Y, we note $X\thicksim Y$. If $X\preceq Y$ but $X\not\sim Y$, we note $X\prec Y$ or $Y\prec X$
 \section{Prop.}
 Let X and Y be well ordered sets. Among the following condition, one and only one holds.$$X\prec Y\quad X\sim Y\quad X\succ Y$$
-\subsection{Proof}
+\subsection*{Proof}
 We construct a correspondence $f$ from X to Y, such that $(x,y)\in \Gamma_f$, iff $X_{<x}\sim Y_{<y}$\\By the last proposition of Oct. 11, $f$ is a function.\begin{itemize}
     \item If $a,b\in Dom(f)^2,a<b$,then $X_{<a}\subsetneqq X_{<b}$\\
 By definition, $Y_{<f(b)}\sim X_{<b}\quad Y_{<f(a)}\sim X_{<a}$\\
@@ -1000,7 +1000,7 @@ Let $(X,\leq)$ be a partially ordered set . $\mathfrak{S} \subseteq\wp(X)$. Assu
     \item $\forall (A,B)\in \mathfrak{S} ^2$, either A is an initial segment of B, or B is a initial segment of A.
 \end{itemize}
 Let $Y=\bigcup\limits_{A\in \mathfrak{S} }A.$ Then $(Y,\leq)$ is a well ordered set, and ,$\forall A\in \mathfrak{S} ,A$ is an initial segment of Y.
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item Let $A\in \mathfrak{S} ,x\in A,y\in Y,y<x$.Since $Y=\bigcup\limits_{B\in \mathfrak{S} }B$,$\exists B\in \mathfrak{S} $, such that $y\in B$. If $y\not\in A$ then $B\not\subseteq A$. Hence A is an initial segment of B. Hence $y\in A$. Contradiction
     \item Let $Z\subseteq Y,Z\not=\varnothing$. Then $\exists A\in \mathfrak{S} , A\cap Z\not=\mathfrak{S} $. Let m be the least element of $A\cap Z.$ Let $z\in Z,B\in \mathfrak{S} $, such that $z\in B$. If $z\in A$, then $m\leq z$. If $z\not\in A$ , then A is an initial segment of B.
@@ -1010,20 +1010,19 @@ Since B is well ordered , if $m\not\leq z$ then $z<m$. Since $m\in A$, we het $z
 Therefore, m is the least element of Z.
 \section{Theorem(Zorn's lemma)}
 Let $(X,\leq)$ be a partially ordered set. Suppose that any well-ordered subset of X has an upper bound on X, the X has a maximal element(a maximal element m of $\{x\mid x> m\}=\varnothing)$
-\subsection{Proof}
-Suppose that X doesn't have any maximal element. $\forall A\in \omega.\exists f(A) $ such that $\forall a\in A,a<f(A)$\\Let $\omega=\{\text{well ordered subset of X}\}$. (guaranteed by axiom of choice) Let $f:\omega\rightarrow X$ such that $f(A)$ is an upper bound of $A\in \omega$. If $A\in \omega$ satisfies $\forall a\in A a=f(A_{<a})$ , we say that $A$ is a $f$-set\\
-Let $\mathfrak{S} =\{f-sets\}$ Note that $\varnothing\in \mathfrak{S} $ If $A\in \mathfrak{S} $, $A\cap\{f(A)\}\in \mathfrak{S} $
+\subsection*{Proof}
+Suppose that X doesn't have any maximal element. $\forall A\in \omega.\exists f(A) $ such that $\forall a\in A,a<f(A)$\\Let $$\omega=\{\text{well ordered subset of X}\}$$. (guaranteed by axiom of choice)\\ Let $f:\omega\rightarrow X$ such that $f(A)$ is an upper bound of $A\in \omega$. \\If $A\in \omega$ satisfies $$\forall a\in A a=f(A_{<a})$$ , we say that $A$ is a $f$-set\\
+Let $$\mathfrak{S} =\{f-sets\}$$ Note that $$\varnothing\in \mathfrak{S} $$ if $$\forall A\in \mathfrak{S} , A\cap\{f(A)\}\in \mathfrak{S} $$
+In fact, if $a\in A$, then $$A_{<a}=(A\cup\{f(A)\})_{<a}$$If $a=f(A)\not\in A$ then $$(A\cup\{f(A)\})_{<a}=A$$
 
-In fact, if $a\in A$, then $A_{<a}=(A\cup\{f(A)\})_{<a}$. If $a=f(A)\not\in A$, then $(A\cup\{f(A)\})_{<a}=A$
+Let A and B be elements of $\mathfrak{S}$. Let I be the union of all common initial segments of A and B. This is also a common initial segment of A and B.\\If $I\not=A$ and $I\not=B$, then $$\exists (a,b)\in A\times B, I=A_{<a}=B_{<b}\quad f(I)=f(A_{<a})=f(B_{<b})$$. Hence $$a=b$$. Then $I\cup\{a\}$ is also a common initial segment of A and B, contradiction.
 
-Let A and B be elements of $\mathfrak{S}$. Let I be the union of all common initial segments of A and B. This is also a common initial segment of A and B.\\If $I\not=A$ and $I\not=B$, then $\exists (a,b)\in A\times B, I=A_{<a}=B_{<b}\quad f(I)=f(A_{<a})=f(B_{<b})$. Hence $a=b$. Then $I\cup\{a\}$ is also a common initial segment of A and B, contradiction.
+By the lemma , $$Y:=\bigcup\limits_{A\in\mathfrak{S}}A$$ is well-ordered , and $\forall A\in \mathfrak{S}$ is an initial segment of Y.
 
-By the lemma , $Y:=\bigcup\limits_{A\in\mathfrak{S}}A$ is well-ordered , and any $A\in \mathfrak{S}$ is an initial segment of Y.
+Since A is an initial segment of Y$$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in AA_{<a}=Y_{<a}$$. Hence $$f(Y_{<a})=f(A_{<a})=a$$. Hence $$y\in \mathfrak{S}$$. Thus Y is the greatest element of $(\mathfrak{S},\subseteq)$.
+However, $$Y\cup\{f(Y)\}\in \mathfrak{S}$$. Hence $$f(y)\in Y$$.
 
-$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in A$. Since A is an initial segment of Y. $A_{<a}=Y_{<a}$. Hence $f(Y_{<a})=f(A_{<a})=a$. Hence $y\in \mathfrak{S}$. Thus Y is the greatest element of $(\mathfrak{S},\subseteq)$.
-However, $Y\cup\{f(Y)\}\in \mathfrak{S}$. Hence $f(y)\in Y$.
-
-If $f(y)$ is not a maximal element of X, $\exists x\in X,f(y)<x$
+If $f(y)$ is not a maximal element of X $$\exists x\in X,f(y)<x$$
 \chapter{Filter}
 \section{Def}
 Let Xbe a set. We call filter if X any $\mathcal{F}\subseteq \wp(x)$ that satisfies:
@@ -1043,7 +1042,7 @@ Let Xbe a set. We call filter if X any $\mathcal{F}\subseteq \wp(x)$ that satisf
 Let X ba a set. $\mathscr{B}\subseteq\wp(X).$ If $\varnothing\not\in\mathscr{B}$ and $\forall (B_1,b_2)\in\mathscr{B}^2,\exists B\in\mathscr{B}$, such that $B\subseteq B_1\cap B_2$. We say that $\mathscr{B}$ is a filter basis.
 \subsection{Remark}
 If $\mathscr{B}$ is a filter basis, then $\mathcal{F}(\mathscr{B})=\{A\subseteq X\mid \exists B\in\mathscr{B}\quad B\subseteq A\}$ is a filter
-\subsection{Proof}
+\subsection*{Proof}
 $\varnothing\not\in \mathcal{F}(\mathscr{B}),\mathcal{F}(\mathscr{B})\not=\varnothing$ since $0\not=B\subseteq \mathcal{F}(\mathscr{B})$. If $A\in\mathcal{F}(\mathscr{B}),A'\in\wp(X)$such that $A\subseteq A'$, then $\exists B\in \mathscr{B}$ such that $B\subseteq A\subseteq A'$. Hence $A'\in\mathcal{F}(\mathscr{B})$ If $A_1,A_2\in\mathcal{F}(\mathscr{B})$, then $\exists(B_1,B_2)\in\mathscr{B}^2$ such that $B_1\subseteq A_1, B_2\subseteq A_2$. Since $\mathscr{B}$ is a filter basis, $\exists B\in\mathscr{B}$ such that $B\subseteq B_1\cap B_2\subseteq A_1\cap A_2$ Hence $A_1\cap A_2\in A_1\cap A_2\in \mathcal{F}(\mathscr{B})$
 \subsection{Example}
 \begin{itemize}
@@ -1078,7 +1077,7 @@ Let Y and R be sets, $g:Y\rightarrow E$ be a mapping ,\begin{itemize}
     \item If $\mathcal{F}$ is a filter of Y, then $$G_*(\mathcal{F}):=\{A\in\wp(E)\mid g^{-1}(A)\in\mathcal{F}\}$$ is a filter on E
     \item If $\mathscr{B}$ is a filter basis of Y, then $$g(\mathscr{B}):=\{g(B)\mid B\in \mathscr{B}\}$$is a filter of E, adn $\mathcal{F}(g(\mathscr{B}))=g_*(\mathcal{F}(\mathscr{B}))$ 
 \end{itemize}
-\subsection{Proof}
+\subsection*{Proof}
 \begin{itemize}
     \item [(1)]$E\in g_x(\mathcal{F})$ since $g^{-1}(E)=Y$\\$\varnothing \not\in g_x(\mathcal{F})$ since $g^{-1}(\varnothing)=\varnothing$
     \begin{itemize}
@@ -1098,7 +1097,7 @@ Let $\mathcal{F}$ be a filter of X and $x\in X$\begin{itemize}
 So any limit point of $\mathcal{F}$ is necessarily a accumulation point of $mathcal{F}$ 
 \section{Prop}
 Let $\mathscr{B}$ be a filter basis of X, $x\in X,\mathscr{B}_x$ a neighborhood basis of x. Then $x$ is an accumulation point of $\mathcal{F}(\mathscr{B})$ iff $\forall (B,U)\in \mathscr{B}\times \mathscr{B}_x, B\cap U\not =\varnothing$
-\subsection{Proof}
+\subsection*{Proof}
 \subsubsection{Necessity}
 Since $\mathscr{B}\subseteq \mathcal{F}(\mathscr{B}),\mathscr{B}\subseteq \mathcal{V}_x$, the necessity is true.
 \subsubsection{Sufficiency}
@@ -1107,7 +1106,7 @@ Let $(A,V)\in \mathcal{F}(\mathscr{B})\times\mathcal{V}_x$. There exist $B\in \m
 Let $Y\subseteq X, Y\not=\varnothing$. W call accumulation point of Y any accumulation point of the principal filter $\mathcal{F}=\{A\subseteq X\mid Y\subseteq A\}$. We denote by $\overline{Y}=\{\text{accumulation points of }Y\}.$ Note that $x\in\overline{Y}$ iff $\forall U\in \mathscr{B}_x,Y\cap U\not=\varnothing$\\By convention $\overline{\varnothing}=\varnothing$
 \section{Prop}
 Let $Y\subseteq X$. Then $\overline{Y}$ is the smallest closed subset of X containing Y.
-\subsection{Proof}
+\subsection*{Proof}
 $\forall x\in X\backslash \overline{Y}$, then there exists $U_x=\mathcal{V}\cap \mathcal{J}$, such that $Y\cap U_x=\varnothing$. Moreover , $\forall y\in U_x, U_x\in \mathcal{V}_y\cap\mathcal{J}$. This shows that $\forall y\in U_x,y\not\in \overline{Y}$. Therefore $X\backslash\overline{Y}=\bigcap\limits_{x\in X\backslash\overline{Y}}U_x\in \mathcal{J}$
 
 Let $Z\subseteq X$ be a closed subset that contain Y. Suppose that $\exists y\in \overline{Y}\backslash Z.$ Then $U=X\backslash Z\in \mathcal{V}_y\cap\mathcal{J}$ and $U\cap Y\subseteq U\cap Z=\varnothing$. So $y\not\in \overline{ Y}$ contradiction. Hence $\overline{Y}\subseteq Z.$
@@ -1131,4 +1130,55 @@ are all neighborhood basis of $a$ .There fore , the following are equivalent
     \item $\forall k\in \mathbb{N} _{\geq 1},\exists N\in \mathbb{N} ,\forall n\in I_{\geq N},d(x_n,a)\leq\frac{1}{n}$
 \end{itemize}
 ($x^{-1}(B(a,\epsilon))=\{n\in I\mid d(x_n,a)<\epsilon\}$? unknown position )
+\section{Remark}
+We consider the metric d on $\mathbb{R} $ defined as $$\forall (x,x)\in \mathbb{R} ^2\quad d(x,y):=\lvert x-y\rvert$$
+The topology of $\mathbb{R} $ defined by this metric is called the usual topology on $\mathbb{R} $
+\section{Prop}Let $(x_n)_{n\in I}\in \mathbb{R} ^I$, where $I\subseteq \mathbb{N} $ is an infinite subset. Let $l\in \mathbb{R} $. The following statements are equivalent:\begin{itemize}
+    \item The sequence $(x_n)_{n\in I}$ converges to $l$ in the topological space $\mathbb{R} $
+    \item $\liminf\limits_{n\in I,n\rightarrow+\infty}x_n=\limsup\limits_{n\in I,n\rightarrow+\infty}x_n=l$
+    \item $\limsup\limits_{n\in I,n\rightarrow}\lvert x_n-l\rvert$=0
+\end{itemize}
+\section{Theorem}
+Let $(X,d)$ be a metric space .Let $I\subseteq \mathbb{N} $ be an infinite subset and $(x_n)_{n\in I}$ be an element of $X^I$. Let $l\in X$. The following statements are equivalent:
+\begin{itemize}
+    \item $(x_n)_{n\in I}$ converges to $l$
+    \item $\limsup\limits_{n\in I,n\rightarrow+\infty}d(x_n,l)=0$(equivalent to $\lim\limits_{n\in I,n\rightarrow+\infty}d(x,l)=0$)
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [$(1)\Rightarrow(2)$]The condition (1) is equivalent to $\forall \epsilon>0,\exists N\in \mathbb{N} ,\forall n\in I_{\geq N},d(x_n,l)<\epsilon$. We then get $\sup\limits_{n\in I_{geq N}}d(x,l)\leq \epsilon$. Therefore $\limsup\limits_{n\in I,n\rightarrow+\infty}d(x_n,l)\leq \epsilon$ We obtain that $\limsup\limits_{n\in I,n\rightarrow+\infty}=0$
+    \item [$(2)\Rightarrow(1)$]Let $\epsilon\in \mathbb{R} _{>0}$ If $\inf\limits_{N\in \mathbb{N} }\sup\limits_{n\in I_{\geq N}}d(x_n,l)=0$. Then $\exists N\in \mathbb{N} \quad\sup\limits_{n\in I_{\leq N}}d(x_n,l)<\epsilon.$ Hence ,$\forall n \in I_{\geq N}d(x_n,l)<\epsilon$. Since $\epsilon$ is arbitrary, $(*)$ is true, Hence (1) is also true .
+\end{itemize}
+\section{Prop}
+ Let $(X,\mathcal{J})$ be a topological space . $Y\subseteq X, p\in \overline{Y}\backslash Y.$Then $$\mathcal{V}_{p,Y}:=\{V\cap Y\mid V\in \mathcal{V}_p\}$$ is a filter of Y.
+\subsection*{Proof}
+Y is not empty otherwise $\overline{Y}=\varnothing$. 
+\begin{itemize}
+    \item $Y=X\cap Y\in \mathcal{V}_{p,Y}$
+    \\ $\varnothing\not\in \mathcal{V}_{p,Y}$ since $p\in \overline{Y}$
+    \item Let $V\in\mathcal{V}_p$ and $A\subseteq Y$ such that $V\cap Y\subseteq A$. Let $U=V\cup(A\backslash (V\cap Y))\in \mathcal{V}_p$ and $ U\cap Y= A\in\mathcal{V}_{p,Y}$
+    \item Let U and V be elements of $\mathcal{V}_p$ Let $W=U\cap V\in \mathcal{V}_p$ Then $W\cap Y=(U\cap Y)\cap(V\cap Y)\in \mathcal{V}_{p,Y}$
+\end{itemize}
+\section{Def}
+Let $(X,\mathcal{J}_x)$ and $(E,\mathcal{J}_E)$ be topological spaces, $Y\subseteq X, p\in \overline{Y}\backslash Y$, and $f: Y\rightarrow E$ be a mapping . If a is a limit point of $(F_*(\mathcal{V}_{p,Y}))$, then we say that a is a limit of $f$ when the variable $y\in Y$ tends to $p$, denoted as $a=\lim\limits_{y\in Y,y\rightarrow p}f(y)$
+\section{Remark}
+If $\mathscr{B}_a$ is a neighborhood basis of $a$. Then $a=\lim\limits_{y\in Y,y\rightarrow p}f(y) $ is equivalent to $\forall U\in \mathscr{B}_a\quad \exists V\in \mathcal{V}_p$ such that $Y\cap V\subseteq f_{-1}(U)$($\Leftrightarrow f(Y\cap V)\subseteq U$)
+\section{Prop}
+Let X be a set, $\mathscr{B}$ be a filter basis, $\mathscr{G}$ be a filter. If $\mathscr{B}\subseteq\mathscr{G}$, then $\mathcal{F}\subseteq \mathscr{G}$.
+\subsection*{Proof}Let $V\in \mathcal{F}(\mathscr{B})$ By definition $\exists U\in \mathscr{B}$ such that $U\subseteq V$, since $U\in \mathscr{G}$( for $\mathscr{B}\subseteq \mathscr{G}$) and since $\mathscr{G}$ is a filter, $V\in G$
+\section{Theorem}
+Let $(X,\mathcal{J}_x)$ and $(E<\mathcal{J}_E)$ be topological spaces. $Y\subseteq X, \ p\in \overline{T}\backslash Y, a\in E$. We consider the following conditions.
+\begin{itemize}
+    \item[(i)] $a=\lim\limits_{y\in Y,y\rightarrow p}f(y)$
+    \item [(ii)]$\forall (y_n)_{n\in \mathbb{N} }\in Y^\mathbb{N} $ if $\lim\limits_{n\rightarrow +\infty}y_n=p$ then $\lim\limits_{n\rightarrow_\infty}f(y_n)=a$ 
+\end{itemize}The following statements are true\begin{itemize}
+    \item If (i) holds, then (ii) also holds
+    \item Assume that $p$ has a countable neighborhood basis, then (i) and (ii) are equivalent.
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [(1)]Let $(y_n)_{n\in \mathbb{N} }\in Y^\mathbb{N} $ such that $p=\lim\limits_{n\rightarrow +\infty}y_n$. For any $U\in\mathcal{V}_p,\exists N\in \mathbb{N} $ such that $\forall n\in \mathbb{N} _{\geq N}\quad y\in U\cap Y$.$y_n\in U\cap Y$ Therefore $$\mathcal{V}_{p,Y}\subseteq y_*(\mathcal{F}_{Fr}(\mathbb{N} ))$$We then get $$f_*(\mathcal{V}_{p,Y})\subseteq f_*(y_*(\mathcal{F}_{Fr}(\mathbb{N} )))=(f\circ y)_*(\mathcal{F}_{Fr}(\mathbb{N} ))$$ Condition (i) leads$$\mathcal{V}_a\subseteq f_*(\mathcal{V}_{p,Y})\subseteq (f\circ y)_*(\mathcal{F}_{Fr}(\mathbb{N} ))$$This means $$\lim\limits_{n\rightarrow+\infty}f(y_n)=a$$
+    \item [(2)]Assume that $p$ has a  countable neighborhood basis . There exists a decreasing sequence $(V_n)_{n\in \mathbb{N} }\in \mathcal{V}_P^\mathbb{N} $ such that $\{V_n\mid n\in \mathbb{N} \}$ forms a neighborhood basis of $p$.\\Assume that (i) does not hold. Then there exists $U\in \mathcal{V}_a$ such that , $$\forall n\in \mathbb{N} \quad V_n\cap Y\not\subseteq f^{-1}(U)$$Take an arbitrary $$y_n\in(V_n\cap Y)\backslash f^{-1}(U)$$Therefore ,$$\lim\limits_{n\rightarrow +\infty}y_n=\varnothing$$In fact, $$\forall W\in \mathcal{V}_p,\exists N\in \mathbb{N} \quad V_N\subseteq W$$Hence $$\forall n\in \mathbb{N} _{\geq N}\quad y_n\in W$$ However $f(y_n)\not\in U$ for any $n\in \mathbb{N} $,so $(f(y_n))_{n\in \mathbb{N} }$ cannot converges to $a$.
+\end{itemize}
+
 \end{document}
