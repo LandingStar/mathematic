@@ -1180,5 +1180,60 @@ Let $(X,\mathcal{J}_x)$ and $(E<\mathcal{J}_E)$ be topological spaces. $Y\subset
     \item [(1)]Let $(y_n)_{n\in \mathbb{N} }\in Y^\mathbb{N} $ such that $p=\lim\limits_{n\rightarrow +\infty}y_n$. For any $U\in\mathcal{V}_p,\exists N\in \mathbb{N} $ such that $\forall n\in \mathbb{N} _{\geq N}\quad y\in U\cap Y$.$y_n\in U\cap Y$ Therefore $$\mathcal{V}_{p,Y}\subseteq y_*(\mathcal{F}_{Fr}(\mathbb{N} ))$$We then get $$f_*(\mathcal{V}_{p,Y})\subseteq f_*(y_*(\mathcal{F}_{Fr}(\mathbb{N} )))=(f\circ y)_*(\mathcal{F}_{Fr}(\mathbb{N} ))$$ Condition (i) leads$$\mathcal{V}_a\subseteq f_*(\mathcal{V}_{p,Y})\subseteq (f\circ y)_*(\mathcal{F}_{Fr}(\mathbb{N} ))$$This means $$\lim\limits_{n\rightarrow+\infty}f(y_n)=a$$
     \item [(2)]Assume that $p$ has a  countable neighborhood basis . There exists a decreasing sequence $(V_n)_{n\in \mathbb{N} }\in \mathcal{V}_P^\mathbb{N} $ such that $\{V_n\mid n\in \mathbb{N} \}$ forms a neighborhood basis of $p$.\\Assume that (i) does not hold. Then there exists $U\in \mathcal{V}_a$ such that , $$\forall n\in \mathbb{N} \quad V_n\cap Y\not\subseteq f^{-1}(U)$$Take an arbitrary $$y_n\in(V_n\cap Y)\backslash f^{-1}(U)$$Therefore ,$$\lim\limits_{n\rightarrow +\infty}y_n=\varnothing$$In fact, $$\forall W\in \mathcal{V}_p,\exists N\in \mathbb{N} \quad V_N\subseteq W$$Hence $$\forall n\in \mathbb{N} _{\geq N}\quad y_n\in W$$ However $f(y_n)\not\in U$ for any $n\in \mathbb{N} $,so $(f(y_n))_{n\in \mathbb{N} }$ cannot converges to $a$.
 \end{itemize}
+\section{Prop.}
+Let X be a set. If $(\mathcal{J}_i)_{i\in I}$ is a family of topologies on X, then $\mathcal{J}=\bigcap\limits_{i\in I}\mathcal{J}_i$ is a topology. In particular. for any $\mathcal{A}\subseteq \wp(X)$, there is a smallest topology on X that contain $\mathcal{A}$
+\subsection{Proof}
+\begin{itemize}
+    \item $\forall i\in I\quad \{\varnothing,X\}\subseteq\mathcal{J}_i$ So $\{\varnothing,X\}\subseteq \mathcal{J}$
+    \item Let $(u_j)_{j\in J}$ be a family of elements of $\mathcal{J}$ $\forall j\in J,i\in I\quad u_i\in \mathcal{J}_i$ So $\bigcup\limits_{j\in J}u_j\in \mathcal{J}_i$ We then get $\bigcup\limits_{j\in J} u_j \in \mathcal{J}$
+    \item Let U and V be elements of $\mathcal{J}$ $\forall i\in I,\{u,v\}\subseteq \mathcal{J}_i$ So $U\cap V\in \mathcal{J}_i$. THerefore we get $U\cap V\in \mathcal{J}$ Let $\mathcal{A}\subseteq\wp(X)$ Let $\mathcal{J}(\mathcal{A})=\bigcap\limits_{\mathcal{J}\subseteq \wp(X)\text{a topology} \mathcal{A}\subseteq \mathcal{J}}\mathcal{J}$ Then $\mathcal{J}(\mathcal{A})$ is a topology. By definition, if $\mathcal{J}$ is a topology containing $\mathcal{A}$, then $\mathcal{J}(\mathcal{A})\subseteq\mathcal{J}$ Hence $\mathcal{J}(\mathcal{A})$ is the smallest topology containing $\mathcal{A}$
+\end{itemize}
 
+\chapter{Continuity}
+\section{Def}
+Let $(X,\mathcal{J}_X),(Y,\mathcal{J}_Y)$ be topological spaces $f$ be a function from X to Y, $x\in Dom (f)$. If for any neighborhood U of $f(x)$, there exists a neighborhood V of $x$ such that  $f(V)\subseteq U$. Then we say that $f$ is continuous at $x$. If $f$ is continuous at any $x\in Dom(f)$ then we say $f$ is continuous.
+\section{Remark}
+Let $\mathscr{B}_{f(x)}$ be a neighborhood basis of $f(x)$ If $\forall U\in \mathscr{B}_{f(x)}$ there exist $V\in \mathscr{B}_{f(x)}{V}_x$ such that $f(V)\subseteq U$, then $f$ is continuous at $x$
+Suppose that X and Y are metric space. Then $f$ is continuous at $x$ iff:$$\forall \epsilon>0\exists \delta>0\forall y\in Dom(f)\quad d(y,x)<\delta \text{ implies }\ d(f(y),f(x))<\epsilon$$
+
+
+\section{Theorem}
+Let $(X,\mathcal{J}_X),(Y,\mathcal{J}_Y)$ be topological spaces, $f$ be a function from X to Y $x\in Dom (f)$ Consider the following condition\begin{itemize}
+    \item $f$ is continuous at $x$
+    \item $\forall(x_n)_{n\in \mathbb{N} }\in Dom(f)^\mathbb{N} $, if $\lim\limits_{n\rightarrow +\infty}x_n=x$, then $\lim\limits_{n\rightarrow+\infty}f(x_n)=f(x)$ THen (i) implies (ii) Moreover, if $x$ has a countable neighborhood basis, then (i) and (ii) are equivalent.
+\end{itemize}
+\section{Proof}
+\begin{itemize}
+    \item [$(i)\Rightarrow(ii)$]Let $(x_n)_{n\in \mathbb{N} }\in Dom(f)^\mathbb{N} $ that converges to $x$ $\forall U\in \mathcal{V}_{f(x)}\exists V\in \mathcal{V}_x,f(V)\subseteq U$ Since $\lim\limits_{n\rightarrow+\infty}x_n=x$,there exists $N\in \mathbb{N} $ such that $\forall n\in \mathbb{N} _{\geq N }$, $x_n\in V$. Hence $\forall n\in \mathbb{N} _{\geq N },f(x_n)\in f(V)\subseteq U$. Thus $\lim\limits_{n\rightarrow+\infty}f(x_n)=f(x)$
+    \item [$(ii)\Rightarrow(i)$]under the hypothesis that $x$ has countable neighborhood basis. actually we will prove $NOT(i)\Rightarrow NOT(ii)$\\Let $(V_n)_{n\in \mathbb{N} }$ be a decreasing sequence in $\mathcal{V}_x$ such that $\{V_n\mid n\in \mathbb{N} \}$ forms a neighborhood basis of $x$ \\If (i) does not hold, then $\exists U\in \mathcal{V}_{f(x)}\forall n\in \mathbb{N} ,f(V_n)\not\subseteq U$ Pick $x_n\in V_n$ such that $f(x_n)\not\in U\quad \forall N\in \mathbb{N} ,n\in \mathbb{N} _{\geq N}, x_n\in V_N$. Hence $(x_n)_{n\in \mathbb{N} }$ converges to $x$. However, $f(x_n)\not\in U$ for any $n$ So $(f(x_n))_{n\in \mathbb{N} }$ does not converges to $f(x)$. Therefore (ii) does not hold.
+\end{itemize}
+\section{Prop}
+Let $(X,\mathcal{J}_X),(Y,\mathcal{J}_Y),(Z,\mathcal{J}_Z)$ be topological spaces. $f$ be a function from X to Y, $g$ be a function from Y to Z. Let $x\in Dom (g\circ f)$ If $f$ and $g$ are continuous at $x$. then $g\circ f$ is continuous at $x$\
+section{Proof}
+Let $U\in \mathcal{V}_{g(f(x))}$ Since $g$ is continuous at $f(x)$:$$ \exists W\in \mathcal{V}_{f(x)},g(W)\subseteq U$$ Since $f$ is continuous at $x$:$$\exists V\in \mathcal{V}_x\quad f(V)\subseteq W$$ Therefore, $g(f(V))\subseteq g(W)\subseteq U$ Hence $g\circ f$ is continuous at $x$ 
+\section{Def}
+Let $(X,\mathcal{J})$ be a topological  space, $\mathscr{B}\subseteq \mathcal{J}$, If any element of $\mathcal{J}$ can be written as the union of a family of sets in $\mathscr{B}$ we say that $\mathscr{B}$ is a topological basis of $\mathcal{J}$
+\section{Prop}
+Let $(X,\mathcal{J})$ be a topological space, $\mathscr{B}\subseteq \mathcal{J}$ $\mathscr{B}$ is a topological basis iff $$\forall x\in X,\mathscr{B}_x:=\{V\in  \mathscr{B}\mid x\in V\}$$is a neighborhood basis of $x$
+\section{Proof}
+\begin{itemize}
+    \item [$\Rightarrow:$]$$\forall x\in X \mathscr{B}_x\subseteq \mathcal{V}_x$$ Moreover, $$\forall U\in \mathcal{V}_x\exists V\in \mathcal{V}, x\in V\subseteq U$$. Since $\mathscr{B}$ is a topological basis of $\mathcal{J}$, $$\exists W\in \mathscr{B}, x\in W\subseteq V\subseteq U$$ Hence $\mathcal{V}_x$ is generated by $\mathscr{B}_x$
+    \item [$\Leftarrow$]Let $U\in \mathcal{J}$$$\forall x\in U,U\in \mathcal{V}_x$$So $$\exists V_x\in \mathscr{B}_x\quad x\in V_x\subseteq U$$Hence$$U\subseteq\bigcup\limits_{x\in U}V_x\subseteq U$$Hence $$U=\bigcup\limits_{x\in U}V_x\in \mathcal{J}$$
+\end{itemize}
+\section{Prop}Let $(X,\mathcal{J}_X),(Y,\mathcal{J}_Y)$ be topological spaces. $\mathscr{B}_Y$ be a topological basis of $\mathcal{J}_Y$ $f:X\rightarrow Y$ be a mapping. The following conditions are equivalent:
+\begin{itemize}
+    \item [(1)]$f$ is continuous
+    \item [(2)]$\forall U\in \mathcal{J}_Y, f^{-1}(U)\in \mathcal{J}_X$
+    \item [(3)]$\forall U\in \mathscr{B}, f^{-1}(U)\in \mathcal{J}_X$
+\end{itemize} 
+\subsection*{Proof}
+\begin{itemize}
+    \item [$(1)\Rightarrow(2)$]
+    \indent\\ \begin{itemize}
+    \item [Lemma] Let $(X,\mathcal{J})$ be a topological space, $V\in \wp(X)$, THen $V\in\mathcal{J}$ iff $\forall x\in V, V$ is a neighborhood of $x$
+    \item [Proof of lemma]$\Rightarrow$ is by definition\\$Leftarrow$:$$\forall x\in V,\exists W_x\in \mathcal{J},x\in W_x\subseteq V.$$ Hence $$V=\bigcap\limits_{x\in V}W-x\in \mathcal{J}$$
+    \end{itemize}Let $U\in \mathcal{J}_Y$$$\forall x\in f^{-1}(U)\quad f(x)\in U$$Hence $$U\in \mathcal{V}_{f(x)}$$ Hence there exists an open neighborhood W of $x$ such that $f(W)\subseteq U$ Since $f$ is a mapping , $$W\subseteq f^{-1}(U)$$ Therefore $$f^{-1}(U)\in \mathcal{V}_x$$ Since $x$ is arbitrary, $$f^{-1}(U)\in \mathcal{J}_X$$
+    \item[$(2)\Rightarrow (3)$]For (3) is a special situation of (2), it's natural.
+    \item[$(3)\Rightarrow (1)$]Let $x\in X$$$\forall U\in \mathscr{B}_Y\text\ { s.t. }\ f(x)\in U,f^{-1}(U)$$ is an open neighborhood of $x$, and $$f(f^{-1}(U))\subseteq U$$ Hence $f$ is continuous at $x$ 
+\end{itemize}
 \end{document}
