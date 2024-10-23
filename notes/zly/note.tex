@@ -658,9 +658,10 @@ Let $(a_n)_{n\in I},(b_n)_{n\in I}$ be elements of $\mathbb{R}^I $ that converge
     \item $(a_n+b_n)_{n\in I}$ converges to $l+l'$
     \item $(a_nb_n)_{n\in I}$ converges to $ll'$
 \end{itemize}
-\section{Prop}Let $a\in\mathbb{R} $ THen $a^n=o(n!)\quad n\rightarrow+\infty$
-\subsection*{Proof}Let $N\in \mathbb{N} $ such that $\lvert a\rvert<N$For $n\in\mathbb{N} $ such that $n\geq N$
-$$0\leq\frac{\lvert a^n\rvert}{n!}=\frac{\lvert a^N\rvert}{N!}\cdot\\frac{\lvert a^n-N\rvert}{n!\over N!}\leq\frac{\lvert a^N\rvert}{N!}(\frac{\lvert a\rvert}{N})^n-N$$
+\section{Prop}Let $a\in\mathbb{R} $ then $a^n=o(n!)\quad n\rightarrow+\infty$
+\subsection*{Proof}Let $N\in \mathbb{N} $ such that $\lvert a\rvert<N$\\
+For $n\in\mathbb{N} $ such that $n\geq N$
+$$0\leq\frac{\lvert a^n\rvert}{n!}=\frac{\lvert a^N\rvert}{N!}\cdot\frac{\lvert a^n-N\rvert}{\frac{n!}{N!}}\leq\frac{\lvert a^N\rvert}{N!}(\frac{\lvert a\rvert}{N})^n-N$$
 And $0<\frac{\lvert a\rvert}<1\Rightarrow \lim\limits_{n\rightarrow+\infty}(\frac{\lvert a\rvert}{N})^n=0$. Therefore:
 $$\lim\limits_{n\rightarrow+\infty}\frac{\lvert a^n\rvert}{n!}=0$$
 namely:$$a^n=o(n!)$$
@@ -1228,12 +1229,162 @@ Let $(X,\mathcal{J})$ be a topological space, $\mathscr{B}\subseteq \mathcal{J}$
 \end{itemize} 
 \subsection*{Proof}
 \begin{itemize}
-    \item [$(1)\Rightarrow(2)$]
-    \indent\\ \begin{itemize}
+    \item [$(1)\Rightarrow(2)$]\ 
+
+    \begin{itemize}
     \item [Lemma] Let $(X,\mathcal{J})$ be a topological space, $V\in \wp(X)$, THen $V\in\mathcal{J}$ iff $\forall x\in V, V$ is a neighborhood of $x$
-    \item [Proof of lemma]$\Rightarrow$ is by definition\\$Leftarrow$:$$\forall x\in V,\exists W_x\in \mathcal{J},x\in W_x\subseteq V.$$ Hence $$V=\bigcap\limits_{x\in V}W-x\in \mathcal{J}$$
-    \end{itemize}Let $U\in \mathcal{J}_Y$$$\forall x\in f^{-1}(U)\quad f(x)\in U$$Hence $$U\in \mathcal{V}_{f(x)}$$ Hence there exists an open neighborhood W of $x$ such that $f(W)\subseteq U$ Since $f$ is a mapping , $$W\subseteq f^{-1}(U)$$ Therefore $$f^{-1}(U)\in \mathcal{V}_x$$ Since $x$ is arbitrary, $$f^{-1}(U)\in \mathcal{J}_X$$
+    \item [Proof of lemma]$\Rightarrow$ is by definition\\$Leftarrow$:$$\forall x\in V,\exists W_x\in \mathcal{J},x\in W_x\subseteq V.$$ 
+    Hence $$V=\bigcap\limits_{x\in V}W-x\in \mathcal{J}$$
+    \end{itemize}Let $U\in \mathcal{J}_Y$$$\forall x\in f^{-1}(U)\quad f(x)\in U$$Hence $$U\in \mathcal{V}_{f(x)}$$ 
+    Hence there exists an open neighborhood W of $x$ such that $f(W)\subseteq U$ 
+    Since $f$ is a mapping , $$W\subseteq f^{-1}(U)$$ Therefore $$f^{-1}(U)\in \mathcal{V}_x$$ 
+    Since $x$ is arbitrary, $$f^{-1}(U)\in \mathcal{J}_X$$
     \item[$(2)\Rightarrow (3)$]For (3) is a special situation of (2), it's natural.
     \item[$(3)\Rightarrow (1)$]Let $x\in X$$$\forall U\in \mathscr{B}_Y\text\ { s.t. }\ f(x)\in U,f^{-1}(U)$$ is an open neighborhood of $x$, and $$f(f^{-1}(U))\subseteq U$$ Hence $f$ is continuous at $x$ 
+\end{itemize}
+\section{Def}
+LEt X be a set ,$ ((Y_i,\mathcal{J}_i))_{i\in I}$ be a family of topological spaces. $\forall i\in I$ let $f_i:X\rightarrow Y_i$ be a mapping. We call initial topology of $(f_i)_{i\in I}$ on X the smallest topology on X making all $f_i$ continue
+\section{Remark}
+If $\mathcal{J}$ is the initial topology of $(f_i)_{i\in I}$, $\forall i\in I,U_i\in \mathcal{J}_i\quad f_i^{-1}(U_i)\in \mathcal{J}$ If $J\subseteq I$ is a finite subset, $(U_j)_{j\in J}\in \prod \limits_{j\in J}\mathcal{J}_j$ then $\bigcap\limits_{j\in J}f_j^{-1}(U_j)\in \mathcal{J}$
+\section{Prop}
+$$\mathscr{B}:=\left\{\bigcap\limits_{j\in J}f_j^{-1}(U_j)\mid J\subseteq I \text{is finite} (U_j)_{j\in J}\in\prod\limits_{j\in J}\mathcal{J}_j\right\}$$ is a topological basis of the initial topology $\mathcal{J}$
+\subsection*{Proof}
+First $$\mathscr{B}\subseteq \mathcal{J}$$
+Let $$\mathcal{J}'=\{\text{subset V of X that can be written as the union of a family of sets in} \mathscr{B}\}$$
+\begin{itemize}
+    \item $\varnothing\in \mathcal{J}'\quad X\in \mathscr{B}\subseteq \mathcal{J}'$
+    \item $\mathcal{J}'$ is stable by taking the union of any family of elements in $\mathcal{J}'$
+    \item If $V_1,V_2$ are elements of $\mathcal{J}'$, then $$V_1\cap V_2\in \mathcal{J}'$$ In fact, $V_1,V_2$ are of the form of the union of some sets of $\mathscr{B}$
+\end{itemize}
+The intersection of two elements of $\mathscr{B}$ is still a element of $\mathscr{B}$$$\begin{aligned}
+&\left(\bigcap\limits_{j\in J}f_j^{-1}(U_j)\right)\cap\left(\bigcap\limits_{j\in J'}f_j^{-1}(U'_j)\right)\\ &=\bigcap\limits_{j\in J\cup J'}f_j^{-1}(W_j)\text{ where } W_j=\left\{\begin{aligned}
+&U_j &j\in J\backslash J'\\
+&U_j' &j\in J'\backslash J\\
+&U_j\cap U'_j & j\in J\cap J'
+\end{aligned}\right.\\ &\left(\bigcap\limits_{j\in J\backslash J'}f_j^{-1}(U_j)\right)\cap\left(\bigcap\limits_{j\in J\cap J'}f_j^{-1}(U_j)\cap f_j^{-1}(U'_j)\right)\cap\left(\bigcap\limits_{j\in J'\backslash J}f_j^{-1}(U'_j)\right)
+\end{aligned}$$So $\mathcal{J}'$ is a topology making all $f_i$ continuous.Hence$$\mathcal{J}\subseteq\mathcal{J}'\subseteq\mathcal{J}\Rightarrow\mathcal{J}'=\mathcal{J}$$
+\subsection*{Example}
+Let $((Y_i,\mathcal{J}_i))_{i\in I}$ be topological spaces. $Y=\prod\limits_{i\in I}Y_i$ and $$\pi_i:\begin{aligned}
+&Y\rightarrow Y_i\\&(y_j)_{j\in I}\mapsto y_i
+\end{aligned}$$
+The product topology on Y is by definition the initial topology of $(\pi_i)_{i\in I}$
+\section{Theorem}
+Let X be a set , $((Y_i,\mathcal{J}_i))_{i\in I}$ be a family of topological spaces, $$((f_i:X\rightarrow Y_i))_{i\in I}$$ be a family of mappings and we equip X with the initial topology $\mathcal{J}_X$ of $(f_i)_{i\in I}$ Let $(Z,\mathcal{J}_Z)$ be a topological space and $$h:Z\rightarrow X$$ be a mapping. Then $h$ is continuous iff$$\forall i\in I,\quad f_i\circ h \text{is continuous}$$ 
+\subsection{Proof}
+\begin{itemize}
+    \item [$\Rightarrow$]If $h$ is continuous, since each $f_i$ is continuous, $f_i\circ h$ is also continuous.
+    \item [$\Leftarrow$]Suppose that $\forall i\in I, f_i\circ h$ is continuous .Hence $$\forall U_i\in \mathcal{J}_i,(f_i\circ h)_{-1}(U_i)=h^{-1}(f_i^{-1}(U_i))\in \mathcal{J}_Z$$ Let $$\mathscr{B}=\left\{\bigcap\limits_{j\in J}f_j^{-1}(U_j)\mid J\subseteq I\text{finite} (U_j)_{j\in J}\in \prod\limits_{j\in J}\mathcal{J}_j\right\}$$$\forall U\in \mathscr{B}$$$h^{-1}(U)=\bigcap\limits_{j\in J}h^{-1}(f_i^{-1}(U_i))\in \mathcal{J}_Z$$Therefore, $h$ is continuous.
+\end{itemize}
+\section{Remark}
+We keep the notation of the definition of initial topology If $\forall i\in I,\mathscr{B}_i$ is a topological basis of $\mathcal{J}_i$, then $$\mathscr{B}=\left\{\bigcap\limits_{j\in J}f_i^{-1}(U_i)\mid J\subseteq I \text{finite} (U_j)_{j\in J}\in \prod\limits_{j\in J}\mathscr{B}_j\right\}$$ is also a topological basis of the initial topology,
+\subsection{Example}
+Let $((X_i,d_i))_{i\in \{1,...,n\}}$ be a family of metric spaces.$$X=\prod\limits_{i\in \{1,...,n\}}X_i$$ We define a mapping $$d:\begin{aligned}
+&X\times X\rightarrow \mathbb{R}_{\geq 0}\\
+&((x_i)_i\in \{1,...,n\}(y_i)_{i\in \{1,...,n\}})\mapsto\max\limits_{i\in \{1,...,n\}} d_i(x_i,y_i)
+\end{aligned}$$
+$d$ is a metric on X. If $x=(x_i)_{i\in \{1,...,n\}}\ y=(y_i)_{i\in \{1,...,n\}}\ z=(z_i)_{i\in \{1,...,n\}}$ are elements of X, then $$d(x,z)=\max\limits_{i\in \{1,...,n\}}d_i(x_i,z_i)\leq\max\limits_{i\in \{1,...,n\}}\left(d_i(x_i,y_i)+d(y_i,z_i)\right)\leq d(x,y)+d(y,z)$$
+Each$$\pi_i:\begin{aligned}
+    &X\rightarrow X_i\\ &(x_i)_{i\in \{1,...,n\}}\mapsto x_i
+\end{aligned}$$ is continuous.
+Hence the product topology $\mathcal{J}$ is contained in $\mathcal{J}_d$\\Let $x=(x_i)_{i\in \{1,...,n\}}\in X,\epsilon>0$
+$$
+\begin{aligned}
+\mathcal{B}(x,\epsilon)=&\left\{ y=(y_i)_{i\in \{1,...,n\}}\mid\max\limits_{i\in \{1,...,n\}}d_i(x_i,y_i)<\epsilon\right\}\\ =&\prod\limits_{i\in \{1,...,n\}}\mathcal{B}(x_i,\epsilon)\\=&\bigcap\limits_{i\in \{1,...,n\}}\pi_i^{-1}(\mathcal{B}(x_i,\epsilon))\in \mathcal{J}
+\end{aligned}$$
+\chapter{Uniform continuity and convergency}
+\section{Def}
+Let $(X,d)$ be a metric space. $\forall A\subseteq X$, we define $$diam(A):=\sup\limits_{(x,Y)\in A\times A}$$ called the diameter of A.By convention $$diam(\varnothing):=0$$ If $diam(A)<+\infty$, we say that A is bounded
+\section{Remark}
+\begin{itemize}
+    \item If A is finite, then it's bounded
+    \item If $A\subseteq B$ then $diam(A)\leq diam(B)$
+\end{itemize}
+\section{Prop}Let $(X,d)$ be a metric space. $A\subseteq X, B\subseteq X,(x_0, y_0)\in A\times B$. Then $$diam(A\cup B)\leq diam(A)+d(x_0,y_0)+diam(B)$$ In particular, if A,B are bounded, then $A\cup B$ is bounded.
+\subsection*{Proof}
+Let $(x,y)\in (A\cup B)^2$. If $\{x,y\}\subseteq A$, then $d(x,y)\leq diam(A)$\\If $\{x,y\}\subseteq B$ then $diam(B)\geq d(x,y)$
+\\ If $x\in A,y\in B,$$$d(x,y)\leq d(x,x_0)+d(x_0,y_0)+d(y_0,y)\leq diam(A)+d(x_0,y_0)+diam(B)$$ Similarly if $x\in B,y\in A$$$d(x,y)\leq  diam(A)+d(x_0,y_0)+diam(B)$$
+\section{Def}Let $(X,d)$ be a metric space. $I\subseteq \mathbb{N}$ be an infinite subset, $(x_n)_{n\in I}\in X^I$. If $$\forall\epsilon>0\ \exists N\in \mathbb{N} \quad diam(\{x_n\mid n\in I_{\geq\mathbb{N} }\})\leq\epsilon$$ then we say that $(x_n)_{n\in I}$ is a Cauchy sequence.
+\section{Prop}
+\begin{itemize}
+    \item [(1)]If $(x_n)_{n\in I}$ converges, then it's a Cauchy sequence.
+    \item [(2)]If $(x_n)_{n\in I}$ is a Cauchy sequence, $\{x_n\mid n\in I\}$ is bounded
+    \item [(3)] Suppose that $(x_n)_{n\in I}$ is a Cauchy sequenceIf there exists an infinite subset J of I such that $(x_n)_{n\in J}$ converges to some $x\in X$ ,then $(x_n)_{n\in I}$ converges to $x$
+\end{itemize}
+\subsection{Proof}
+\begin{itemize}
+    \item [(1)]trivial
+    \item [(2)]trivial
+    \item [(3)]Let $\epsilon>0,\exists N\in \mathbb{N} $$$diam(\{x_n\mid n\in I_{\geq N}\})\leq\frac{\epsilon}{2}$$$$\forall n\in J_{\geq N},d(x_n,x)\leq\frac{\epsilon}{2}$$
+    \item Take $n_0\in J_{\leq N}\subseteq I_{\geq N}$$$\forall n\in I_{\geq N}\quad d(x_n,x)\leq d(x_n,x_{n_0})+d(x_{n_0},x)\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\frac{\epsilon}{2}$$ Hence $(x_n)_{n\in I}$ converges to $x$ 
+\end{itemize}
+\section{Def}
+Let $(X,d_X),(Y<d_Y)$ be metric space. $f$ be a function from X to Y. If $\forall \epsilon>0,\exists \delta >0$ such that $$\forall(x,y)\in Dom(f)^2,d(x,y)\leq\delta$$implies$$d(f(x),f(y))\leq\epsilon$$ namely$$\inf\limits_{\delta>0}\sup\limits_{(x,y)_\in Dom (f)^2, d(x,y)\leq\delta}d(f(x),f(y))=0$$ we say that $f$ is uniformly continuous.
+\section{Prop}
+Let $(X,d_X),(Y,d_Y)$ be metric spaces $f$ be a function from X to Y which is uniformly continuous.
+\begin{itemize}
+    \item [(1)]If $I\subseteq \mathbb{N} $ is finite, and $(x_n)_{n\in I}$ is a Cauchy sequence in $Dom(f)^I$ then $(f(x_n))_{n\in I}$ is Cauchy sequence
+    \item[(2)] $f$ is continuous
+\end{itemize} 
+\subsection{Proof}
+\begin{itemize}
+    \item [(1)]$\forall \epsilon>0, \exists\delta>0$ such that $$\forall(x,y)\in Dom(f)^2, d(x,y)\leq \delta \Rightarrow d(f(x),f(y))\leq\epsilon$$ Since $(x_n)_{n\in I}$ is a Cauchy sequence, $\exists N\in \mathbb{N} $ such that
+    $$\forall(n,m)\in I_{\geq N}^2,d_X(x_n,x_m)\leq\delta$$ Hence $$d_Y(f(x_n),f(x_m))\leq\epsilon$$ THerefore $(f(x_n))_{n\in I}$ is a Cauchy sequence.
+    \item [(2)]Let $(x_n)_{n\in I}$ be a sequence in $Dom(f)^\mathbb{N} $ that converges to $x\in Dom(f)$ We define$(y_n)_{n\in\mathbb{N} }$ as$$y_n=\left\{\begin{aligned}
+        &x &\text{if } n &\text{ is odd}\\
+        &x_{\frac{1}{2}} &\text{if } n &\text{ is even}
+    \end{aligned}\right.$$Then $(y_n)_{n\in \mathbb{N} }$ converges to $x$. Hence $(y_n)_{n\in \mathbb{N} }$ is a Cauchy sequence. Since $f$ is uniformly continuous, $(f(y_n))_{n\in \mathbb{N} }$ is a Cauchy sequence in Y. $$(f(y_n))_{n\in \mathbb{N} ,n\text{ is odd}}=(f(x))_{n\in \mathbb{N} ,n\text{ is odd}}$$ converges to $f(x)$. Hence $(f(y_n))_{n\in \mathbb{N} }$ converges to $f(x)$
+\end{itemize}
+\section{Def} Let X be a set , $Z\subseteq X,(Y,d)$ be a metric space, $I\subseteq \mathbb{N} $ infinite. $(f_n)_{n\in I}$ and $f$ be functions from X to Y, having Z as their common domain of definition.
+\begin{itemize}
+    \item If $\forall x\in Z, (f_n(x))_{n\in I}$ converges to $f(x)$ , we say that $(f_n)_{n\in I}$ converges pointwisely to $f$
+    \item If $$\lim\limits_{n\in I,n\rightarrow+\infty}\sup\limits_{x\in Z}d(f_n(x),f(x))=0$$ we say that $(f_n)_{n\in I}$ converges uniformly to $f$
+\end{itemize}
+\section{Theorem}
+Let X and Y be metric space, $Z\subseteq X, I\subseteq \mathbb{N} $ infinite. $(f_n)_{n\in I},f$ be functions from X to Y, having Z as domain of definition.
+Suppose that \begin{itemize}
+    \item $(f_n)_{n\in I}$ converges uniformly to $f$
+    \item each $f_n$ is uniformly continuous
+\end{itemize}
+Then $f$ is uniformly continuous.
+\subsection{Proof}
+$\forall n\in I$ let $$A_n=\sup\limits_{x\in Z}d(f_n(x),f(x))$$
+$$ \lim\limits_{n\in I,n\rightarrow+\infty}A_n=0$$
+$\forall (x,y)\in Z^2,n\in I$
+$$\begin{aligned}
+&d(f(x),f(y))\\\leq &d(f(x),f_n(x))+d(f_n(x),f_n(y))+d(f_n(y),f(y))\\\leq &2A_n+d(f_n(x),f_n(y))
+\end{aligned}$$
+$$\inf\limits_{\delta>0}\sup\limits_{(x,y)\in Z^2,d(x,y)\leq\delta} d(f(x),f(y))\leq 2A_n+\inf\limits_{(x,y)\in Z^2,d(x,y)\leq\delta}d(f_n(x),f_n(y))=0$$ 
+Hence $$0\leq \inf\limits_{\delta>0}\sup\limits_{(x,y)\in Z^2,d(x,y)\leq\delta}d(f(x),f(y))\leq 2A_n$$
+Take $\lim\limits_{n\rightarrow+\infty}$, by squeeze theorem, we get$$\inf\limits_{\delta>0}\sup\limits_{(x,y)\in Z^2,d(x,y)\leq\delta}d(f(x),f(y))=0$$
+\section{Theorem}
+Let X be a topological space, Y be a metric space, $Z\subseteq X, p\in Z$, $I\subseteq \mathbb{N} $ infinite. $(f_n)_{n\in I}$ and $f$ function from X to Y, having Z as domain of definition. Suppose that:
+\begin{itemize}
+    \item $(f_n)_{n\in I}$ converges uniformly to $f$
+    \item each $f_n$ is continuous at $p$
+\end{itemize}
+Then $f$ is continuous at $p$
+\subsection{Proof}
+$\forall n\in I$ let $$A_n=\sup\limits_{x\in Z}d(f_n(x),f(x))$$
+$$\forall \epsilon>0\ \exists n\in I\quad A_n\leq\frac{\epsilon}{3}$$
+Since $f_n$ is continuous $\exists U\in \mathcal{V}_p\quad f_n(U)\subseteq \overline{\mathcal{B}}(f_n(p),\frac{\epsilon}{3})$
+$$\begin{aligned}
+\forall x\in U\cap Z\quad  &d(f(x)f(p))\\\leq &d(f(x),f_n(x))+d(f_n(x),f_n(p))+d(f_n(p),f(p))\\\leq &\frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}=\frac{\epsilon}{3}
+\end{aligned}$$
+$f(U)\subseteq\overline{\mathcal{B}}(f(p),\epsilon)$
+\subsection{Def}
+Let X Y be metric spaces , $f$ be a function from X to Y, $\epsilon>0$. If $$\forall (x,y)\in Dom(f)^2\quad d(f(x),f(y))\leq\epsilon d(x,y)$$
+then we say that $f$ is $\epsilon$-Lipschitzian\\
+If $\exists \epsilon>0$ such that $f$ is $\epsilon$-Lipschitzian, then it's uniformly continuous.
+\section{Remark}
+If $f$ is Lipschitzian, then it's uniformly continuous.
+\section{Example}
+\begin{itemize}
+    \item Let $((X_i,d_i))_{i\in I}$ be metric space. $X=\prod\limits_{i\in I}X_i$ where I is finite$$d:\begin{aligned}
+    &X\times X\rightarrow\mathbb{R}_{\geq 0}\\
+    &d((x_i),(y_i)_{i\in I})=\max\limits_{i\in I}d_i(x_i,y_i)
+    \end{aligned} $$
+    $$d_i(x_i,y_i)=d_i(\pi_i(x),\pi_i(y))\leq d(x,y)$$
+    Then $$\pi_i:X\rightarrow X_i$$ is Lipschitzian.$\left(\forall x=(x_i)_{i\in I},\forall x=(x_i)_{i\in I}\right)$
+    \item Let $(X,d)$ be a metric space$$d:X\times X\rightarrow\mathbb{R}_{\geq 0}$$ is Lipschitzian.$$\lvert d(x,y)-d(x',y')\rvert\leq 2\max\{d(x,x'),d(y,y')\}$$
 \end{itemize}
 \end{document}
