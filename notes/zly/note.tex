@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass{book} 
 \usepackage{graphicx} % Required for inserting images
 \usepackage{mathrsfs}
 \usepackage{amssymb}
@@ -1386,5 +1386,141 @@ If $f$ is Lipschitzian, then it's uniformly continuous.
     $$d_i(x_i,y_i)=d_i(\pi_i(x),\pi_i(y))\leq d(x,y)$$
     Then $$\pi_i:X\rightarrow X_i$$ is Lipschitzian.$\left(\forall x=(x_i)_{i\in I},\forall x=(x_i)_{i\in I}\right)$
     \item Let $(X,d)$ be a metric space$$d:X\times X\rightarrow\mathbb{R}_{\geq 0}$$ is Lipschitzian.$$\lvert d(x,y)-d(x',y')\rvert\leq 2\max\{d(x,x'),d(y,y')\}$$
+\end{itemize}
+\part{Normed Vector Space}
+\chapter{Linear Algebra}
+We fix a unitary ring K
+\section{Def}
+Let M be a left K-module ,and let $x=(x_i)_{i\in I}$ be a family of elements of M. We define a morphism of left K-module as following:
+$$\begin{aligned}
+\varphi_x:  &K^{\bigoplus I}&\rightarrow  M\\
+&(a_i)_{i\in I}&\mapsto \sum\limits_{i\in I}a_ix_i(:=\sum\limits_{i\in I,i\not=0}a_ix_i)
+\end{aligned}$$\
+\subsection{Notation}
+$$K^{\bigoplus I}:=\{(a_i)_{i\in I}\in K^I\mid\exists J\subseteq I \text{finite,such that} a_i=0 \text{ for }i\in I\setminus J\}$$
+$$\varphi_x((a_i)_{i\in I}+(b_i)_{i\in I})=\varphi_x((a_i)_{i\in I})\varphi_x((b_i)_{i\in I})$$
+\section{Def}
+Ler M be a left K-module, I be a set, $x=(x_i)_{i\in I}\in M^I$ If $$\begin{aligned}
+\varphi_x:&K^{\bigoplus I}\rightarrow M\\ &(a_i)_{i\in I}\mapsto\sum\limits_{i\in I}a_ix_i
+\end{aligned}$$ is
+\begin{itemize}
+    \item [injective] then we say $(x_i)_{i\in I}$ is K-linearly independent
+    \item [surjective]then we say $(x_i)_{i\in I}$ is system of generator
+    \item [a bijection]then we say $(x_i)_{i\in I}$ is a basis of M
+\end{itemize}
+\subsection*{Example}
+Let $e_i$ be the element $(\delta_{ij})_{j\in I}$ with
+$$\delta_{ij}:=\left\{\begin{aligned}
+    1\quad &\text{if }i=j\\
+    0\quad &\text{if }i\not=j
+\end{aligned}\right.$$
+Then the family $$e=(e_i)_{i\in I}\in (K^{\bigoplus I})^I$$is a basis of $K^{\bigoplus I}$
+\section{Def}
+Let M be a left K-module 
+\begin{itemize}
+    \item If M bas a basis, we say that M is a free K-module
+    \item If M has finite system of generated\\($\exists a$ finite set I and a family $(x_i)_{i\in I}\in M^I$ that forms a system of generator),\\ then we say that M is of finite type.
+\end{itemize}
+\section{Remark}
+Let $x=(x_i)_{i\in\{1,...,n\}}\in M^n$, where $n\in \mathbb{N}$
+\begin{itemize}
+    \item $x$ is linearly independent iff $$\forall a\in K^n\quad \sum a_ix_i=0$$implies$$a=0$$
+    \item $x$ is a system of generator iff for any element of M can be written in the form $$\sum b_ix_i\quad b\in K^n$$ Such expression is called a K-linear combination of $x_1,...x_n$
+\end{itemize}\
+\section{Theorem}
+Let K be a division ring ($0\not=1$ and $\forall k\in K\setminus \{0\}$ $k$ is invertible)
+\\Let V be a left K-module of finite type and $(x_i)_{i\in I}$ be a system of generators of V. Then ,there exists a subset I of $\{1,...,n\}$ such that $(x_i)_{i\in I}$ forms a basis of V. (In particular, V is a free K-module)
+\subsection*{Proof}
+(By induction on $n$)\\
+If $n=0$, then $V=\{0\}$\\
+In this case $\varnothing$ is a basis of V
+\subsubsection*{Induction hypothesis}
+True for a system of generators of $n-1$ elements.
+Let $(x_i)_{i\in \{1,...,n\}}$ be a system of generators of V. If $(x_i)_{i\in \{1,...,n\}}$ is linearly independent, it's a basis. Otherwise, $\exists (a_i)_{i\in I}\in K^n$ such that $$(a_i,...a_n)\not=0$$ $$\sum a_ix_i=0$$
+Without loss of generality, we suppose $a_n\not=0$. Then $$x_n=-a_n^{-1}(\sum\limits_{i=1}^{n-1} a_ix_i)$$
+Since $(x_i)_{i\in \{1,...,n\}}$ is a system of generators, any elements of V can be written as $$\begin{aligned}
+    \sum b_ix_i&=(\sum\limits_{i=1}^{n-1} b_ix_i)-b_na_n^{-1}(\sum\limits_{i=1}^{n-1}a_ix_i)\\
+    &=\sum\limits_{i=1}^{n-1}(b_i-b_na_n^{-1}a_i)x_i
+\end{aligned}$$
+Thus $(x_i)_{i\in \{1,...n\}}$ forms a system of generators . By the induction hypothesis, there exists $I\subseteq \{1,...,n\}$ such that $(x_i)_{i\in I}$ forms a basis of V.
+\section{Theorem}
+Let K be a unitary ring and B be a left K-module.
+W be a left K-submodule of V. Let $(x_i)_{i=1}^n$ be an element of $W^n$$$(\alpha_j)^l_{j=1}\in (V/W)^l$$, where $(n,l)\in\mathbb{N}^2$ $\forall j\in \{1,...l\}$ ,let $x_{n+j}$ be an element in the equivalence class $\alpha_j$
+\begin{itemize}
+    \item If both $(x_i)_{i=1}^n, (\alpha_j)_{j=1}^l$ are linearly independent, then $(x_i)_{i=1}^{n+l}$ is also linearly independent
+    \item If both $(x_i)_{i=1}^n, (\alpha_j)_{j=1}^l$ are system of generators of W and $V/W$ respectively, then $(x_i)_{i=1}^{n+l}$ is also a system of generators
+    \item If both $(x_i)_{i=1}^n, (\alpha_j)_{j=1}^l$ are basis, then $(x_i)_{i=1}^{n+l}$ is also a basis
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [(1)]Suppose that $(b_i)_{i=1}^{n+l}$ such that $$\sum\limits_{i=1}^{n+l}b_ix_i=0$$Let 
+    $$\pi:V\rightarrow V/W$$ be the projection morphism($\pi(x)=[x]$)
+    $$0=\pi(\sum\limits_{i=1}^{n+l}b_ix_i)=\sum\limits_{i=1}^{n+l}b_i\pi(x_i)=\sum\limits_{j=1}^{l}b_{n+j}\pi(x_{n+j})=\sum\limits_{j=1}^l b_{n+j}\alpha_j$$
+    $\{x_1,...x_n\}\subseteq W$ So$\forall i\in \{1,...,n\}$$$\pi(x_i)=0$$
+    Since $(\alpha_j)_{j=1}^l$ is linearly independent, $$b_{n+1}=...=b_{n+j}=0$$
+    Hence $$\sum b_ix_i=0$$
+    Since $(x_i)_{i=1}^n$ is linearly independent,$$b_1=...b_n=0$$
+    \item[(2)]Let $y\in V$. Then $\pi(y)\in V/W$. So there exists $$(c_{n+1},...,c_{n+l})\in K^l$$
+    such that$$\begin{aligned}
+        \pi(y)&=\sum\limits_{j=1}^l c_{n+j}\alpha_j\\
+        &=\sum\limits_{j=1}^l c_{n+j}\pi(x_{n+j})
+        &=\pi(\sum\limits_{j=1}^l c_{n+j}x_{n+j})
+    \end{aligned} $$
+    So $$y-(\sum\limits_{j=1}^lc_{n+j}x_{n+j})\in W$$
+    $\exists c\in K^n$ such that
+    $$y-(\sum\limits_{j=1}^lc_{n+j}x_{n+j})=(\sum\limits_{i=1}^nc_{i}x_{i})$$
+    Therefore $$y=\sum\limits_{i=1}^{n+l}c_ix_i$$
+    \item[(3)]from (1)(2), proved
+\end{itemize}
+\section{Corollary}
+Let K be a division ring and V be a left K-module of finite type. If $(x_i)_{i=1}^n$ is a linearly independent family of elements of V($n\in \mathbb{N}$), then  $$\exists\ l\in \mathbb{N}\quad\exists\ (x_{n+j})_{j=1}^l\in V_l$$ such that $$(x_i)_{i=1}^{n+l}$$ forms a basis of V
+\subsection*{Proof}
+Let W be the image of $$\begin{aligned}
+\varphi_(x_i)_{i=1}^n:&K^{n}\rightarrow V\\ &(a_i)^n_{i=1}\mapsto\sum\limits_{i=1}^na_ix_i
+\end{aligned}$$
+It's a left K-submodule of V. 
+
+Note that $(x_i)_{i=1}^n$ forms a basis of W. $$\begin{aligned}
+\varphi_(x_i)_{i=1}^n:&K^{n}\rightarrow W\\ &\varphi_(x_i)_{i=1}^n(e_j)=x_j\in W
+\end{aligned}$$
+Moreover ,since V is of finite type there exists $d\in \mathbb{N}$ and a surjective morphism of left K-modules.$$\psi:K^d\twoheadrightarrow V$$Since the projection morphism $$\pi:V\rightarrow V/W$$ is surjective.
+
+Hence the composite morphism
+
+
+
+
+
+is surjective. Thus $V/W$ is of finite type. There exist then a basis $$(a_j)_{j=1}^l$$ of $V/W$.
+
+Taking $x_{n+j}\in \alpha_j$ for $j\in \{1,...,l\}$, we get a basis of V:$$(x_i)_{i=1}^{n+l}$$
+\section{Def}
+Let K be a division ring and V be a left K-module of finite type. We call rank of V the minimal number of elements of its basis, denote as $$rk_{K}(V)$$ or simply $$rk(V)$$
+
+If K is a field $rk(V)$ is also denoted as $$dim_K(V)$$or$$dim(V)$$ called the dimension of V.
+\section{Theorem}
+Let K be a division ring and V be a left K-module of finite type. Let W be a left K-submodule of V.
+\begin{itemize}
+    \item [(1)]W and $V/W$ are both of finite type, and $$rk(V)=rk(W)+rk(V/W)$$
+    \item [(2)]Any basis of V has exactly $rk(V)$ elements
+\end{itemize}
+\section{Proof}
+\begin{itemize}
+    \item [(1)]Let $(x_i)_{i=1}^n$ be a basis of V. Let $$\begin{aligned}
+    \pi:&V\rightarrow V/W\\&x\mapsto[x]
+    \end{aligned}$$
+    In $(\pi(x_i))_{i=1}^n$ we extract a basis of $V/W$, say $$(\pi(x_i))_{i=1}^l$$ For $j\in \{l+1,...,n\},$$$\exists (b_{j,1},...,b_{j,l})\in K^l$$ such that $$\pi(x_j)=\sum\limits_{i=1}^lb_{j,i}\pi(x_i)$$
+    Let $$y_j=x_j-\sum\limits_{i=1}^lb_{j,i}x_i\in W$$Since $$\pi(y_i)=0$$For any $x\in W$,$\exists(a_i)_{i=1}^n\in K^n,x=\sum\limits_{i=1}^na_ix_i$$$
+    \begin{aligned}
+    x=&\sum\limits_{i=1}^la_ix_i+\sum\limits_{j=l+1}^na_j(y_j+\sum\limits_{i=1}^lb_{j,i}x_i)\\ 
+    &=\sum\limits_{j=l+1}^na_jy_j+\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1} a_jb_{j,i})x_i
+    \end{aligned}$$
+    Since $$\pi(x)=\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1}^na_jb_{j,i})\pi(x_i)=0$$Hence $$x=\sum\limits_{j=l+1}^na_iy_i$$
+    Hence W is of finite type , and 
+    $$rk(V)\geq rk(W)+rk(V/W)$$ 
+    Moreover the previous theorem shows that 
+    $$rk(V)\leq rk(W)+rk(V/W)$$
+    So $$rk(V)= rk(W)+rk(V/W)$$
+    \item[(2)]
 \end{itemize}
 \end{document}
