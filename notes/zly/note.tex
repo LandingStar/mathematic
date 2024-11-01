@@ -1293,7 +1293,7 @@ $$
 \end{aligned}$$
 \chapter{Uniform continuity and convergency}
 \section{Def}
-Let $(X,d)$ be a metric space. $\forall A\subseteq X$, we define $$diam(A):=\sup\limits_{(x,Y)\in A\times A}$$ called the diameter of A.By convention $$diam(\varnothing):=0$$ If $diam(A)<+\infty$, we say that A is bounded
+Let $(X,d)$ be a metric space. $\forall A\subseteq X$, we define $$diam(A):=\sup\limits_{(x,y)\in A\times A}d(x,y)$$ called the diameter of A.By convention $$diam(\varnothing):=0$$ If $diam(A)<+\infty$, we say that A is bounded
 \section{Remark}
 \begin{itemize}
     \item If A is finite, then it's bounded
@@ -1318,7 +1318,7 @@ Let $(x,y)\in (A\cup B)^2$. If $\{x,y\}\subseteq A$, then $d(x,y)\leq diam(A)$\\
     \item Take $n_0\in J_{\leq N}\subseteq I_{\geq N}$$$\forall n\in I_{\geq N}\quad d(x_n,x)\leq d(x_n,x_{n_0})+d(x_{n_0},x)\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\frac{\epsilon}{2}$$ Hence $(x_n)_{n\in I}$ converges to $x$ 
 \end{itemize}
 \section{Def}
-Let $(X,d_X),(Y<d_Y)$ be metric space. $f$ be a function from X to Y. If $\forall \epsilon>0,\exists \delta >0$ such that $$\forall(x,y)\in Dom(f)^2,d(x,y)\leq\delta$$implies$$d(f(x),f(y))\leq\epsilon$$ namely$$\inf\limits_{\delta>0}\sup\limits_{(x,y)_\in Dom (f)^2, d(x,y)\leq\delta}d(f(x),f(y))=0$$ we say that $f$ is uniformly continuous.
+Let $(X,d_X),(Y<d_Y)$ be metric space. $f$ be a function from X to Y. If $\forall \epsilon>0,\exists \delta >0$ such that $$\forall(x,y)\in Dom(f)^2,d(x,y)\leq\delta$$implies$$d(f(x),f(y))\leq\epsilon$$ namely$$\inf\limits_{\delta>0}\sup\limits_{(x,y)\in Dom (f)^2, d(x,y)\leq\delta}d(f(x),f(y))=0$$ we say that $f$ is uniformly continuous.
 \section{Prop}
 Let $(X,d_X),(Y,d_Y)$ be metric spaces $f$ be a function from X to Y which is uniformly continuous.
 \begin{itemize}
@@ -1491,6 +1491,22 @@ Hence the composite morphism
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 is surjective. Thus $V/W$ is of finite type. There exist then a basis $$(a_j)_{j=1}^l$$ of $V/W$.
 
 Taking $x_{n+j}\in \alpha_j$ for $j\in \{1,...,l\}$, we get a basis of V:$$(x_i)_{i=1}^{n+l}$$
@@ -1506,21 +1522,115 @@ Let K be a division ring and V be a left K-module of finite type. Let W be a lef
 \end{itemize}
 \section{Proof}
 \begin{itemize}
-    \item [(1)]Let $(x_i)_{i=1}^n$ be a basis of V. Let $$\begin{aligned}
-    \pi:&V\rightarrow V/W\\&x\mapsto[x]
-    \end{aligned}$$
-    In $(\pi(x_i))_{i=1}^n$ we extract a basis of $V/W$, say $$(\pi(x_i))_{i=1}^l$$ For $j\in \{l+1,...,n\},$$$\exists (b_{j,1},...,b_{j,l})\in K^l$$ such that $$\pi(x_j)=\sum\limits_{i=1}^lb_{j,i}\pi(x_i)$$
-    Let $$y_j=x_j-\sum\limits_{i=1}^lb_{j,i}x_i\in W$$Since $$\pi(y_i)=0$$For any $x\in W$,$\exists(a_i)_{i=1}^n\in K^n,x=\sum\limits_{i=1}^na_ix_i$$$
-    \begin{aligned}
-    x=&\sum\limits_{i=1}^la_ix_i+\sum\limits_{j=l+1}^na_j(y_j+\sum\limits_{i=1}^lb_{j,i}x_i)\\ 
-    &=\sum\limits_{j=l+1}^na_jy_j+\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1} a_jb_{j,i})x_i
-    \end{aligned}$$
-    Since $$\pi(x)=\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1}^na_jb_{j,i})\pi(x_i)=0$$Hence $$x=\sum\limits_{j=l+1}^na_iy_i$$
-    Hence W is of finite type , and 
-    $$rk(V)\geq rk(W)+rk(V/W)$$ 
-    Moreover the previous theorem shows that 
-    $$rk(V)\leq rk(W)+rk(V/W)$$
-    So $$rk(V)= rk(W)+rk(V/W)$$
+    \item [(1)]This proof is written twice. Both are kept.
+    \begin{itemize}
+        \item [10.30's]
+            Let $(x_i)_{i=1}^n$ be a basis of V. Let $$\begin{aligned}
+            \pi:&V\rightarrow V/W\\&x\mapsto[x]
+            \end{aligned}$$
+            In $(\pi(x_i))_{i=1}^n$ we extract a basis of $V/W$, say $$(\pi(x_i))_{i=1}^l$$ For $j\in \{l+1,...,n\},$$$\exists (b_{j,1},...,b_{j,l})\in K^l$$ such that $$\pi(x_j)=\sum\limits_{i=1}^lb_{j,i}\pi(x_i)$$
+            Let $$y_j=x_j-\sum\limits_{i=1}^lb_{j,i}x_i\in W$$Since $$\pi(y_i)=0$$For any $x\in W$,$\exists(a_i)_{i=1}^n\in K^n,x=\sum\limits_{i=1}^na_ix_i$$$
+            \begin{aligned}
+            x=&\sum\limits_{i=1}^la_ix_i+\sum\limits_{j=l+1}^na_j(y_j+\sum\limits_{i=1}^lb_{j,i}x_i)\\ 
+            &=\sum\limits_{j=l+1}^na_jy_j+\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1} a_jb_{j,i})x_i
+            \end{aligned}$$
+            Since $$\pi(x)=\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1}^na_jb_{j,i})\pi(x_i)=0$$Hence $$x=\sum\limits_{j=l+1}^na_iy_i$$
+            Hence W is of finite type , and 
+            $$rk(V)\geq rk(W)+rk(V/W)$$ 
+            Moreover the previous theorem shows that 
+            $$rk(V)\leq rk(W)+rk(V/W)$$
+            So $$rk(V)= rk(W)+rk(V/W)$$
+        \item[11.1's]
+            By previous theorem. $$rk(V)\leq rk(W)+rk(V/W)$$
+            Let $(x_i)_{i=1}^n$ be a basis of V. Then $$(\pi(x_i))_{i=1}^n$$ is a system of generators of $V/W$.
+            
+            We extract a subfamily , say $(x_i)_{i=1}^l$ such that $$(\pi(x_i))_{i=1}^l$$ forms a basis of V/W.
+        
+            For $j\in \{1,...,l\}$, there exists:
+            $$(b_{j,1},...,b_{j,l})\in K^l$$
+            such that $$\pi(x_j)=\sum\limits_{i=1}^lb_{j,i}\pi(x_i)$$
+            namely$$y_j:=x_j-\sum\limits_{i=1}^l b_{j,i}x_i\in W$$
+            Let $x\in W$,$\exists (a_i)_{i=1}^n\in K^n$ let $x=\sum a_ix_i$,then
+            $$\begin{aligned}
+            x &=(\sum\limits_{i=1}^la_ix_i)+(\sum\limits_{j=l+1}^na_j(y_j+\sum\limits_{i=1}^lb_{j,i}x+i))\\
+            &=(\sum\limits_{i=1}^la_ix_i)+(\sum\limits_{i=1}^l\sum\limits_{j=l+1}^na_jb_{j,i}x_i)+(\sum\limits_{j=l+1}^na_jy_j)\\
+            & =\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1}^na_jb_{j,i})x_i+\sum\limits_{j=l+1}^na_jy_j
+            \end{aligned}$$
+            and $$0=\pi(x)=\sum\limits_{i=1}^l(a_i+\sum\limits_{j=l+1}^na_jb_{j.i})\pi(x_i)$$
+            Therefore $(y_j)_{j=l+1}^n$ is a system of generators$$n-l\geq rk(W)$$
+            Hence $$n\geq rk(W)+rk(V/W)$$
+            Thus $$rk(V)\geq rk(W)+tk(V/W)$$ 
+    \end{itemize}
     \item[(2)]
+        All basis of V have $rk(V)$ elements.
+
+        We reason by induction on $rk(V)$
+        \begin{itemize}
+            \item[(1)] $$rk(V)=0$$
+                In this case $V=\{0\}$ The only basis of V is $\varnothing$. So the statement holds.
+            \item[(2)] Assume that there exists $e\in V\setminus\{0\}$ such that $$V=\{\lambda e\mid\lambda\in K\}$$
+                Then any basis of V is of the form $$ae$$ where $a\in K\{0\}$
+        \end{itemize}
+        Let $(e_i)_{i=1}^m$ be a basis of V. We reason by induction on m to prove that $$m=rk(V)$$The cases where $m=0$ or 1 are proved in (1)(2) respectively. Induction hypothesis: true for a basis of $<m$ elements\\
+        Let $$W=\{\lambda e_i\mid\lambda\in  K\}$$
+        Let $$\begin{aligned}
+            \pi:&V\rightarrow V/W\\&x\mapsto[x]
+            \end{aligned}$$
+        Then $$(\pi(e_i))_{i=1}^m$$ forms a system of generators of $V/W$.
+
+        If $(a_i)_{i=2}^m\in K^{m-1}$ such that $$\sum\limits_{i=2}^ma_i\pi(e_i)=0$$
+        then $$\sum\limits_{i=2}^ma_ie_i\in W$$
+        Hence $$\exists a_i\in K\quad\sum\limits_{i=2}^ma_ie_i-a_1e_1=0$$
+        And for  $(e_i)_{i=1}^m$ a basis of V,$$a_i=0$$
+        Thus $$(\pi(e_i))_{i=2}^m$$ is a basis of V/W.
+        We then obtain that $$rk(V/W)\leq m-1\leq n-1$$
+        By the induction hypothesis, $$m-1=rk(V/W)$$
+        By (2), $rk(W)=1$. Hence $$m=(m-1)+1=rk(V/W)+rk(W)=rk(V)$$ 
 \end{itemize}
+\section{Prop}
+Let K be a unitary ring and $f:E\rightarrow F$ be a morphism of left K-modules. Let I be a set and $(x_i)_{i\in I}\in E^I$
+\begin{itemize}
+    \item If $(x_i)_{i\in I}$ is linearly independent and $f$ is injective, then $(f(x_i))_{i\in I}$ is linearly independent.
+    \item If $(x_i)_{i\in I}$ is a system of generators and $f$ is surjective, then $(f(x_i))_{i\in I}$ is a system of generators.
+    \item If $(x_i)_{i\in I}$ is a basis and $f$ is an isomorphism, then $(f(x_i))_{i\in I}$ is a basis.
+\end{itemize}
+\subsection{Proof}$$\varphi_{(f(x_i))_{i\in I}}=f\circ\varphi_{(x)_{i\in I}}$$
+\chapter{Matrices}
+We fix unitary ring K
+\section{Def}
+Let $n\in \mathbb{N}$ adn V be a left K-module.
+
+For any $(x_i)_{i=1}^n\in V^n$, we denote by $\left(\begin{aligned}
+    x_1\\.\\.\\.\\x_n
+\end{aligned}\right)$ the morphism $$\begin{aligned}
+    \phi_{(x_i)_{i=1}^n}: &K^n\rightarrow V\\(a_i)_{i=1}^n\mapsto \sum\limits_{i=1}^n a_in_i
+\end{aligned}$$
+\subsection{Example}
+Suppose that $V=K^p(p\in \mathbb{N})$ Then each $x_i\in K^p$ is of the form $(x_{i,1},...,x_{i,p})$ Hence$\left(\begin{aligned}
+    x_1\\.\\.\\.\\x_n
+\end{aligned}\right)$ can be written:
+$$\left(\begin{aligned}
+    &x_{1,1} &.\ &.\ &.\ &x_{1,p}\\ 
+    & .& & & &.\\
+    & .& & & &.\\
+    & .& & & &.\\
+    &x_{n,1} &.\ &.\ &.\  &x_{n,p}
+\end{aligned}\right)$$
+\section{Def}
+Let $(n,p)\in \mathbb{N}^2$. We call $n$ by $p$ matrix of coefficient in K any morphism of left K-modules from $K^n$ to $K^p$
+\subsection{Example}
+\begin{itemize}
+    \item Denote by $I_n$ then identity mapping.Then $(e_i)_{i=1}^n$ is a basis of $K^n$ called the canonical basis of $K^n$
+$$\varphi_{(e_i)_{i=1}^n}=Id_{K^n}$$$$\varphi _{(e_i)_{i=1}^n}((a_1,...,a_n))=\sum\limits_{i=1}^na_ie_i=(a_1,...,a_n)$$
+    \item Let $(x_1,...,x_n)\in K^n$, Denote by $$\begin{aligned}
+    diog(x_1,...x_n)(=\varphi_{(x_ie_i)_{i=1}^n}): &K^n\rightarrow K^n\\
+    &(a_1,...,a_n)\mapsto (a_1x_1,...,a_nx_n)
+\end{aligned}$$
+\end{itemize}
+\section{Def}
+We denote by $M_{n,p}(K)$ the set of all $n$ by $p$ matrices of coefficients in K. For $(n,p,r)\in \mathbb{N}^3$,we define
+$$\begin{aligned}
+    &M_{n,p}(K)\times M_{p,r}(K)\rightarrow & M_{n,r}(K)\\
+    &(A,B)\mapsto & AB:=B\circ A
+\end{aligned}$$
 \end{document}
