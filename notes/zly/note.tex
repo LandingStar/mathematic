@@ -1487,27 +1487,11 @@ Note that $(x_i)_{i=1}^n$ forms a basis of W. $$\begin{aligned}
 Moreover ,since V is of finite type there exists $d\in \mathbb{N}$ and a surjective morphism of left K-modules.$$\psi:K^d\twoheadrightarrow V$$Since the projection morphism $$\pi:V\rightarrow V/W$$ is surjective.
 
 Hence the composite morphism
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$$
+\xymatrix{
+    & K^d \ar[r]^\psi\ar@/_/[rr]_{\pi\circ\psi} & V \ar[r]^\pi & V/W
+}
+$$
 is surjective. Thus $V/W$ is of finite type. There exist then a basis $$(a_j)_{j=1}^l$$ of $V/W$.
 
 Taking $x_{n+j}\in \alpha_j$ for $j\in \{1,...,l\}$, we get a basis of V:$$(x_i)_{i=1}^{n+l}$$
@@ -1714,9 +1698,9 @@ $$\begin{aligned}
 \end{aligned}$$are isomorphisms of K-modules
 
 For any morphism of K-modules $\varphi:K^n\rightarrow K^p$, we denote by $\varphi^\tau$ the morphism of K-modules $K^p\rightarrow K^n$ given by $\iota_n\circ\varphi^\vee\circ\iota_p^{-1}$
-$$\xymatrix{
-  & (K^p)^\vee \ar[d]^{\iota_p}_\cong  \ar[r]^{\varphi^\vee}  & (K^n)^\vee \ar[d]_\cong\\
-  & K^p \ar[r]_{\varphi^\tau} & K^n                       }$$
+$$\xymatrix{ 
+  & (K^p)^\vee \ar@{}|(.5)\circlearrowright[dr]\ar[d]^{\iota_p}_\cong  \ar[r]^{\varphi^\vee}  & (K^n)^\vee \ar[d]_\cong\\
+  & K^p \ar[r]_{\varphi^\tau} & K^n}$$
 $\varphi^\tau$ is called the transpose of $\varphi$
 \section{Prop}
 Let E,F,G be left K-modules. $\varphi:E\rightarrow F,\psi:F\rightarrow G$ be morphisms of left K-modules. Then $(\psi\circ\varphi)^\vee$ is equal to $\varphi^\vee\circ\psi^\vee$
