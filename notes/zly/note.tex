@@ -5,7 +5,8 @@
 \usepackage{amsmath}
 \usepackage{indentfirst}
 \usepackage{color}
-\usepackage{hyperref}  
+\usepackage{hyperref}
+\usepackage{xypic}
 \hypersetup{hidelinks,
 	colorlinks=true,
 	allcolors=black,
@@ -1318,7 +1319,7 @@ Let $(x,y)\in (A\cup B)^2$. If $\{x,y\}\subseteq A$, then $d(x,y)\leq diam(A)$\\
     \item Take $n_0\in J_{\leq N}\subseteq I_{\geq N}$$$\forall n\in I_{\geq N}\quad d(x_n,x)\leq d(x_n,x_{n_0})+d(x_{n_0},x)\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\frac{\epsilon}{2}$$ Hence $(x_n)_{n\in I}$ converges to $x$ 
 \end{itemize}
 \section{Def}
-Let $(X,d_X),(Y<d_Y)$ be metric space. $f$ be a function from X to Y. If $\forall \epsilon>0,\exists \delta >0$ such that $$\forall(x,y)\in Dom(f)^2,d(x,y)\leq\delta$$implies$$d(f(x),f(y))\leq\epsilon$$ namely$$\inf\limits_{\delta>0}\sup\limits_{(x,y)\in Dom (f)^2, d(x,y)\leq\delta}d(f(x),f(y))=0$$ we say that $f$ is uniformly continuous.
+Let $(X,d_X),(Y,d_Y)$ be metric space. $f$ be a function from X to Y. If $\forall \epsilon>0,\exists \delta >0$ such that $$\forall(x,y)\in Dom(f)^2,d(x,y)\leq\delta$$implies$$d(f(x),f(y))\leq\epsilon$$ namely$$\inf\limits_{\delta>0}\sup\limits_{(x,y)\in Dom (f)^2, d(x,y)\leq\delta}d(f(x),f(y))=0$$ we say that $f$ is uniformly continuous.
 \section{Prop}
 Let $(X,d_X),(Y,d_Y)$ be metric spaces $f$ be a function from X to Y which is uniformly continuous.
 \begin{itemize}
@@ -1633,4 +1634,124 @@ $$\begin{aligned}
     &M_{n,p}(K)\times M_{p,r}(K)\rightarrow & M_{n,r}(K)\\
     &(A,B)\mapsto & AB:=B\circ A
 \end{aligned}$$
+\section{Calculate Matrices}
+Let K be a unitary ring , and V be a left K-module.
+Let $n\in \mathbb{N}$ adn $$x=(x_1,...,x_n)\in V^n$$
+\subsection{Remind}
+$$\left(\begin{aligned}
+    x1\\.\\.\\.\\x_n
+\end{aligned}\right)=\varphi:(a_1,...,a_n)\mapsto a_1x_1,...,a_nx_n\in V$$
+Consider a matrix $$A=\{a_{ij}\}_{i\in\{1,...,p\}\times\{1,...,n\}}\in M_{p,n}(K)$$
+A is a morphism of left K-modules from $K^p$ to $K^n$
+Recall that $$A\left(\begin{aligned}
+    x1\\.\\.\\.\\x_n
+\end{aligned}\right)$$ is defined as $$\varphi_x\circ A: K^p\xrightarrow{A} K^n\xrightarrow{\varphi_x} V$$
+Let $(b_1,...,b_n)\in K^p$$$
+\begin{aligned}
+    A((b_1,...,b_n))&=\sum\limits_{i=1}^pb_i(a_{i,1},...,a_{i,n})\\
+    \varphi(A((b_1,...,b_n)))
+    &=\sum\limits_{i=1}^pb_i\varphi_x((a_{i,1},...,a_{i,n}))\\
+    &=\sum\limits_{i=1}^pb_i(a_{i,1}x_1,...,a_{i,n}x_n)
+\end{aligned}$$
+Let $B=\{b_{ij}\}_{(i,j)\in \{1,...,n\}\times\{1,...,r\}}:K^n\rightarrow K^r$
+$$AB=\left\{\sum\limits_{j=1}^na_{lj}b_{jm}\right\}_{(l,m)\in\{1,...,p\}\times\{1,...,r\}}$$
+\chapter{Transpose}
+We fix a unitary ring K
+\section{Def}
+Let E be a left-K-module. Denote by $$E^\vee:=\{\text{morphisms of left K-modules }E\rightarrow K\}$$
+$\forall(f,g)\in E^\vee$ let $$\begin{aligned}
+    f+g:&E\rightarrow K\\ &x\mapsto f(x)+g(x)
+\end{aligned}
+$$
+$(E^\vee,+)$ forms a commutative group.
+
+The neutral element is the constant mapping $$\begin{aligned}
+    0:&E\rightarrow K\\ &x\mapsto 0
+\end{aligned}$$
+We define $$\begin{aligned}
+&K\times E^\vee\rightarrow E^\vee\\
+&(a,f)\mapsto fa:x\in E\rightarrow f(x)a
+\end{aligned}$$
+$\forall \lambda \in K$
+$$
+\begin{aligned}
+(fa)(\lambda x)&=(f(\lambda f(x)))a\\
+&=(\lambda f(x))a\\
+&=\lambda(f(x)a)\\
+&=\lambda(fa)(x)
+\end{aligned}$$
+This mapping defines a structure of right K-module on $E^\vee$
+\section{Def}
+Let E and F be two left K-modules. $\varphi:E\rightarrow F$ be a morphism of left K-modules. We denote by $$\varphi^\vee:F^\vee\rightarrow E^\vee$$ the morphism of right K-modules sending $g\in F^\vee$ to $g\circ \varphi\in E^\vee$\\
+Actually $\forall a\in K$$$g\circ\varphi(\cdot)a=g(\varphi(\cdot))a=(g(\cdot)a)\circ\varphi$$
+\subsection{Example}
+Suppose that $E=K^n,F=K^p$
+$$\varphi=\left(\begin{aligned}
+    &b_{1,1} &.\ &.\ &.\ &b_{1,p}\\ 
+    & .& & & &.\\
+    & .& & & &.\\
+    & .& & & &.\\
+    &b_{n,1} &.\ &.\ &.\  &b_{n,p}
+\end{aligned}\right)$$ 
+$\varphi$ sends $(a_1,...,a_n)$ to $\{\sum\limits_{i=1}^na_ib_ij\}_{j\in \{1,...,p\}}$
+Let $g\in F^\vee\quad g:K^p\rightarrow K$, then $g$ is of the form $$\left(\begin{aligned}
+    y_1\\\vdots\\y_p
+\end{aligned}\right),y_i\in K$$
+$g\circ \varphi$ sends $(a_1,...,a_n)$ to $\sum\limits_{i=1}^p(\sum\limits_{i=1}^na_ib_{ij}y_j)$
+
+Assume that K is commutative. We denote by 
+$$\begin{aligned}
+    \iota_p:&(K^p)^\vee\rightarrow K^p\\
+    &\left(\begin{aligned}
+        x_1\\\vdots\\x_p
+    \end{aligned}\right)\mapsto(x_1,...,x_p)
+\end{aligned}$$
+$$\begin{aligned}
+    \iota_n:&(K^n)^\vee\rightarrow K^n\\
+    &\left(\begin{aligned}
+        x_1\\\vdots\\x_n
+    \end{aligned}\right)\mapsto(x_1,...,x_n)
+\end{aligned}$$are isomorphisms of K-modules
+
+For any morphism of K-modules $\varphi:K^n\rightarrow K^p$, we denote by $\varphi^\tau$ the morphism of K-modules $K^p\rightarrow K^n$ given by $\iota_n\circ\varphi^\vee\circ\iota_p^{-1}$
+$$\xymatrix{
+  & (K^p)^\vee \ar[d]^{\iota_p}_\cong  \ar[r]^{\varphi^\vee}  & (K^n)^\vee \ar[d]_\cong\\
+  & K^p \ar[r]_{\varphi^\tau} & K^n                       }$$
+$\varphi^\tau$ is called the transpose of $\varphi$
+\section{Prop}
+Let E,F,G be left K-modules. $\varphi:E\rightarrow F,\psi:F\rightarrow G$ be morphisms of left K-modules. Then $(\psi\circ\varphi)^\vee$ is equal to $\varphi^\vee\circ\psi^\vee$
+\subsection*{Proof}
+$\forall f\in G^\vee$$$(\varphi^\vee\circ\psi^\vee)(f)=\varphi^\vee(f\circ\psi)=(f\circ\psi)\circ\varphi=f\circ(\psi\circ\varphi)=(\psi\circ\varphi)^\vee(f)$$
+\section{Corollary}
+Assume that K is commutative. Let $n,p,q$ be neutral numbers. $A\in M_{n,p}(K),B\in M_{p,q}(K)$. Then $$(AB)^\tau=B^\tau A^\tau$$
+\subsection*{Proof}$$A^tau=\iota_n\circ A^\vee\circ \iota_p^{-1}$$
+$$B^tau=\iota_p\circ B^\vee\circ \iota_q^{-1}$$
+$$\begin{aligned}
+    B^\tau A^\tau &=A^\tau\circ B^\tau\\ &=\iota_n\circ A^\vee \circ B^\vee \circ \iota_q^{-1}\\
+    &=\iota_n\circ (B\circ A)^\vee\circ \iota_q^{-1}\\
+    &=\iota_n\circ (AB)^\vee\circ \iota_q^{-1}\\
+    &=(AB)^tau
+\end{aligned}$$
+\section{Remark}
+\begin{itemize}
+    \item [(1)]For $A\in M_{n,p}(K) $, one has $(A^\tau)^\tau$
+    \item [(2)]We have a mapping $$\begin{aligned}
+        &E\rightarrow(E^\vee)^\vee\\
+        &x\mapsto((f\in E^\vee)\mapsto f(x))
+    \end{aligned}$$
+    This is a K-linear mapping.
+
+    If K is a field and E is of finite dimension, this is a isomorphism of K-modules.
+\end{itemize}
+In fact, if $e=(e_i)_{i=1}^n$ is a basis of E over K.For $i\in \{1,...,n\}$, let $$\begin{aligned}
+    & e_i^\vee:E\rightarrow K\\
+    & \lambda_1e_1,...,\lambda_ne_n\mapsto\lambda_i
+\end{aligned}$$
+is called the dual basis of $e$
+$$\xymatrix{
+    & K^n  \ar[d]^\cong_\varphi_e \ar[rd]^{\varphi_{e^\vee}} &(K^n)^\vee\ar[l]_\cong^{\iota_n}\ar[d]_\cong^{\varphi_e^\vee}\\
+    & E\ar[r]_\cong & E^\vee
+}$$
+$(e^\vee)^\vee$ gives a basis of $(E^\vee)^\vee$ Hence $E\rightarrow(E^\vee)^\vee$ is an isomorphism.
+
 \end{document}
