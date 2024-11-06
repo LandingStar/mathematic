@@ -1737,5 +1737,90 @@ $$\xymatrix{
     & E\ar[r]_\cong & E^\vee
 }$$
 $(e^\vee)^\vee$ gives a basis of $(E^\vee)^\vee$ Hence $E\rightarrow(E^\vee)^\vee$ is an isomorphism.
+\chapter{Linear Equation}
+We fix a unitary ring K.
+\section{Def}
+For $a=(a_1,...,a_n)\in K^n\setminus\{(0,...,0)\}$. Denote by $j(a)$ the first index $j\in \{1,...,n\}$ such that $a_j\not=0$.Let $(n,p)\in \mathbb{N}^2, A\in M_{n,p}(K)$. We write A as a column:$$A=\left(\begin{aligned}
+    a^{(1)}\\\vdots\\a^{(n)}
+\end{aligned}\right)\quad a^{(i)}=(a^{(i)}_1,...,a^{(i)}_n)\in K^p$$
+We say that A is of row echelon form if,$\forall i\in \{1,...,n-1\}$ one of following conditions is satisfied.
+\begin{itemize}
+    \item $a^{(i+1)}=(0,...,0)$
+    \item $a^{(i)},a^{(i+1)}$ are non-zero, and $j(a^{(i)})<j(a^{(i+1)})$
+\end{itemize}
+If in addition the following condition is satisfied
+\begin{itemize}
+    \item $\forall i\in \{1,...,n\}$ such that $a^{(i)}\not=(0,...,0)$ ,one has $$a^{(i)}_{j(a^{(i)})}=1$$ and $$\forall k\in \{1,...,n\}\setminus\{i\}\quad a^{(k)}_{j(a^{(i)})}=0$$
+\end{itemize}
+we say that A is of reduced row echelon form.\
+\section{Prop}
+Suppose that $A=\left(\begin{aligned}
+    a^{(1)}\\\vdots\\a^{(n)}
+\end{aligned}\right)\in M_{n,p}(K)$ is of row echelon form. Then $\{i\in \{1,...,n\}\mid a^{(i)}\not=(0,...,0)\}$ is of cardinal $\leq p$
+\subsection*{Proof}
+Let $k=card\{i\in \{1,...,n\}\mid a^{(i)}\not=(0,...,0)\}$ $a^{(k+1)}=...=a^{(n)}=(0,...,0)$ and $j(a^{(1)})<j(a^{(2)})<...<j(a^{(k)})$ Hence $$\{1,...,k\}\rightarrow\{1,...,p\}, i\mapsto j(a^{(i)})$$ is injection. So $k\leq p$
+\section{Linear Equation}
+Let $A=\{a_{ij}\}_{i\leq n,j\leq p}\in M_{n,p}(K)$. Let V be a left K-module and $(b_1,...,b_n)\in V^n$. We consider the equation $$A\left(\begin{aligned}
+    x_1\\\vdots\\x_n
+\end{aligned}\right)=\left(\begin{aligned}
+    b_1\\\vdots\\b_n
+\end{aligned}\right)\qquad(*)
+$$
+The set of $(x_1,..,x_p)\in V^p$ that satisfies (*) is called the solution set of (*)
+\section{Prop}Suppose that A is of reduced row echelon form. Let $$I(A)=\{i\in \{1,...,n\}\mid (a_{i,1},...,a_{i,p})\not=(0,...,0)\}$$
+$$J_0(A)=\{1,...,p\}\setminus\{j((a_{i,1},...,a_{i,p}))\mid i\in I(A)\}$$
+\begin{itemize}
+    \item If $\exists i\in \{1,...,n\}\setminus I(A)$ such that $b_i\not=0$ then (*) does not have any solution in $K^n$
+    \item Suppose that $\forall i\in \{1,...,n\}\setminus I(A), b_i=0$. Then (*) has at least one solution. Moreover$$\begin{aligned}
+        &V^{J_0(A)}\rightarrow V^p\\& (z_k)_{k\in J_0(A)}\mapsto (x_1,...,x_p)
+    \end{aligned}$$ with $$x_j=\left\{\begin{aligned}
+        &z_j,\ &j\in J_0(A)\\b_i-\sum\limits_{l\in J_0(A)}a_{i,l}z_l\ &j=j((a_{i,1},...,a_{i,p}))
+    \end{aligned}\right.$$
+    is an injective mapping , whose image is equal to the set of solution of (*)
+\end{itemize}
+\section{Prop} Let $m\in \mathbb{N}, S\in M_{m,n}(K)$. If $(x_1,...,x_p)\in V^p$ is a solution of (*), then $(x_1,...,x_p)$ is a solution of $(*)_S:$$$(SA) \left(\begin{aligned}
+    x_1\\\vdots\\x_n
+\end{aligned}\right)=S\left(\begin{aligned}
+    b_1\\\vdots\\b_n
+\end{aligned}\right)\qquad(*)
+$$In the case where S is left invertible, namely there exist $R\in M_{n,m}(K)$ such that $RS=I_n\in M_{m,n}(K)$. Then (*) and $(*)_S$ have the same solution set.
+\section{Def}
+Let $G_n(K)$ be the set of $S\in M_{n,n}(K)$ that can be written as $U_1...U_N$(by convention $S=I_n$ where $N=0$)
+where each $U_i$ is of one of the following forms.
+\begin{itemize}
+    \item $P_\sigma$ where $\sigma\in \mathfrak{S}_n$
+    \item $diag(r_1,...,r_n)$ where each $r_i\in K$ is left invertible
+    \item $S_{i,c}$ with $i\in \{1,...,n\}\ c=(c_1,...,c_n)\in K^n,c_i=0$
+\end{itemize}
+Let $p\in \mathbb{N}$ ,we say that $A\in M_{n,p}(K)$ is reducible by Gauss elimination if $\exists S\in G_n(K)$ such that $SA$ is of reduced row echelon form
+\section{Theorem}
+Assume that K is a division ring $\forall (n,p)\in \mathbb{N}$ any $A\in M_{n,p}(K)$ is reducible by Gauss elimination
+\subsection*{Proof}The case where $n=0$ or $p=0$ is trivial.
+We assume $n\geq 1,p\geq1$ We write A as $$\left(\begin{aligned}
+    \lambda_1\\\vdots\\\lambda_n
+\end{aligned} B\right) \lambda_i\in K,B\in M_{n,p-1}(K)$$
+If $\lambda_1=...=\lambda_n=0$ Applying the induction hypothesis to B (for $S\in G_n(K)\quad SA=\left(S\left(\begin{aligned}
+    \lambda_1\\\vdots\\\lambda_n
+\end{aligned}\right) B\right)=\left(\begin{aligned}
+    0\\\vdots\\0
+\end{aligned} B\right)$)
 
+Suppose that $(\lambda_1,...,\lambda_n)\not=(0,...,0)$, By permuting the rows we may assume $\lambda_1\not=0$. As K is division ring, by multiplying the first row by $\lambda_1^{-1}$ , we amy assume $\lambda_1=1$. We add $(-\lambda_i)$ times the first row to the $i^{th}$ row, to reduce A to the form $$\left(\begin{aligned}
+    &1 &\mu_2&\dots&\mu_p\\ & 0\\ &\vdots& &C\\ &0
+\end{aligned}\right)\begin{aligned}
+    &C\in M_{n-1,p-1}(K)\\ &(\mu_2,...,\mu_p)\in K^{p-1}
+\end{aligned}$$
+Applying the induction hypothesis to C, we say assume that C is of reduced row echelon form . For $i\in \{2,...,k\}$ we add $-\mu_{j(c_i)}$ times the $i^{th}$ row of A to the first line to obtain a matrix of reduced row echelon form
+\chapter{Normed Vector Space}
+\section{Def}Let $(X,d)$ be a metric space. If $(x_n)_{n\in \mathbb{N}}$ is an element of $X^\mathbb{N}$ such that $$\lim\limits_{N\rightarrow+\infty}\sup\limits_{(n,m)\in \mathbb{N}^2_{\geq N}}d(x_n,x_m)=0$$we say that $(x_n)_{n\in N}$ is a Cauchy sequence. If any Cauchy sequence in X converges, then we say that $(X,d)$ is complete.
+
+Let $Cau(X,d)$ be the set of all Cuachy sequences in X. We define a binary relaation $\sim$ on $Cau(X,d)$ as $$(x_n)_{n\in \mathbb{N}}\sim(y_n)_{n\in \mathbb{N}}$$iff$$\lim_{n\rightarrow+\infty}d(x_n,y_n)=0$$
+\section{Prop}
+N is an equivalence relation.
+\subsection{Proof}
+$$\lim\limits_{n\rightarrow+\infty}d(x_n,x_n)=0$$
+$$d(x_n,y_n)=d(y_n,x_n)$$
+If $(x_n)_{n\in \mathbb{N}},(y_n)_{n\in \mathbb{N}},(z_n)_{n\in \mathbb{N}}$ be elements of $Cau(X,d)$. For $$0\leq d(x_n,y_n)\leq d(x_n,z_n)+d(z_n,y_n)$$ If $$\lim\limits_{n\rightarrow+\infty}d(x_n,y_n)=\lim\limits_{n\rightarrow+\infty}d(y_n,z_n)=0$$ then $$\lim\limits_{n\rightarrow+\infty}d(x_n,z_n)=0$$
+\section{Def}
+$\hat{X}:=Cau(X,d)\setminus N$
 \end{document}
