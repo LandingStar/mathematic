@@ -911,7 +911,7 @@ Let X be a set$$\begin{aligned}
     \end{aligned}\right.
 \end{aligned}$$is a metric
 \section{Def}
-Let $(X,d)$ be a metric space. For any $x\in X,\epsilon \in \mathbb{R} _{\geq0}$, let $B(x,\epsilon):=\{y\in X\mid d(x,y)\leq\epsilon \}$ We call the open ball of radius $\epsilon$ centered at $x$
+Let $(X,d)$ be a metric space. For any $x\in X,\epsilon \in \mathbb{R} _{\geq0}$, let $B(x,\epsilon):=\{y\in X\mid d(x,y)<\epsilon \}$ We call the open ball of radius $\epsilon$ centered at $x$
 \subsection{Example}
 Consider $(\mathbb{R} ,d)$ with $d(x,y)=\lvert x-y\rvert$,then $B(x,\epsilon)={]x-\epsilon,x+\epsilon[}$
 \section{Prop.}
@@ -1036,7 +1036,7 @@ Let Xbe a set. We call filter if X any $\mathcal{F}\subseteq \wp(x)$ that satisf
 \subsection{Example}
 \begin{itemize}
     \item [(1)]Let $Y\subseteq X, Y\not=\varnothing.$ $\mathcal{F}_Y:=\{A\in \wp(X)\mid Y\subseteq A\}$ is a filter, called the principal filter of Y.
-    \item [(2)]Let X be an infinite set.$$\mathcal{F}_{Fr}(X):=\{A\in \wp(X)\mid X\backslash A\text{is infinite}\}$$ is a filter called the Fréchet filter of X.
+    \item [(2)]Let X be an infinite set.$$\mathcal{F}_{Fr}(X):=\{A\in \wp(X)\mid X\backslash A\text{ is infinite}\}$$ is a filter called the Fréchet filter of X.
     \item [(3)]Let $(X,\mathcal{J} )$ be a topological space, $x\in X$ We call neighborhood of $x$ any $V\in \wp(X)$ such that $\exists u\in\mathcal{J} ,$ satisfying $x\in U\subseteq V$. Then $\mathcal{V}=\{\text{neighborhoods of x}\}$ is a filter. 
 \end{itemize}
 
@@ -1064,9 +1064,9 @@ Let $\mathscr{B}_x$ is a neighborhood basis of x iff\begin{itemize}
 \end{itemize}
 \subsection{Example}$\mathcal{V}_x\cap\mathcal{J}$ is a neighborhood basis of x
 \section{Def}
-$V\in \wp(X)$ is called a neighborhood of $x$ if $\exists U|in \mathcal{J}$ such that $ x\in U\subseteq V$
+$V\in \wp(X)$ is called a neighborhood of $x$ if $\exists U\in \mathcal{J}$ such that $ x\in U\subseteq V$
 \section{Remark}
-Let $(X,\mathcal{J})$ be a topological space, $x\in X$ and $\mathscr{B}_x$ a neighborhood basis os x. Suppose that $\mathscr{B}$ is countable . We choose a surjective mapping $(B_n)_{n\in \mathbb{N} }$ from $\mathbb{N} $ to$\mathscr{B}_x$. For any $n\in \mathbb{N} $, let $A_n=B_0\cap B_1\cap...\cap B_n\in\mathcal{V}_x$ The sequence $(A_n)_{n\in \mathbb{N} }$ is decreasing adn $\{A_n\mid n\in\mathbb{N} \}$ is a neighborhood basis of x.
+Let $(X,\mathcal{J})$ be a topological space, $x\in X$ and $\mathscr{B}_x$ a neighborhood basis os x. Suppose that $\mathscr{B}$ is countable . We choose a surjective mapping $(B_n)_{n\in \mathbb{N} }$ from $\mathbb{N} $ to$\mathscr{B}_x$. For any $n\in \mathbb{N} $, let $A_n=B_0\cap B_1\cap...\cap B_n\in\mathcal{V}_x$ The sequence $(A_n)_{n\in \mathbb{N} }$ is decreasing and $\{A_n\mid n\in\mathbb{N} \}$ is a neighborhood basis of x.
 \section{Extra Episode}$\wp(\mathbb{N} )$is NOT countable
 
 Suppose that $f:\wp(\mathbb{N} )\rightarrow\mathbb{N} $ injective. Then $\exists g:\mathbb{N} \rightarrow\wp(\mathbb{N} )$ surjective. Taking $A=\{n\in \mathbb{N} \mid n\not\in g(n)\}$. Since $g$ is surjective, $\exists a\in \mathbb{N} $ such that $A=g(a)$. \begin{itemize}
@@ -1076,8 +1076,8 @@ Suppose that $f:\wp(\mathbb{N} )\rightarrow\mathbb{N} $ injective. Then $\exists
 Contradiction
 \section{Prop.}
 Let Y and R be sets, $g:Y\rightarrow E$ be a mapping ,\begin{itemize}
-    \item If $\mathcal{F}$ is a filter of Y, then $$G_*(\mathcal{F}):=\{A\in\wp(E)\mid g^{-1}(A)\in\mathcal{F}\}$$ is a filter on E
-    \item If $\mathscr{B}$ is a filter basis of Y, then $$g(\mathscr{B}):=\{g(B)\mid B\in \mathscr{B}\}$$is a filter of E, adn $\mathcal{F}(g(\mathscr{B}))=g_*(\mathcal{F}(\mathscr{B}))$ 
+    \item If $\mathcal{F}$ is a filter of Y, then $$g_*(\mathcal{F}):=\{A\in\wp(E)\mid g^{-1}(A)\in\mathcal{F}\}$$ is a filter on E
+    \item If $\mathscr{B}$ is a filter basis of Y, then $$g(\mathscr{B}):=\{g(B)\mid B\in \mathscr{B}\}$$is a filter of E, and $\mathcal{F}(g(\mathscr{B}))=g_\ast (\mathcal{F}(\mathscr{B}))$ 
 \end{itemize}
 \subsection*{Proof}
 \begin{itemize}
@@ -1105,13 +1105,19 @@ Since $\mathscr{B}\subseteq \mathcal{F}(\mathscr{B}),\mathscr{B}\subseteq \mathc
 \subsubsection{Sufficiency}
 Let $(A,V)\in \mathcal{F}(\mathscr{B})\times\mathcal{V}_x$. There exist $B\in \mathscr{B},U\in \mathscr{B}_x$, such that $B\subseteq A, U\subseteq V$. Hence $\varnothing \not=B\cap U\subseteq A\cap V$
 \section{Def}
-Let $Y\subseteq X, Y\not=\varnothing$. W call accumulation point of Y any accumulation point of the principal filter $\mathcal{F}=\{A\subseteq X\mid Y\subseteq A\}$. We denote by $\overline{Y}=\{\text{accumulation points of }Y\}.$ Note that $x\in\overline{Y}$ iff $\forall U\in \mathscr{B}_x,Y\cap U\not=\varnothing$\\By convention $\overline{\varnothing}=\varnothing$
+Let $Y\subseteq X, Y\not=\varnothing$. W call accumulation point of Y any accumulation point of the principal filter $\mathcal{F}=\{A\subseteq X\mid Y\subseteq A\}$. 
+\section{Def}
+We denote by $\overline{Y}=\{\text{accumulation points of }Y\}.$,called the closure of $Y$ Note that $x\in\overline{Y}$ iff $\forall U\in \mathscr{B}_x,Y\cap U\not=\varnothing$
+
+By convention $\overline{\varnothing}=\varnothing$
 \section{Prop}
 Let $Y\subseteq X$. Then $\overline{Y}$ is the smallest closed subset of X containing Y.
 \subsection*{Proof}
 $\forall x\in X\backslash \overline{Y}$, then there exists $U_x=\mathcal{V}\cap \mathcal{J}$, such that $Y\cap U_x=\varnothing$. Moreover , $\forall y\in U_x, U_x\in \mathcal{V}_y\cap\mathcal{J}$. This shows that $\forall y\in U_x,y\not\in \overline{Y}$. Therefore $X\backslash\overline{Y}=\bigcap\limits_{x\in X\backslash\overline{Y}}U_x\in \mathcal{J}$
 
 Let $Z\subseteq X$ be a closed subset that contain Y. Suppose that $\exists y\in \overline{Y}\backslash Z.$ Then $U=X\backslash Z\in \mathcal{V}_y\cap\mathcal{J}$ and $U\cap Y\subseteq U\cap Z=\varnothing$. So $y\not\in \overline{ Y}$ contradiction. Hence $\overline{Y}\subseteq Z.$
+\section{Def: dense}
+Let $(X,\mathcal{J})$ be a topological space,$Y$ a subset of $X$. We call $Y$ is dense in $X$ if $$\overline{Y}=Y$$
 \chapter{Limit of mappings}
 \section{Def}
 Let $(E,\mathcal{J}_E)$ be a topological space . $f: Y\rightarrow E$ a mapping , and $\mathcal{F}$ eb a filter of Y. If $a\in E$ is a limit point of $F_*(\mathcal{F})$ namely , $\forall \text{neighborhood} V \text{of} a,f^{-1}(V)\in \mathcal{F}$, then we say that $a$ is a limit of the filter $\mathcal{F}$ by $f$
@@ -1316,7 +1322,7 @@ Let $(x,y)\in (A\cup B)^2$. If $\{x,y\}\subseteq A$, then $d(x,y)\leq diam(A)$\\
     \item [(1)]trivial
     \item [(2)]trivial
     \item [(3)]Let $\epsilon>0,\exists N\in \mathbb{N} $$$diam(\{x_n\mid n\in I_{\geq N}\})\leq\frac{\epsilon}{2}$$$$\forall n\in J_{\geq N},d(x_n,x)\leq\frac{\epsilon}{2}$$
-    \item Take $n_0\in J_{\leq N}\subseteq I_{\geq N}$$$\forall n\in I_{\geq N}\quad d(x_n,x)\leq d(x_n,x_{n_0})+d(x_{n_0},x)\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\frac{\epsilon}{2}$$ Hence $(x_n)_{n\in I}$ converges to $x$ 
+    \item Take $n_0\in J_{\leq N}\subseteq I_{\geq N}$$$\forall n\in I_{\geq N}\quad d(x_n,x)\leq d(x_n,x_{n_0})+d(x_{n_0},x)\leq\frac{\epsilon}{2}+\frac{\epsilon}{2}=\frac{\epsilon}{2}$$ Hence $(x_n)_{n\in I}$ converges to $x$
 \end{itemize}
 \section{Def}
 Let $(X,d_X),(Y,d_Y)$ be metric space. $f$ be a function from X to Y. If $\forall \epsilon>0,\exists \delta >0$ such that $$\forall(x,y)\in Dom(f)^2,d(x,y)\leq\delta$$implies$$d(f(x),f(y))\leq\epsilon$$ namely$$\inf\limits_{\delta>0}\sup\limits_{(x,y)\in Dom (f)^2, d(x,y)\leq\delta}d(f(x),f(y))=0$$ we say that $f$ is uniformly continuous.
@@ -1583,7 +1589,7 @@ Let K be a unitary ring and $f:E\rightarrow F$ be a morphism of left K-modules. 
 \chapter{Matrices}
 We fix unitary ring K
 \section{Def}
-Let $n\in \mathbb{N}$ adn V be a left K-module.
+Let $n\in \mathbb{N}$ and V be a left K-module.
 
 For any $(x_i)_{i=1}^n\in V^n$, we denote by $\left(\begin{aligned}
     x_1\\.\\.\\.\\x_n
@@ -1608,7 +1614,7 @@ Let $(n,p)\in \mathbb{N}^2$. We call $n$ by $p$ matrix of coefficient in K any m
     \item Denote by $I_n$ then identity mapping.Then $(e_i)_{i=1}^n$ is a basis of $K^n$ called the canonical basis of $K^n$
 $$\varphi_{(e_i)_{i=1}^n}=Id_{K^n}$$$$\varphi _{(e_i)_{i=1}^n}((a_1,...,a_n))=\sum\limits_{i=1}^na_ie_i=(a_1,...,a_n)$$
     \item Let $(x_1,...,x_n)\in K^n$, Denote by $$\begin{aligned}
-    diog(x_1,...x_n)(=\varphi_{(x_ie_i)_{i=1}^n}): &K^n\rightarrow K^n\\
+    diag(x_1,...x_n)(=\varphi_{(x_ie_i)_{i=1}^n}): &K^n\rightarrow K^n\\
     &(a_1,...,a_n)\mapsto (a_1x_1,...,a_nx_n)
 \end{aligned}$$
 \end{itemize}
@@ -1620,7 +1626,7 @@ $$\begin{aligned}
 \end{aligned}$$
 \section{Calculate Matrices}
 Let K be a unitary ring , and V be a left K-module.
-Let $n\in \mathbb{N}$ adn $$x=(x_1,...,x_n)\in V^n$$
+Let $n\in \mathbb{N}$ and $$x=(x_1,...,x_n)\in V^n$$
 \subsection{Remind}
 $$\left(\begin{aligned}
     x1\\.\\.\\.\\x_n
@@ -1774,7 +1780,7 @@ $$J_0(A)=\{1,...,p\}\setminus\{j((a_{i,1},...,a_{i,p}))\mid i\in I(A)\}$$
     \item Suppose that $\forall i\in \{1,...,n\}\setminus I(A), b_i=0$. Then (*) has at least one solution. Moreover$$\begin{aligned}
         &V^{J_0(A)}\rightarrow V^p\\& (z_k)_{k\in J_0(A)}\mapsto (x_1,...,x_p)
     \end{aligned}$$ with $$x_j=\left\{\begin{aligned}
-        &z_j,\ &j\in J_0(A)\\b_i-\sum\limits_{l\in J_0(A)}a_{i,l}z_l\ &j=j((a_{i,1},...,a_{i,p}))
+        &z_j,\ &j\in J_0(A)\\ & b_i-\sum\limits_{l\in J_0(A)}a_{i,l}z_l\ &j=j((a_{i,1},...,a_{i,p}))
     \end{aligned}\right.$$
     is an injective mapping , whose image is equal to the set of solution of (*)
 \end{itemize}
@@ -1798,29 +1804,145 @@ Assume that K is a division ring $\forall (n,p)\in \mathbb{N}$ any $A\in M_{n,p}
 \subsection*{Proof}The case where $n=0$ or $p=0$ is trivial.
 We assume $n\geq 1,p\geq1$ We write A as $$\left(\begin{aligned}
     \lambda_1\\\vdots\\\lambda_n
-\end{aligned} B\right) \lambda_i\in K,B\in M_{n,p-1}(K)$$
-If $\lambda_1=...=\lambda_n=0$ Applying the induction hypothesis to B (for $S\in G_n(K)\quad SA=\left(S\left(\begin{aligned}
-    \lambda_1\\\vdots\\\lambda_n
-\end{aligned}\right) B\right)=\left(\begin{aligned}
-    0\\\vdots\\0
-\end{aligned} B\right)$)
-
-Suppose that $(\lambda_1,...,\lambda_n)\not=(0,...,0)$, By permuting the rows we may assume $\lambda_1\not=0$. As K is division ring, by multiplying the first row by $\lambda_1^{-1}$ , we amy assume $\lambda_1=1$. We add $(-\lambda_i)$ times the first row to the $i^{th}$ row, to reduce A to the form $$\left(\begin{aligned}
-    &1 &\mu_2&\dots&\mu_p\\ & 0\\ &\vdots& &C\\ &0
-\end{aligned}\right)\begin{aligned}
-    &C\in M_{n-1,p-1}(K)\\ &(\mu_2,...,\mu_p)\in K^{p-1}
-\end{aligned}$$
-Applying the induction hypothesis to C, we say assume that C is of reduced row echelon form . For $i\in \{2,...,k\}$ we add $-\mu_{j(c_i)}$ times the $i^{th}$ row of A to the first line to obtain a matrix of reduced row echelon form
+\end{aligned}\ B\right) \text{ where }
+ \lambda_i\in K, B\in M_{n,p-1}(K)$$
+\begin{itemize}
+    \item If $\lambda_1=...=\lambda_n=0$ 
+    
+    Applying the induction hypothesis to B, for $S\in G_n(K)$$$ SA=\left(S\left(\begin{aligned}
+        \lambda_1\\\vdots\\\lambda_n
+    \end{aligned}\right)\quad SB\right)=\left(\begin{aligned}
+        0\\\vdots\\0
+    \end{aligned} \quad SB\right)$$
+    \item Suppose that $(\lambda_1,...,\lambda_n)\not=(0,...,0)$
+    
+    By permuting the rows we may assume $\lambda_1\not=0$. As K is division ring, by multiplying the first row by $\lambda_1^{-1}$ , we amy assume $\lambda_1=1$. We add $(-\lambda_i)$ times the first row to the $i^{th}$ row, to reduce A to the form $$\left(\begin{aligned}
+        &1 &\mu_2&\dots&\mu_p\\ & 0\\ &\vdots& &C\\ &0
+    \end{aligned}\right)\quad \begin{aligned}
+        &C\in M_{n-1,p-1}(K)\\ &(\mu_2,...,\mu_p)\in K^{p-1}
+    \end{aligned}$$
+    Applying the induction hypothesis to C, we say assume that C is of reduced row echelon form . For $i\in \{2,...,k\}$ we add $-\mu_{j(c_i)}$ times the $i^{th}$ row of A to the first line to obtain a matrix of reduced row echelon form
+\end{itemize}
 \chapter{Normed Vector Space}
 \section{Def}Let $(X,d)$ be a metric space. If $(x_n)_{n\in \mathbb{N}}$ is an element of $X^\mathbb{N}$ such that $$\lim\limits_{N\rightarrow+\infty}\sup\limits_{(n,m)\in \mathbb{N}^2_{\geq N}}d(x_n,x_m)=0$$we say that $(x_n)_{n\in N}$ is a Cauchy sequence. If any Cauchy sequence in X converges, then we say that $(X,d)$ is complete.
 
-Let $Cau(X,d)$ be the set of all Cuachy sequences in X. We define a binary relaation $\sim$ on $Cau(X,d)$ as $$(x_n)_{n\in \mathbb{N}}\sim(y_n)_{n\in \mathbb{N}}$$iff$$\lim_{n\rightarrow+\infty}d(x_n,y_n)=0$$
+Let $Cau(X,d)$ be the set of all Cauchy sequences in X. We define a binary relation $\sim$ on $Cau(X,d)$ as $$(x_n)_{n\in \mathbb{N}}\sim(y_n)_{n\in \mathbb{N}}$$iff$$\lim_{n\rightarrow+\infty}d(x_n,y_n)=0$$
 \section{Prop}
-N is an equivalence relation.
+$\sim$ is an equivalence relation.
 \subsection{Proof}
 $$\lim\limits_{n\rightarrow+\infty}d(x_n,x_n)=0$$
 $$d(x_n,y_n)=d(y_n,x_n)$$
 If $(x_n)_{n\in \mathbb{N}},(y_n)_{n\in \mathbb{N}},(z_n)_{n\in \mathbb{N}}$ be elements of $Cau(X,d)$. For $$0\leq d(x_n,y_n)\leq d(x_n,z_n)+d(z_n,y_n)$$ If $$\lim\limits_{n\rightarrow+\infty}d(x_n,y_n)=\lim\limits_{n\rightarrow+\infty}d(y_n,z_n)=0$$ then $$\lim\limits_{n\rightarrow+\infty}d(x_n,z_n)=0$$
 \section{Def}
-$\hat{X}:=Cau(X,d)\setminus N$
+$\hat{X}:=Cau(X,d)\setminus \sim$
+\section{Def: The completion}
+The completion of $(X,d)$ is defined as $$Cau(X)/\sim$$ and is denoted as $$\hat{X}$$
+\section{Theorem}
+The mapping $$
+\begin{aligned}
+    \hat{d}: & \hat{X}\times\hat{X}\rightarrow \mathbb{R}_{\geq 0}\\ &(x,y)\mapsto \lim\limits_{n\rightarrow +\infty}d(x_n,y_n)
+\end{aligned}$$
+is well defined, and it's a metric on $\hat{X}$ 
+\subsection*{Proof}
+TO check that $\hat{d}$ is well defined , it suffices to prove that $\forall([x],[y])\in \hat{X}\times\hat{X},\ (d(x_n,y_n))_{n\in \mathbb{N}}$ is Cauchy sequence and its limit doesn't depend on the choice of the representation $x$ and $y$
+\\For $N\in\mathbb{N}$ and $(n,m)\in \mathbb{N}_{\geq N}$ 
+for $$
+\begin{aligned}
+    d(x_n,y_n) &\leq d(x_n,x_m)+d(x_m,y_m)+d(y_m,y_n)\\
+    d(x_n,y_n)-d(x_m,y_m) &\leq d(x_n,x_m)+d(y_n,y_m)\\
+    d(x_m,y_n)-d(x_n,y_n) &\leq d(x_n,x_m)+d(y_n,y_m)
+\end{aligned}$$
+one has,
+$$\lvert dd(x_n,y_n)-d(x_m,y_m)\rvert\leq d(x_n,x_m)+d(y_n,y_m)$$
+then
+$$\begin{aligned}
+    \sup\limits_{(n,m\in\mathbb{N}_{\geq N})}\lvert d(x_n,y_n)-d(x_m,y_m)\rvert\leq\ &(\sup\limits_{(n,m\in\mathbb{N}_{\geq N})}d(x_n,x_m))\\+&(\sup\limits_{(n,m\in\mathbb{N}_{\geq N})}d(y_n,y_m))
+\end{aligned}$$
+Taking $\lim\limits_{N\rightarrow+\infty}$ we obtain that $(d(x_n,y_n))_{n\in \mathbb{N}}$ is a Cauchy sequence.\\
+Hence it converges in $\mathbb{R}$. If $x'=(x'_n)_{n\in \mathbb{N}}\in [x],y'=(y'_n)_{n\in \mathbb{N}}\in [y]$  , thus $$\lim\limits_{n\rightarrow+\infty} d(x_n,x_n')=\lim\limits_{n\rightarrow+\infty} d(y_n,y'_n)=0$$$$0\leq\lvert d(x_n,y_n)-d(x'_n,y'_n)\rvert\leq d(x_n,x'_n)+d(y_n,y'_n)$$
+Taking $\lim\limits_{n\rightarrow+\infty}$ we get $$\lim\limits_{n\rightarrow+\infty}\lvert d(x_n,y_n)-d(x'_n,y'_n)\rvert=0$$
+So
+$$\lim\limits_{n\rightarrow+\infty}d(x_n,y_n)=\lim\limits_{n\rightarrow+\infty}d(x'_n,y'_n)$$
+In the following, we check that $\hat{d}$ is a metric
+\begin{itemize}
+    \item $\hat{d}([x],[y])=0$ iff $[x]=[y]$: trivial
+    \item $\hat{d}([x],[y])=\hat{d}([y],[x])$: trivial
+    \item $\hat{d}([x],[y])\leq\hat{d}([x],[z])+\hat{d}([z],[y])$:
+    $$\begin{aligned}
+        d([x],[y]) &=\lim\limits_{n\rightarrow+\infty}\\
+        &\leq\lim\limits_{n\rightarrow+\infty}(d(x_n,z_n)+d(z_n,y_n))\\
+        &=\hat{d}(x,z)+\hat{d}(z,y)
+    \end{aligned}$$
+\end{itemize}
+\section{Remark}
+Let
+$$\begin{aligned}
+    i_X: &X\rightarrow \hat{X}\\
+    & a\mapsto[(a,a,...)]
+\end{aligned}$$
+then $$\hat{d}(i_X(a),i_X(b))=d(a,b)$$
+In particular, $i_x$ is injective(if $i_X(a)=i_X(b)$ then $d(a,b)=0$ hence $a=b$)
+\section{Prop}
+$i_X(X)$ is dense in $\hat{X}$ (the closure of $i_X(X)$ in $\hat{X}$ in $\hat{X}$ is equal to $i_X(X)$ ($ \hat{X}$))
+\subsection*{Proof}
+Let $[x]$ be an equivalence class in $\hat{X}$. We claim that $\forall (x_n)_{n\in\mathbb{N}}\in [x]$ $$\lim\limits_{n\rightarrow+\infty}x_n=\lim\limits_{n\rightarrow+\infty}i_X(x_n)$$
+For any $N\in \mathbb{N}$$$
+\begin{aligned}
+0\leq\hat{d}(i_X(x_N),[x]) &=\lim\limits_{n\rightarrow+\infty}d(x_N,x_n)\\
+&\leq \sup\limits_{(n,m)\in\mathbb{N}_{\geq N}^2}d(x_n,x_m)
+\end{aligned}$$
+Taking $\lim\limits_{N\rightarrow+\infty}$ we get 
+$$\lim\limits_{N\rightarrow+\infty}\hat{d}(i_X(x_N),[x])=0$$
+\section{Theorem}$(\hat{X},\hat{d})$ is a complete metric space
+\subsection*{Proof}
+Let $([x^{(N)}])_{N\in \mathbb{N}}$ be a Cauchy sequence in $\hat{X}$ , where $\forall N\in\mathbb{N}$, $ x^{(N)}=(x_n^{(N)})_{n\in \mathbb{N}}$ is a Cauchy sequence
+\\ $\forall \epsilon>0,\ \exists N_0\in \mathbb{N}$ such that $\forall(k,l)\in \mathbb{N}_{\geq N_0}$
+$$\hat{d}([x^{(k)}],[x^{(l)}])=\lim\limits_{n\rightarrow+\infty}d(x_n^{(k)},x_n^{(l)})\leq \epsilon$$
+$\forall N\in \mathbb{N}$$$d(x_\mu^{(N)},x_\nu ^{(N)})\leq\frac{1}{N+1}$$ for any $(\mu,\nu)\in \mathbb{N}_{\geq \alpha(N)}$\\
+Let $y_N=x_{\alpha(N)}^{(N)}$. Without loss of generality , we assume that $$\aleph(0)\leq\alpha(1)\leq...$$
+Let $\epsilon>0$ Take $N_0\in \mathbb{N}$ such that \begin{itemize}
+    \item [(1)]$\forall (k,l)\in \mathbb{N},\ k,l\geq N_0$$$\hat{d}([x^{(k)}],[x^{(l)}])\leq\frac{\epsilon}{3}$$
+    \item [(2)]$$\frac{1}{N_0+1}\leq\frac{\epsilon}{3}$$
+\end{itemize}
+Let $(k,l)\in \mathbb{N}_{N_0}^2$,$$d(y_k,y_l)=d(x_{\alpha(k)}^{(k)},x_{\alpha(l)}^{(l)})$$
+Since $\alpha(k)\geq N_0$, $\forall n\in \mathbb{N}_{\geq N_0}$
+$$
+\begin{aligned}
+    d(y_k,y_l)&\leq d(x_{\alpha(k)}^{(k)},x_n^{(k)})+d(x_n^{(k)},x_n^{(k)})+d(x_n^{(l)},x^{(l)}_{\alpha(l)})\\ 
+    &\leq \frac{\epsilon}{3}+\frac{\epsilon}{3}+d(x_n^{(k)},x_n^{(l)})
+\end{aligned}$$
+Taking $\lim\limits_{n\rightarrow+\infty}$ get $$d(y_k,y_l)\leq\frac{\epsilon}{3}+\frac{\epsilon}{3}+\frac{\epsilon}{3}=\epsilon$$
+So $y=(y_N)_{N\in \mathbb{N}}$ is a Cauchy sequence. We check that $$\lim\limits_{N\rightarrow+\infty}\hat{d}([x^{(N)}],[y])=0$$
+$$\begin{aligned}
+    0&\leq\limsup\limits_{N\rightarrow+\infty}\lim\limits_{n\rightarrow+\infty}d(x_n^{(N)},x_{\alpha(n)}^{(N)})\\
+    &\leq \lim\limits_{N\rightarrow+\infty}\frac{1}{N+1}= 0
+\end{aligned}$$
+$n\geq \alpha(N)$
+$$\begin{aligned}
+    d(x_n^{(N)},y_n) &\leq d(x_n^{(N)},y_N)+d(y_n,y_N)\\
+    \limsup\limits_{N\rightarrow+\infty}\lim\limits_{n\rightarrow+\infty}d(x_n^{(N)},y_n)&\leq \limsup\limits_{N\rightarrow+\infty}(\frac{1}{N+1}+\lim\limits_{n\rightarrow+\infty}d(y_n,y_N))\\
+    \text{Since y is Cauchy sequence}\qquad& \\
+    &\leq \limsup\limits_{N\rightarrow+\infty}\lim\limits_{n\rightarrow+\infty}d(y_n,y_N)=0
+\end{aligned}$$
+
+\subsection*{Example}
+Let $(K,\lvert\cdot\rvert)$ be a valued field.
+$$
+    \lvert\cdot\rvert: \mathbb{R}_{\geq0}
+$$
+\begin{itemize}
+    \item $\forall a\in K,\lvert a\rvert=0$ iff $a=0$
+    \item $\lvert ab\rvert=\lvert a\rvert \cdot\lvert b\rvert$
+    \item $\lvert a+b\rvert\leq\lvert a\rvert +\lvert b\rvert$
+\end{itemize}
+This is a metric space with $$d(a,b):=\lvert a-b\rvert$$
+$Cau(K)$ forms a commutative unitary ring. $$(a_n)_{n\in \mathbb{N}}\sim(b_n)_{n\in \mathbb{N}}$$ 
+iff
+$$ \lim\limits_{n\rightarrow+\infty}(a_n-b_n)=0$$Then $$(a_n-b_n)_{n\in \mathbb{N}}\in Cau_0(K)$$
+where
+$$Cau_0(K)=\{\text{Cauchy sequences that converges to 0}\}$$
+This is an ideal of $Cau(K)$\\
+Hence $$\hat{K}=Cau(K)\setminus Cau_0(K)$$ is a quotient ring of $Cau(K)$\\
+$\lvert\cdot\rvert$ extend to $\hat{K}$:
+$$\lvert[(a_n)_{n\in \mathbb{N}}]\rvert=\lim\limits_{n\rightarrow+\infty}\lvert a_n\rvert$$ that forms an absolute value.
 \end{document}
