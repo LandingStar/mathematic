@@ -17,6 +17,9 @@
 \begin{document}
 \tableofcontents
 \part{Set}
+\chapter{product}
+\section{direct sum}
+$\bigoplus $ is defined to be the direct product but with only finite non-zero elements.$$\bigoplus\limits_{i\in I}V_i\{(x_i)_{i\in I}\in \prod\limits_{i\in I}V_i\mid \exists J\subseteq I,I\setminus J \text{ is finite that } \forall j\in J,x_j=0\}$$
 \chapter{Ring}
 \section{morphism}
     \subsection*{Def}
@@ -723,6 +726,98 @@ Let $\beta\in \mathbb{R} ,\alpha<\beta<1$. There exists $N\in \mathbb{N} $ such 
 \subsubsection{(2)}
 If $\alpha>1$ then $\forall N\in \mathbb{N} \quad \exists n \geq N$ such that $\lvert a_n\rvert ^{\frac{1}{n}}\geq1$, since otherwise $\exists N\in \mathbb{N} \ \forall n\geq N,\lvert a_n\rvert^\frac{1}{n}<1$ contradiction\\
 Hence $(\lvert a_n\rvert)_{n\in \mathbb{N} }$ cannot converge to 0.
+\part{Axiom of choice}
+\chapter{Preparation}
+\section{Statement of axiom of choice}
+For any set I and any family $(A_i)_{i\in I}$ of non-empty sets , there exists a mapping $f:I\rightarrow \bigcup\limits_{i\in I}A_i$ such that $\forall i\in I, f(i)\in A_i$
+\section{Def} Let $(X,\leq)$ be a partially ordered set If $\forall A\subseteq X$ A is non-empty , there exists a least element of A then we say that $(X,\leq)$ is a well ordered set.
+\section{Theorem }
+For any set X, there exists an order relation $\leq$ on such that $(X,\leq)$ forms a well ordered set.
+\section{Zorn's lemma}
+Let $(X,\leq)$ be a partially ordered set . If $\forall A\subseteq X$ that is totally ordered with respect to $\leq $, there exists an upper bound of A inside X. Then , there exists a maximal element $x_0$ of $X$($\forall y\in X, y>x_0$ does not hold)
+\section{Prop.}
+Let $(X,\leq)$ be a well ordered set , $y\not\in X. $ We extends $\leq$ to $X\cup\{y\}$, such that $\forall x\in X,x<y.$ Then $(X\cup\{y\},\leq)$ is well ordered.
+\section{Proof}
+Let $A\subseteq X\cup\{y\},A\not=\varnothing$. If $A=\{y\}$ then $Y$ is the least element of A. If $A\not=\{y\}$ then $B=A\backslash\{y\}$ is non-empty. Let $b$ be the least element of B. Since $b<y$ it's also the least element of A
+\section{Def: Initial Segment}
+Let $(X,\leq)$ be a well ordered set. $S\subseteq X,$ If $\forall s\in S,x\in X\quad x<s$ initial $x\in S(X_{<s}\subseteq S)$, then we say that S is an initial segment of X
+
+If S is a initial segment such that $S=X$ then we sat that S is a proper initial segment.
+\section{Example}$\forall x\in X\quad X_{<x}=\{s\in X\mid s<x\}$ Then $X_{<x}$ is a proper initial segment of X.
+\section{Prop.}Let $(X,\leq)$ be a well ordered set , If $(S_i)_{i\in I}$ is a family of initial segment of X, then $\bigcup\limits_{i\in I}S_i$ is an initial segment of X
+\section{Proof}
+$\forall s\in \bigcup\limits_{i\in I}S_i,\exists i\in I$ such that $s\in S_i,i\in I$ Therefore $X_{<s}\subseteq S_i\subseteq\bigcup\limits_{i\in I}S_i$
+\section{Prop.}
+Let $(X,\leq)$ be a well ordered set.
+\begin{itemize}
+    \item[(1)] Let S be a proper initial segment of X, $x= \min(X\backslash S)$ Then $S=X_{<x}$
+    \item[(2)] $\begin{aligned}
+        &X\rightarrow\wp(X)\\ &x\mapsto X_{<x}
+    \end{aligned}$
+    \item[(3)] The set of all initial segments of X forms a well ordered subset of $(\wp(x),\subseteq)$
+\end{itemize}
+\section{Proof}
+\begin{itemize}
+    \item [(1)] $\forall s\in S$ if $x\leq s$ then $x\in S$ contradiction.Hence $s<x$, This shows $S\subseteq X_{<x}$ Conversely , if $t\in X, t\not\in X\backslash S$ Hence $t\in S.$ Hence $X_{<x}\subseteq S$
+    \item [(2)]Let $x,y\in X,x<y$ By definition $X_{<x}\subseteq X_{<y}$ Moreover $x\in X_{<y}\backslash X_{<x}$ So $X_{<x}\subsetneqq X_{<y}$
+    \item [(3)]Let $\mathcal{F}\subseteq\wp(X)$ be a set of initial segments. $\mathcal{F}\not=\varnothing$. Then there exists $A\subseteq X$ such that $\mathcal{F}\backslash \{x\}=\{X_{<x}\mid x\in A\}$ If $A=\varnothing$ then $\mathcal{F}=\{X\}$, and $\{X\}$is the least element of $\mathcal{F}$ . Otherwise $A\not=\varnothing$ and A has a least element a. Then by(2) $X_<a$ is the least element of $\mathcal{F}$
+\end{itemize} 
+\section{Lemma}
+Let $(X,\leq)$ be a well ordered set, $f:X\rightarrow X$ be a strictly increasing mapping. Then $\forall x\in X, x\leq f(x)$
+\subsection*{Proof}
+Let $A=\{x\in X\mid f(x)<x\}$ If $A\not=\varnothing$, let a be the least element of A. By definition $f(a)<a$. Hence $f(f(a))<f(a)$ since $f$ is strictly increasing . This shows $f(a)\in A$. But a is the least element of A, $f(a)<a$ cannot hold: contradiction.
+\section{Prop}
+Let $(X,\leq)$ be a well ordered set, S and T be two initial segment of X . If $f:S\rightarrow T$ is a bijection that's strictly increasing , then $S=T,f=Id_S$
+\subsection*{Proof}
+We may assume $T\subseteq S$.Let $l:T\rightarrow S$ be the induction mapping and $g=l\circ f: S\rightarrow S$. Since $g$ is strictly increasing , by the lemma ,$ \forall s\in S,s\leq g(s)=f(s)\in T$. Since T is an initial segment, $s\in T.$ Hence $S=T$ \\Apply the lemma to $f^{-1}$ we get $\forall s\in S, s\leq f^{-1}(s)$ Hence $f(s)\leq s$ Therefore $f(s)=s$
+\section{Def}
+Let $(X,\leq)$ and $(Y,\leq)$ be partially ordered sets. If  $\exists f: X\rightarrow Y $ that's increasing and bijective, we say that $(X,\leq)$ and $(Y,\leq)$ are isomorphic
+\section{Def}
+Let $(X,\leq)$ and $(Y,\leq)$ be well ordered sets. If $(X,\leq)$ is isomorphic to an initial segment of Y. We note $X\preceq Y$ or $Y\succeq X$. If X is isomorphic to Y, we note $X\thicksim Y$. If $X\preceq Y$ but $X\not\sim Y$, we note $X\prec Y$ or $Y\prec X$
+\section{Prop.}
+Let X and Y be well ordered sets. Among the following condition, one and only one holds.$$X\prec Y\quad X\sim Y\quad X\succ Y$$
+\subsection*{Proof}
+We construct a correspondence $f$ from X to Y, such that $(x,y)\in \Gamma_f$, iff $X_{<x}\sim Y_{<y}$\\By the last proposition of Oct. 11, $f$ is a function.\begin{itemize}
+    \item If $a,b\in Dom(f)^2,a<b$,then $X_{<a}\subsetneqq X_{<b}$\\
+By definition, $Y_{<f(b)}\sim X_{<b}\quad Y_{<f(a)}\sim X_{<a}$\\
+Hence $Y_{<f(a)}$ is isomorphic to a proper initial segment of $Y{<f(b)}$. Therefore $Y_{f(a)}$ is a proper initial segment of $Y_<{f(B)}$. We then get $f(a)<f(b)$. Thus $f$ is strictly increasing.
+    \item Let $a\in Dom(f)$ Let $x\in X,x<a$ Then $X_{<x}$ is a initial segment of $X_{<a}\sim Y_{<f(a)}$ Hence $\exists y\in Y\quad X_{<x}\sim Y_{<y}$ This shows that $x\in Dom(f)$. Hence $Dom(f)$ is an initial segment of X. Applying this to $f^{-1}$, we get : $Im(f)=Dom(f)$ is an initial segment of Y
+    \item Either $Dom (f)=X$ or $Im(f)=Y$.\\ Assume that $x\in X\backslash Dom (f),y\in Y\backslash Im(f)$ are respectively the least elements of $X\backslash Dom (f)$ and $Y\backslash Im(f)$. \\Then we get $Dom(f)=X_{<x},Im(f)=Y_{<y}$. \\We obtain $X_{<x}\sim Y_{<y},(x,y)\in \Gamma_{f}$. Contradiction
+    \item\indent \begin{itemize}
+    \item [Case 1] $Dom(f)=X,Im(f)\subsetneqq Y\quad X\prec Y$
+    \item [Case 2]$Dom(f)\subsetneqq X, Im(f)=Y\quad X\succ Y$
+    \item [Case 3]$Dom(f)=X,Im(f)=Y\quad X\sim Y$
+\end{itemize}
+\end{itemize}
+\section{Lemma}
+Let $(X,\leq)$ be a partially ordered set . $\mathfrak{S} \subseteq\wp(X)$. Assume that\begin{itemize}
+    \item $\forall A\in \mathfrak{S} , (A,\leq) $ is a well-ordered set .
+    \item $\forall (A,B)\in \mathfrak{S} ^2$, either A is an initial segment of B, or B is a initial segment of A.
+\end{itemize}
+Let $Y=\bigcup\limits_{A\in \mathfrak{S} }A.$ Then $(Y,\leq)$ is a well ordered set, and ,$\forall A\in \mathfrak{S} ,A$ is an initial segment of Y.
+\subsection*{Proof}
+\begin{itemize}
+    \item Let $A\in \mathfrak{S} ,x\in A,y\in Y,y<x$.Since $Y=\bigcup\limits_{B\in \mathfrak{S} }B$,$\exists B\in \mathfrak{S} $, such that $y\in B$. If $y\not\in A$ then $B\not\subseteq A$. Hence A is an initial segment of B. Hence $y\in A$. Contradiction
+    \item Let $Z\subseteq Y,Z\not=\varnothing$. Then $\exists A\in \mathfrak{S} , A\cap Z\not=\mathfrak{S} $. Let m be the least element of $A\cap Z.$ Let $z\in Z,B\in \mathfrak{S} $, such that $z\in B$. If $z\in A$, then $m\leq z$. If $z\not\in A$ , then A is an initial segment of B.
+\end{itemize}
+Since B is well ordered , if $m\not\leq z$ then $z<m$. Since $m\in A$, we het $z\in A$. Contradiction.
+
+Therefore, m is the least element of Z.
+\chapter{Zorn's lemma}
+Let $(X,\leq)$ be a partially ordered set. Suppose that any well-ordered subset of X has an upper bound on X, the X has a maximal element(a maximal element m of $\{x\mid x> m\}=\varnothing)$
+\section{Proof}
+Suppose that X doesn't have any maximal element. $\forall A\in \omega.\exists f(A) $ such that $\forall a\in A,a<f(A)$\\Let $$\omega=\{\text{well ordered subset of X}\}$$. (guaranteed by axiom of choice)\\ Let $f:\omega\rightarrow X$ such that $f(A)$ is an upper bound of $A\in \omega$. \\If $A\in \omega$ satisfies $$\forall a\in A a=f(A_{<a})$$ , we say that $A$ is a $f$-set\\
+Let $$\mathfrak{S} =\{f-sets\}$$ Note that $$\varnothing\in \mathfrak{S} $$ if $$\forall A\in \mathfrak{S} , A\cap\{f(A)\}\in \mathfrak{S} $$
+In fact, if $a\in A$, then $$A_{<a}=(A\cup\{f(A)\})_{<a}$$If $a=f(A)\not\in A$ then $$(A\cup\{f(A)\})_{<a}=A$$
+
+Let A and B be elements of $\mathfrak{S}$. Let I be the union of all common initial segments of A and B. This is also a common initial segment of A and B.\\If $I\not=A$ and $I\not=B$, then $$\exists (a,b)\in A\times B, I=A_{<a}=B_{<b}\quad f(I)=f(A_{<a})=f(B_{<b})$$. Hence $$a=b$$. Then $I\cup\{a\}$ is also a common initial segment of A and B, contradiction.
+
+By the lemma , $$Y:=\bigcup\limits_{A\in\mathfrak{S}}A$$ is well-ordered , and $\forall A\in \mathfrak{S}$ is an initial segment of Y.
+
+Since A is an initial segment of Y$$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in AA_{<a}=Y_{<a}$$. Hence $$f(Y_{<a})=f(A_{<a})=a$$. Hence $$y\in \mathfrak{S}$$. Thus Y is the greatest element of $(\mathfrak{S},\subseteq)$.
+However, $$Y\cup\{f(Y)\}\in \mathfrak{S}$$. Hence $$f(y)\in Y$$.
+
+If $f(y)$ is not a maximal element of X $$\exists x\in X,f(y)<x$$
 \part{Topology}
 \chapter{Absolute value and norms}
 \section{Def}
@@ -752,7 +847,9 @@ $$\lvert\cdot\rvert:\begin{aligned}
     \item [(2)]If $\alpha=p^{ord_p(\alpha)}\frac{a}{b},\beta=p^{ord_p(\beta)}\frac{c}{d}\ \ p\nmid abcd$\\$\alpha\beta=p^{ord_p(\alpha)+ord_p(\beta)}\frac{ac}{bd}\quad p\nmid ac,p\nmid bd$
     \item [(3)]$\alpha+\beta=p^{ord_p(\alpha)}\frac{a}{b}+p^{ord_p(\beta)}\frac{c}{d}$\\Assume $ord_p(\alpha)\geq ord_p(\beta)$\\$\alpha+\beta\\=p^{ord_p(\beta)}\left(p^{ord_p(\alpha)-ord_p(\beta)}\frac{a}{b}+\frac{c}{d}\right)\\=p^{ord_p(\beta)}\frac{p^{ord_p(\alpha)-ord_p(\beta)}ad+bc}{bd}\quad p\nmid bd$\\So $$ord_p(\alpha+\beta)\geq ord(\beta)$$
     Hence $ord_p(\alpha+\beta)\geq \min\{ord_p(\alpha),ord_p(\beta)\}$\\So $\lvert\alpha+\beta\rvert _p=p^{-ord_p(\alpha+\beta)}\leq\max\{p^{-ord_p(\alpha)},p^{-ord_p(\beta)}\}=\\\max\{\lvert \alpha\rvert _p,\lvert \alpha\rvert _p\}\leq\lvert \alpha\rvert _p,\lvert \alpha\rvert _p $
-\end{itemize}\
+\end{itemize}
+\section{Def}
+Let $K$ be a filed and $\lvert \cdot\rvert$ be an absolute value. We call $(K,\lvert \cdot\rvert)$ a valued field.
 \chapter{Quotient Structure}
 \section{Def}
 
@@ -935,96 +1032,6 @@ Let X be a set . The discrete topology on X is metrizable. In fact,m if d denote
     &0 & if\ x=y
     \end{aligned}\right.$\\
 $\forall x\in X\quad B(x,1)=\{x\}$ So $\{x\}\in \mathcal{J}_d$ Hence $\forall A\subseteq X\quad A=\bigcup\limits_{x\in A}\{x\}\in \mathcal{J}_d$ 
-\section{Axiom of choice}
-For any set I and any family $(A_i)_{i\in I}$ of non-empty sets , there exists a mapping $f:I\rightarrow \bigcup\limits_{i\in I}A_i$ such that $\forall i\in I, f(i)\in A_i$
-\section{Def} Let $(X,\leq)$ be a partially ordered set If $\forall A\subseteq X$ A is non-empty , there exists a least element of A then we say that $(X,\leq)$ is a well ordered set.
-\section{Theorem }
-For any set X, there exists an order relation $\leq$ on such that $(X,\leq)$ forms a well ordered set.
-\section{Zorn's lemma}
-Let $(X,\leq)$ be a partially ordered set . If $\forall A\subseteq X$ that is totally ordered with respect to $\leq $, there exists an upper bound of A inside X. Then , there exists a maximal element $x_0$ of $X$($\forall y\in X, y>x_0$ does not hold)
-\section{Prop.}
-Let $(X,\leq)$ be a well ordered set , $y\not\in X. $ We extends $\leq$ to $X\cup\{y\}$, such that $\forall x\in X,x<y.$ Then $(X\cup\{y\},\leq)$ is well ordered.
-\section{Proof}
-Let $A\subseteq X\cup\{y\},A\not=\varnothing$. If $A=\{y\}$ then $Y$ is the least element of A. If $A\not=\{y\}$ then $B=A\backslash\{y\}$ is non-empty. Let $b$ be the least element of B. Since $b<y$ it's also the least element of A
-\section{Def: Initial Segment}
-Let $(X,\leq)$ be a well ordered set. $S\subseteq X,$ If $\forall s\in S,x\in X\quad x<s$ initial $x\in S(X_{<s}\subseteq S)$, then we say that S is an initial segment of X
-
-If S is a initial segment such that $S=X$ then we sat that S is a proper initial segment.
-\section{Example}$\forall x\in X\quad X_{<x}=\{s\in X\mid s<x\}$ Then $X_{<x}$ is a proper initial segment of X.
-\section{Prop.}Let $(X,\leq)$ be a well ordered set , If $(S_i)_{i\in I}$ is a family of initial segment of X, then $\bigcup\limits_{i\in I}S_i$ is an initial segment of X
-\section{Proof}
-$\forall s\in \bigcup\limits_{i\in I}S_i,\exists i\in I$ such that $s\in S_i,i\in I$ Therefore $X_{<s}\subseteq S_i\subseteq\bigcup\limits_{i\in I}S_i$
-\section{Prop.}
-Let $(X<\leq)$ be a well erodered set.
-\begin{itemize}
-    \item[(1)] Let S be a proper initial segment of X, $x= \min(X\backslash S)$ Then $S=X_{<x}$
-    \item[(2)] $\begin{aligned}
-        &X\rightarrow\wp(X)\\ &x\mapsto X_{<x}
-    \end{aligned}$
-    \item[(3)] The set of all initial segments of X forms a well ordered subset of $(\wp(x),\subseteq)$
-\end{itemize}
-\section{Proof}
-\begin{itemize}
-    \item [(1)] $\forall s\in S$ if $x\leq s$ then $x\in S$ contradiction.Hence $s<x$, This shows $S\subseteq X_{<x}$ Conversely , if $t\in X, t\not\in X\backslash S$ Hence $t\in S.$ Hence $X_{<x}\subseteq S$
-    \item [(2)]Let $x,y\in X,x<y$ By definition $X_{<x}\subseteq X_{<y}$ Moreover $x\in X_{<y}\backslash X_{<x}$ So $X_{<x}\subsetneqq X_{<y}$
-    \item [(3)]Let $\mathcal{F}\subseteq\wp(X)$ be a set of initial segments. $\mathcal{F}\not=\varnothing$. Then there exists $A\subseteq X$ such that $\mathcal{F}\backslash \{x\}=\{X_{<x}\mid x\in A\}$ If $A=\varnothing$ then $\mathcal{F}=\{X\}$, and $\{X\}$is the least element of $\mathcal{F}$ . Otherwise $A\not=\varnothing$ and A has a least element a. Then by(2) $X_<a$ is the least element of $\mathcal{F}$
-\end{itemize} 
-\section{Lemma}
-Let $(X,\leq)$ be a well ordered set, $f:X\rightarrow X$ be a strictly increasing mapping. Then $\forall x\in X, x\leq f(x)$
-\subsection*{Proof}
-Let $A=\{x\in X\mid f(x)<x\}$ If $A\not=\varnothing$, let a be the least element of A. By definition $f(a)<a$. Hence $f(f(a))<f(a)$ since $f$ is strictly increasing . This shows $f(a)\in A$. But a is the least element of A, $f(a)<a$ cannot hold: contradiction.
-\section{Prop}
-Let $(X,\leq)$ be a well ordered set, S and T be two initial segment of X . If $f:S\rightarrow T$ is a bijection that's strictly increasing , then $S=T,f=Id_S$
-\subsection*{Proof}
-We may assume $T\subseteq S$.Let $l:T\rightarrow S$ be the induction mapping and $g=l\circ f: S\rightarrow S$. Since $g$ is strictly increasing , by the lemma ,$ \forall s\in S,s\leq g(s)=f(s)\in T$. Since T is an initial segment, $s\in T.$ Hence $S=T$ \\Apply the lemma to $f^{-1}$ we get $\forall s\in S, s\leq f^{-1}(s)$ Hence $f(s)\leq s$ Therefore $f(s)=s$
-\section{Def}
-Let $(X,\leq)$ and $(Y,\leq)$ be partially ordered sets. If  $\exists f: X\rightarrow Y $ that's increasing and bijective, we say that $(X,\leq)$ and $(Y,\leq)$ are isomorphic
-\section{Def}
-Let $(X,\leq)$ and $(Y,\leq)$ be well ordered sets. If $(X,\leq)$ is isomorphic to an initial segment of Y. We note $X\preceq Y$ or $Y\succeq X$. If X is isomorphic to Y, we note $X\thicksim Y$. If $X\preceq Y$ but $X\not\sim Y$, we note $X\prec Y$ or $Y\prec X$
-\section{Prop.}
-Let X and Y be well ordered sets. Among the following condition, one and only one holds.$$X\prec Y\quad X\sim Y\quad X\succ Y$$
-\subsection*{Proof}
-We construct a correspondence $f$ from X to Y, such that $(x,y)\in \Gamma_f$, iff $X_{<x}\sim Y_{<y}$\\By the last proposition of Oct. 11, $f$ is a function.\begin{itemize}
-    \item If $a,b\in Dom(f)^2,a<b$,then $X_{<a}\subsetneqq X_{<b}$\\
-By definition, $Y_{<f(b)}\sim X_{<b}\quad Y_{<f(a)}\sim X_{<a}$\\
-Hence $Y_{<f(a)}$ is isomorphic to a proper initial segment of $Y{<f(b)}$. Therefore $Y_{f(a)}$ is a proper initial segment of $Y_<{f(B)}$. We then get $f(a)<f(b)$. Thus $f$ is strictly increasing.
-    \item Let $a\in Dom(f)$ Let $x\in X,x<a$ Then $X_{<x}$ is a initial segment of $X_{<a}\sim Y_{<f(a)}$ Hence $\exists y\in Y\quad X_{<x}\sim Y_{<y}$ This shows that $x\in Dom(f)$. Hence $Dom(f)$ is an initial segment of X. Applying this to $f^{-1}$, we get : $Im(f)=Dom(f)$ is an initial segment of Y
-    \item Either $Dom (f)=X$ or $Im(f)=Y$.\\ Assume that $x\in X\backslash Dom (f),y\in Y\backslash Im(f)$ are respectively the least elements of $X\backslash Dom (f)$ and $Y\backslash Im(f)$. \\Then we get $Dom(f)=X_{<x},Im(f)=Y_{<y}$. \\We obtain $X_{<x}\sim Y_{<y},(x,y)\in \Gamma_{f}$. Contradiction
-    \item\indent \begin{itemize}
-    \item [Case 1] $Dom(f)=X,Im(f)\subsetneqq Y\quad X\prec Y$
-    \item [Case 2]$Dom(f)\subsetneqq X, Im(f)=Y\quad X\succ Y$
-    \item [Case 3]$Dom(f)=X,Im(f)=Y\quad X\sim Y$
-\end{itemize}
-\end{itemize}
-\section{Lemma}
-Let $(X,\leq)$ be a partially ordered set . $\mathfrak{S} \subseteq\wp(X)$. Assume that\begin{itemize}
-    \item $\forall A\in \mathfrak{S} , (A,\leq) $ is a well-ordered set .
-    \item $\forall (A,B)\in \mathfrak{S} ^2$, either A is an initial segment of B, or B is a initial segment of A.
-\end{itemize}
-Let $Y=\bigcup\limits_{A\in \mathfrak{S} }A.$ Then $(Y,\leq)$ is a well ordered set, and ,$\forall A\in \mathfrak{S} ,A$ is an initial segment of Y.
-\subsection*{Proof}
-\begin{itemize}
-    \item Let $A\in \mathfrak{S} ,x\in A,y\in Y,y<x$.Since $Y=\bigcup\limits_{B\in \mathfrak{S} }B$,$\exists B\in \mathfrak{S} $, such that $y\in B$. If $y\not\in A$ then $B\not\subseteq A$. Hence A is an initial segment of B. Hence $y\in A$. Contradiction
-    \item Let $Z\subseteq Y,Z\not=\varnothing$. Then $\exists A\in \mathfrak{S} , A\cap Z\not=\mathfrak{S} $. Let m be the least element of $A\cap Z.$ Let $z\in Z,B\in \mathfrak{S} $, such that $z\in B$. If $z\in A$, then $m\leq z$. If $z\not\in A$ , then A is an initial segment of B.
-\end{itemize}
-Since B is well ordered , if $m\not\leq z$ then $z<m$. Since $m\in A$, we het $z\in A$. Contradiction.
-
-Therefore, m is the least element of Z.
-\section{Theorem(Zorn's lemma)}
-Let $(X,\leq)$ be a partially ordered set. Suppose that any well-ordered subset of X has an upper bound on X, the X has a maximal element(a maximal element m of $\{x\mid x> m\}=\varnothing)$
-\subsection*{Proof}
-Suppose that X doesn't have any maximal element. $\forall A\in \omega.\exists f(A) $ such that $\forall a\in A,a<f(A)$\\Let $$\omega=\{\text{well ordered subset of X}\}$$. (guaranteed by axiom of choice)\\ Let $f:\omega\rightarrow X$ such that $f(A)$ is an upper bound of $A\in \omega$. \\If $A\in \omega$ satisfies $$\forall a\in A a=f(A_{<a})$$ , we say that $A$ is a $f$-set\\
-Let $$\mathfrak{S} =\{f-sets\}$$ Note that $$\varnothing\in \mathfrak{S} $$ if $$\forall A\in \mathfrak{S} , A\cap\{f(A)\}\in \mathfrak{S} $$
-In fact, if $a\in A$, then $$A_{<a}=(A\cup\{f(A)\})_{<a}$$If $a=f(A)\not\in A$ then $$(A\cup\{f(A)\})_{<a}=A$$
-
-Let A and B be elements of $\mathfrak{S}$. Let I be the union of all common initial segments of A and B. This is also a common initial segment of A and B.\\If $I\not=A$ and $I\not=B$, then $$\exists (a,b)\in A\times B, I=A_{<a}=B_{<b}\quad f(I)=f(A_{<a})=f(B_{<b})$$. Hence $$a=b$$. Then $I\cup\{a\}$ is also a common initial segment of A and B, contradiction.
-
-By the lemma , $$Y:=\bigcup\limits_{A\in\mathfrak{S}}A$$ is well-ordered , and $\forall A\in \mathfrak{S}$ is an initial segment of Y.
-
-Since A is an initial segment of Y$$\forall a\in Y,\exists A\in\mathfrak{S}\quad a\in AA_{<a}=Y_{<a}$$. Hence $$f(Y_{<a})=f(A_{<a})=a$$. Hence $$y\in \mathfrak{S}$$. Thus Y is the greatest element of $(\mathfrak{S},\subseteq)$.
-However, $$Y\cup\{f(Y)\}\in \mathfrak{S}$$. Hence $$f(y)\in Y$$.
-
-If $f(y)$ is not a maximal element of X $$\exists x\in X,f(y)<x$$
 \chapter{Filter}
 \section{Def}
 Let Xbe a set. We call filter if X any $\mathcal{F}\subseteq \wp(x)$ that satisfies:
@@ -1883,7 +1890,7 @@ $$\begin{aligned}
 then $$\hat{d}(i_X(a),i_X(b))=d(a,b)$$
 In particular, $i_x$ is injective(if $i_X(a)=i_X(b)$ then $d(a,b)=0$ hence $a=b$)
 \section{Prop}
-$i_X(X)$ is dense in $\hat{X}$ (the closure of $i_X(X)$ in $\hat{X}$ in $\hat{X}$ is equal to $i_X(X)$ ($ \hat{X}$))
+$i_X(X)$ is dense in $\hat{X}$ (the closure of $i_X(X)$ in $\hat{X}$ is equal to $i_X(X)$ (or to say $ \hat{X}$))
 \subsection*{Proof}
 Let $[x]$ be an equivalence class in $\hat{X}$. We claim that $\forall (x_n)_{n\in\mathbb{N}}\in [x]$ $$\lim\limits_{n\rightarrow+\infty}x_n=\lim\limits_{n\rightarrow+\infty}i_X(x_n)$$
 For any $N\in \mathbb{N}$$$
@@ -1899,7 +1906,7 @@ Let $([x^{(N)}])_{N\in \mathbb{N}}$ be a Cauchy sequence in $\hat{X}$ , where $\
 \\ $\forall \epsilon>0,\ \exists N_0\in \mathbb{N}$ such that $\forall(k,l)\in \mathbb{N}_{\geq N_0}$
 $$\hat{d}([x^{(k)}],[x^{(l)}])=\lim\limits_{n\rightarrow+\infty}d(x_n^{(k)},x_n^{(l)})\leq \epsilon$$
 $\forall N\in \mathbb{N}$$$d(x_\mu^{(N)},x_\nu ^{(N)})\leq\frac{1}{N+1}$$ for any $(\mu,\nu)\in \mathbb{N}_{\geq \alpha(N)}$\\
-Let $y_N=x_{\alpha(N)}^{(N)}$. Without loss of generality , we assume that $$\aleph(0)\leq\alpha(1)\leq...$$
+Let $y_N=x_{\alpha(N)}^{(N)}$. Without loss of generality , we assume that $$\alpha(0)\leq\alpha(1)\leq...$$
 Let $\epsilon>0$ Take $N_0\in \mathbb{N}$ such that \begin{itemize}
     \item [(1)]$\forall (k,l)\in \mathbb{N},\ k,l\geq N_0$$$\hat{d}([x^{(k)}],[x^{(l)}])\leq\frac{\epsilon}{3}$$
     \item [(2)]$$\frac{1}{N_0+1}\leq\frac{\epsilon}{3}$$
@@ -1945,4 +1952,165 @@ This is an ideal of $Cau(K)$\\
 Hence $$\hat{K}=Cau(K)\setminus Cau_0(K)$$ is a quotient ring of $Cau(K)$\\
 $\lvert\cdot\rvert$ extend to $\hat{K}$:
 $$\lvert[(a_n)_{n\in \mathbb{N}}]\rvert=\lim\limits_{n\rightarrow+\infty}\lvert a_n\rvert$$ that forms an absolute value.
+\chapter{Norms}
+In this chapter we fix a field K and an absolute value $\lvert\cdot\rvert$ on K.
+We assume that $(K,\lvert\cdot\rvert)$ forms a complete metric space with respect to the metric:$$\begin{aligned}
+    &K\times K\rightarrow\mathbb{R}_{\geq 0}\\
+    &(a,b)\mapsto\lvert a-b\rvert
+\end{aligned}$$
+\section{Def}
+Let V be a vector space over K (K-module). We call seminorm on V any mapping$$\begin{aligned}
+\lVert\cdot\rVert:&V\rightarrow\mathbb{R}_{\geq0}\\ &s\mapsto\lVert\cdot\rVert
+\end{aligned}$$
+such that \begin{itemize}
+    \item $\forall(a,s)\in K\times V,\lVert as\rVert=\lvert a\rvert\cdot\lVert s\rVert$
+    \item $\forall(s,t)\in V\times V$
+\end{itemize}
+If additionally:\begin{itemize}
+    \item $\forall s\in V,\ \lVert s\rVert=0$ iff $s=0$
+\end{itemize}
+We say that $\lVert\cdot\rVert$ is a norm and $(V,\lVert\cdot\rVert)$ is normed space over K.
+\section{Remark}
+If $\lVert\cdot\rVert$ is a norm then $$\begin{aligned}
+    d:&V\times V\rightarrow \mathbb{R}_{\geq 0}\\
+    &(s,t)\mapsto\lVert s-t\rVert
+\end{aligned}$$\
+section{Def}
+Let $(V,\lVert\cdot\rVert)$ be a vector space over K equipped with a seminorm, and W be a vector space subspace of V (sub-K-module)
+\begin{itemize}
+    \item The restriction of $\lVert\cdot\rVert: V\rightarrow\mathbb{R}_{\geq0}$ to W forms a seminorm on W. It is a norm if $\lVert\cdot\rVert$ is a norm.
+    $$\begin{aligned}
+        \lVert\cdot\rVert _W: &W\rightarrow\mathbb{R}_{\geq0}\\ &x\mapsto\lVert x\rVert
+    \end{aligned}$$
+    \item The mapping $$\begin{aligned}
+        \lVert\cdot\rVert _{V/W}:& V/W\rightarrow\mathbb{R}_{\geq 0}\\&\alpha\mapsto\inf\limits_{s\in \alpha}\lVert s\rVert
+    \end{aligned}$$$$\lVert[s]\rVert _{V/W}=\inf\limits_{w\in W}\lVert s+w\rVert$$ is a seminorm on $V/W$\\
+        \textcolor{red}{\textbf{Attention:} }
+        Even if $\lVert \cdot\rVert$ is a norm, $\lVert\cdot\rVert _{V/W}$ \textbf{might only be a seminorm}
+
+\end{itemize}
+\section{Def}
+$\lVert\cdot\rVert _{V/W}$ is called the quotient seminorm of $\lVert\cdot\rVert$
+\section{Prop}
+Let $(V,\lVert\cdot\rVert)$ be a vector space over K, equipped with a seminorm. Then $$N=\{s\in V\mid\lVert s\rVert=0\}$$
+forms a vector subspace of V. Moreover, $\lVert\cdot\rVert _{V/N}$ is a norm
+\subsection*{Proof}
+If $(a,s)\in K\times N$ then $\lVert as\rVert=\lvert a\rvert\cdot\lVert s\rVert=0$ so $as\in N$\\
+If $(s_1,s_2)\in N\times N$ then $0\leq\lVert s_1+s_2\rVert\leq \lVert s_1\rVert+\lVert s_2\rVert=0$ so $s_1+s_2\in N$
+\subsection*{Proof}
+$$\lVert \lambda \alpha\rVert _{V/W}=\inf\limits_{s\in \alpha}\lVert \lambda s\rVert=\inf\limits_{s\in \alpha}\lvert\lambda\rvert\cdot\lVert s\rVert=\lvert\lambda\rvert\cdot\lVert \alpha\rVert _{V/W}$$
+$$\begin{aligned}
+    \lVert\alpha+\beta\rVert&=\inf\limits_{s\in \alpha+\beta}\lVert s\rVert=\inf\limits_{(x,y)\in \alpha\times\beta}\lVert x+y\rVert\\
+     &\leq\inf\limits_{(x,y)\in \alpha\times\beta}(\lVert x\rVert+\lVert y\rVert)\\
+     & =\lVert \alpha\rVert _{V/W}+\lVert \beta\rVert _{V/W}
+\end{aligned}$$
+Let $\alpha\in V/N$ such that $\lVert\alpha\rVert _{W/N}=0$ Let $s\in \alpha,\forall t\in N$$$\lVert s+t\rVert\leq \lVert s\rVert+\lVert t\rVert=\lVert s\rVert =\lVert (s+t)+(-t)\rVert\leq\lVert s+t\rVert+\lVert-t\rVert=\lVert s+t\rVert$$$$\lVert\alpha\rVert _{V/N}=\inf\limits_{t\in N}\lVert s+t\rVert=\lVert s\rVert$$
+Hence $\lVert\alpha\rVert _{V/N}=\lVert s\rVert=0$ We obtain that $\alpha=N=[0]$
+\section{Def}
+Let $(V,\lVert\cdot\rVert)$ be a vector space over K,equipped with a seminorm. For any $x\in V$ and $r\geq0$, we denote by$$\begin{aligned}
+    &\mathcal{B}(x,r)=\{y\in V\mid\lVert y-x\rVert<r\}\\
+    &\overline{\mathcal{B}}(x,r)=\{y\in V\mid\lVert y-x\rVert\leq r\}
+\end{aligned}$$
+\section{Remark}If $N=\{s\in V,\lVert s\rVert=0\}$ then when $r>0$
+$$x+N\subseteq\overline{\mathcal{B}}(x,r)$$$$x+N\subseteq \mathcal{B}(x,r)$$
+\section{Def}
+We equip the topology such that $\forall U\subseteq V, U$ is open iff $\forall x\in U,\exists r_x>0, \mathcal{B}(x,r_x)\subseteq U$
+\section{Prop}
+Let $(V_1,\lVert\cdot\rVert _1)$ and $(V_2,\lVert\cdot\rVert _2)$ be vector spaces over K, equipped with seminorms. Let $f:V_1\rightarrow V_2$ be a K-linear mapping\begin{itemize}
+    \item If $f$ is continuous, $\forall s\in V_1$ if $\lVert s\rVert _1=0$ then $\lVert f(s)\rVert _2=0$
+    \item If there exists $C>0$ such that $\forall x\in V_1,\ \lVert f(x)\rVert _2\leq C\lVert x\rVert _1$ then $f$ is continuous.
+    
+    The converse is true \begin{itemize}
+        \item [when]$\lvert\cdot\rvert$ is non-trivial
+        \item [or] $V_2/\{y\in V_2\mid\lVert y\rVert _2=0\}$ is of finite type
+    \end{itemize}
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [(1)]
+    \begin{itemize}
+        \item
+        \begin{itemize}
+            \item [Lemma] If $(V,\lVert\cdot\rVert)$ is a vector space over K, equipped with a seminorm, then $$N_{\lVert\cdot\rVert}:=\{s\in V\mid\lVert s\rVert=0\}$$ is closed.
+            \item [Proof of lemma]
+                Let $s\in V\setminus N_{\lVert\cdot\rVert}$ Then $\lVert s\rVert>0$.Let $\epsilon=\frac{\lVert s\rVert}{2},\ \forall x\in \mathcal{B}(s,\epsilon)$$$\lVert x\rVert\geq\lvert\lVert s\rVert-\lVert s-x\rVert\rvert\geq \lVert s\rVert-\epsilon=\epsilon>0$$ So $$\mathcal{B}(s,\epsilon)\subseteqq V\setminus N_{\lVert\cdot\rVert}$$ 
+        \end{itemize} 
+        \item Then $f^{-1}(N_{\lVert\cdot\rVert _2})$ is closed.\\
+        Note that $$0\in f^{-1}(N_{\lVert\cdot\rVert _2})$$ hence $$\overline{\{0\}}\subseteq f^{-1}(N_{\lVert\cdot\rVert _2})$$
+        $\forall x\in N_{\lVert\cdot\rVert _1},\forall \epsilon>0$$$x+N_{\lVert\cdot\rVert _1}\subseteq \mathcal{B}(x,\epsilon)$$ and $$0\in \mathcal{B}(x,\epsilon)$$
+        Therefore $x\in \overline{\{0\}}$
+    \end{itemize}
+    \item[(2)]
+        Let $(x_n)_{n\in \mathbb{N}}$ be a sequence of $V_1$ that converges to some $x\in V_1$
+
+        Hence $$
+        \begin{aligned}
+            \limsup\limits_{n\rightarrow+\infty}\lVert f(x_n)-f(x)\rVert _2
+            &=\limsup\limits_{n\rightarrow+\infty}\lVert f(x_n-x)\rVert\\
+            &\leq \limsup\limits_{n\rightarrow+\infty} C\lVert x_n-x\rVert _1\\
+            &=C\limsup\limits_{n\rightarrow+\infty}\lVert x_n-x\rVert\\ &=0
+        \end{aligned}
+        $$
+        So $(f(x_n))_{n\in \mathbb{N}}$ converges to $f(x)$. Hence $f$ is continuous at $x$
+
+        Assume that $\lvert\cdot\rvert$ is non-trivial and $f$ is continuous.Then $$f^{-1}(\{y\in V_2\mid\lVert y\rVert _2 <1\})$$ is an open subset of $V_1$ containing $0\in V_1$
+
+        So there exists $\epsilon>0$ such that $$\{x\in V_1\mid\lVert x\rVert _1\leq\epsilon\}\subseteq f^{-1}(\{y\in V_2\mid\lVert y\rVert _2 <1\})$$
+        namely $\forall x\in V_1$ if $\lVert x\rVert _1<\epsilon$ then $\lVert f(x)\rVert _2<1$
+
+        Since $\lvert\cdot\rvert$ si nontrivial, $\exists a\in K,\ 0<\lvert a\rvert<1$ We prove that $\forall x\in V_1$$$\lVert f(x)\rVert _2\leq \frac{1}{\epsilon\lvert a\rvert}\lVert x\rVert _1$$
+        If $\lVert x\rVert _1=0$ by (1) we obtain $$\lVert f(x)\rVert _2=0$$
+        Suppose that $\lVert x\rVert _1>0$ then $\exists n\in \mathbb{Z}$ such that $$\begin{aligned}
+            \lVert a^nx\rVert _1=\lvert a\rvert^n\lVert x\rVert _1&&\\
+            &<\epsilon\leq&\\
+            &&\lVert a^{n-1}x\rVert _1=\lvert a\rvert^{n-1}\lVert x\rVert _1
+        \end{aligned}$$
+        Thus $$\lVert f(a^nx)\rVert _2<1$$
+        Hence $$\begin{aligned}
+        \lVert f(x)\rVert _2 &<\frac{1}{\lvert a\rvert^n}=\frac{1}{\lvert a\rvert^{n-1}}\frac{1}{\lvert a\rvert}\\
+        &\leq\frac{1}{\epsilon}\lVert x\rVert _1\frac{1}{\lvert a\rvert}=\frac{\lVert x\rVert _1}{\epsilon\lvert a\rvert}
+        \end{aligned}$$
+\end{itemize}
+\section{Def}
+Let $(V_1,\lVert\cdot\rVert _1)$ and $(V_2,\lVert\cdot\rVert _2)$ be vector spaces over K, equipped with seminorm. We say that a K-linear mapping $f:V_1\rightarrow V_2$ is bounded if there exists $C>0$ that $$\forall x\in V_1\quad \lVert f(x)\rVert \leq C\lVert x\rVert _1$$
+For a general K-linear mapping $f:V_1\rightarrow V_2$ we denote 
+$$\lVert f\rVert :=\left\{\begin{aligned}
+    &\sup\limits_{x\in V_1,\lVert x\rVert _1>0}(\frac{\lVert f(x)\rVert _2}{\lVert x\rVert _1})\quad &\text{ if }f(N_{\lVert\cdot\rVert _1}\subseteq N_{\lVert\cdot\rVert _2})\\
+    &+\infty &\text{ if }f(N_{\lVert\cdot\rVert _1}\nsubseteq N_{\lVert\cdot\rVert _2})
+\end{aligned}\right.$$
+$f$ is bounded iff $$\lVert f\rVert<+\infty$$
+$\lVert f\rVert$ is called the operator seminorm of $f$
+
+We denote by $\mathscr{L}(V_1,V_2)$ the set of all bounded K-linear mappings from $V_1$ to $V_2$
+\section{Prop}
+$\mathscr{L}(V_1,V_2)$ is a vector subspace of $Hom_K(V_1,V_2)$. Moreover $\lVert\cdot\rVert$ is a seminorm on $\mathscr{L}(V_1,V_2)$
+\subsection*{Proof}
+Let $f,g$ be elements of $ \mathscr{L}(V_1,V_2)$
+$$\begin{aligned}
+    \lVert f+g\rVert&=\sup\limits_{x\in V_1,\lVert x\rVert _1\neq0}\frac{\lVert f(x)+g(x)\rVert _2}{\lVert x\rVert _1}\\
+    &\leq\sup\limits_{x\in V_1,\lVert x\rVert _1\neq0}\frac{\lVert f(x)\rVert _2+\lVert g(x)\rVert _2}{\lVert x\rVert _1}\\
+    &\leq(\sup\limits_{x\in V_1,\lVert x\rVert _1\neq0}\frac{\lVert f(x)\rVert _2}{\lVert x\rVert _1})+(\sup\limits_{x\in V_1,\lVert x\rVert _1\neq0}\frac{\lVert g(x)\rVert _2}{\lVert x\rVert _1})\\
+    &\leq +\infty
+\end{aligned}$$
+Hence $f+g\in \mathscr{L}(V_1,V_2)$
+
+Let $\lambda\in K,\ \lambda f:x\mapsto \lambda f(x)$
+$$\begin{aligned}
+    \lVert \lambda f\rVert &=\sup\limits_{x\in V_1,\lVert x\rVert _1>0} \frac{\lVert \lambda f(x)\rVert _2}{\lVert x\rVert _1}\\
+    &=\lvert\lambda\rvert\sup\limits_{x\in V_1,\lVert x\rVert _1>0}\frac{\lVert f(x)\rVert _2}{\lVert x\rVert _1}\\
+    &=\lvert\lambda\rvert\lVert f\rVert<+\infty
+\end{aligned}$$
+\section{Remark}
+Let $f\in \mathscr{L}(V_1,V_2)$. Suppose that $\exists x\in V_1$ such that $f(x)\neq 0$. Since $$f(x)\not\in N_{\lVert\cdot\rVert _2}=\{0\}$$ we obtain $$\lVert x\rVert _1=0$$ Thus $$\lVert f\rVert\geq\frac{\lVert f(x)\rVert _2}{\lVert x\rVert _1}>0$$ Therefore $\lVert\cdot\rVert$ is a norm
+\section{Def}Let $(V,\lVert \cdot\rVert)$ be a normed vector space. If $V$ is complete with respect to the metric$$\begin{aligned}
+    d:&V\times V\rightarrow\mathbb{R}_{\geq0}\\
+    &(x,y)\mapsto\lVert x-y\rVert
+\end{aligned}$$
+then we say that $(V,\lVert \cdot\rVert)$ is a Banach space.
+\section{Theorem}
+Let $(V_1,\lVert \cdot\rVert _1)$ and $(V_2,\lVert \cdot\rVert _2)$ be vector spaces over K, equipped with seminorm. If $(V_2,\lVert \cdot\rVert _2)$ is a Banach space, then $$(\mathscr{L}(V_1,V_2),\lVert \cdot\rVert)$$ is a Banach space
+\subsection*{Proof}
+Let $(f_n)_{n\in \mathbb{N}}$ be a Cauchy sequence in $\mathscr{L}(V_1,V_2)$.\\$\forall x\in V_1$, the mapping $$(f\in \mathscr{L}(V_1,V_2))\mapsto f(x)$$ is $\lVert x\rVert _1$-Lipschitzian mapping:
+$$\lVert f(x)-g(x)\rVert _2=\lVert (f-g)(x)\rVert _2\leq\lVert f-g\rVert\lVert x\rVert _1$$
+So $(f_n(x))_{n\in \mathbb{N}}$ is a Cauchy sequence, that converges to some $f(x)\in V_2$
 \end{document}
