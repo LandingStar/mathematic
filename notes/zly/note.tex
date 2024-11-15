@@ -13,7 +13,7 @@
 	pdfstartview=Fit,
 	breaklinks=true
 }
-
+\newcommand{\abs}[1]{\lvert #1 \rvert} 
 \begin{document}
 \tableofcontents
 \part{Set}
@@ -1953,6 +1953,7 @@ Hence $$\hat{K}=Cau(K)\setminus Cau_0(K)$$ is a quotient ring of $Cau(K)$\\
 $\lvert\cdot\rvert$ extend to $\hat{K}$:
 $$\lvert[(a_n)_{n\in \mathbb{N}}]\rvert=\lim\limits_{n\rightarrow+\infty}\lvert a_n\rvert$$ that forms an absolute value.
 \chapter{Norms}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
 In this chapter we fix a field K and an absolute value $\lvert\cdot\rvert$ on K.
 We assume that $(K,\lvert\cdot\rvert)$ forms a complete metric space with respect to the metric:$$\begin{aligned}
     &K\times K\rightarrow\mathbb{R}_{\geq 0}\\
@@ -2112,5 +2113,104 @@ Let $(V_1,\lVert \cdot\rVert _1)$ and $(V_2,\lVert \cdot\rVert _2)$ be vector sp
 \subsection*{Proof}
 Let $(f_n)_{n\in \mathbb{N}}$ be a Cauchy sequence in $\mathscr{L}(V_1,V_2)$.\\$\forall x\in V_1$, the mapping $$(f\in \mathscr{L}(V_1,V_2))\mapsto f(x)$$ is $\lVert x\rVert _1$-Lipschitzian mapping:
 $$\lVert f(x)-g(x)\rVert _2=\lVert (f-g)(x)\rVert _2\leq\lVert f-g\rVert\lVert x\rVert _1$$
-So $(f_n(x))_{n\in \mathbb{N}}$ is a Cauchy sequence, that converges to some $f(x)\in V_2$
+So $(f_n(x))_{n\in \mathbb{N}}$ is a Cauchy sequence, for $V_2$ is complete, that converges to some $g(x)\in V_2$
+Then we obtain a mapping $g:V_1\rightarrow V_2$.We prove that $g$ is an element of $\mathscr{L}(V_1,V_2)$
+\begin{itemize}
+    \item $\forall(x,y)\in V_1^2$$$g(x,y)=\lim\limits_{n\rightarrow+\infty}f_n(x+y)=\lim\limits_{n\rightarrow+\infty}f_n(x)+f_n(y)$$
+    $$\begin{aligned}
+        \lVert f_n(x)+f_n(y)-g(x)-g(y)\rVert &\leq\norm{f_n(x)-g(x)}+\norm{f_n(y)-g(y)}\\ &= o(1)+o(1)=o(1),(n\rightarrow+\infty) 
+    \end{aligned}$$
+    So $$\lim\limits_{n\rightarrow+\infty}f_n(x)+f_n(y)=g(x)+g(y)$$
+    \item $\forall x\in V_1,\lambda\in K$
+    $$g(\lambda x)=\lim\limits_{n\rightarrow+\infty}f_n(\lambda x)=\lim\limits_{n\rightarrow+\infty}\lambda f_n(x)$$
+    $$\norm{\lambda f_n(x)-\lambda g(x)}=\abs{\lambda}\cdot\norm{f_n(x)-g(x)}=o(1) (n\rightarrow+\infty)$$
+    So $g(\lambda x)=\lambda g(x)$
+    \item $\forall x\in V_1$$$\norm{g(x)}=\lim\limits_{n\rightarrow+\infty}\norm{f_n(x)}\leq(\lim\limits_{n\rightarrow+\infty}\norm{f_n})\cdot\norm{x}$$
+    (because $\forall(a,b)\in V_2^2\quad\abs{\norm{a}-\norm{b}}\leq\norm{a-b}$)Then 
+    $$\abs{\norm{f_n(x)}-\norm{g_n(x)}}\leq\norm{f_n(x)-g_n(x)}=o(1)\ (n\rightarrow+\infty)$$
+    So $g\in \mathscr{L}(V_1,V_2)$
+    $$\forall\epsilon>0\ \exists N\in \mathbb{N}\ \forall(n,m)\in \mathbb{N}_{\geq N},\ \norm{f_n-f_m}\leq \epsilon$$
+    $\forall x\in V_1$$$\norm{(f_n-f_m)(x)}\leq\epsilon\cdot\norm{x}$$
+    Taking $\lim\limits_{n\rightarrow+\infty}$ we get 
+    $$\norm{(f_n-g)(x)}\leq\epsilon\norm{x}$$
+    So $\forall n\in \mathbb{N},n\geq N$
+    $$\norm{f_n-g}\leq \epsilon$$
+\end{itemize}
+\chapter{Differentiability}
+In this chapter we fix a field K and an absolute value $\lvert\cdot\rvert$ on K.
+We assume that $(K,\lvert\cdot\rvert)$ forms a complete metric space with respect to the metric:$$\begin{aligned}
+    &K\times K\rightarrow\mathbb{R}_{\geq 0}\\
+    &(a,b)\mapsto\lvert a-b\rvert
+\end{aligned}$$
+\section{Def}
+Let $E$ and $F$ be normed vector space over $K$ $U\subseteq E$ be an open subset, $f:U\rightarrow F$ be a mapping and $p\in U$ If there exists $\varphi\in\mathscr{L}(E,F)$ such that 
+$$f(x)=f(p)+\varphi(x-p)+o(\norm{x-p})\quad {x\rightarrow p}$$ 
+we say that $f$ is differentiable at $p$, and $\varphi$ is the differential of $\varphi$ at $p$
+Suppose that $\abs{\cdot}$ is not trivial.
+\subsection*{Reminder}
+$$f(x)=f(p)+\varphi(x-p)+o(\norm{x-p})\quad {x\rightarrow p}$$ 
+means there exists an open neighborhood $V$ of $p$ with $V\subseteq U$ and a mapping $\epsilon V\rightarrow\mathbb{R}_{\geq0}$ such that $\lim\limits_{x\rightarrow p}\epsilon(x)=0$ and that $\forall x\in V$
+$$\norm{f(x)-f(p)-\varphi(x-p)}\leq\epsilon(x)\cdot\norm{x-p}$$
+\section{Prop} If $f$ is differentiable at $p$ ,then its differential at $p$ is unique
+\subsection*{Proof}
+Suppose that there exists $\varphi$ and $\psi$ in $\mathscr{L}(E,F)$ such that 
+$$f(x)=f(p)+\varphi(x-p)+o(\norm{x-p})$$
+$$f(x)=f(p)+\psi(x-p)+o(\norm{x-p})$$
+then $$(\varphi-\psi)(x-p)=o(\norm{x-p})$$
+$\forall \delta>0$
+$$\begin{aligned}
+    \norm{\varphi-\psi}= \sup\limits_{y\in E\setminus\{0\}}\frac{\norm(\varphi-\psi)}{\norm{y}}=\sup\limits_{y\in E\setminus\{0\},\norm{y}\leq\delta}\frac{\norm{(\varphi-\psi)(y)}}{\norm{y}}
+\end{aligned}$$
+Therefore $$
+\begin{aligned}
+    \norm{\varphi-\psi} &=\inf\limits_{\delta>0}\sup\limits_{y\in E,0<\norm{y-p}\leq\delta}\frac{\norm{\varphi-\psi}(y-p)}{\norm{y-p}}\\
+    &\leq\inf\limits_{\delta>0}\sup\limits_{y\in E,0<\norm{y-p}\leq\delta}\epsilon(y)\\
+    &=\limsup\limits_{y\rightarrow p} \epsilon(y)=0
+\end{aligned}$$
+\section{Example}
+\subsection{}
+$$f:U\rightarrow F:\ f(x)=y_0\ \forall x\in U$$
+$\forall p\in U$
+$$f(x)-f(p)=0=0+o(\norm{x-p})$$
+Hence $\forall x\in E$
+$$d_p(f(x))=0$$
+\subsection{}
+Let $f\in \mathscr{L}(E,F)$
+$$f(x)-f(p)=f(x-p)$$
+Hence $d_pf=f$
+\subsection{}
+$$\begin{aligned}
+    A:& E\times E\rightarrow E\\
+    &(x,y)\mapsto x+y
+\end{aligned}$$
+Let $E$ be a normed space.
+Then $\forall (p,q)\in E\times E$$$d_{(p,q)}A=A$$
+\subsection{}
+$$\begin{aligned}
+m:&K\times E\rightarrow E\\
+&(\lambda,x)\mapsto \lambda x
+\end{aligned}$$
+Let $(a,p)\in K\times E$
+$$\begin{aligned}
+    \lambda x-ap &=\lambda x-ax+ax-ap\\
+    &=(\lambda-a)x+a(x-p)\\
+    &=(\lambda-a)p+a(x-p)+(\lambda-a)(x-p)
+\end{aligned}$$
+\begin{itemize}
+    \item when $(\lambda,x)\rightarrow(a,p)$$$\begin{aligned}
+        \norm{(\lambda-a)(x-p)}&=\abs{\lambda-a}\cdot\norm{x-p}\\
+        &=o(\max\{\abs{lambda-a},\norm{x-p}\})
+    \end{aligned}$$
+    \item The mapping $$((\mu,y)\in K\times E)\mapsto \mu p+ay\in E$$ is a K-linear mapping.
+    \begin{itemize}
+        \item $(\mu_1+\mu_2)p+a(y_1+y_2)=(\mu_1p+ay_1)+(\mu_2p+ay_2)$
+        \item $b\mu p+a(by)=b(\mu p +ay)$
+        \item $\begin{aligned}
+        \norm{\mu p+ay}\leq &\abs{\mu}\norm{p}+\abs{a}\norm{y}\\
+         \leq& \max\{\abs{\mu},\norm{y}\}(\abs{a}+\norm{p})
+    \end{aligned}$
+    \end{itemize}
+    Hence $m$ is differentiable and $\forall (\mu,y)\in K\times E$
+    $$d_{(a,p)}m(\mu,y)=\mu p+ay$$
+\end{itemize}
 \end{document}
