@@ -2072,7 +2072,7 @@ Let $(V_1,\lVert\cdot\rVert _1)$ and $(V_2,\lVert\cdot\rVert _2)$ be vector spac
         &\leq\frac{1}{\epsilon}\lVert x\rVert _1\frac{1}{\lvert a\rvert}=\frac{\lVert x\rVert _1}{\epsilon\lvert a\rvert}
         \end{aligned}$$
 \end{itemize}
-\section{Def}
+\section{Def: Operator Seminorm}
 Let $(V_1,\lVert\cdot\rVert _1)$ and $(V_2,\lVert\cdot\rVert _2)$ be vector spaces over K, equipped with seminorm. We say that a K-linear mapping $f:V_1\rightarrow V_2$ is bounded if there exists $C>0$ that $$\forall x\in V_1\quad \lVert f(x)\rVert \leq C\lVert x\rVert _1$$
 For a general K-linear mapping $f:V_1\rightarrow V_2$ we denote 
 $$\lVert f\rVert :=\left\{\begin{aligned}
@@ -2143,10 +2143,22 @@ We assume that $(K,\lvert\cdot\rvert)$ forms a complete metric space with respec
     &(a,b)\mapsto\lvert a-b\rvert
 \end{aligned}$$
 \section{Def}
+Let X be a topological space and $p\in X$. Let $K$ be a complete valued field and $(E,\norm{\cdot})$ be a normed vector space over K.
+
+Let $f:X\rightarrow E$ be a mapping  and $g:X\rightarrow \mathbb{R}_{\geq0}$ be a non-negative mapping.
+\begin{itemize}
+    \item We say that $$f(x)=O(g(x))\ x\rightarrow p$$ if there is a neighborhood V of $p$ in X and a constant $C>0$ such that $\forall x\in V$$$\norm{f(x)}\leq Cg(x)$$
+    \item We say that $$f(x)=o(g(x))\ x\rightarrow p$$ if there exists a neighborhood V of $p$ in X and a mapping $\epsilon:V\rightarrow\mathbb{R}_{\geq 0}$ such that 
+    $$\lim\limits_{x\in V,x\rightarrow p}\epsilon(x)=0$$
+    which is equivalent to $$\forall \delta>0,\exists\text{ neighborhood U of }p\ U\subseteq V \text{ and } \forall x\in U,0\leq\epsilon(x)\leq\delta$$
+    
+    and $\forall x\in V$$$\norm{f(x)}\leq \epsilon(x)g(x)$$
+\end{itemize}
+\section{Def}
 Let $E$ and $F$ be normed vector space over $K$ $U\subseteq E$ be an open subset, $f:U\rightarrow F$ be a mapping and $p\in U$ If there exists $\varphi\in\mathscr{L}(E,F)$ such that 
 $$f(x)=f(p)+\varphi(x-p)+o(\norm{x-p})\quad {x\rightarrow p}$$ 
 we say that $f$ is differentiable at $p$, and $\varphi$ is the differential of $\varphi$ at $p$
-Suppose that $\abs{\cdot}$ is not trivial.
+Suppose that $\abs{\cdot}$ is not trivial.$\varphi(x-p)$ also written as $$d_pf$$
 \subsection*{Reminder}
 $$f(x)=f(p)+\varphi(x-p)+o(\norm{x-p})\quad {x\rightarrow p}$$ 
 means there exists an open neighborhood $V$ of $p$ with $V\subseteq U$ and a mapping $\epsilon V\rightarrow\mathbb{R}_{\geq0}$ such that $\lim\limits_{x\rightarrow p}\epsilon(x)=0$ and that $\forall x\in V$
@@ -2213,4 +2225,119 @@ $$\begin{aligned}
     Hence $m$ is differentiable and $\forall (\mu,y)\in K\times E$
     $$d_{(a,p)}m(\mu,y)=\mu p+ay$$
 \end{itemize}
+\section{Theorem:Chain rule}
+Let $E,F,G$ be normed vector spaces, $U\subseteq E,V\subseteq F$ be open subsets. 
+
+Let $f :U\rightarrow F,\ g:V\rightarrow G$ be mappings such that $f(U)\subseteq V$ Let $p\in U$ Assume that $f$ is differentiable at $p$ and $g$ differentiable at $f(p)$ Then $g\circ f$ is differentiable at $p$ and $$d_p(g\circ f)=d_{f(p)}g\circ d_pf$$
+\subsection*{Proof}
+Let $x\in U$ By definition 
+$$
+\begin{aligned}
+    f(x) &= f(p)+d_pf(x-p)+o(\norm{x-p})\\
+    f(x)-f(p) &= O(\norm{x-p})
+\end{aligned}$$
+and $$
+\begin{aligned}
+    (g\circ f)(x) &= g(f(p))+d_{f(p)}g(f(x)-f(p))+o(\norm{f(x)-f(p)})\\
+    &= g(f(p))+d_{f(p)}g(d_pf(x-p)+o(\norm{x-p}))+o(\norm{x-p})\\
+    &= g(f(p))+d_{f(p)}g(d_pf(x-p))+o(\norm{x-p})
+\end{aligned}$$
+So $g\circ f$ is differentiable at $p$ and $$d_p(g\circ f)=d_{f(p)}g\circ d_pf$$
+\section{Prop}
+Let $n$ be a positive integer $E,(F_i)_{i\in \{1,...,n\}}$ be normed vector spaces over K. $U\subseteq E$ an open subset, $p\in U$
+
+$\forall i\in \{1,...,n\}$ let $f_i:U\rightarrow F_i$ be a mapping.
+Let $$f:U\rightarrow F=\prod F_i$$
+be the mapping that sends $x\in U$ ot $(f_i(x))_{i\in\{1,...,n\}}$ 
+We equip $F$ with the norm $\norm{\cdot}$ defined as :
+$$\norm{(y_i)_{i\in \{1,...,n\}}}=\max\limits_{i\in \{1,...,n\}}\norm{y_i}$$
+Then $f$ is differentiable at $p$ iff each $f_i$ is differentiable at $p$. Moreover, when this happen, one has $$\forall x\in E\quad d_pf(x)=(d_pf_i(x))_{i\in \{1,...,n\}}$$
+\subsection*{Proof}
+\begin{itemize}
+    \item [$\Leftarrow$]Suppose that $(f_i)_{i\in \{1,...,n\}}$ are differentiable at $p$ 
+    $$\begin{aligned}
+        f(x)-f(p) &= (f_i(x)-f_i(p))_{i\in \{1,...,n\}}\\
+        &= (d_pf_i(x-p))_{i\in \{1,...,n\}}+o(\norm{x-p})
+    \end{aligned}$$
+    Therefore $f$ is differentiable at $p$ and $$d_pf(\cdot)=(d_pf_i(\cdot))_{i\in \{1,...,n\}}$$
+    \item[$\Rightarrow$]Let $$\begin{aligned}
+        \pi_i: &F\rightarrow F_i\\
+        &(x_i)_{i\in \{1,...,n\}}\mapsto x_i
+    \end{aligned}$$ 
+    is a bounded linear mapping, one has $\norm{\pi_i}\leq 1$ because
+    $$\norm{x_i}\leq\max\limits_{i\in \{1,...,n\}}\norm{x_i}=\norm{(x_i)_{i\in \{1,...,n\}}}$$
+    $\pi_i$ is differentiable at $p$ then $\pi_i\circ f=f_i$ is differentiable at $p$
+\end{itemize}
+\section{Def}
+Let $U$ be an open subset of $K$ and $(F,\norm\cdot)$ be a normed vector space. If $f: U\rightarrow F$ is a mapping that is differentiable at some $p\in U$. We denote by $f'(p)$ the element $$d_pf(1)\in F$$ called the derivative of $f$ at $p$
+\section{Corollary}
+Let $U$ and $V$ be open subsets of $K$, $(F,\norm\cdot)$ be a normed vector space over K. $f:U\rightarrow K,\ g:V\rightarrow F$ be mappings such that $f(U)\subseteq V$. Let $p\in U$. If $f$ is differentiable at $p$ and $g$ is differentiable at $f(p)$ then $$(g\circ f)'(p)=f'(p)g'(f(p))$$
+\subsection*{Proof}
+By definition
+$$\begin{aligned}
+    d_p(g\circ f)(1) &= d_{f(p)}g(d_P(f)(1))\\
+    &= d_{f(p)}g(f'(p))\\
+    &= d_{f(p)}g(f'(p)\cdot 1)\\
+    &= f'(p)\cdot d_{f(p)}g(1)\\
+    &= f'(p)g'(f(p))
+\end{aligned}$$
+\section{Corollary}
+Let E and F be normed vector spaces, $U\subseteq E$ an open subset. $f:U\rightarrow L$ and $g:U\rightarrow F$ be mappings and $p\in U$ If both $f,g$ differentiable at $p$ then $$\begin{aligned}
+    fg: &U\rightarrow F\\ &x\mapsto f(x)g(x)
+\end{aligned}$$
+is also differentiable at $p$ and $$\forall l\in E\quad d_p(fg)(l)=f(p)d_pf(l)+g(p)d_pf(l)$$
+\subsection*{Proof}
+Consider $$\begin{aligned}
+    m: &K\times F\rightarrow F\\ &(a,y)\rightarrow ay
+\end{aligned}$$
+We have shown $m$ is differentiable and $$d_{a,y}m(b,z)=by=az$$
+$fg$ is the following composite:
+$$
+\xymatrix{
+    & U \ar@/_/[rr]_{fg}\ar[r]^h &K\times F\ar[r]^m &F \\
+    & x \ar@{|->}[r] &(f(x),g(x))\ar@{|->}[r] &f(x)g(x)
+}$$
+$$\begin{aligned}
+    d_p(fg)(l) &= d_p(m\circ h)(l)\\
+    &= d_{h(p)}m(d_ph(l))\\
+    &= d_{(f(p),g(p))}m(d_pf(l),d_pg(l))\\
+    &= f(p)d_pg(l)+d_pf(l)g(p)
+\end{aligned}$$
+\section{Corollary}
+Let $U$ be an open subset of $K$, $f,g$ be mappings from U to K and to a normed space F respectively.If $f,g$ are differentiable at $p\in U$ then $$(fg)'(p)=d_p(fg)(1)=d_pf(1)g(p)+f(p)d_pg(1)=f'(p)g(p)+f(p)g'(p)$$
+\subsection*{Example}
+$$\begin{aligned}
+    f_n: &K\rightarrow K\\
+    &x\mapsto x^n
+\end{aligned}$$
+is differentiable at any $x\in K$$$f'_n(x)=nx^{n-1}$$
+\subsubsection*{Proof}
+$f_1:K\rightarrow K$ is differentiable $\forall x\in K$$$d_xf_1=f_1$$
+If $f'_n(x)=nx^{n-1}$ then $$\begin{aligned}
+    f'_{n+1}(x) &= (f_nf_1)'(x)\\
+    &= f_n(x)f'_1(x)+f'_n(x)f_1(x)\\
+    &= x^n+x'_n(x)=x^n+xnx^{n-1}\\
+    &=(n+1)x^n
+\end{aligned}$$
+and $$\begin{aligned}
+    d_xf_n(l) &= ld_xf_n(1)\\
+    &=lnx^{n-1}
+\end{aligned}$$
+\section{Prop}
+Let $E,F,G$ be normed vector spaces. $U\subseteq E$ be an open subset, $\varphi\in \mathscr{L}(F,G),p\in U$ if $f:U\rightarrow E$ is differentiable at $p$ then so is $\varphi\circ f$. Moreover $$d_p(\varphi\circ f)=\varphi\circ d_p(f)$$
+\subsection*{Proof}
+$\varphi$ is differentiable at $f(p)$ nad $d_{f(p)}\varphi=\varphi$
+\section{Corollary}
+Let E and F be normed  vector spaces $U\in E$ be an open subset, $p\in U$. Let $f:U\rightarrow F$ and $g:U\rightarrow F$ be mappings that are differentiable at $p,(a,b)\in K\times K$. Then $af+bg$ is differentiable at $p$ and $$d_p(af_bg)=ad_pf+bd_pg$$
+\subsection*{Proof}
+$af+bg$ is composite:
+$$
+\xymatrix{
+    & U \ar@/_/[rr]_{ay+bz}\ar[r]^h &K\times F\ar[r]^m &F \\
+    & x \ar@{|->}[r] &(f(x),g(x))\ar@{|->}[r] &af(x)+bg(x)
+}$$
+$$\begin{aligned}
+\norm{ay+bz} &\leq\lvert a\rvert\cdot\norm{y}+\lvert b\rvert\cdot\norm{z}\\
+&\leq(\lvert a\rvert+\lvert b\rvert)\max\{\norm{y},\norm{z}\}
+\end{aligned}$$
 \end{document}
