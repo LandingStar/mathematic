@@ -13,7 +13,7 @@
 	pdfstartview=Fit,
 	breaklinks=true
 }
-\newcommand{\abs}[1]{\lvert #1 \rvert} 
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} 
 \begin{document}
 \tableofcontents
 \part{Set}
@@ -1953,7 +1953,7 @@ Hence $$\hat{K}=Cau(K)\setminus Cau_0(K)$$ is a quotient ring of $Cau(K)$\\
 $\lvert\cdot\rvert$ extend to $\hat{K}$:
 $$\lvert[(a_n)_{n\in \mathbb{N}}]\rvert=\lim\limits_{n\rightarrow+\infty}\lvert a_n\rvert$$ that forms an absolute value.
 \chapter{Norms}
-\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 In this chapter we fix a field K and an absolute value $\lvert\cdot\rvert$ on K.
 We assume that $(K,\lvert\cdot\rvert)$ forms a complete metric space with respect to the metric:$$\begin{aligned}
     &K\times K\rightarrow\mathbb{R}_{\geq 0}\\
@@ -2340,4 +2340,129 @@ $$\begin{aligned}
 \norm{ay+bz} &\leq\lvert a\rvert\cdot\norm{y}+\lvert b\rvert\cdot\norm{z}\\
 &\leq(\lvert a\rvert+\lvert b\rvert)\max\{\norm{y},\norm{z}\}
 \end{aligned}$$
+\section{Def}
+Let E be a vector space over K and $\norm{\cdot}_1,\norm{\cdot}_2$ be norms on E. We say that $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are equivalent if there exist constants $C_1,C_2>0$ such that $\forall s\in E$$$C_1\norm{S}_1\leq\norm{s}_2\leq C_2\norm{s}_1$$
+\section{Prop}
+If $\norm{\cdot}_1,\norm{\cdot}_2$ are equivalent, then $$Id_E:(E,\norm{\cdot}_1)\rightarrow(E,\norm{\cdot}_2)$$
+$$Id_E:(E,\norm{\cdot}_2)\rightarrow(E,\norm{\cdot}_1)$$ are bounded linear mappings. Moreover $\norm{\cdot}_1,\norm{\cdot}_2$ defines the same topology on E.
+\subsection*{Proof}
+$$\norm{s}_2\leq C_2\quad \norm{s}_1\leq C_1^{-1}\norm{s}_2$$
+So the linear mappings are bounded. Hence $$Id_E:(E,\norm{\cdot}_1)\rightarrow(E,\norm{\cdot}_2)$$
+$$Id_E:(E,\norm{\cdot}_2)\rightarrow(E,\norm{\cdot}_1)$$
+are continuous. So $\forall$ open subset U of $(E,\norm{\cdot}_2)$
+$$Id_E^{-1}(U)=U$$ is open in $(E,\norm{\cdot}_1)$. Conversely if V is open in $(E,\norm{\cdot}_1)$ then $$V=Id_E^{-1}(V)$$ is open in $(E,\norm{\cdot}_2)$
+\section{Remark}
+If $\norm{\cdot}_1,\norm{\cdot}_2$ are two norms on E that define the same topology on E, then they are equivalent (under the assumption that $\lvert\cdot\rvert$ is not trivial)
+\section{Prop}
+Let $(E,\norm{\cdot}_E)$ and $(F,\norm{\cdot}_F)$ be normed vector spaces $\norm{\cdot}'_E$ and $\norm{\cdot}'_F$ be norms on E and F that are equivalent to $\norm{\cdot}_E,\norm{\cdot}_F$ respectively. Let $U\subseteq E$ be an open subset and $f:U\rightarrow F$ be a mapping.
+
+Let $p\in U$ Then $f$ is differentiable at $p$ with respect to $\norm{\cdot}_E$ and $\norm{\cdot}_F$ iff it's differentiable with respect to $\norm{\cdot}'_E$ and $\norm{\cdot}'_F$ 
+
+Moreover the differentiable of $f$ at $p$ is not changed in the change of norms from $(\norm{\cdot}_E,\norm{\cdot}_F)$ to $(\norm{\cdot}'_E,\norm{\cdot}'_F)$
+\subsection*{Proof}
+$$\xymatrix{
+    & U\ar[r]^{Id_U}\ar@/_/[rrr]_f &U\ar[r]^f &F\ar[r]^{Id_F} &F\\
+    & (E,\norm{\cdot}'_E) &(E,\norm{\cdot}_E) &\norm{\cdot}_F &\norm{\cdot}'_F
+}$$
+$$\begin{aligned}
+    d'_pf &= d_{f(p)}Id_F\circ d_pf\circ d_pId_U\\
+    &= Id_F\circ d_p f\circ Id_E\\
+    &= d_p f
+\end{aligned}$$ $d'_pf: (E,\norm{\cdot}'_E)\rightarrow(F,\norm{\cdot}'_F)$
+\section{Theorem}
+Let V be  a finite dimensional vector space over K. Then all norms on V are equivalent. Moreover V is complete with respect to any norm on V.
+\subsection*{Proof}
+Let $(e_i)_{i=1}^n$ be  a basis of V(linear independent system of generators)The the mapping:$$\begin{aligned}
+    V &\rightarrow \mathbb{R}_{\geq 0}\\
+    \sum\limits_{i\in \{1,...,n\}}a_ie_i &\mapsto \max\limits_{i\in \{1,...,n\}}\{\abs{a_i}\}
+\end{aligned}$$is a norm on V
+
+Let $\norm\cdot$ be another norm on V. One has $$
+\begin{aligned}
+\norm{\sum\limits_{i\in \{1,...,n\}}a_ie_i}
+&\leq \sum\limits_{1\in \{1,...,n\}}\abs{a_i}\norm{e_i}\\
+&\leq (\sum\limits_{i\in \{1,...,n\}}\norm{e_i})\max\limits_{i\in \{1,...,n\}}\{\abs{a_i}\}\end{aligned}
+$$
+We reason by induction that there exists $C>0$ such that $$\max\limits_{i\in \{1,...,n\}}\{\abs{a_1}\}\leq C\norm{\sum\limits_{i\in \{1,...,n\}}a_ie_i}$$ The case where $n=0$ is trivial.
+\begin{itemize}
+    \item [n=1]$$\norm{a_1e_1}=\abs{a_1}\norm{e_1}\quad \abs{a_1}=\norm{e_1}^{-1}\cdot\norm{a_1e_1}$$
+    \item [Induction hypothesis] true for vector spaces of dimension $<n$ 
+    
+    Let $$W=\{\sum\limits_{i\in \{1,...,n-1\}}a_ie_i\mid(a_i)_{i\in \{1,...,n-1\}}\in K^{n-1}\}$$equipped with $\norm{\cdot}$ restricted to W
+
+    The induction hypothesis shows that W is complete. Hence it's closed in V. Let $Q=V/W$ and $\norm{\cdot}_Q$ be the quotient norm on Q that's defined as $$\forall \alpha\in Q\quad \norm{\alpha} _Q=\inf\limits_{s\in \alpha}\norm{s}$$
+    \begin{itemize}
+        \item If $s\in V\setminus W, \exists \epsilon>0$ such that $$\overline{B}(s,\epsilon)\cap W=\phi$$
+        $\forall t\in W,$$$s+t\not\in \overline{B}(0,\epsilon)$$ since otherwise $$-t\in W\cap \overline{B}(s,\epsilon)$$
+        Therefore $$\norm{[s]}_Q=\inf\limits_{i\in W}\norm{s+t}\geq \epsilon>0$$
+        \item $\forall\lambda\in K$$$\begin{aligned}
+            \norm{\lambda\alpha}_Q &= \inf\limits_{s\in \alpha}\norm{\lambda s} &= \abs{\lambda}\\
+            \inf\limits_{s\in \alpha}\norm{s} &=\abs{\lambda}\cdot\norm{s}_Q
+        \end{aligned}$$
+        \item $$\begin{aligned}
+            \norm{\alpha+\beta}_Q &=\inf\limits_{s\in \alpha+\beta}\norm{s}\\
+            &= \inf\limits_{(x,y)\in \alpha\times\beta}\norm{x+y}\\
+            &\leq \inf\limits_{(x,y)\in \alpha\times\beta}(\norm{x}+\norm{y})\\
+            &= \inf\limits_{x\in \alpha}\norm{x}+\inf\limits_{y\in \beta}\norm{y}
+        \end{aligned}$$
+    \end{itemize}
+
+    Applying the induction hypothesis then we obtain the existence of some $A>0$ such that $\forall(a_i)_{i\in \{1,...,n-1\}}\in K^{n-1}$$$\max\limits_{i\in \{1,...,n-1\}}\{\abs{a_i}\}\leq A\norm{\sum\limits_{i\in \{1,...,n-1\}}a_ie_i}$$ 
+    Take $$s=\sum\limits_{i\in \{1,...,n\}}a_ie_i\in V$$
+    Let $\alpha=[s]=a_n[e_n]\in Q$$$\norm{\sum\limits_{i\in \{1,...,n-1\}}a_ie_i}=\norm{s-a_ne_n}\leq\norm{s}+\abs{a_n}\cdot\norm{e_n}\leq \max\limits_{i\in \{1,...,n-1\}}\{\abs{a_i}\}$$
+    $$\norm{\alpha}_Q=\abs{a_n}\norm{[e_n]}_Q=\abs{a_n}\inf\limits_{t\in W}\norm{e_n+t}$$
+    Take $e'_n\in V$ such that $[e'_n]=[e_n]$ and $\norm{e'_n}\leq\norm{[e_n]}_Q+\epsilon$
+
+    Note that $(e_1,...,e_{n-1},e'_n)$ forms also basis of V over K. Hence by replacing $e_n$ by $e'_n$ we may assume that $\norm{e_n}\leq\norm{[e_n]}_Q+\epsilon$
+
+    $s=a_ne_n+t\in V$ with $t\in W$$$\norm{s}\geq\norm{[a_ne_n]}_Q=\abs{a_n}\norm{[e_n]}_Q\geq B^{-1}\abs{a_n}\cdot\norm{e_n}$$
+    \begin{itemize}
+        \item If $\norm{a_ne_n}<\frac{1}{2}\norm{t}$ $$\norm{s}\geq \norm{t}-\norm{a_ne_n}>\frac{1}{2}\norm{t}\geq \frac{1}{2}\max\limits_{i\in \{1,...,n-1\}}\{\abs{a_i}\}$$
+        \item If $\norm{a_ne_n}\geq\frac{1}{2}\norm{t}$$$\norm{s}\geq B^{-1}\abs{a_n}\cdot\norm{e_n}\geq \frac{B^{-1}}{2}\norm{t}\geq\frac{B^{-1}A}{2}\max\limits_{i\in \{1,...,n-1\}}\{\abs{a_i}\}$$
+    \end{itemize}
+    We take $C=\max\{B^{-1}\norm{e_n},\frac{A}{2},\frac{B^{-1}A}{2}\}$
+    Then $$\norm{s}\geq C\max\limits_{i\in \{1,...,n\}}\{\abs{a_i}\}$$
+    \item[Another proof]
+    \item[completeness]
+    Under the norm $\max\limits_{i\in \{1,...,n\}}$, a sequence $(a^{(k)}_ie_i)_{k\in \mathbb{N},i\in \{1,...,n\}}$ is a Cauchy sequence iff $\forall i\in \{1,...,n\}\quad (a_i^{(k)})_{k\in \mathbb{N}}$ is a Cauchy sequence. Since K is complete each $(a_i^{(k)})_{k\in \mathbb{N}}$ converges to some $a_i\in K$ Hence $(a^{(k)}_ie_i)_{k\in \mathbb{N},i\in \{1,...,n\}}$ converges.
+\end{itemize}
+\chapter{Compactness}
+\section{Def: cover}
+Let X be a topological space, $Y\subseteq X$ we call open cover of Y any family $(U_i)_{i\in I}$ open subset of X such that $$Y\subseteq\bigcup\limits_{i\in I}U_i$$
+If $I$ is finite set, we say that $(U_i)_{i\in I}$ iss a finite open cover. If $J\subseteq I$ such that $$Y\subseteq\bigcup\limits_{j\in J}U_j$$ then we say that $(U_j)_{j\in J}$ is a sub cover of $(U_i)_{i\in I}$
+\section{Def:compact}
+If any open cover of Y has a finite subcover ,we say that Y is quasi-compact. If in addition X is Hausdorff, namely $\forall(x,y)\in X\times X$ with $x\neq y$ $\exists $ open neighborhoods U and V of $x$ and $y$ such that $U\cap V=\varnothing$, we say that $Y$ is compact  
+\section{Def}
+Let X be a set and $\mathcal{F}$ be a filter on X. If there does not exists any filter $\mathcal{F}'$ of X such that $\mathcal{F}\subsetneq\mathcal{F}'$, then we say that $\mathcal{F}$ is an ultrafilter.
+
+\textbf{Zorn's lemma} implies that $\forall \mathcal{F_0}$ of X there exist an ultrafilter $\mathcal{F}$ if X containing $\mathcal{F}_0$
+\section{Prop}
+Let $\mathcal{F}$ be a filter on a set X. The following statements are equivalent.
+\begin{itemize}
+    \item[(1)] $\mathcal{F}$ is an ultrafilter 
+    \item[(2)] $\forall A\subseteq X$ either $A\in \mathcal{F}$ or $X\setminus A\in \mathcal{F}$
+    \item[(3)] $\forall (A,B)\in \wp(X)^2$ if $A\cap B\in \mathcal{F}$ then $A\in \mathcal{F}$ or $B\in \mathcal{F}$
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [$(1)\Rightarrow(2)$]Suppose that $A\in \wp(X)$ such that $A\not\in \mathcal{F}$ and $X\setminus A\not\in \mathcal{F}$ $\forall B\in \mathcal{F}$ one has $$B\cap A\neq \varnothing$$ since otherwise $B\subseteq X\setminus A$ and hence $X\setminus A\in \mathcal{F}$ contradiction.
+    \item [$(2)\Rightarrow(3)$]Suppose that $B\not\in \mathcal{F}$ then $X\setminus B\in \mathcal{F}$
+    $$(A\cup B)\cap(X\setminus B)=A\setminus B\in \mathcal{F}$$
+    So $A\in \mathcal{F}$
+    \item[$(3)\Rightarrow(1)$]
+    Suppose that $\mathcal{F}'$ is a filter such that $\mathcal{F}\subsetneqq\mathcal{F}'$ Take $A\in \mathcal{F}'\setminus\mathcal{F}$ Then by $X=A\cup(X\setminus A)\in \mathcal{F}$ Hence $$X\setminus \mathcal{F}\subseteq\mathcal{F}'\quad \varnothing=A\cap(X\setminus A)\in \mathcal{F}'$$ which is impossible.
+\end{itemize}
+\section{Theorem}
+Let $(X,\mathcal{J})$ be a topological space . The following are equivalent
+\begin{itemize}
+    \item [(1)] X is quasi-compact
+    \item[(2)] Any filter of X has an accumulation point
+    \item[(3)] Any ultrafilter of X is converges. 
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item[$(1)\Rightarrow(2)$]Assume that a filter $\mathcal{F}$ of X does not have any accumulation point. $\forall x\in X\ \exists A_x\in \mathcal{F}\quad \exists$ open neighborhood $V_x$ of $x$ such that $A_x\cap V_x=\varnothing$ Since $X=\bigcup\limits_{x\in X}V_x$ there is $$\{x_1,...,x_n\}\subseteq X$$ such that $$X=\bigcup_{i=1}^nV_{x_i}$$. Take $B=\bigcap\limits_{i=1}^nA_{x_i}\in \mathcal{F}$$$B\cap X=B\varnothing$$Since $\forall i\ B\cap V_x=\varnothing$ contradiction.
+    \item[$(2)\Rightarrow(3)$]Let $\mathcal{F}$ be an ultrafilter of X. By (2) there exist $x\in X$ such that $\mathcal{F}\cup\mathcal{V}_x$ generates a filter $\mathcal{F}'$ Since $\mathcal{F}$ is an ultrafilter $\mathcal{F}=\mathcal{F}'$ and hence $\mathcal{V}_x\subseteq\mathcal{F}$
+    \item[$(3)\Rightarrow(1)$]  
+\end{itemize}
 \end{document}
