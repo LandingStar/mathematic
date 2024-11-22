@@ -1965,7 +1965,7 @@ Let V be a vector space over K (K-module). We call seminorm on V any mapping$$\b
 \end{aligned}$$
 such that \begin{itemize}
     \item $\forall(a,s)\in K\times V,\lVert as\rVert=\lvert a\rvert\cdot\lVert s\rVert$
-    \item $\forall(s,t)\in V\times V$
+    \item $\forall(s,t)\in V\times V$,$\norm{s+t}\leq\norm{s}+\norm{t}$
 \end{itemize}
 If additionally:\begin{itemize}
     \item $\forall s\in V,\ \lVert s\rVert=0$ iff $s=0$
@@ -2430,7 +2430,7 @@ We reason by induction that there exists $C>0$ such that $$\max\limits_{i\in \{1
 \section{Def: cover}
 Let X be a topological space, $Y\subseteq X$ we call open cover of Y any family $(U_i)_{i\in I}$ open subset of X such that $$Y\subseteq\bigcup\limits_{i\in I}U_i$$
 If $I$ is finite set, we say that $(U_i)_{i\in I}$ iss a finite open cover. If $J\subseteq I$ such that $$Y\subseteq\bigcup\limits_{j\in J}U_j$$ then we say that $(U_j)_{j\in J}$ is a sub cover of $(U_i)_{i\in I}$
-\section{Def:compact}
+\section{Def: compact}
 If any open cover of Y has a finite subcover ,we say that Y is quasi-compact. If in addition X is Hausdorff, namely $\forall(x,y)\in X\times X$ with $x\neq y$ $\exists $ open neighborhoods U and V of $x$ and $y$ such that $U\cap V=\varnothing$, we say that $Y$ is compact  
 \section{Def}
 Let X be a set and $\mathcal{F}$ be a filter on X. If there does not exists any filter $\mathcal{F}'$ of X such that $\mathcal{F}\subsetneq\mathcal{F}'$, then we say that $\mathcal{F}$ is an ultrafilter.
@@ -2461,8 +2461,96 @@ Let $(X,\mathcal{J})$ be a topological space . The following are equivalent
 \end{itemize}
 \subsection*{Proof}
 \begin{itemize}
-    \item[$(1)\Rightarrow(2)$]Assume that a filter $\mathcal{F}$ of X does not have any accumulation point. $\forall x\in X\ \exists A_x\in \mathcal{F}\quad \exists$ open neighborhood $V_x$ of $x$ such that $A_x\cap V_x=\varnothing$ Since $X=\bigcup\limits_{x\in X}V_x$ there is $$\{x_1,...,x_n\}\subseteq X$$ such that $$X=\bigcup_{i=1}^nV_{x_i}$$. Take $B=\bigcap\limits_{i=1}^nA_{x_i}\in \mathcal{F}$$$B\cap X=B\varnothing$$Since $\forall i\ B\cap V_x=\varnothing$ contradiction.
+    \item[$(1)\Rightarrow(2)$]Assume that a filter $\mathcal{F}$ of X does not have any accumulation point. $\forall x\in X\ \exists A_x\in \mathcal{F}\quad \exists$ open neighborhood $V_x$ of $x$ such that $A_x\cap V_x=\varnothing$ Since $X=\bigcup\limits_{x\in X}V_x$ there is $$\{x_1,...,x_n\}\subseteq X$$ such that $$X=\bigcup_{i=1}^nV_{x_i}$$Take $B=\bigcap\limits_{i=1}^nA_{x_i}\in \mathcal{F}$$$B\cap X=B=\varnothing$$Since $\forall i\ B\cap V_x=\varnothing$ contradiction.
     \item[$(2)\Rightarrow(3)$]Let $\mathcal{F}$ be an ultrafilter of X. By (2) there exist $x\in X$ such that $\mathcal{F}\cup\mathcal{V}_x$ generates a filter $\mathcal{F}'$ Since $\mathcal{F}$ is an ultrafilter $\mathcal{F}=\mathcal{F}'$ and hence $\mathcal{V}_x\subseteq\mathcal{F}$
-    \item[$(3)\Rightarrow(1)$]  
+    \item[$(3)\Rightarrow(1)$]Let $(U_i)_{i\in I}$ be an open cover of $X$ we suppose that this have no finite subcover.
+    $\forall i\in I$ let $$F_i=X\setminus U_i$$For any $J\subseteq I$ finite$$F_J=\bigcap\limits_{j\in J}F_j=X\setminus\bigcup\limits_{j\in J}U_j\neq\varnothing$$
+    Let $\mathcal{F}$ be the smallest filter on X that contains$$\{\mathcal{F}_J\mid J\subseteq I\text{ finite}\}$$
+    Let $\mathcal{F}'$ be ultrafilter containing $\mathcal{F}$. It has a limit point $x$ There exist $i\in I$ such that $x\in U_i$.Since $U_i$ is a neighborhood of $x$ and $\mathcal{V}_x\subseteq \mathcal{F}'$ we get $U_i\in \mathcal{F}'$ This is impossible since $F_i\in \mathcal{F}'$
 \end{itemize}
+\section{Theorem}
+Let $(X,d)$ be a metric space. The following statements are equivalent:
+\begin{itemize}
+    \item[(1)]X is complete and $\forall \epsilon>0\ \exists X_\epsilon\subseteq X$ finite such that $$X=\bigcup\limits_{x\in X_\epsilon}\mathcal{B}(x,\epsilon)$$
+    \item[(2)] X is compact
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [$(1)\Rightarrow(2)$] Let $\mathcal{F}$ be an ultrafilter Let $\epsilon>0$ and $\{x_1,...,x_n\}\subseteq X$ such that $$X=\bigcup\limits_{i=1}^n\mathcal{B}(x,\epsilon)$$
+    There exists some $i\in \{1,...,n\}$ such that $\mathcal{B}(x_i,\epsilon)\in \mathcal{F}$ That means $\mathcal{F}$ is a Cauchy filter (namely $\forall \delta>0\ \exists A\in \mathcal{F}$ of diameter $\leq\delta$) Since X is complete $\mathcal{F}$ has a limit point. So $\mathcal{F}$ is compact.
+    \item [$(2)\Rightarrow(1)$] Let $\epsilon>0$ One has $$X=\bigcup\limits_{x\in X}\mathcal{B}(x,\epsilon)$$
+    Since X is compact $\exists X_\epsilon\subseteq X$ finite such that$$X=\bigcup\limits_{x\in X_\epsilon}\mathcal{B}(x,\epsilon)$$
+    $$
+    \begin{aligned}
+        & \mathcal{F}\text{ is an ultrafilter}
+        \\\Leftrightarrow &\forall A\subseteq X\ A\in \mathcal{F} \text{ or }X\setminus A\in \mathcal{F}\\
+        \Leftrightarrow &\forall y\in \mathcal{F}\text{ if }y=A\cup B\text{ either }A\in \mathcal{F}\text{ or }B\in \mathcal{F} \\
+        \Leftrightarrow &\forall Y\in \mathcal{F}\text{ if }Y=A_1\cup A_2\cup...\cup A_n\ \exists i\in \{1,...,n\},A_i\in \mathcal{F}
+    \end{aligned}
+    $$ 
+    Let $\mathcal{F}$ be a Cauchy filter Let $x\in X$ be an accumulation point of $\mathcal{F}$ $\forall \epsilon>0\ \exists A\in \mathcal{F}$ with diameter $\leq\frac{\epsilon}{2}$ Note that $A\cup \mathcal{B}x,\frac{\epsilon}{2}\neq\varnothing$ Take $y\in A\cap\mathcal{B}(x,\frac{\epsilon}{2})$ $\forall z\in A$ 
+    $$
+    \begin{aligned}
+        d(x,z) &\leq d(x,y)+d(y,z)\\
+        &< \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+    \end{aligned}
+    $$
+    Therefore $A\subseteq \mathcal{B}(x,\epsilon)$ So $\mathcal{B}(x,\epsilon)\in\mathcal{F}$ This implies $\mathcal{V}_x\subseteq \mathcal{F}$
+\end{itemize}
+\section{Lemma}
+Let $(X,d)$ be a metric space 
+\begin{itemize}
+    \item [(1)]Let $\mathcal{F}$ be a Cauchy filter on X. Any accumulation point $\mathcal{F}$ a limit point of $\mathcal{F}$
+    \item [(2)]X is complete iff any Cauchy filter of X has a limit point
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [(1)]
+    \item Let $\mathcal{F}$ be a Cauchy filter on X. Any accumulation point of $\mathcal{F}$ is a limit point of $\mathcal{F}$
+    \item [(2)]Suppose that X is complete.Let $\mathcal{F}$ be a Cauchy filter.$\forall n\in \mathbb{N}_{\geq1}$ let $A_n\in \mathcal{F}$ such that $diam(A_n)\leq\frac{1}{n}$ Take $x_n\in \bigcap\limits_{k=1}^nA_k\in \mathcal{F}$ Then $(x_n)_{n\in \mathbb{N}_{\geq1}}$ is a Cauchy sequence since $\forall \epsilon>0$ if we take $N\in \mathbb{N}$ with $\frac{1}{N}\leq\epsilon$ then $\forall(n,m)\in \mathbb{N}_{\geq N}\ d(x_n,x_m\leq\frac{1}{N})$
+    Hence $(x_n)_{N\in \mathbb{N}_{\geq1}}$ converges to some $x\in X$ Note that $x$ is an limit point of $\mathcal{F}$ since $\forall \epsilon>0\ \exists n\in \mathbb{N}$ with $A_n\subseteq\mathcal{B}(x,\epsilon)$ It suffices to take $n$ such that $\frac{1}{n}<\frac{\epsilon}{2}$
+    \item[$\Leftarrow$]Let $(x_n)_{n\in \mathbb{N}}$ be a Cauchy sequence in X. Let $$\mathcal{F}=\{A\subseteq X\mid\exists N\in \mathbb{N}
+,\ \{x_N,x_{N+1},...\}\subseteq A\}$$
+This is a Cauchy filter on X since 
+$$\lim\limits_{N\rightarrow +\infty} diam\{x_N,x_{N+1},...\}=0$$
+Hence $\mathcal{F}$ has a limit point $x\in X$
+By definition $\forall U\in \mathcal{V}_x\ \exists N\in \mathbb{N}$$$\{x_N,x_{N+1},...\}\subseteq U$$
+So $x=\lim\limits_{n\rightarrow+\infty}x_n$
+\end{itemize}
+\section{Prop}
+Let $f:X\rightarrow Y$ be a  continuous mapping of topological spaces. If $A\subseteq X$ is quasi-compact then $f(A)\subseteq Y$ is also quasi-compact.
+\subsection*{Proof}
+Let $(V_i)_{i\in I}$ be an open cover of $f(A)$ Then $$(f^{-1}(V_i))_{i\in I}$$ is an open cover of $A$ So $\exists J\subseteq I$ such that $$A\subseteq \bigcup\limits_{j\in J}f^{-1}(V_i)$$ This implies $$f(A)\subseteq \bigcup\limits_{j\in J}V_j$$ So $f(A)$ is quasi-compact.
+\section{Prop}
+Let X be a topological space and $A\subseteq X$ be a quasi-compact subset. For any closed subset $F$ of $X$ $A\cap F$ is quasi-compact.
+\subsection*{Proof}
+Let $(U_i)_{i\in I}$ be an open cover of $A\cap F$.Then 
+$$A\subseteq(\bigcup\limits_{i\in I}U_i)\cup(X\setminus F)$$
+Since A is quasi-compact there exist $J\subseteq I$ finite such that $$A\subseteq(\bigcup\limits_{j\in J}U_j)\cup(X\setminus F)$$
+Hence $A\cap F\subseteq \bigcup\limits_{j\in J}U_j$
+\section{Prop}
+Let X be a Hausdorff topological space. Any compact subset A of X is closed.
+\subsection*{Proof}Let $x\in X\setminus A$ $\forall y\in A,\exists$ open subsets $U_y$ nad $V_y$ such that $y\in U_y,x\in V_y$ and $U_y\cap V_y=\varnothing$ Since $A\subseteq\bigcup\limits_{y\in A}U_y$
+$\exists\{y_1,...,y_n\}\subseteq A$ such that $$A\subseteq\bigcup\limits_{i=1}^nU_{y_i}$$
+Let $$U=\bigcup\limits_{i=1}^nU_{y_i}\quad V=\bigcap\limits_{i=1}^nV_{y_i}$$ These are open subset Moreover $A\subseteq U,x\in V $ and $U\cap V=\bigcup\limits_{i=1}^n(U_{y_i}\cap V)=\varnothing$
+In particular $x\in V\subseteq X\setminus A$
+So $X\setminus A$ is open
+\section{Prop}
+Let X be a Hausdorff topological space and A and B be compact subsets of X such that $A\cap B=\varnothing$ Then there exists open subsets U and V such that $$A\subseteq U,B\subseteq B and U\cap V=\varnothing$$
+\subsection*{proof}
+We have seen in the proof of the previous proposition that $\forall x\in B,\exists U_x,V_x$ open such that $A\subseteq U_x, x\in V_x$ and $U_x\cap V_x=\varnothing$ Since $$B\subseteq\bigcup\limits_{x\in B}V_x$$
+$\exists\{x_1,...,x_m\}\subseteq B$ such that $$B\subseteq \bigcup\limits_{i=1}^nV_{x_i}$$
+We take $$U=\bigcap\limits_{i=1}^mU_{x_i}\quad V=\bigcup\limits_{i=1}^mU_{x_i}V_{x_i}$$
+One has $$A\subseteq U,B\subseteq U\quad U\cap V=\varnothing$$
+\section{Theorem}
+Let $(X,\mathcal{J})$ be a Hausdorff topological space If $(A_n)_{n\in \mathbb{N}}$ is a sequence of non-empty compact subsets of X such that $$A_0\supseteq A_1\supseteq A_2\supseteq...$$ Then $$\bigcap\limits_{n\in \mathbb{N}}A_n\not=\varnothing$$
+\subsection*{Proof}
+Suppose that $$\bigcap\limits_{n\in \mathbb{N}}A_n=\varnothing$$
+then $$A_0\subseteq \bigcup\limits_{n\in \mathbb{N}}(X\setminus A_n)$$
+Since $A_0$ is compact, $\exists N\in \mathbb{N}$ such that $$\begin{aligned}
+    A_0 &\subseteq \bigcup\limits_{n=0}^N(X\setminus A_n)\\
+    &= X\setminus \bigcap\limits_{n=0}^NA_n\\
+    &= X\setminus A_n
+\end{aligned}$$
+So $$A_n=varnothing$$
 \end{document}
