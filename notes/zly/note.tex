@@ -2340,7 +2340,7 @@ $$\begin{aligned}
 \norm{ay+bz} &\leq\lvert a\rvert\cdot\norm{y}+\lvert b\rvert\cdot\norm{z}\\
 &\leq(\lvert a\rvert+\lvert b\rvert)\max\{\norm{y},\norm{z}\}
 \end{aligned}$$
-\section{Def}
+\section{Def: Equivalence of Norms}
 Let E be a vector space over K and $\norm{\cdot}_1,\norm{\cdot}_2$ be norms on E. We say that $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are equivalent if there exist constants $C_1,C_2>0$ such that $\forall s\in E$$$C_1\norm{S}_1\leq\norm{s}_2\leq C_2\norm{s}_1$$
 \section{Prop}
 If $\norm{\cdot}_1,\norm{\cdot}_2$ are equivalent, then $$Id_E:(E,\norm{\cdot}_1)\rightarrow(E,\norm{\cdot}_2)$$
@@ -2426,6 +2426,14 @@ We reason by induction that there exists $C>0$ such that $$\max\limits_{i\in \{1
     \item[completeness]
     Under the norm $\max\limits_{i\in \{1,...,n\}}$, a sequence $(a^{(k)}_ie_i)_{k\in \mathbb{N},i\in \{1,...,n\}}$ is a Cauchy sequence iff $\forall i\in \{1,...,n\}\quad (a_i^{(k)})_{k\in \mathbb{N}}$ is a Cauchy sequence. Since K is complete each $(a_i^{(k)})_{k\in \mathbb{N}}$ converges to some $a_i\in K$ Hence $(a^{(k)}_ie_i)_{k\in \mathbb{N},i\in \{1,...,n\}}$ converges.
 \end{itemize}
+\section{Prop}
+Let $(E,\norm{\cdot}_E),(F,\norm{\cdot}_F)$ be normed vector spaces over K. Assume that E is finite dimensional. Then any K-linear mapping $\varphi:E\rightarrow F$ is bounded.
+\subsection*{Proof}
+Let $(e_i)_{i=1}^n$ be a basis of E. For any two norms on E are equivalent. 
+\\$\forall(a_1,...,a_n)\in K$
+$$\norm{\sum\limits_{i=1}^na_ie_i}_E=\max\limits_{i\in \{1,...,n\}}\{\abs{a_i}\}$$
+Then for any $s=\sum\limits_{i=1}^na_ie_i$
+$$\norm{\varphi(s)}_F=\norm{\sum\limits_{i=1}^na_ie_i}\leq\sum\limits_{i=1}^n\abs{a_i}\norm{\varphi(e_i)}\leq(\sum\limits_{i=1}^n\norm{\varphi(e_i)}_F)\norm{s}_E$$
 \chapter{Compactness}
 \section{Def: cover}
 Let X be a topological space, $Y\subseteq X$ we call open cover of Y any family $(U_i)_{i\in I}$ open subset of X such that $$Y\subseteq\bigcup\limits_{i\in I}U_i$$
@@ -2552,5 +2560,71 @@ Since $A_0$ is compact, $\exists N\in \mathbb{N}$ such that $$\begin{aligned}
     &= X\setminus \bigcap\limits_{n=0}^NA_n\\
     &= X\setminus A_n
 \end{aligned}$$
-So $$A_n=varnothing$$
+So $$A_n=\varnothing$$
+
+\section{Def}
+Let $(X,\tau)$ be a topological space if any sequence in X has a convergent subsequence, we say that X is sequentially compact.
+\subsection*{Example}
+By Bolzano-Weierstrass, any bounded sequence in $\mathbb{R}$ has a convergent subsequence. So any bounded and closed subset of $\mathbb{R}$ is sequentially compact.
+\subsection*{Note}
+bounded and closed together implies sequentially compact.
+\section{Theorem}
+Let $(X,d)$ be a metric space. Then the following statements are equivalent:
+\begin{itemize}
+    \item[(1)] $(X,d)$ is compact
+    \item[(2)] $(X,d)$ is sequentially compact
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item[$(1)\Rightarrow(2)$] Let $(x_n)_{n\in \mathbb{N}}$ be a sequence in X. Assume that no subsequence of  $(x_n)_{n\in \mathbb{N}}$ converges in X.
+    For any $p\in X$ there exists $\epsilon_p>0$ such that 
+    $$\{n\in \mathbb{N}:d(p,x_n)<\epsilon\}$$ is finite. 
+    
+    Otherwise we can construct a strictly increasing sequence $({n_k})_{k\in \mathbb{N}}$ such that 
+    $$d(p,x_{n_k})\leq\frac{1}{k}$$
+    For X is compact $\exists (p_i)_{i\in \{1,...,n\}}$
+    $$X\subseteq\bigcup\limits_{i=1}^n\mathcal{B}(p_i,\epsilon_{p_i})$$
+    then $$\mathbb{N}=\bigcup\limits_{i=1}^n\{n\in \mathbb{N}\ d(p_i,x_{n})\leq\epsilon_{p_i}\}$$ is finite. Contradiction.
+    \item [$(2)\Rightarrow(1)$]
+    \item[]
+    \begin{itemize}
+        \item[prove $(X,d)$ is complete]
+        Let $(x_n)_{n\in \mathbb{N}}$ be a Cauchy sequence. For it's sequentially compact it contains a convergent subsequence. Therefore by a fact proved that its subsequences $(x_{k_n})_{n\in \mathbb{N}}$ must converges to the same limit.
+
+        So $(X,d)$ is complete
+        \item[] If X is not covered by finitely many balls of radius $\epsilon$ we can construct a sequence $(x_{k_n})_{n\in \mathbb{N}}$ such that $$x_{n+1}\in X\setminus\bigcup\limits_{k=0}^n\mathcal{B}(x_k,\epsilon)$$ then any subsequence of this sequence is not Cauchy, then not convergent.
+    \end{itemize}
+\end{itemize}
+\section{Def}
+Let X be a Hausdorff topological space. If for any $x\in X$ there exist a compact neighborhood $\mathcal{C}_x$ we say that $X$ is locally compact.
+\subsection*{Example}$\mathbb{R}$ is locally compact.
+\section{Prop}
+Assume that $(K,\abs\cdot)$ is a locally compact non-trivial valued field.
+field. Let $(E,\norm{\cdot})$ be a finite dimensional normed $K-vector$ space. A subset $Y\subseteq E$ is compact iff it's closed and bounded.
+\subsection*{Proof}
+\begin{itemize}
+    \item [$\Rightarrow$]Let $Y\subseteq X$ be compact. Then for Y is Hausdorff, Y is closed. Moreover $$Y\subseteq \bigcup\limits_{n\in \mathbb{N}_{\geq 1}}\mathcal{B}(0,n)$$ We can find finitely many positive integers $$n_1\leq ...\leq n_k$$ such that $$Y\subseteq\bigcup\limits_{i=1}^n\mathcal{B}(0,n_i)$$$\Rightarrow$ Y is bounded.
+    \item [$\Leftarrow$]
+    We prove sequentially compact by a theorem proved before.\\
+    Let $(e_i)_{i=1}^d$ be a basis of E. Again we assume $$\norm{\sum\limits_{i=1}^da_ie_i}=\max\limits_{i\in \{1,...,d\}}\{\abs{a_i}\}$$
+    
+
+    Then any sequence could be written as$$(x_n)_{n\in \mathbb{N}}=(\sum\limits_{i=1}^da_i^{(n)}e_i)_{n\in\mathbb{N}}$$
+    Since $Y$ is bounded for any $i\in \{1,...,d\}$ the sequence $(a_i^{(n)})$ is bounded. In particular we find $M>0$ such that 
+    $\forall i\in \{1,...,n\}$
+    $$\abs{a_i^{(n)}}<M$$
+    Since $(K,\abs{\cdot})$ is locally compact, there exists a compact set $\mathcal{C}=\mathcal{C}_0\subseteq K$ that's a neighborhood of 0. Let $\epsilon>0$
+    $$\overline{\mathcal{B}}(0,\epsilon)\subseteq\mathcal{C}$$
+    Since $K$ is not trivially valued, then exists $a\in K$ such that $$\abs{a}\geq\frac{M}{\epsilon}$$
+    Then $$\overline{\mathcal{B}}(0,M)\subseteq a\mathcal{C}$$
+    $\mathcal{C}\subseteq K$ is compact. We have the K-linear mapping 
+    $$\begin{aligned}
+        K &\rightarrow &K\\ y &\mapsto &au
+    \end{aligned}$$
+    is bounded, then continuous. Hence $a\mathcal{C}$ is compact. So $$\overline{\mathcal{B}}\subseteq a\mathcal{C}$$ is a closed subspace of a compact. So it's compact, additionally sequentially compact.
+
+    Therefore we can find $(I_i)_{i=1}^d$ are infinite subsets of $\mathbb{N}$ with $$I_1\supseteq ...\subseteq I_d$$ such that $(a_j)_{j\in I_i}^{(n)}$ converges to some $a_i\in K$. It follows that our original sequence has a convergent subsequence converges to $\sum\limits_{i=1}^da_ie_i$.
+
+    So $Y$ is sequentially compact.
+\end{itemize}
 \end{document}
