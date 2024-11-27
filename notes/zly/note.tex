@@ -2434,6 +2434,15 @@ Let $(e_i)_{i=1}^n$ be a basis of E. For any two norms on E are equivalent.
 $$\norm{\sum\limits_{i=1}^na_ie_i}_E=\max\limits_{i\in \{1,...,n\}}\{\abs{a_i}\}$$
 Then for any $s=\sum\limits_{i=1}^na_ie_i$
 $$\norm{\varphi(s)}_F=\norm{\sum\limits_{i=1}^na_ie_i}\leq\sum\limits_{i=1}^n\abs{a_i}\norm{\varphi(e_i)}\leq(\sum\limits_{i=1}^n\norm{\varphi(e_i)}_F)\norm{s}_E$$
+\section{Theorem}
+Let $E,F$ be normed vector spaces over a complete valued field, $U\subseteq E$ be an open subset and $f:U\rightarrow F$ be a  mapping . If $f$ is differentiable at $ p$ then $f$ is continuous at $p$
+\subsection*{Proof}
+$$\begin{aligned}
+    f(x) &= f(p)+d_pf(x-p)+o(\norm{x-p})\\
+    &= f(p)+O(\norm{x-p})\\
+    &= f(p)+o(1)\quad x\rightarrow p\\
+    \Rightarrow &\lim\limits_{x\rightarrow p}f(x)=f(p)
+\end{aligned}$$
 \chapter{Compactness}
 \section{Def: cover}
 Let X be a topological space, $Y\subseteq X$ we call open cover of Y any family $(U_i)_{i\in I}$ open subset of X such that $$Y\subseteq\bigcup\limits_{i\in I}U_i$$
@@ -2600,7 +2609,7 @@ Let X be a Hausdorff topological space. If for any $x\in X$ there exist a compac
 \subsection*{Example}$\mathbb{R}$ is locally compact.
 \section{Prop}
 Assume that $(K,\abs\cdot)$ is a locally compact non-trivial valued field.
-field. Let $(E,\norm{\cdot})$ be a finite dimensional normed $K-vector$ space. A subset $Y\subseteq E$ is compact iff it's closed and bounded.
+field. Let $(E,\norm{\cdot})$ be a finite dimensional normed $K$-vector space. A subset $Y\subseteq E$ is compact iff it's closed and bounded.
 \subsection*{Proof}
 \begin{itemize}
     \item [$\Rightarrow$]Let $Y\subseteq X$ be compact. Then for Y is Hausdorff, Y is closed. Moreover $$Y\subseteq \bigcup\limits_{n\in \mathbb{N}_{\geq 1}}\mathcal{B}(0,n)$$ We can find finitely many positive integers $$n_1\leq ...\leq n_k$$ such that $$Y\subseteq\bigcup\limits_{i=1}^n\mathcal{B}(0,n_i)$$$\Rightarrow$ Y is bounded.
@@ -2619,12 +2628,140 @@ field. Let $(E,\norm{\cdot})$ be a finite dimensional normed $K-vector$ space. A
     Then $$\overline{\mathcal{B}}(0,M)\subseteq a\mathcal{C}$$
     $\mathcal{C}\subseteq K$ is compact. We have the K-linear mapping 
     $$\begin{aligned}
-        K &\rightarrow &K\\ y &\mapsto &au
+        K &\rightarrow &K\\ y &\mapsto &ay
     \end{aligned}$$
     is bounded, then continuous. Hence $a\mathcal{C}$ is compact. So $$\overline{\mathcal{B}}\subseteq a\mathcal{C}$$ is a closed subspace of a compact. So it's compact, additionally sequentially compact.
 
-    Therefore we can find $(I_i)_{i=1}^d$ are infinite subsets of $\mathbb{N}$ with $$I_1\supseteq ...\subseteq I_d$$ such that $(a_j)_{j\in I_i}^{(n)}$ converges to some $a_i\in K$. It follows that our original sequence has a convergent subsequence converges to $\sum\limits_{i=1}^da_ie_i$.
+    Therefore we can find $(I_i)_{i=1}^d$ are infinite subsets of $\mathbb{N}$ with $$I_1\supseteq ...\supseteq I_d$$ such that $(a_j)_{j\in I_i}^{(n)}$ converges to some $a_i\in K$. It follows that our original sequence has a convergent subsequence converges to $\sum\limits_{i=1}^da_ie_i$.
 
     So $Y$ is sequentially compact.
 \end{itemize}
+\section{Theorem}
+Let X be a topological space and $f:X\rightarrow\mathbb{R}$ be a continuous mapping. If $Y\subseteq X$ is a quasi-compact subset, then there exists $a\in Y$ and $b\in Y$ such that $\forall x\in Y$
+$$f(a)\leq f(x)\leq f(b)$$
+Namely the restriction of $f$ to $y$ attains its maximum and minimum.
+\subsection*{Proof}
+$f(Y)\subseteq \mathbb{R}$ is a non-empty compact subset since $Y$ is quasi-compact and $\mathbb{R}$ is Hausdorff. Moreover, since $\mathbb{R}$ is locally compact. SO $f(Y)$ is bounded and closed.
+
+Note that there exists sequences $(\alpha_n)_{n\in\mathbb{N}}$ and $(\beta_n)_{n\in\mathbb{N}}$ is $f(Y)$ that tends to $\sup f(Y)$ and $\inf f(Y)$ respectively. Since $f(Y)$ is closed, $\sup f(Y),\inf f(Y)$ belongs to $f(Y)$. So $f(Y)$ has a greatest and a least element.
+\chapter{Mean Value Theorems}
+\section{Rolle Theorem}
+Let $a,b$ be real numbers such that $a<b$ Let $f:[a,b]\rightarrow\mathbb{R}$ be a continuous mapping that is differentiable on ${]a,b[}$ If $f(a)=f(b)$ then $\exists t\in {]a,b[}$ such that $$f'(t)=0$$
+\subsection*{Proof}
+Since $[a,b]$ is closed and bounded then it's compact, $f$ attains its maximum and minimum. Let $M=\max f([a,b]), m=\min f([a,b]),l=f(a)=f(b)$
+\begin{itemize}
+    \item [If $M\neq l$]$\exists t\in {]a,b[}$ such that $f(t)=M$$$f(t+x)=f(t)+f'(t)x+o(\abs{X})$$$$f(t-x)=f(t)-f'(t)x+o(\abs{X})$$
+$$\begin{aligned}
+    0 &\leq (f(t+x)-f(t))(f(t-x)-f(t))\\ &= -f'(t)^2x^2+o(\abs{x}^2)\\ 0 &\leq -f'(t)^2+o(1)\quad x\rightarrow0
+\end{aligned}
+$$
+Taking the limit when $x\rightarrow 0$ we get $f'(t)^2=0$
+    \item[If $m\neq l$]then any $t\in {]a,b[}$ such that $f(t)=m$ verifies $f'(t)=0$
+    \item[If $m=l=M$] $f$ is constant, so $\forall t\in {]a,b[},f'(t)=0$
+\end{itemize}
+\section{Mean value theorem(Lagrange)}
+Let $a,b$ be real numbers $a<b$, $f:[a,b]\rightarrow\mathbb{R}$ be a continuous mapping differentiable on ${]a,b[}$, then $\exists t\in {]a,b[}$ such that $$f(b)-f(a)=f'(t)(b-a)$$
+\subsection*{Proof}
+Let $g:[a,b]\rightarrow\mathbb{R}$ be defined as $$g(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a) $$ Then $g(a)=f(a)\quad g(b)=f(a)$ then apply Rolle Theorem to $g$ we get the proof.
+\section{Mean value inequality}
+Let $a,b$ be real numbers such that $a<b$ $(E,\norm{\cdot})$ be a normed vector space over $\mathbb{R}$ $f:[a,b]\rightarrow E$ be a continuous mapping such that $f$ is differentiable on ${]a,b[}$ Then $$
+\norm{f(b)-f(a)}\leq(\sup\limits_{x\in {]a,b[}}\norm{f'(x)})(b-a)$$
+\subsection*{Proof}
+Suppose that $$\sup\limits_{x\in {]a,b[}}\norm{f'(x)}<+\infty$$
+Let $M\in \mathbb{R}$ such that $$M>\sup\limits_{x\in {]a,b[}}\norm{f'(x)}$$
+Let $$J=\{x\in [a,b]\mid\forall y\in [a,x],\norm{f(y)-f(a)}\leq M(y-a)\}$$
+By definition $J$ is an interval containing $a$, so $J$ is of form ${[a,c[}$ or ${[a,c]}$
+Since $f$ is continuous by taking a sequence $(c_n)_{n\in \mathbb{N}}$ in ${[a,b[}$ that converges to $c$ we obtain $$\begin{aligned}
+    \norm{f(c)-f(a)} &=\lim\limits_{n\rightarrow+\infty}\norm{f(c_n)-f(a)}\\
+    &\leq \lim\limits_{n\rightarrow +\infty}M(c_n-a)\\
+    &= M(c-a)
+\end{aligned}$$
+Hence $c\in J$ namely $J=[a,c]$
+
+
+\begin{itemize}
+    \item [$c>a$]We will prove that $c=b$ by contradiction
+    
+    Suppose that $c<b$ $\forall h\in {]0,b-c[}$$$
+    \begin{aligned}
+        \norm{f(c+h)-f(c)} &= \norm{h\cdot f'(c)+o(h)}\\
+        &\leq \norm{f'(c)}h+o(h)
+    \end{aligned}$$
+    Since $M>\norm{f'(c)},\exists h_0>0$ such that $\forall 0<h<h_0$
+    $$\norm{f(c+h)-f(c)}\leq Mh$$Hence
+    $$\begin{aligned}
+        \norm{f(c+h)f(c)} &\leq \norm{f(c+h)-f(c)}+\norm{f(c)-f(a)}\\
+        &\leq M(c_h-c+c-a)\\
+        &= M(c+h-a)
+    \end{aligned}$$ So $c+h_0\in J$ Contradiction. Thus $$\norm{f(b)-f(a)}\leq M(b-a)$$ for any $M>\sup\limits_{x\in {]a,b[}}\norm{f'(x)}$ since $M$ is arbitrary the expected inequality holds.
+
+    \item[$c=a$]In general, we apply the particular case (fis-extendable to a differentiable mapping at $a$) to $[\frac{a+b}{2},b]$ and $[a,\frac{a+b}{2}]$ to get $$\norm{f(b)-f(\frac{a+b}{2})}\leq C\frac{b-a}{2}$$
+    $$\norm{f(\frac{a+b}{2})-f(a)}\leq C\frac{b-a}{2}$$
+    with $C=\sup\limits_{x\in {]a,b[}}\norm{f'(x)}$
+    \begin{itemize}
+        \item [Remark]If $f$ is defined on an open neighborhood of $a$ and is differentiable at $a$ the the same arguments hold without the assumption
+    \end{itemize}
+\end{itemize}
+\section{Theorem}
+Let I be an interval in $\mathbb{R}$ and $f:I\rightarrow\mathbb{R}$ be a continuous mapping, then $f(I)$ is an interval.
+\subsection*{Proof}
+Let $x\neq y$ be two elements of $f(I)$ Let $a,b$ elements of I such that $x=f(a) \ y=f(b)$ without loss of generality, we assume $a<b$
+\\Let $z\in \mathbb{R}$ such $$(z-x)(z-y)\leq 0$$
+We construct by induction  three sequences $(a_n)_{n\in \mathbb{N}},(b_n)_{n\in \mathbb{N}},(c_n)_{n\in \mathbb{N}}$ such that
+\begin{itemize}
+    \item $a_0=a,b_0=b,c_0=\frac{a+b}{2}$
+    \item If $a_n,b_n,c_n$ are constructed, satisfying
+    $$c_n=\frac{1}{2}(a_n+b_n)$$$$(z-f(a_n))(z-f(b_n))\leq0$$
+    
+\end{itemize}
+we let $$\begin{aligned}
+    &(a_{n+1},b_{n+1})=(a_n,c_n)\quad &\text{if }&(z-f(a_n))(z-f(c_n))\leq0\\
+    &(a_{n+1},b_{n+1})=(c_n,b_n)\quad &\text{if }&(z-f(a_n))(z-f(c_n))>0\\
+    & & &((z-f(c_n))(z-f(b_n))\leq 0)\\
+    &c_{n+1}=\frac{a_{n+1}+b_{n+1}}{2}
+\end{aligned}$$
+The sequence $(a_n)_{n\in \mathbb{N}},(b_n)_{n\in \mathbb{N}}$ are increasing and decreasing respectively and bounded, hence converges to some $l,m\in[a,b]$
+\\Note that $$\abs{b_n-a_n}=\frac{1}{2^n}\abs{b-a}\rightarrow 0(n\rightarrow+\infty)$$ So $l=m$,by $(z-f(a_n))(z-f(b_n))\leq 0$ we obtain by letting $n\rightarrow+\infty$$$(z-f(l))^2\leq0$$
+So $z=f(l)$
+\section{Theorem(Heine)}
+Let I be an open interval of $\mathbb{R}$ and $f:I\rightarrow\mathbb{R}$ be a differentiable mapping. Then $f'(I)$ is an interval.
+\subsection*{Proof}
+Let $(a,b)\in I^2$ such that $a<b$. Consider the following mappings:
+$$\begin{aligned}
+    g: [a,b] &\rightarrow\mathbb{R}\\
+    x&\mapsto &\left\{\begin{aligned}
+        &\frac{f(x)-f(a)}{x-a}\quad &x\neq a\\ & f'(a) \quad &x=a
+    \end{aligned}\right.\\
+    h: [a,b]&\rightarrow\mathbb{R}\\
+    x &\mapsto &\left\{\begin{aligned}
+        &\frac{f(b)-f(x)}{b-x}\quad &x\neq b\\ & f'(b) \quad &x=b
+    \end{aligned}\right.
+\end{aligned}$$
+$g,h$ are continuous $(\frac{f(x)-f(a)}{x-a}=f'(a)+o(1)\ x\rightarrow a)$
+
+So $g([a,b])$ and $h([a,b])$ are intervals . Moreover, by mean value theorem, $$g([a,b])\subseteq f'(I)$$$$h([a,b])\subseteq f'(I)$$
+So $$\{f'(a),f'(b)\}\subseteq g([a,b])\cup h([a,b])\subseteq f'(I)$$
+Note that $g(b)=h(a)$ so $$g([a,b])\cup h([a,b])$$ is an interval. Hence $f'(I)$ is an interval.
+\chapter{Fixed Point Theorem}
+\section{Def}
+Let X be a set and $T: X\rightarrow X$ be a mapping. If $x\in X$ satisfies $T(x)=x$ we say that $x$ is a fixed point of $T$.
+\section{Def}
+Let $(X,d)$ be a metric space and $T:X\rightarrow X$ be a mapping. If $\exists \epsilon\in {[0,1[}$ such that $T$ is $\epsilon$-Lipschitzian then we say that $T$ is a contraction.
+\section{Fixed Point Theorem}
+Let $(X,d)$ be a COMPLETE non-empty metric space, and $T: X\rightarrow X$ eb a contraction. Then $T$ has a unique fixed point. Moreover, $\forall x_n\in X$ if we let $$x_{n+1}=T(x+n),x_0\in X$$ then $(x_n)_{n\in \mathbb{N}}$ converges to the fixed point.
+\subsection*{Proof}
+If $p$ and $q$ are two fixed point of $T$, then $$d(p,q)=d(T(p),T(q))\leq\epsilon d(p,q)$$So $d(p,q)=0$.\\
+Let $$x_{n+1}=T(x+n),x_0\in X$$
+$\forall n\in \mathbb{N}$$$d(x_n,x_{n+1})\leq\epsilon^nd(x_0,x_1)$$
+$$d(T(x_{n-1}),T(x_n))\leq \epsilon d(x_{n-1},x_n)$$
+For any $N\in \mathbb{N}$, $\forall (n,m)\in \mathbb{N}_{\geq N}^2\quad n<m$
+$$\begin{aligned}
+    d(x_n,x_m) &\leq \sum\limits_{k=n}^{m-1}d(x_k,x_{k+1})\\
+    &\leq \sum\limits_{k=n}^{m-1}\epsilon^nd(x_0,x_1)\\
+    &\leq \frac{\epsilon^n}{1-\epsilon}d(x_0,x_1)\\
+    &\leq \frac{\epsilon^n}{1-\epsilon}d(x_0,x_1)
+\end{aligned}$$
+So $$\lim\limits_{N\rightarrow+\infty}\sup\limits_{(n,m)\in \mathbb{N}_{\geq N}^2}d(x_n,x_m)=0$$
+$(x_n)_{n\in \mathbb{N}}$ is a Cauchy sequence, hence converges to some $p\in X$$$d(T(p),p)=\lim\limits_{n\rightarrow+\infty}d(T(x_n),x_n)=0$$
+since $d:X^2\rightarrow \mathbb{R}_{\geq0}$ is continuous.
 \end{document}
