@@ -2764,4 +2764,133 @@ $$\begin{aligned}
 So $$\lim\limits_{N\rightarrow+\infty}\sup\limits_{(n,m)\in \mathbb{N}_{\geq N}^2}d(x_n,x_m)=0$$
 $(x_n)_{n\in \mathbb{N}}$ is a Cauchy sequence, hence converges to some $p\in X$$$d(T(p),p)=\lim\limits_{n\rightarrow+\infty}d(T(x_n),x_n)=0$$
 since $d:X^2\rightarrow \mathbb{R}_{\geq0}$ is continuous.
+\part{Higher differentials}
+\chapter{Multilinear mapping}
+Let K be a commutative cenitary ring.
+\section{Def}
+Let $n\in \mathbb{N},\ V_1,...,V_n,W$ be K-modules. We call n-linear mapping from $V_1\times...\times V_n$ to W any mapping $f:V_1\times...\times V_n\rightarrow W$ such that $\forall i\in \{1,...,n\}\ \forall(x_1,...,x_{i-1},x_{i+1},...,x_n)\in V_1\times...\times V_{i-1}\times V_{i+1}\times...\times V_n$ the mapping $$\begin{aligned}
+    f(x_1,...,x_{i-1},x_{i+1},...,x_n): &V_i\rightarrow W\\ &x_i\mapsto f(x_i)
+\end{aligned}$$
+is a morphism of K-modules
+
+We denote by $Hom^{(n)}(V_1\times...\times V_n,W)$ the set of all n-linear mappings from $V_1\times...\times V_n$ to W.
+\section{Example}
+$$\begin{aligned}
+    &K\times K\rightarrow K\\
+    &(a,b)\mapsto ab
+\end{aligned}$$
+is a 2-linear mapping (bilinear mapping)
+\section{Remark}
+$$Hom^{(0)}(\{0\},W):=W(\text{by convention})$$
+$$Hom^{(1)}(V_1,W)=Home(V_1,W)=\{\text{morphism of K-module from }V_1 \text{ to } W\}$$\
+\section{Prop}
+Suppose that $n\geq 2$ For any $i\in \{1,...,n-1\}$
+$$\begin{aligned}
+    Hom^{(n)}(V_1\times...\times V_n,W) &\stackrel{\Phi}{\rightarrow} Hom^{(i)}(V_1\times...\times V_i,Hom^{(n-i)}(V_{i+1}\times...\times V_n))\\
+    f &\mapsto ((x_1,...,x_i)\mapsto((x_{i+1},...,x_n)\mapsto f(x_1,...,x_n)))
+\end{aligned}$$
+is a bijection
+\subsection*{Proof}
+The inverse of $\Phi$ is given by $$g\in Hom^{(i)}(V_1\times...\times V_i,Home^{(n-i)}(V_{i+1}\times...\times V_n),W)\mapsto (((x_1,...,x_n)\in V_1\times...\times V_n)\mapsto g(x_1,...,x_i)(x_{i+1},...,x_n))$$
+\section{Remark}
+$Hom^{(n)}(V_1\times...\times V_n,W)$ is a sub-K-module of $W^{V_1\times...\times V_n}$ and $\Phi$ is an isomorphism of K-modules.
+\chapter{Operator norm of Multilinear field}
+Let $(K,\abs\cdot)$ be a complete valued field
+\section{Def}
+Let $V_1\times...\times V_n$ and $W$ be normed vector spaces over K. We define $$\begin{aligned}
+    \norm\cdot: &Hom^{(n)}(V_1\times...\times V_n,W)\rightarrow [0,+\infty]
+\end{aligned}$$
+as $$\begin{aligned}
+    \norm{f}:=\sup\limits_{(x_1,...,x_n)\in V_1\times...\times V_n,x_1...x_n\neq0}\frac{\norm{f(x_1,...,x_n)}}{\norm{x_1}\cdots\norm{x_n}}
+\end{aligned}$$
+If $\norm{f}<\infty$ we say that $f$ is bounded. We denote by $\mathscr{L}^{(n)}(V_1\times...\times V_n,W)$ the set of bounded n-linear mappings from $V_1\times...\times V_n$ to $W$.
+\section{Theorem}
+For any $i\in \{1,...,n-1\},\  \forall f\in \mathscr{L}^{(n)}(V_1\times...\times V_n,W)\ \forall(x_1,...,x_i)\in V_1\times...\times V_i$ the $(n-i)$-linear mapping $$\begin{aligned}
+    f(x_1,...,x_i,\cdot): &V_{i+1}\times...\times V_n\rightarrow W\\
+    &(x_{i+1},...,x_n)\mapsto f(x_1,...,x_n)
+\end{aligned}$$
+belongs to $\mathscr{L}^{(n-i)}(V_{i+1}\times...\times V_n,W)$. Moreover $$\norm{f}=\sup\limits_{(x_1,...,x_n)\in V_1\times...\times V_n,x_1...x_n\neq0}\frac{\norm{f(x_1,...,x_n)}}{\norm{x_1}\cdots\norm{x_n}}$$
+\subsection*{Proof}
+$\forall(x_{i+1},...,x_n)\in V_{i+1}\times...\times V_n$$$\begin{aligned}
+    \norm{f(x_1,...,x_n)} &\leq\norm{f}\norm{x_1}...\norm{x_n}\\
+    &=(\norm{f}\norm{x_1}...\norm{x_i})\norm{x_{i+1}}...\norm{x_n}
+\end{aligned}$$
+So $$\norm{f(x_1,...,x_i,\cdot)}\leq\norm{f}\norm{x_1},...,\norm{x_i}$$
+If we define$$\norm{f}':=\sup\limits_{(x_1,...,x_i)\in V_1\times...\times V_i,x_1...x_i\neq0}\frac{\norm{f(x_1,...,x_i,\cdot)}}{\norm{x_1}\cdots\norm{x_i}}$$
+then $$\norm{f}'\leq\norm{f}$$
+\section{Corollary}
+\begin{itemize}
+    \item [(1)]$\mathscr{L}^{(n)}(V_1\times\cdots\times V_n,W)$ is a vector subspace of $Hom^{(n)}(V_1\times\cdots\times V_n,W)$
+    \item [(2)]$\norm\cdot$ is a norm on $\mathscr{L}^{(n)}(V_1\times\cdots\times V_n,W)$
+    \item [(3)]$\forall i\in \{1,...,n\}$$$\mathscr{L}^{(n)}(V_1\times\cdots\times V_n,W)\stackrel{\Phi}{\rightarrow}\mathscr{L}^{(n)}(V_1\times\cdots\times V_i,\mathscr{L}^{(n-i)}(V_{i+1}\times\cdots\times V_n,W))$$ is a K-linear isomorphism that preserves operator norms.$$\norm{f}=\norm{\Phi(f)}$$
+\end{itemize}
+\subsection{Proof}
+Conversely $\forall(x_1,\cdot,x_n)\in V_1\times\cdots\times V_n$ such that $x_1\cdots x_n\neq0$
+$$\norm{f(x_1,...,x_n)}\leq\norm{f(x_1,...,x_i,\cdot)}\norm{x_{i+1}}\cdots\norm{x_n}$$
+Hence 
+$$\frac{f(x_1,...,x_n)}{\norm{x_1}\cdots\norm{x_n}}\leq\frac{\norm{f(x_1,...,x_i,\cdot)}}{\norm{x_1}\cdots\norm{x_i}}\leq\norm{f}'$$
+Taking $\sup$, we get $$\norm{f}\leq\norm{f}'$$
+We reason by induction on $n$
+\begin{itemize}
+    \item [$n=1$]$$\mathscr{L}^{(1)}(V_1,W)=\mathscr{L}(V_1,W)$$
+    \item [$i\in \{1,...,n-1\}$]
+    Suppose that the corollary is true for $m$-linear mappings with $m<n$ We consider the following diagram of mapping 
+
+
+
+
+
+
+
+
+\end{itemize}
+To show that $\mathscr{L}^{(n)}(V_1\times\cdots\times V_n,W)$ is a vector subspace, it suffices to check that $\forall g\in \mathscr{L}^{(i)}(V_1\times\cdots\times V_i,\mathscr{L}^{(n-i)}(V_{i+1}\times\cdots\times V_n,W))$ one has $\norm{\Phi^{-1}(g)}=\norm{g}<+\infty$
+$$\begin{aligned}
+    \mathscr{L}^{(i)}(V_{i+1}\times\cdots\times V_n,\mathscr{L}^{(n-i)}(V_{i+1}\times\cdots\times V_n,W)) &\subseteq Hom^{(i)}(V_1\times\cdots\times V_i,\mathscr{L}^{(n-i)}(V_{i+1}\times\cdots\times V_n,W))\\
+    &\subseteq Hom^{(i)}(V_1\times\cdots\times V_i,Hom^{(n-i)}(V_{i+1}\times\cdots\times V_n,W))
+\end{aligned}$$
+For any $(x_1,...,x_n)\in V_1\times\vdots\times V_n$
+$$
+\begin{aligned}
+    \norm{\Phi^{-1}(g)(x_1,...,x_n)} &=\norm{g(x_1,...,x_i)(x_{i+1},...x_n)}\\
+    &\leq \norm{g(x_1,...,x_i)}\norm{x_{i+1}}\cdots\norm{x_n}\\
+    &\leq\norm{g}\norm{x_1}\cdots\norm{x_i}\norm{x_{i+1}}\cdots\norm{x_n}
+\end{aligned}
+$$
+Therefore $$\norm{\Phi^{-1}(g)}\leq\norm{g}=\norm{\Phi^{-1}(g)}$$
+\chapter{Higher differentials}
+We fix a complete non-trivial valued field $(K,\abs\cdot)$ and normed K-vector space E and F.
+\section{Def}
+Let $U\subseteq E$ be an open subset and $f:U\rightarrow F$ be a mapping
+\begin{itemize}
+    \item [(1)]If $f$ is continuous, we say that $f$ is of class $C^0$ and $f$ is 0-times differentiable
+    \item [(2)]If $f$ is differentiable on an open neighborhood $V\subseteq U$ of some point $p\in U$ and 
+    $$\begin{aligned}
+        df: &V\rightarrow \mathscr{L}(E,F)\\
+        &x\mapsto d_xf
+    \end{aligned}$$
+    is n-times differentiable at $p$, then we say that $f$ is $(n+1)$-times differentiable at $p$. If $f$ is $(n+1)$-times differentiable at any point $p\in U$, we denote by $$D^{n+1}f:U\rightarrow \mathscr{L}^{(n+1)}(E^{n+1},F)$$
+    the mapping that sends $x\in U$ to the image of $D^n(df)(x)$ by the K-linear bijection
+    $$\mathscr{L}^{(n)}(E^n,\mathscr{L}(E,F))\rightarrow\mathscr{L}^{(n+1)}(E^{n+1},F)$$
+    $$df:U\rightarrow\mathscr{L}(E,F)$$
+    $$D^n(df):U\rightarrow\mathscr{L}^{(n)}(E^n,\mathscr{L}(E,F))\stackrel{\Phi}{\longrightarrow}\mathscr{L}^{(n+1)}(E^{n+1},F)$$
+    If $D^{n+1}f$ is continuous, we say that $f$ is of class $C^{n+1}(n\geq0)$
+    (Any mapping $f:U\rightarrow F$ is considered as o-times differential $D^0f:=f$)
+\end{itemize}
+\section{Remark}
+If $f$ is n-times differentiable $\forall i\in \{1,...,n-1\}$\\
+$\forall p\in U,(h_1,...,h_n)\in E^n$ one has 
+$$D^i(D^{n-i}f)(p)(h_1,...,h_i)(h_{i+1},...,h_n)=D^nf(p)(h_1,...,h_n)$$
+$$\begin{aligned}
+    &D^{n-i}f:U\rightarrow \mathscr{L}^{(n-i)}(E^{n-i},F)\\
+    & D^i(D^{n-i}f):U\rightarrow\mathscr{L}^{(i)}(E^i,\mathscr{L}^(n-i)(E^{n-i},F))
+\end{aligned}$$
+\section{Theorem}
+Assume that $(K,\abs\cdot)=(\mathbb{R},\abs\cdot)$ \\
+Let $f:U\rightarrow F$ be a mapping that is $(n+1)$-times differentiable on $U$. Let $p\in U$ and $h\in E$ such that $p+th\in U\ \forall t\in [0,1]$ Then 
+$$\begin{aligned}
+    &\norm{f(p+h)-f(p)-\sum\limits_{k=1}^n\frac{1}{k!}D^kf(p)(h,...,h)}\leq\\
+    &(\sup\limits_{t\in {]0,1[}}\frac{(1-y)^n}{n!}\norm{D^{n+1}f(p+th)})\cdot\norm{h}^{n+1}
+\end{aligned}$$
+(Taylor-Lagrange formula)
 \end{document}
