@@ -2873,7 +2873,8 @@ Let $U\subseteq E$ be an open subset and $f:U\rightarrow F$ be a mapping
     the mapping that sends $x\in U$ to the image of $D^n(df)(x)$ by the K-linear bijection
     $$\mathscr{L}^{(n)}(E^n,\mathscr{L}(E,F))\rightarrow\mathscr{L}^{(n+1)}(E^{n+1},F)$$
     $$df:U\rightarrow\mathscr{L}(E,F)$$
-    $$D^n(df):U\rightarrow\mathscr{L}^{(n)}(E^n,\mathscr{L}(E,F))\stackrel{\Phi}{\longrightarrow}\mathscr{L}^{(n+1)}(E^{n+1},F)$$
+    $$
+    D^n(df):U\rightarrow\mathscr{L}^{(n)}(E^n,\mathscr{L}(E,F))\stackrel{\Phi}{\longrightarrow}\mathscr{L}^{(n+1)}(E^{n+1},F)$$
     If $D^{n+1}f$ is continuous, we say that $f$ is of class $C^{n+1}(n\geq0)$
     (Any mapping $f:U\rightarrow F$ is considered as o-times differential $D^0f:=f$)
 \end{itemize}
@@ -2883,7 +2884,12 @@ $\forall p\in U,(h_1,...,h_n)\in E^n$ one has
 $$D^i(D^{n-i}f)(p)(h_1,...,h_i)(h_{i+1},...,h_n)=D^nf(p)(h_1,...,h_n)$$
 $$\begin{aligned}
     &D^{n-i}f:U\rightarrow \mathscr{L}^{(n-i)}(E^{n-i},F)\\
-    & D^i(D^{n-i}f):U\rightarrow\mathscr{L}^{(i)}(E^i,\mathscr{L}^(n-i)(E^{n-i},F))
+    & D^i(D^{n-i}f):
+    \xymatrix{
+        &U\ar[rd]_{D^nf}\ar[r]&\mathscr{L}^{(i)}(E^i,\mathscr{L}^(n-i)(E^{n-i},F))\ar@{<->}[d]^\cong \\
+        & &\mathscr{L}^{(n)}(E^n,F)
+    }
+    U\rightarrow
 \end{aligned}$$
 \section{Theorem}
 Assume that $(K,\abs\cdot)=(\mathbb{R},\abs\cdot)$ \\
@@ -2893,4 +2899,121 @@ $$\begin{aligned}
     &(\sup\limits_{t\in {]0,1[}}\frac{(1-y)^n}{n!}\norm{D^{n+1}f(p+th)})\cdot\norm{h}^{n+1}
 \end{aligned}$$
 (Taylor-Lagrange formula)
+\section{Prop(Gronwall inequality)}
+Let F be a normed vector space over $\mathbb{R}$ $(a,b)\in \mathbb{R}^2,a<b$ Let $f:[a,b]\rightarrow F$ and $g:[a,b]\rightarrow\mathbb{R}$ be continuous mappings that are differentiable on ${]a,b[}$
+
+Suppose that $\forall t\in {]a,b[}$
+$$\norm{f'(t)}\leq g'(t)$$
+then $$\norm{f(b)-f(a)}\leq g(b)-g(a)$$
+\subsection*{Proof}
+Let $c\in {]a,b[}$ Let $\epsilon>0$ Let 
+$$J=\{t\in [c,b]\mid\forall s\in [c,t]\ ,\norm{f(s)-f(c)}\leq g(s)-g(c)\}$$
+By definition $J$ is an interval.
+
+Since $f,g$ are continuous, $J$ is a closed interval, hence $J$ is of the form $[c,t]$. If $t<b$ then for $h>0$ Sufficiently small.
+$$f(t+h)-f(t)=hf'(t)+o(h)$$
+$$g(t+h)-g(t)=hg'(t)+o(h)$$
+$\exists \delta>0\ \forall h\in [0,\delta]$
+$$\begin{aligned}
+    \norm{f(t+h)} &\leq \norm{f'(t)}\cdot h+\frac{\epsilon}{2}h\\
+    g(t+h)-g(t) &\geq g'(t)h-\frac{\epsilon}{2}h
+\end{aligned}$$
+So $$\norm{f(t+h)-f(t)}\leq g(t+h)-g(t)+\epsilon h$$
+Moreover
+$$\norm{f(t)-f(c)}\leq g(t)-g(c)+\epsilon (t-c)$$
+$\Rightarrow$
+$$\norm{f(t+h)-f(c)}\leq g(t+h)-g(c)+\epsilon (t+h-c)$$
+$\Rightarrow$
+$$J\supseteq [c,t+\delta]$$
+Contradiction, hence
+$$\norm{f(b)-f(c)}\leq g(b)-g(c)+\epsilon (b-c)$$
+For the same reason
+$$\norm{f(c)-f(a)}\leq g(c)-g(a)+\epsilon (c-a)$$
+Hence
+$$\norm{f(b)-f(a)}\leq g(b)-g(a)+\epsilon (b-a)$$
+Since $\epsilon>0$ is arbitrary
+$$\norm{f(b)-f(c)}\leq g(b)-g(c)$$
+Mean value theorem:
+$$g(t)=(\sup(\norm{f'(\cdots)}))$$
+\section{Theorem}
+Let $n\in \mathbb{N}$, $E,F$ be normed vector spaces over $\mathbb{R}$
+$U\subseteq E$ open and $f: U\rightarrow F$ be a mapping that is $(n+1)$-times differentiable. Let $p\in U$ and $h\in E$ . Assume that $\forall \epsilon\in [0,1],p+th\in U$
+
+Let $$M=\sup\limits_{t\in {]0,1[}}\norm{D^{n+1}f(p+th)}$$
+Then $$\norm{f(p+h)-\sum\limits_{k=0}^n\frac{1}{k!}D^kf(p)(h,\cdots,h)}\leq\frac{M}{(n+1)!}\norm{h}^{n+1}$$
+If $E=\mathbb{R}$ Then the formula become
+$$\norm{f(p+h)-\sum\limits_{k=0}^n\frac{1}{k!}f^{(k)}(p)h^k}\leq\frac{M}{(n+1)!}\abs{h}^{h+1}$$
+\subsection*{Proof}
+Consider $\phi:[0,1]\rightarrow F$
+$$\phi(t)=\sum\limits_{k=0}^n\frac{(1-t)^k}{k!}D^kf(p+th)(h,\cdots,h)$$
+$$\phi(1)=f(p+h)$$
+$$\phi(0)=\sum\limits_{k=0}^n\frac{1}{k!}D^kf(p)(h,\cdots,h)$$
+$$
+\begin{aligned}
+    \phi'(t) &= \sum\limits_{k=0}^{n}\frac{(1-t)^k}{k!}D^{k+1}f(p+th)(\underbrace{h,\cdots,h}\limits_{\text{k+1 copies}})-\sum\limits_{k=1}^n\frac{(1-t)^{k-1}}{(k-1)!}D^kf(p+th)(h,\cdots,h)\\
+    &= \frac{(1-t)^n}{k!}D^{k+1}f(p+th)(h,\cdots,h)
+\end{aligned}
+$$
+then $$\norm{\phi'(t)}\leq M\frac{(1-t)^n}{n!}=(-M\frac{(1-t)^{n+1}\norm{h}^{n+1}}{(n+1)!})'$$
+By Gronwall inequality,
+$$\norm{\phi(1)-\phi(0)}\leq\frac{M}{(n+1)!}\norm{h}^{n+1}$$
+\section{Def}
+Let $n\in\mathbb{N}$ $E_1,\cdots,E_n$ and $F$ be normed vector spaces over a complete non-trivial valued field $(K,\abs\cdot)$ Let $U\in E_1\times\cdots\times E_n$ be an open subset. $p=(p_1,...,p_n)\in U\ i\in \{1,\cdots,n\},f:U\rightarrow F$
+If there exists an open neighborhood $U_i$ of $p_i$ in $E_i$ such that $$\begin{aligned}
+    U_i &\rightarrow F\\
+    x_i &\mapsto f(p_1,\cdots,p_{i-1},x_i,p_{i+1},\cdots,p_n)
+\end{aligned}$$
+is well defined and is differentiable at $p_i$
+
+We denote by $\frac{\partial f}{\partial x_i}(p)$ the differential of this mapping $U_i\rightarrow F$ and say that $f$ admits the $i^{th}$ partial differentials at $p$
+\section{Prop}
+Suppose that $(K,\abs\cdot)$ and $f$ has all partial differentials on $U$ and $$\frac{\partial f}{\partial x_i}:U\rightarrow \mathscr{L}(E_i,F)$$ is continuous for any $i\in \{1,\cdots,n\}$ Then $f$ is of class $C^1$ and $\forall h=(h_1,\cdots,h_n)\in E_1\times\cdots\times E_n$
+
+$$\forall p\in U\quad d_p(h)=\sum\limits_{i=1}^n\frac{\partial f}{\partial x_i}(p)(h_i)$$
+\subsection*{Proof}
+By induction, it suffices to treat thr case where $n=2$
+
+$\forall \epsilon>0\ \exists \delta>0$$$\forall(h,k)\in E_1\times E_2\quad \max\{\abs{h},\abs{k}\}\leq\delta$$
+one has 
+$$\norm{\frac{\partial f}{\partial x_i}(a+h,b+k)-\frac{\partial f}{\partial x_2}(a,b)}\leq\epsilon (\text{by continuity of }\frac{\partial f}{\partial x_2})$$
+Consider the mapping $\phi:[0,1]\rightarrow F$
+$$$$
+$$$$
+$$$$
+$$\begin{aligned}
+    \phi(t) &= f(a+h,b+tk)-f(a+b,b)-t\underbrace{\frac{\partial f}{\partial x_2}(\overbrace{a+h,b}\limits^{\in U})}\limits_{\in \mathscr{L}(E_2,F)}(k)\\
+    \norm{\phi'(t)} &= \norm{\frac{\partial f}{\partial x_2}(a+h,b+tk)(k)-\frac{\partial f}{\partial x_2}(a+h,b)(k)}\\
+    &\leq 2\epsilon\norm{k}\\
+    \norm{\phi(1)-\phi(0)} &\leq 2\epsilon\norm{k}       
+\end{aligned}$$
+then $$\norm{f(a+h,b+k)-f(a+h,b)-\frac{\partial f}{\partial x_2}(a+h,b)(k)} \leq 2\epsilon\norm{k} $$
+So $$\norm{f(a+h,b+k)-f(a+h,b)-\frac{\partial f}{\partial x_2}(a+h,b)(k)} = o(\max\{\norm{h},\norm{k}\})$$
+$f$ has $1^{st}$ partial differential
+$$\norm{f(a+h,b)-f(a,b)-\frac{\partial f}{\partial x_1}(a,b)(k)} = o(\max\{\norm{h},\norm{k}\})$$
+by continuity of $\frac{\partial f}{\partial x_i}$
+$$\norm{\frac{\partial f}{\partial x_2}(a+h,b)(k)-\frac{\partial f}{\partial x_2}(a,b)(k)} = o(\max\{\norm{h},\norm{k}\})$$
+take the sum of above three statements, we get:
+$$\norm{f(a+h,b+k)-f(a,b)-\frac{\partial f}{\partial x_1}(a,b)(h)-\frac{\partial f}{\partial x_2}(a,b)(k)}=o(\max\{\norm{h},\norm{k}\})$$
+\section{Theorem}
+Let $E,F$ be normed vector spaces over $\mathbb{R}$ $U\subseteq E$ open $(f_n)_{n\in \mathbb{N}}$ be a sequence of differentiable mapping form $U$ to $F$ Let $g:U\rightarrow \mathscr{L}(E,F)$ Suppose that \begin{itemize}
+    \item [(1)]$(df_n)_{n\in \mathbb{N}}$ converges uniformly to $g$
+    \item [(2)]$(f_n)_{n\in \mathbb{N}}$ converges pointwisely to some  mapping $f:U\rightarrow F$
+\end{itemize}
+Then $f$ is differentiable and $df=g$
+\subsection*{Proof}
+Let $p\in U,\forall(m,n)\in \mathbb{N}^2,\forall x\in \mathcal{B}(p,r)\in U(r>0)$
+$$\begin{aligned}
+    \norm{f_n(x)-f(_m(x)-(f_n(p)-f_m(p)))}\leq (\sup\limits_{\xi\in U}\norm{d_\xi f_m-d_\xi f_n})\cdot\norm{x-p}\ (\text{mean value inequality})
+\end{aligned}$$
+Take $\lim\limits_{m\rightarrow+\infty}$ we get:
+$$\norm{(f_n(x)-f(x))-(f_n(p)-f(p))}\leq\epsilon_n\norm{x-p}$$
+where $\epsilon_n=\sup\limits_{\xi\in U}\norm{d_\xi f_m-g}$.\\
+So $$\begin{aligned}
+    \norm{f(x)-f(p)-g(p)(x-p)} &\leq\norm{(f(x)-f_n(x))-(f(p)-f_n(p))}\\ &+\norm{f_n(x)-f_n(p)-d_pf_n(x-p)}\\ & +\norm{d_p f_n(x-p)-g(p)(x-p)}\\
+    &\leq\epsilon_n\norm{x-p}+\norm{f_n(x)-f_n(p)-d_pf_n(x-p)}+\epsilon_n\norm{x-p}\\
+    \limsup\limits_{x\rightarrow p}\frac{\norm{f(x)-f(p)-g(p)(x-p)}}{\norm{x-p}} &\leq 2\epsilon_n
+\end{aligned}$$
+Take $\lim\limits_{n\rightarrow +\infty}$ we get:
+$$\limsup\limits_{x\rightarrow p}\frac{\norm{f(x)-f(p)-g(p)(x-p)}}{\norm{x-p}}=0$$
+
 \end{document}
