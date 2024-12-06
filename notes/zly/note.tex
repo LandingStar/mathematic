@@ -3169,4 +3169,86 @@ $Hom_s$ and $Hom_a$
 
 We denote with $Hom_s^{(n)}(E^n,F)$ and $Hom_a^{(n)}(E^n,F)$ the set of symmetric and alternating $n$-linear mappings from $E$ to $F$. $Hom^{(n)}_s(E^n,F)$ and $Hom^{(n)}_a(E^n,F)$ are sub-K-modules of $Hom^{(n)}(E^n,F)$ and when $n=1$, by convention$$Hom^{(1)}_s(E,F)=Hom^{(1)}_a(E,F)=Hom(E,F)$$
 
+\section{Reminder}
+ Let $E,F$ be two normed vector spaces over $\mathbb{R}$ $f:E\rightarrow F$ is differentiable(twice) $$df:E\rightarrow\mathscr{L}(E,F)$$
+ $$
+ \begin{aligned}
+    D^2d:E &\rightarrow\mathscr{L}(E,\mathscr{L}(E,F))\\
+    A &\mapsto ((x,y)\rightarrow A(x)(y))
+ \end{aligned}$$
+ \section{Theorem(Schweiz)}
+ $U\subseteq E$ is an open set, $f:U\rightarrow F$ is a function of class $C^n$. Then for any $p\in U$$$D^nf(p)\in \mathscr{L}^n(E^n,F)$$ is symmetric
+ \subsection*{Proof}
+ By induction and by the fact that permutation are decomposed in transpositions, we can reduce to prove only the case $n=2$
+ $$d_{p+u}f-d_pf=D^2f(p)(u,\cdot)+o(u)$$
+ $\forall \epsilon>0,\exists\delta>0$ such that $0<\norm{u}<\delta$,then 
+ $$\norm{d_{p+u}f-d_pf-D^2f(p)(u,\cdot)+o(u)}\leq\epsilon\norm{u}$$
+For any $x\in \mathcal{B}(p,\frac{\epsilon}{2})$ let's introduce the following function
+$$\varphi(x)=f(x+k)-f(x)-D^2f(p)(k,x)$$
+We use the mean value inequality on $\varphi$
+$$
+\begin{aligned}
+&\norm{\varphi(p+h)-\varphi(p)}\\
+= &\norm{f(p+h+k)+f(p)-f(p+h)-D^2f(p)(k,p+h)-f(p+k)-f(p)-D^2f(p)(k,p)}\\
+=& \norm{f(p+h+k)+f(p)-f(p+h)-f(p+k)-D^2f(p)(k,h)}\\
+\leq &(\sup\limits_{t\in [0,1]}\norm{d_{p+th}\varphi})\norm{h}
+\end{aligned}
+$$
+$$\begin{aligned}
+    \norm{d_{p+th}(\varphi)}=\norm{d_{p+th+k}f-d_{p+th}f-D^2f(p)(k,\cdot)}
+\end{aligned}$$
+add and subtract $d_pf,D^2f(p)(th,\cdot)$ then by triangle inequality
+$$
+\begin{aligned}
+    &\norm{d_{p+th+k}f-d_{p+th}f-D^2f(p)(k,\cdot)}\\
+    \leq &\norm{d_{p+th+k}(f)-d_pf-D^2f(p)(k+th,\cdot)}\\
+    + &\norm{d_{p+th}f-d_pf-D^2f(p)(th,\cdot)}\\
+    \leq &\epsilon\norm{th+k}+\epsilon(th)\\
+    \leq &2\epsilon(\norm{h}+\norm{k})
+\end{aligned}$$
+then 
+$$
+\begin{aligned}
+    &\norm{f(p+h+k)+f(p)-f(p+k)-f(p+h)-D^2f(p)(k,h)}
+    \\= &o(\max\{\norm{h},\norm{k}\}^2)
+\end{aligned}
+$$
+exchange the role of $h,k$ then we get 
+$$
+\begin{aligned}
+    &\norm{f(p+h+k)+f(p)-f(p+k)-f(p+h)-f(p+k)-D^2f(p)(h,k)}
+    \\ \leq &o(\max\{\norm{h},\norm{k}\}^2)
+\end{aligned}$$
+then $$\underbrace{\norm{D^2f(p)(k,h)-D^2f(p)(h,k)}}\limits_{\text{bilinear function}}=o(\underbrace{\max\{\norm{h},\norm{k}\}^2}\limits_{\text{quachetic}})$$
+this implies that the LHS is 0
+\section{Def}
+Let E<F be normed vector spaces over a complete value field $(K,\abs\cdot)$ let $U\subseteq E,V\subseteq F$ be open subsets and $f:U\rightarrow V$ is a bijection. 
+\begin{itemize}
+    \item[(1)] If $f$ and $f^{-1}$ are both continuous we say that $f$ is a homeomorphism 
+    \item[(2)] If a $f$ and $f^{-1}$ are both of class $C^n$ we say that $f$ is a $e^n$-diffeomorphism
+\end{itemize}
+If (2) is true for any $n\in \mathbb{N}$ we say that $f$ is a $C^\infty$-diffeomorphism
+\section{Prop}
+Let E,F be two normed Banach spaces. Let $I(E,F)\in \mathscr{L}(E,F)$ be the set of linear continuous and invertible mappings such that $norm{\varphi^{-1}}\leq+\infty$. Then $I(E,F)$ is open in $\mathscr{L}(E,F)^\vee$ Moreover the mapping 
+$$\begin{aligned}
+    I(E,F)&\rightarrow I(F,E)\\
+    \phi &\mapsto\varphi^{-1}
+\end{aligned}$$
+is a $e^1$-diffeomorphism
+\subsection*{Proof}
+Let $\varphi\in I(E,F)$ we want to show that $$\varphi-\psi\in I(E,F)$$
+for $\psi\in \mathscr{E,F}$ such that $\norm{\psi}<\frac{1}{\norm{\varphi^{-1}}}$
+Notice that $$\varphi-\psi=\varphi\circ(Id_E-\varphi^{-1}\circ\psi)$$
+Since $$\norm{\varphi^{-1}\psi}\leq\norm{\varphi^{-1}}\norm{\psi}<1$$
+This means that the series$$\sum\limits_{n\in \mathbb{N}}(\varphi^{-1}\circ\psi)^{\circ n}$$ is absolutely convergent in $\mathscr{L}(E,E)$
+This series is the inverse of $(Id_E-\varphi^{-1}\psi)$
+$$(Id_e-\varphi^{-1}\psi)\circ\sum\limits_{n=0}^{N-1}(\varphi^{-1}\circ\psi)^{\overbrace{\circ n}\limits^{\text{composite n times}}}=Id_E-(\varphi^{-1}\circ\psi)^{\circ N}$$ 
+take $\lim\limits_{N\rightarrow +\infty}$, then
+$$(\varphi-\psi)^{-1}=\sum\limits_{n\in \mathbb{N}}(\varphi^{-1}\circ\psi)^{\circ n}\circ\varphi^{-1}$$
+and $$(\varphi-\psi)^{-1}=\varphi^{-1}+\varphi^{-1}\circ\psi\circ\varphi^{-1}+o(\norm{\psi})$$
+replace the inverse with $i$
+$$i(\varphi-\psi)-i(\varphi)=\varphi^{-1}+\varphi^{-1}\circ\psi\circ\varphi^{-1}+o(\norm{\psi})$$
+then $$d_\varphi i(\psi)=i(\varphi)\circ(-\psi)\circ i(\varphi)$$
+so $i$ is differentiable.Moreover $i$ and $i^{-1}$ are continuous.\subsection*{Remark}
+By induction we can show that $i$ is a $C^{+\infty}$-diffeomorphism
 \end{document}
