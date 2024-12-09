@@ -3251,4 +3251,97 @@ $$i(\varphi-\psi)-i(\varphi)=\varphi^{-1}+\varphi^{-1}\circ\psi\circ\varphi^{-1}
 then $$d_\varphi i(\psi)=i(\varphi)\circ(-\psi)\circ i(\varphi)$$
 so $i$ is differentiable.Moreover $i$ and $i^{-1}$ are continuous.\subsection*{Remark}
 By induction we can show that $i$ is a $C^{+\infty}$-diffeomorphism
+\section{Prop}
+Let $n\in \mathbb{N}\cup\{\infty\}$ Let E F G be normed vector spaces over a complete valued field $(K,\abs\cdot)$ $U\subseteq E,V\subseteq F$ be open sets. $f:U\rightarrow V\ g: V\rightarrow G$ be mappings of class $C^n$, then $g\circ f$ also of class $C^n$
+\subsection{Proof}
+The case where $n=0$ is known
+
+Denote by $$\begin{aligned}
+    \Phi: \mathscr{L}(E,F)\times E &\rightarrow F\\ (\beta,\alpha) &\mapsto \beta\circ\alpha
+\end{aligned}$$
+$\Phi$ is a bounded bilinear mapping $$\norm{\Phi(\beta,\alpha)}\leq\norm{\beta}\cdot\norm{\alpha}$$
+Suppose that $n\geq 1$ and the statement is true for mappings of class $C^{n-1}$ $g\circ f$ is differentiable.$$\forall p\in U\quad d_p(g\circ f)=d_{f(p)}g\circ d_pf$$
+$$D^1(g\circ f):U\rightarrow\mathscr{L}(E,G)$$
+$$D^1=\Phi\circ(D^1g\circ f,D^1 f)$$
+$$
+\begin{aligned}
+    (D^1g\circ f,D^1f): U &\rightarrow \mathscr{L}(F,G)\times\mathscr{L}(E,F)\\
+    p &\mapsto(d_{f(p)}g,d_pf)
+\end{aligned}$$
+$$d_{\beta_0,\alpha_0}\Phi(\beta,\alpha)=\beta_0\circ\alpha+\beta_0\circ\alpha$$
+$$
+\begin{aligned}
+    D^1\Phi:\mathscr{L}(F,G)\times\mathscr{L}(E,F)&\rightarrow\mathscr{L}(\mathscr{L}(F,G)\times\mathscr{L}(E,F),\mathscr{L}(E,G))\\
+    (\alpha_0,\beta_0)&\mapsto((\alpha,\beta)\mapsto\beta_0=\alpha+\beta_0\alpha_0)
+\end{aligned}
+$$
+Since $g,f$ are of class $C^n$ $D^1f,D^1g$ are of class $C^{n-1}$ Thus, by induction hypothesis, $$(D^1g\circ f,D^1f)$$ is of class $C^{n-1}$
+Since $\Phi$ is of class $C^\infty$, we obtain that $$D^1(g\circ f)$$ is of class $C^{n-1}$
+then $$g\circ f$$ is of class $C^n$
+\section{Prop}
+Let E and F be Banach space over a complete valued field $(K,\abs\cdot).$ U and V be open subsets of E and F respectively.$n\in \mathbb{N}\cup\{\infty\}$ and $f:U\rightarrow V$ be a  bijection. If $f$ is of class $C^n$, then $f^{-1}$ is differentiable, then $f^{-1}$ is of class $C^n$
+\subsection*{Proof}
+$$f\circ f^{-1}=Id_V$$ 
+$\forall y\in V$
+$$d_y(f\circ f^{-1})=d_{f^{-1}(p)}f\circ d_yf^{-1}=Id_F$$
+For $x\in U,y=f(x)$
+$$d_y(f\circ f^{-1})=d_xf\circ d_yf^{-1}=Id_F$$
+$$d_x(f^{-1}\circ f)=d_yf\circ d_xf^{-1}=Id_E$$
+So $$d_yf^{-1}-(d_xf)^{-1}$$ that is $$D^1f^{-1}=\iota\circ(D^1f\circ f^{-1})$$
+where $$\begin{aligned}
+    \iota: I(E,F) &\rightarrow I(F,E)\\
+    \phi &\mapsto \phi^{-1}
+\end{aligned}$$
+Suppose that $f^{-1}$ is of class $C^{n-1}$ then $$D^1f^{-1}=\iota D^1f\circ f^{-1}$$ is of class $C^{n-1}$
+\section{Local Inversion Theorem }
+Let E and F be Banach space over $\mathbb{R}$ $ U\in E$
+open, $f:U\rightarrow F$ be a mapping of class $C^n$ and $a\in U$. Suppose that $d_af\in I(E,F)$($d_af$ is invertible and of bounded inverse)
+Then there exists open neighborhoods V and W of $a$ and $f(a)$ respectively, such that \begin{itemize}
+    \item $V\subseteq U$ and $f(V)\subseteq W$
+    \item The restriction of $f$ to V defines a bijection from V to W
+    \item $$(f\mid_V)^{-1}W\rightarrow V$$ is of class $C^n$
+\end{itemize}
+\subsection{Proof}
+For $y\in F$ consider the mapping:
+$$
+\begin{aligned}
+    \phi_y:U &\rightarrow F\\
+    x &\mapsto x-(d_af)^{-1}(f(x)-y)
+\end{aligned}$$
+$f(x)=y$ iff $\phi_y(x)=x$ i.e. $x$ is a fix point of $\phi_y$
+$\phi_y$ is of class $C^1$ and $$d_x\phi_y(v)=v-d_af^{-1}(d_xf(v))$$
+$\forall v$ $$d_a\phi y^{(v)}=0$$
+By the continuity of $D^1f$ there exists $r>0$ such that $$\overline{\mathcal{B}}(a,r)\subseteq U$$ and $\forall y\in F,\forall x\in \overline{\mathcal{B}}(a,r)$
+$$\norm{d_x\phi_y}\leq\frac{1}{2}$$
+By the mean value inequality. $\forall(x_1,x_2)\in \overline{\mathcal{B}}(a,r)$
+$$\norm{\phi_y(x_1)-\phi_{=y(x_2)}}\leq\frac{1}{2}\norm{x_1-x_2}$$
+Hence $\phi_y$ is contraction.
+
+By the boundedness of $(d_af)^{-1}$ $\exists\delta>0$ such that $$\forall y\in \overline{\mathcal{B}}(f(a),\delta)\quad\norm{(d_af)^{-1}(f(a)-y)}\leq\frac{r}{2}$$
+Then $\forall x\in \overline{\mathcal{B}}(a,r)\ y\in \overline{\mathcal{B}}(f(a),\delta)$
+$$
+\begin{aligned}
+    \norm{\phi_y(x)-a}&\leq\norm{\phi_y(x)-\phi_y(a)}+\norm{\phi_y(a)-a}\\
+    &\leq\frac{1}{2}\norm{x-a}+\frac{r}{2}\\
+    &\leq \frac{r}{2}+\frac{r}{2}=r
+\end{aligned}
+$$ 
+$\phi_y(\overline{\mathcal{a,r}})\in\overline{\mathcal{B}}(a,r)$. By the fixed point theorem$$\exists g:\overline{\mathcal{B}}(f(a),\delta)\rightarrow\overline{\mathcal{B}}(a,r)$$ sending $y$ to the fixed point of $\phi_y$
+Let $W=\mathcal{B}(f(a),g)$,then $$g\mid_W:W \rightarrow V$$ is the inverse of $f\mid_V:V\rightarrow W$ Hence $f^{-1}(W)=V$ is open.
+
+In the following, we prove that $g$ is of class $C^n$ on an open neighborhood of $f(a)$. By reducing V and W, we may assume that $\forall x\in V$
+$$d_xf\in I(E,F)$$
+Let $x_0\in V$ $y_0=f(x_0)\quad x_0=g(y_0)$
+$$y-y_0=f(g(y))-f(g(y_0))=d_{x_0}f(g(y)-g(y_0))+o(\norm{g(y)-g(y_0)})$$
+So 
+$$
+\begin{aligned}
+    g(y)-g(y_0)=(d_xf)^{-1}(y-y_0)+o(\norm{g(y)-g(y_0)})
+\end{aligned}
+$$
+Thus leads to 
+$$g(y)-g(y_0)=O(\norm{y-y_0})$$
+($\exists \epsilon>0\quad (1-\epsilon)\norm{g(y)-g(y_0)}\leq\norm{d_{x_0}f}^{-1}$ when $\norm{y-y_0}$ is sufficiently small)
+So $$d_{y_0}g=(d_xf)^{-1}$$ By the previous proposition, $g$ is of class $C^n$
+
 \end{document}
