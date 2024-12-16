@@ -2174,7 +2174,7 @@ $$f(x)=f(p)+\psi(x-p)+o(\norm{x-p})$$
 then $$(\varphi-\psi)(x-p)=o(\norm{x-p})$$
 $\forall \delta>0$
 $$\begin{aligned}
-    \norm{\varphi-\psi}= \sup\limits_{y\in E\setminus\{0\}}\frac{\norm(\varphi-\psi)}{\norm{y}}=\sup\limits_{y\in E\setminus\{0\},\norm{y}\leq\delta}\frac{\norm{(\varphi-\psi)(y)}}{\norm{y}}
+    \norm{\varphi-\psi}= \sup\limits_{y\in E\setminus\{0\}}\frac{\norm{\varphi-\psi}}{\norm{y}}=\sup\limits_{y\in E\setminus\{0\},\norm{y}\leq\delta}\frac{\norm{(\varphi-\psi)(y)}}{\norm{y}}
 \end{aligned}$$
 Therefore $$
 \begin{aligned}
@@ -2214,7 +2214,7 @@ $$\begin{aligned}
 \begin{itemize}
     \item when $(\lambda,x)\rightarrow(a,p)$$$\begin{aligned}
         \norm{(\lambda-a)(x-p)}&=\abs{\lambda-a}\cdot\norm{x-p}\\
-        &=o(\max\{\abs{lambda-a},\norm{x-p}\})
+        &=o(\max\{\abs{\lambda-a},\norm{x-p}\})
     \end{aligned}$$
     \item The mapping $$((\mu,y)\in K\times E)\mapsto \mu p+ay\in E$$ is a K-linear mapping.
     \begin{itemize}
@@ -3153,10 +3153,10 @@ We fix a commutative unitary ring $K$ and $K$-modules $E,F$
 \begin{itemize}
     \item [symmetric]Let $n\in \mathbb{N}$ and $f\in Hom^{(n)}(E^n,F)$. If for any $\sigma\in \mathfrak{S}_n$ one has $\forall x\in E^n$$$f(x_1,\cdots,x_n)=f(x_{\sigma(1)},\cdots,x_{\sigma(n)})$$
     Then we say $f$ is symmetric
-    \item [alternating]If for any $(i,j)\in \{1,\cdots,n\}^2$ such that $i\neq j$ and any $(x_1,\cdots,x_n)\in E^n$ such that $x_i=x_j$$$f(x_1,\cdots,x_n)=0$$ then we say thta $f$ is alternating.
+    \item [alternating]If for any $(i,j)\in \{1,\cdots,n\}^2$ such that $i\neq j$ and any $(x_1,\cdots,x_n)\in E^n$ such that $x_i=x_j$$$f(x_1,\cdots,x_n)=0$$ then we say that $f$ is alternating.
 \end{itemize}
 \section{Prop}
-Suppose that $f\in Hom^{(n)}(E^n,F)$ is alternating, then $\forall(x_1,\cdots,x_n)\in E^n,\sigma\in \mathfrak{S}_n$
+Suppose that $f\in Hom^{(n)}(E^n,F)$ is alternating, then $\forall(x_1,\cdots,x_n)\in E^n$,\\$\sigma\in \mathfrak{S}_n$
 $$f(x_1,\cdots,x_n)=sgn(\sigma)f(x_{\sigma(1)},\cdots,x_{\sigma(n)})$$
 \subsection*{Proof}
 By corollary 34.8, it's enough to prove the proposition for adjacent transitions. Let $i\in \{1,,\cdots,n-1\}$ then $$
@@ -3348,7 +3348,7 @@ $$g(y)-g(y_0)=O(\norm{y-y_0})$$
 So $$d_{y_0}g=(d_xf)^{-1}$$ By the previous proposition, $g$ is of class $C^n$
 \part{Integration}
 \chapter{Integral operators}
-We fix a set $\Omega$ and a vector subspace S of $\mathbb{R}^\Omega$
+We fix a set $\Omega$ and a vector subspace S of $\mathbb{R}^\Omega$ over $\mathbb{R}$
 We suppose that $\forall(f,g)\in S^2$$$
 \begin{aligned}
     f\wedge g:\Omega &\rightarrow \mathbb{R}\\
@@ -3360,12 +3360,14 @@ belongs to S
     \item [(1)]$\forall(f,g)\in S^2$
 $$
 \begin{aligned}
-    f\lor \vee g:\Omega &\rightarrow \mathbb{R}\\
+    f\vee g:\Omega &\rightarrow \mathbb{R}\\
     \omega &\mapsto\max\{f(\omega),g(\omega)\}
 \end{aligned}$$
+    $f\vee g\in S$
     \item [(2)]$\forall f\in S$$$\begin{aligned}
         \abs{f}:\Omega &\rightarrow\mathbb{R}\\ \omega &\mapsto \abs{f(\omega)}
     \end{aligned}$$
+    $\abs{f}\in S$
 \end{itemize}
 \subsection*{Proof}
 \begin{itemize}
@@ -3436,7 +3438,7 @@ $$I_*(f):=\sup\limits_{l\in S,l\leq f}I(f)$$
 If $I^*(f)=I_*(f)$ then we say that $f$ is I-Riemann integral, and denote by $I(f)$ the value $I^*(f)\ (\text{or } I_*(f))$
 \section{Theorem} The set $\mathscr{R}$ of all I-Riemann integral mappings form a vector space of $\mathbb{R}^\Omega$ that contains S. Moreover,$I:\mathscr{R}\rightarrow \mathbb{R}$ is an $\mathbb{R}$-linear mapping extending $I:S\rightarrow\mathbb{R}$
 \subsection*{Proof}
-$\forall h\in S$$$I^*(h)-I_*(h)I(h)$$
+$\forall h\in S$$$I^*(h)=I_*(h)=I(h)$$
 So $h\in \mathscr{R}$\\
 Let $(f_1,f_2)\in \mathscr{R}$ If $(\mu_1,\mu_2)\in S^2,\mu_1\geq f_1,\mu_2\geq f_2$
 then $$\mu_1+\mu_2\in S,\mu_1+\mu_2\geq f_1+f_2$$
@@ -3455,7 +3457,7 @@ $$I_*(\lambda f)=\lambda I_*(f)$$
 Hence if $f\in \mathscr{R}$ then $\lambda f\in \mathscr{R}$ and $I(\lambda f)-\lambda I(f)$
 $$I^*(-f)=\inf\limits_{\mu\in S,\mu\geq-f}I(\mu)=\inf\limits_{l\in S,l\leq f}I(-l)=-\sup\limits_{l\in S,l\leq f}I(l)=-I_*(f)$$
 Similarly
-$$I_*(-f)=-I^*(f)$$/ Hence if $f\in \mathscr{R}$ then $-f\in \mathscr{R}$ and $I(-f)=-I(f)$
+$$I_*(-f)=-I^*(f)$$Hence if $f\in \mathscr{R}$ then $-f\in \mathscr{R}$ and $I(-f)=-I(f)$
 \chapter{Daniell integral}
 We fix an integral operator $I:S\rightarrow\mathbb{R}$
 \section{Prop}
@@ -3519,4 +3521,119 @@ Let $(f,g)\in (S^\uparrow\cup S^\downarrow)^2$ If $f\leq g$ then $$I(f)\leq I(g)
 It suffices to treat the cases where $(f,g)\in S^\uparrow\times S^\downarrow$ and $(f,g)\in S^\uparrow\times S^\downarrow$
 
 If $(f,g)\in S^\uparrow\times S^\downarrow$ then $-f\in S^\downarrow$ and hence $g-f\in S^\uparrow,g-f\geq0$ In both cases, $$0\leq I(g-f)=I(g)+I(-f)=I(g)-I(f)$$
+\section{Def}
+Let $f:\Omega\rightarrow\mathbb{R}$ be a mapping. We define 
+$$
+\overline{I}(f):=\inf\limits_{\mu\in S^\uparrow,\mu\geq f}I(\mu)\leq\inf\limits_{\mu\in S,\mu\geq f}I(\mu)=I^*(f)$$
+$$
+\underline{I}(f):=\sup\limits_{\mu\in S^\downarrow,\mu\leq f}I(\mu)\geq\sup\limits_{\mu\in S,\mu\leq f}I(\mu)=I_*(f)$$
+If $\overline{I}(f)=\underline{I}(f)$ then we say that $f$ is $I$-integrable(in the sense of Daniell)
+\section{Remark}
+If $f$ is I-integrable in the sense of Riemann, then it is I-integrable in sense of Daniell
+\section{Daniell Theorem}
+The set $L^1(I)$ of all I-integrable mappings forms a vector subspace of $\mathbb{R}$. Moreover
+\begin{itemize}
+    \item $\forall(f,g)\in L^1(I)\ f\wedge g\in L^1(I)$
+    \item $I: L^1(I)\rightarrow\mathbb{R}$ is an integral operator extending $I:S\rightarrow\mathbb{R}$
+\end{itemize}
+\subsection*{Proof}
+Let $(f_1,f_2)\in L^1(I)^2$ let $(l_1,l_2)\in {S^\downarrow}^2,l_1\leq f_1,l_2\leq f_1$ Let $(\mu_1,\mu_2)\in {S^\uparrow}^2, f_1\leq\mu_1,f_2\leq\mu_2$
+\\We have $$l_1+l_2\leq f_1+f_2\leq \mu_1+\mu_2$$
+Taking the supremum with respect to $(l_1,l_2)$, we get 
+$$I(f_1)+I(f_2)(=\underline{I}(f_1)+\underline{I}(f_2))\leq\underline{I}(f_1+f_2)$$
+Taking the infimum with respect to $(l_1,l_2)$, we get 
+$$\overline{I}(f_1+f_2)\leq I(f_1)+I(f_2)$$
+Then $$\overline{I}(f_1+f_2)=\underline{I}(f_1+f_2)$$
+So $f_1+f_2\in L^1(I)$ and $I(f_1+f_2)=I(f_1)+I(f_2)$
+
+Similarly, if $f\in L^1(I),\lambda\geq 0$ then 
+$$
+\begin{aligned}
+    \underline{I}(\lambda f) &=\sup\limits_{l\leq\lambda f,l\in S^\downarrow}I(l)\\
+    &= \sup\limits_{l\leq f,l\in S^\downarrow}I(\lambda l)\\
+    &=\lambda\underline{I}(f)=\lambda I(f)
+\end{aligned}$$
+$$\overline{I}(\lambda f)=\lambda\overline{I}(f)=\lambda I(f)$$
+So $\lambda f\in L^1(I)$ and $I(\lambda f)=\lambda I(f)$
+\\Moreover, if $f\in L^1(I),\mu\in S^\uparrow,l\in S^\downarrow,l\leq f\leq \mu$ then 
+$$-\mu\in S^\downarrow,-l\in S^\uparrow,-\mu\leq -f\leq -l$$
+Hence $$\overline{I}(-f)=-\underline{I}(f)=-I(f)\quad \underline{I}(-f)=-\overline{I}(f)=-I(f)$$
+So $-f\in L^1(I)$ and $I(-f)=-I(f)$
+
+We proved that $\forall(f_1,f_2)\in L^1(I)^2$$$f_1\wedge f_2\in L^1(I)$$
+Let $(f_1,f_2)\in L^1(I)^2$, for any $\epsilon>0$ $\exists(l_1,l_2)\in {S^\downarrow}^2,(\mu_1,\mu_2)\in {S^\uparrow}^2$ such that 
+$$l_1\leq f_1\leq \mu_1\quad l_2\leq f_2\leq \mu_2$$
+such that
+$$I(\mu_1-l_1)\leq\frac{\epsilon}{2}\quad I(\mu_2,l_2)\leq\frac{\epsilon}{2}$$
+One has $l_1\wedge l_2\leq f_1\wedge f_2\leq \mu_1\wedge \mu_2$
+$$\mu_1\wedge \mu_2-l_1\wedge l_2\leq(\mu_1-l_1)+(\mu_2-l_2)$$
+$$
+\left(
+\begin{aligned}
+    \text{If} &\mu_1(\omega)\leq\mu_2(\omega),l_1\leq l_1(\omega)\\ &LHS=\mu_1(\omega)-l_1(\omega)\\ &RHS=\mu_1(\omega)-l_2(\omega)+\mu_2(\omega)-l_1(\omega)\geq \mu_1(\omega)-l_2(\omega)
+\end{aligned}
+\right)$$
+\section{Beppo Levi Theorem}
+Let $(f_n)_{n\in \mathbb{N}}$ be a monotone sequence of elements of $L_1(I)$, which converges pointwisely to some $f:\Omega\rightarrow \mathbb{R}$ If $(I(f_n))_{n\in \mathbb{N}}$ converges to a real number $\alpha$ Then $f\in L^1(I)$ and $I(f)=\alpha$
+\subsection*{Proof}
+Assume that $(f_n)_{n\in \mathbb{N}}$ is increasing. Moreover, by replacing $f_n$ by $f_n-f_0$ we may assume that $f_0=0$\\
+Let $\epsilon>0$ $\forall n\in\mathbb{N}$ let $\mu_n\in S^\uparrow$ such that $f_n-f_{n-1}\leq\mu_n$ and $$I(f_n-f_{n-1})\geq I(\mu_n)-\frac{\epsilon}2$$
+\begin{itemize}
+    \item[the existence]
+    $$I(f_n-f_{n-1})=\inf\limits_{\mu\in S^\uparrow,\mu\geq f_n-f_{n-1}}I(\mu)$$
+    If $\forall \mu\in S^\uparrow,\mu\geq f_n-f_{n-1}$ one has $$I(\mu)>I(f_n-f_{n-1})+\frac{\epsilon}2$$
+    then $$I(f_n-f_{n-1})+\frac{\epsilon}{2}\leq I(f_n-f_{n-1})$$ contraction.
+\end{itemize}
+Thus $$f_n=\sum\limits_{k=1}^{n}(f_k-f_{k-1})\leq\mu_1+\cdots+\mu_n$$
+and 
+$$I(f_n)\geq\sum\limits_{k=1}^{n}(I(\mu_k)-\frac{\epsilon}{2^k})\geq I(\mu_1)+\cdots+I(\mu_n)-\epsilon$$
+Let $\mu=\mu_1+\cdots+\mu_n+\cdots\in S^\uparrow$$$I(\mu)=\sum\limits_{n\in \mathbb{N}}I(\mu)$$
+One has $\mu\geq f$
+$$\lim\limits_{n\rightarrow+\infty}\geq I(\mu)-\epsilon\geq \overline{I}(f)-\epsilon$$
+Similarly, one can choose $l_n\in S^\downarrow,l_n\leq f_n,I(l_n)\geq I(f_n)-\epsilon$
+$$\liminf\limits_{n\rightarrow+\infty} I(l_n)\geq\alpha-\epsilon$$
+Note that $l_n\leq f_n\leq f$, so $$\alpha-\epsilon\leq\liminf\limits_{n\rightarrow+\infty}I(l_n)\leq\underline{I}(f)$$
+Thus 
+$$\alpha-\epsilon\leq \underline{I}(f)\leq\overline{I}(f)\leq\alpha+\epsilon$$
+Let $\epsilon\rightarrow 0$ we get 
+$$\overline{I}(f)=\underline{I}(f)=\alpha$$
+\section{Fatou's Lemma}
+Let $(f_n)_{n\in \mathbb{N}}\in L^1(I)^\mathbb{N}$ Assume tha there is $g\in L^1(I)$ such that $$\forall n\in \mathbb{N}\quad f_n\geq g$$
+If $\liminf\limits_{n\rightarrow+\infty}f_n$ is a mapping from $\Omega$ to $\mathbb{R}$ and $\liminf\limits_{n\rightarrow+\infty}I(f_n)<+\infty$, then $\liminf\limits_{n\rightarrow+\infty}f_n\in L^1(I)$ and $$I(\liminf\limits_{n\rightarrow+\infty}f_n)\leq\liminf\limits_{n\rightarrow+\infty}I(f_n)$$
+\subsection*{Proof}
+For any $n\in\mathbb{N}$, let $$g_n=\lim\limits_{k\rightarrow+\infty}(f_n\wedge f_{n+1}\wedge\cdots\wedge f_{n+k})$$
+Then 
+$$\liminf\limits_{n\rightarrow+\infty}f_n=\lim\limits_{n\rightarrow+\infty}g_n$$
+For any $k$ one has $$f_n\wedge\cdots\wedge f_{n+k}\geq g$$
+Hence 
+$$I(f_n)\geq\lim\limits_{n\rightarrow+\infty}I(f_n\wedge\cdots\wedge f_{n+k})\geq I(g)$$
+By the theorem pf Beppo Levi, $$g_n\in L^1(I)\text{ and } I(g_n)=\lim\limits_{n\rightarrow+\infty}I(f_n\wedge\cdots\wedge f_{n+k})\leq I(f_n)$$
+Note that $(g_n)_{n\in \mathbb{N}}$ is increasing and $\liminf\limits_{n\rightarrow+\infty}I(f_n)<+\infty$ Hence
+$$\lim\limits_{n\rightarrow+\infty}I(g_n)=\liminf\limits_{n\rightarrow+\infty}I(g_n)\leq\liminf\limits_{n\rightarrow+\infty}I(f_n)<+\infty$$
+By the theorem of Beppo Levi, 
+$$\lim\limits_{n\rightarrow+\infty}g_n\in L^1(I)$$
+and 
+$$I(\liminf\limits_{n\rightarrow+\infty}f_n)=I(\lim\limits_{n\rightarrow+\infty}g_n)=\lim\limits_{n\rightarrow+\infty}I(g_n)\leq\liminf\limits_{n\rightarrow+\infty} I(f_n)$$
+\section{Lebesgue dominated convergence theorem}
+Let $(f_n)_{n\in \mathbb{N}}$ be a sequence in $L^1(I)$ that converges pointwisely to some $f:\Omega\rightarrow\mathbb{R}$ Assume that there exists $g\in L^1(I)$ such that $\forall n\in \mathbb{N},\abs{f_n}\leq g$
+Then $f\in L^1(I)$ and $I(f)=\lim\limits_{n\rightarrow+\infty}I(f_n)$
+\subsection*{Proof}
+Apply Fatou's lemma to $(f_n)_{n\in \mathbb{N}}$ adn $(-f_n)_{n\in\mathbb{N}}$ to get 
+$$I(f)\leq\liminf\limits_{n\rightarrow+\infty}I(f_n)$$
+and 
+$$
+\begin{aligned}
+    I(-f) &\leq\liminf\limits_{n\rightarrow+\infty}I(-f_n)\\
+    &=\limsup\limits_{n\rightarrow+\infty} I(f_n)\\
+    &\leq \limsup\limits_{n\rightarrow+\infty}I(f_n)\leq I(f)
+\end{aligned}$$
+\section{Notation}
+Let $\varphi:\mathbb{R}\rightarrow\mathbb{R}$ be an increasing and right continuous mapping. Let $S$ be the vector subspace of $\mathbb{R}^\mathbb{R}$ generated by $\mathbbm{1}_{\rightbracket a,b\rightbracket}$ with $(a,b)\in \mathbb{R}^2,a<b$ For any $f\in L^1(I_\varphi)$ $I_\varphi(f)$ is denoted as
+$$\int_{\mathbb{R}}f(x)d\varphi(x)$$
+For any subset $A$ of $\mathbb{R}$ if $\mathbbm{1}_Af\in L^1(I)$ then 
+$$\int_Af(x)d\varphi(x)\text{ denotes }\int_{\mathbb{R}}\mathbbm{1}_A(x)f(x)d\varphi(x)=I(\mathbbm{1}_Af)$$
+If $(a,b)\in \mathbb{R}^2,aa<b$
+$$\int_a^bf(x)d\varphi(x)\text{ denotes }\int_{\rightbracket a,b\rightbracket}f(x)d\varphi(x)$$
+$$\int_b^af(x)d\varphi(x)\text{ denotes }-\int_{\rightbracket a,b\rightbracket}f(x)d\varphi(x)$$
+If $\varphi(x)=x$ for any $x\in \mathbb{R}$ we replace $d\varphi(x)$ by $dx$. %$\forall \epsilon>0,\exists\delta$$$m(E)<\delta \int_Efd\mu<\epsilon$$
 \end{document}
