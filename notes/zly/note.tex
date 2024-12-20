@@ -3815,17 +3815,19 @@ $\forall \omega\in \Omega$
 $$\abs{\frac{f(\cdot,t_n)-f(\cdot,a)}{t_n-a}}\leq g(\omega)\text{(by mean value theorem)}$$and 
 $$\lim\limits_{n\rightarrow+\infty}\frac{f(\cdot,t_n)-f(\cdot,a)}{t_n-a}=\frac{\partial f}{\partial t}(\omega,a)$$
 Hence$$\lim\limits_{n\rightarrow+\infty}\frac{\varphi(t_n)-\varphi(a)}{t_n-a}=\frac{d}{dt}I(f(\cdot,t))$$
+
 \chapter{Measure theory}
+
 \section{Def}
 We call measure space any pair $(E,\mathcal{E})$, where $E$ is a set and $\mathcal{E}$ is a $\sigma$-algebra on $E$.
 \section{Prop}
-Let $\Omega$ be a set. And $(g_i)_{i\in I}$ be a family of $\sigma$-algebras on $\Omega$. Then $\bigcap\limits_{i\in I}g_i$ is a $\sigma$-algebra
+Let $\Omega$ be a set. And $(\mathcal{G}_i)_{i\in I}$ be a family of $\sigma$-algebras on $\Omega$. Then $\bigcap\limits_{i\in I}\mathcal{G}_i$ is a $\sigma$-algebra
 \subsection*{Proof}
 \begin{itemize}
-    \item $\forall i\in I$ $$\varnothing\in g_i$$Hence $$\varnothing\in \bigcap\limits_{i\in I}g_i$$
-    \item If $A\in \bigcap\limits_{i\in I}g_i$ then $\forall i\in I$ $A\in g_i$ Hence $\forall i\in I$ $$\Omega\setminus A\in g_i$$
-    So $$\Omega\setminus A\in \bigcap\limits_{i\in I}g_i$$
-    \item Let $(A_n)_{n\in \mathbb{N}}\in (\bigcap\limits_{i\in I}g_i)^\mathbb{N}$. For any $i\in I $$$(A_n)_{n\in\mathbb{N}}\in g_i^\mathbb{N}$$  So $$\bigcap\limits_{n\in \mathbb{N}}(A_n)\in g_i$$so $$\bigcap\limits_{n\in \mathbb{N}}(A_n)\in \bigcap\limits_{i\in I}g_i$$
+    \item $\forall i\in I$ $$\varnothing\in \mathcal{G}_i$$Hence $$\varnothing\in \bigcap\limits_{i\in I}\mathcal{G}_i$$
+    \item If $A\in \bigcap\limits_{i\in I}\mathcal{G}_i$ then $\forall i\in I$ $A\in \mathcal{G}_i$ Hence $\forall i\in I$ $$\Omega\setminus A\in \mathcal{G}_i$$
+    So $$\Omega\setminus A\in \bigcap\limits_{i\in I}\mathcal{G}_i$$
+    \item Let $(A_n)_{n\in \mathbb{N}}\in (\bigcap\limits_{i\in I}\mathcal{G}_i)^\mathbb{N}$. For any $i\in I $$$(A_n)_{n\in\mathbb{N}}\in \mathcal{G}_i^\mathbb{N}$$  So $$\bigcap\limits_{n\in \mathbb{N}}(A_n)\in \mathcal{G}_i$$so $$\bigcap\limits_{n\in \mathbb{N}}(A_n)\in \bigcap\limits_{i\in I}\mathcal{G}_i$$
 \end{itemize}
 \section{Def}
 Let $\mathcal{C}\subseteq \wp(\Omega)$. We denote by $\sigma(\mathcal{C})$ the intersection of all $\sigma$-algebras on $\Omega$ containing $\mathcal{C}$. It's the smallest $\sigma$-algebra containing $\mathcal{C}$
@@ -3864,24 +3866,24 @@ Let $f:X\rightarrow Y$ be a mapping of sets.\begin{itemize}
 Let $f:\rightarrow Y$ be a mapping.
 \begin{itemize}
     \item[(1)] If $g_Y$ is a $\sigma$-algebra on $Y$ then $f^{-1}(g_Y)$ is a $\sigma$-algebra on $X$
-    \item[(2)] If $g_X$ is a $\sigma$-algebra on $X$ then $f_*(g_X)$ is a $\sigma$-algebra on $Y$
+    \item[(2)] If $\mathcal{G}_X$ is a $\sigma$-algebra on $X$ then $f_*(\mathcal{G}_X)$ is a $\sigma$-algebra on $Y$
 \end{itemize}
 \subsection*{Proof}
 \begin{itemize}
     \item [(1)]$$\varnothing=f^{-1}(\varnothing)\in f^{-1}(g_Y)$$
     $\forall B\in g_Y$$$X\setminus f^{-1}(B)= f^{-1}(Y\setminus B)$$
     If $(A_n)_{n\in \mathbb{N}}\in g_Y^\mathbb{N},A=\bigcup\limits_{n\in \mathbb{N}}A_n,A_n\in g_Y$,then $$\bigcup\limits_{n\in \mathbb{N}}f^{-1}(A_n)=f^{-1}(A)\in f^{-1}(g_Y)$$
-    \item [(2)]$$f^{-1}(\varnothing)=\varnothing=g_X$$
-    so $$\varnothing\in f_8(g_X)$$
-    $\forall B\in f_*(g_X)$ $$f^{-1}(Y\setminus B)=X\setminus f^{-1}(Y)\in g_X$$ so $$Y\setminus B\in f_*(g_X)$$
-    $\forall(B_n)_{n\in \mathbb{N}}\in f_*(g_X)^\mathbb{N},B=\bigcup\limits_{n\in \mathbb{N}}B_n$$$f^{-1}(B)=\bigcap\limits_{n\in \mathbb{N}}f^{-1}(B_n)$$So $B\in f_*(g_X)$
+    \item [(2)]$$f^{-1}(\varnothing)=\varnothing=\mathcal{G}_X$$
+    so $$\varnothing\in f_8(\mathcal{G}_X)$$
+    $\forall B\in f_*(\mathcal{G}_X)$ $$f^{-1}(Y\setminus B)=X\setminus f^{-1}(Y)\in \mathcal{G}_X$$ so $$Y\setminus B\in f_*(\mathcal{G}_X)$$
+    $\forall(B_n)_{n\in \mathbb{N}}\in f_*(\mathcal{G}_X)^\mathbb{N},B=\bigcup\limits_{n\in \mathbb{N}}B_n$$$f^{-1}(B)=\bigcap\limits_{n\in \mathbb{N}}f^{-1}(B_n)$$So $B\in f_*(\mathcal{G}_X)$
 \end{itemize}
 \section{Def}
-Let $(X,g_X)$ and $(Y,g_Y)$ be measurable spaces, $f:X\rightarrow Y$ be a mapping. If $f^{-1}(g_Y)\subseteq g_X$ or equivalently $g_Y\subseteq f_8(g_X)$ (or $\forall B\in g_Y,f^{-1}(B)\in g_X$) then we say that $f$ is measurable.
+Let $(X,\mathcal{G}_X)$ and $(Y,g_Y)$ be measurable spaces, $f:X\rightarrow Y$ be a mapping. If $f^{-1}(g_Y)\subseteq \mathcal{G}_X$ or equivalently $g_Y\subseteq f_8(\mathcal{G}_X)$ (or $\forall B\in g_Y,f^{-1}(B)\in \mathcal{G}_X$) then we say that $f$ is measurable.
 \section{Prop}
-Let $(X,g_X),(Y,g_Y),(Z,g_Z)$ be measurable spaces. $f:X\rightarrow Y$ and $g:Y\rightarrow Z$ be measurable mappings. Then $g\circ f$ is measurable.
+Let $(X,\mathcal{G}_X),(Y,g_Y),(Z,g_Z)$ be measurable spaces. $f:X\rightarrow Y$ and $g:Y\rightarrow Z$ be measurable mappings. Then $g\circ f$ is measurable.
 \subsection*{Proof}
-$\forall B\in g_Z$$$(g\circ f)^{-1}(B)=f^{-1}(g^{-1}(B))$$and $$g^{-1}(B)\in g_Y$$ so $$f^{-1}(g^{-1}(B))\in g_X$$
+$\forall B\in g_Z$$$(g\circ f)^{-1}(B)=f^{-1}(g^{-1}(B))$$and $$g^{-1}(B)\in g_Y$$ so $$f^{-1}(g^{-1}(B))\in \mathcal{G}_X$$
 \section{Def}
 Let $\Omega$ be a set $((E_i,\mathcal{E}))_{i\in I}$ be a family of measurable spaces. $f=(f_i)_{i\in I}$ where $f_i:\Omega\rightarrow E_i$ is a mapping. We denote by $\sigma(f)$ the $\sigma$-algebra $\sigma(\bigcup\limits_{i\in I} f_i^{-1}(\mathcal{E}_i))$ It's the smallest $\sigma$-algebra on $\Omega$ making all $f_i$ measurable.
 \section{Prop}
@@ -3893,10 +3895,10 @@ which leads to$$f_i^{-1}(\mathcal{C}_i)\subseteq \sigma(f_i^{-1}(\mathcal{C}_i))
 $$\bigcup\limits_{i\in I}f_i^{-1}(\mathcal{E}_i)\subseteq g$$$\Rightarrow$$$\sigma(f)\subseteq g$$
 ($f_{i,*}(\mathcal{A})=\{B\subseteq E_i\mid f_i(B)\in \mathcal{A}\}$)
 \section{Corollary}
-Let $(X,g_X),(Y,g_Y)$ be measurable spaces. $f:X\rightarrow Y$ be a mapping. $\mathcal{C}_Y\subseteq g_Y$ such that $g_Y=\sigma(\mathcal{Y})$ Then $f$ is measurable iff $$\forall B\in \mathcal{C}_Y\quad f^{-1}(B)\in g_X$$
+Let $(X,\mathcal{G}_X),(Y,g_Y)$ be measurable spaces. $f:X\rightarrow Y$ be a mapping. $\mathcal{C}_Y\subseteq g_Y$ such that $g_Y=\sigma(\mathcal{Y})$ Then $f$ is measurable iff $$\forall B\in \mathcal{C}_Y\quad f^{-1}(B)\in \mathcal{G}_X$$
 \subsection*{Proof}
 $$\sigma(f)=\sigma(f^{-1}(\mathcal{C}_Y))$$
-$f$ is measurable iff $\sigma(f)\subseteq g_X$
+$f$ is measurable iff $\sigma(f)\subseteq \mathcal{G}_X$
 \section{Example}
 Let $((E_i,\mathcal{E}_i))_{i\in I}$ be a family of measurable spaces. 
 $$E=\prod\limits_{i\in I}E_i$$
@@ -3916,4 +3918,120 @@ $$\forall i\in I\quad f_i\circ\varphi:(\Omega,g)\rightarrow(E_i,\mathcal{E}_i) \
     Hence $$\varphi^{-1}(\bigcup\limits_{i\in I}f_i^{-1}(B))\subseteq g$$
     Since $$\sigma(f)=\sigma(\bigcup\limits_{i\in I}f_i^{-1}(\mathcal{E}_i))$$ $\varphi$ is measurable.
 \end{itemize}
+\section{Example}
+Let $(\Omega,\mathcal{G})$ be a measurable space
+\begin{itemize}
+    \item $\forall A\in \mathcal{G}$ $\mathbbm{1}_A:\Omega\rightarrow\mathbb{R}$ is measurable.
+    For any $U\subseteq\mathbb{R}$$$\mathbbm{1}^{-1}_A(U)=A\text{ or }\Omega\setminus A\text{ or }\Omega \text{ or } \varnothing$$
+    \item If X and Y be topological spaces. $f:X\rightarrow Y$ be a continuous mapping, then $f$ is measurable with respect to Borel $\sigma$-algebra. In fact, $\forall V\subseteq Y$ open $f^{-1}(V)\subseteq X$ open.
+    \item Let $(\Omega,\mathcal{G})$ be a measurable space If $f:\Omega\rightarrow\mathbb{R},g:\Omega\rightarrow\mathbb{R}$ are measurable then $f+g,fg,f\wedge g,f\vee g,\abs{f}$ are measurable.
+    \item Let $(f_n)_{n\in \mathbb{N}}$ be a family of measurable mappings from $\Omega$ to $[-\infty,+\infty]$$$f=\sup\limits_{n\in \mathbb{N}}f_n\quad(f(\omega)=\sup f_n(\omega))$$
+    Then $f$ is measurable.\\
+    Similarly $\inf\limits_{n\in \mathbb{N}}f_n$ is measurable.
+    
+    In fact, for any $a\in \mathbb{R}$$$\{\omega\in \Omega\mid f(\omega)>a\}=\bigcup\limits_{n\in \mathbb{N}}\{\omega\in \Omega\mid f_n(\omega)>a\}$$
+\end{itemize}
+\chapter{Measure}
+\section{Def}
+Let $\Omega$ be a set.$\mathcal{C}$ be a semi-algebra on $\Omega$. $\mu:\mathcal{C}\rightarrow\mathbb{R}_{\geq0}$ be a mapping. If $\forall n\in \mathbb{N},\forall (A_i)_{i=1}^n\in \mathcal{C}^n$ pairwisely disjoint, with $A=\bigcup\limits_{i=1}^nA_i$ one has$$\mu(A)=\sum\limits_{i=1}^n\mu(A_i)$$we say that $\mu$ is additive.
+
+Let $$S=\text{ vector subspace of }\mathbb{R}^\Omega\text{ generated by } (\mathbbm{1}_A)_{A\in \mathcal{C}}$$Then$$\begin{aligned}
+    I_\mu:S&\rightarrow\mathbb{R}\\ \sum\limits_{i=1}^n\lambda_i\mathbbm{1}_{A_i}&\mapsto \sum\limits_{i=1}^n\lambda_i\mu(A_i)
+\end{aligned}$$
+is well defined. If $I_\mu$ is an integral operator, we say that $\mu$ is $\sigma$-additive.
+\section{Def}
+Let $(\Omega,\mathcal{G})$ be a measurable space. $\mu:\mathcal{G}\rightarrow[0,+\infty]$ be a mapping. If $\mu(\varnothing)=0$ and if for any $(A_n)_{n\in\mathbb{N}}\in \mathcal{G}^\mathbb{N}$ pairwisely disjoint.
+$$\mu(\bigcup\limits_{n\in \mathbb{N}}A_n)=\sum\limits_{n\in \mathbb{N}}\mu(A_n)$$we say that $\mu$ is a measure.
+
+$(\Omega,\mathcal{G},\mu)$ is called a measure space.
+\section{Def}
+If $\exists(A_n)_{n\in \mathbb{N}}$ such that $\Omega=\bigcup\limits_{n\in \mathbb{N}}A_n$ and $\mu(A_n)<+\infty$ then $\mu$ is said to be $\sigma$-finite.
+\section{Carathéodory Theorem}
+Let $\Omega$ be a set, $\mathcal{C}$ be a semi-algebra on $\Omega$, $\mu:\mathcal{C}\rightarrow\mathbb{R}_{\geq0}$ be a $\sigma$-additive mapping. Assume that there is a sequence $(A_n)_{n\in \mathbb{N}}\in \mathcal{C}^\mathbb{N}$ such that $\Omega=\bigcup\limits_{n\in \mathbb{N}}A_n$. Then $\mu$ extends to a $\sigma$-finite measure on $\sigma(\mathcal{C})$
+\subsection*{Proof}
+Let $S\subseteq\mathbb{R}^\Omega$ be the vector subspace generated by $(\mathbbm{1}_A),A\in \mathcal{C}$ Let $\mathcal{G}=\{A\subseteq\Omega\mid\mathbbm{1}_A\in L^1(I_\mu)^\uparrow\}$ then $\mathcal{G}$ is a $\sigma$-algebra containing $\mathcal{C}$. Hence $\sigma(\mathcal{C})=\mathcal{G}$ Moreover, $(A\in \mathcal{G})\mapsto I_\mu(\mathbbm{1}_A)$ is a measure on $\mathcal{G}$ which is $\sigma$-finite.
+\section{Example}
+$\Omega=\mathbb{R}, \mathcal{C}=\{\rightbracket a,b\rightbracket\mid (a,b)\in \mathbb{R}^2,a<b\}$ $\sigma(\mathcal{C})=$ Borel $\sigma$-algebra $\varphi:\mathbb{R}\rightarrow\mathbb{R}$ increasing and right continuous.
+$$\begin{aligned}
+    \mu_\varphi:\mathcal{C}&\rightarrow\mathbb{R}_{\geq0}\\ \rightbracket a,b\rightbracket&\mapsto \varphi(b)-\varphi(a)
+\end{aligned}$$is $\sigma$-additive.
+
+Hence $\mu_\varphi$ extends to a measure:$$\sigma(\mathcal{C})\rightarrow[0,+\infty]$$called the Stieftjes measure. In the particular case where $\varphi(x)=x\ (\forall x\in\mathbb{R})$ $\mu_\varphi$ is called a Lebesgue measure.
+\section{Def}
+Let $(\Omega,\mathcal{G},\mu)$ be a measure space. Then $$\{A\in \mathcal{G}\mid\mu(A)<+\infty\}$$ is a semialgebra. $\sigma(\mathcal{C})=\mathcal{G}$ and $\mu\mid_\mathcal{C}$ is $\sigma$-additive.
+\begin{itemize}
+    \item $$\mu(A_0)=\sum\limits_{n\in \mathbb{N}}\mu(B_n)<+\infty$$
+    $$\sum\limits_{k\geq n}\mu(B_k)=\mu(A_n)\rightarrow 0\ (n\rightarrow+\infty)$$
+\end{itemize}
+We denote by $L^1(\Omega,\mathcal{G},\mu)$ the set of measurable mappings $f:\Omega\rightarrow\mathbb{R}$ that belongs to $L^1(I_\mu)$. For $f\in  L^1(\Omega,\mathcal{G},\mu)$ $$I_\mu(f)$$ is denoted as $$\int_\Omega f(\omega)\mu(d\omega)$$
+\subsection{Particular case}
+If $\Omega=\mathbb{R}$ $\mu=\mu_\varphi$ Stieftjes measure.$$\int_\mathbb{R}f(x)\mu_\varphi(dx)$$ is denoted as$$\int_\mathbb{R}f(x)d\varphi(x)$$
+\section{Prop}
+Let $(\Omega,\mathcal{G},\mu)$ be a $\sigma$-finite measure space. $f:\Omega\rightarrow\mathbb{R}$ is measurable. If $$\exists g\in L^1(\Omega,\mathcal{G},\mu),g\leq f$$ then $$f\in L^1(\Omega,\mathcal{G},\mu)^\uparrow$$ 
+\subsection*{Proof}
+By replacing $f$ by $f-g$, we may assume that $g=0$ Consider first the case where $$f=\mathbbm{1}_B,B\in \mathcal{G}$$
+Let $(A_n)_{n\in \mathbb{N}}$ be a increasing sequence in $\mathcal{G}$, $\mu(A_n)<+\infty,\bigcup\limits_{n\in \mathbb{N}}A_n=\Omega$
+Then $$\mathbbm{1}_B=\lim\limits_{n\in \mathbb{N}}\mathbbm{1}_{B\cap A_n}\in L^1(\Omega,\mathcal{G},\mu)^\uparrow$$
+For general $f\geq0$ $$f=\lim\limits_{n\in \rightarrow+\infty}f_n\in L^1(\Omega,\mathcal{G},\mu)^\uparrow$$ where
+$$f_n=\sum\limits_{k=0}^{n2^n-1}\frac{k}{2^n}\mathbbm{1}_{\{\omega\in \Omega\mid\frac{k}{2^n}\leq f(\omega)<\frac{k+1}{2^n}\}}+n\mathbbm{1}_{\{\omega\in \Omega\mid f(\omega)\geq n\}}$$
+\section{Corollary}
+Let $f:\Omega\rightarrow\mathbb{R}$ be a measurable mapping. Then $$f\in L^1(\Omega,\mathcal{G},\mu)$$iff$$\int_\Omega\abs{f(\omega)}\mu(d\omega)<+\infty$$
+\subsection*{Proof}
+\begin{itemize}
+    \item [$\Rightarrow$]One has $f\in L^1(I_\mu)$. Hence $\abs{f}\in L^1(I_\mu)$ So $I_\mu(\abs{f})<+\infty$
+    \item [$\Leftarrow$]Suppose that $$\int_\Omega\abs{f(\omega)}\mu(d\omega)<+\infty$$Since $f\vee 0$ adn $-(f\wedge 0)$ belongs to $L^1(\Omega,\mathcal{G},\mu)^\uparrow$ and $f\vee 0\leq\abs{f},-(f\wedge0)\leq\abs{f}$ so $$ f\vee 0\text{ and }-(f\wedge 0)\in L^1(\Omega,\mathcal{G},\mu)$$
+    Hence $$f=f\vee0+f\wedge0\in L^1(\Omega,\mathcal{G},\mu)$$
+\end{itemize}
+\chapter{Fundamental theorem of calculus}
+\section{Theorem}
+Let J be an open interval in $\mathbb{R}$ $x_0\in J$ $f:J\rightarrow\mathbb{R}$ be a continuous mapping.
+\begin{itemize}
+    \item[(1)]$\forall (a,b)\in J^2,a<b$
+    $$\begin{aligned}
+        \mathbbm{1}_{\rightbracket a,b\rightbracket}:\mathbb{R}\rightarrow\mathbb{R}\\ x&\mapsto f(x) &\text{ if }x\in \rightbracket a,b\rightbracket\\ &\mapsto 0&\text{ if }x\not\in \rightbracket a,b\rightbracket
+    \end{aligned}$$
+    belongs to $L^1(\mathbb{R},\mathscr{B},\mu)$($\mathscr{B}$ is Borel $\sigma$-algebra,$\mu$ is Lebesgue measure)
+    \item [(2)]Let $F:J\rightarrow\mathbb{R}$ $F(x):+\int_{x_0}^xf(t)dt$. Then $F$ is differentiable on $J$ with $F'(x)=f(x),\forall x\in J$
+\end{itemize}
+\section{Corollary}
+If $G:J\rightarrow\mathbb{R}$ is a mapping such that $G'=f$ then $\forall(a,b)\in J^2,a<b$ $$G(b)-G(a)=\int_a^bf(t)dt$$
+\subsection{Proof}
+\begin{itemize}
+    \item [(1)]$f$ is bounded on $[a,b]$ Hence$$\int_\mathbb{R}\mathbbm{1}_{\rightbracket a,b\rightbracket}^{(x)}\abs{f(t)^{(x)}}dx<+\infty$$
+    \item [(2)]Let $x\in J,h>0$ such that $[x,x+h]\subseteq J$, $f$ is uniformly continuous on $[x,x+h]$\\ For $0<t\leq h$
+    $$\inf f\mid_{[x,x+t]}\leq\frac{F(x+t)-F(x)}{t}=\frac{1}{t}\int_{x}^{x+t}f(s)ds\leq \sup f\mid_{[x,x+t]}$$Since $f$ is continuous $$\lim\limits_{t\rightarrow 0}\inf f\mid_{[x,x+t]}=\lim\limits_{t\rightarrow 0}\sup f\mid_{[x,x+t]}=f(x)$$
+    So $$\lim\limits_{t>0,t\rightarrow 0}\frac{F(x+t)-F(x)}{t}=f(x)$$
+    Similarly$$\lim\limits_{t>0,t\rightarrow 0}\frac{F(x+t)-F(x)}{t}=f(x)$$Hence $$F'(x)=f(x)$$
+\end{itemize}
+\subsection*{Application}
+\begin{itemize}
+    \item Let F and G be two mapping of class $C^1$ from J to $\mathbb{R}$ Then $FG$ is of class $C^1$ and $$FG'(x)=F'(x)G(x)+F(x)G'(x)$$Let $f=F',g=G'$, then $\forall(a,b)\in J^2,a,b$ $$\int_a^bf(t)G(t)dt=F(b)G(b)-F(a)G(a)-\int_a^bF(t)g(t)dt$$
+    \item Let $\varphi:I\rightarrow J$ be a mapping of class $C^1$ , where $I$ is open interval. Let $F:J\rightarrow\mathbb{R}$ be a mapping of class $C^1$. $$(F\circ \varphi)'(x)=F'(\varphi(x))\varphi'(x)$$
+    \item Hence $\forall(\alpha,\beta)\in I^2,\alpha<\beta$ $$\int_\alpha^\beta F(\varphi(t))\varphi'(t)dt=F(\varphi(\beta))-F(\varphi(\alpha))$$
+\end{itemize}
+\chapter{$L^p$ space}
+\section{Def}
+We fix a measure space $(\Omega,\mathcal{G},\mu)$ the set of measurable mappings $f:\Omega\rightarrow\mathbb{R}$ such that
+$$\norm{f}_{L^p}:=(\int_\Omega\abs{f(\omega)}^p\mu(dx))^{\frac{1}p}<+\infty$$
+\begin{itemize}
+    \item [Lemma]Let $(p,q)\in \mathbb{R}_{\geq1}^2$ such that $$\frac{1}p+\frac{1}{q}=1$$
+for any $(a,b)\in \mathbb{R}_{\geq0}^2$$$\frac{a^p}{p}+\frac{b^q}{q}\geq ab$$
+    \item [Proof]We may assume that $(a,b)\in \mathbb{R}_{\geq 0}$$$\frac{a^p}{p}+\frac{b^q}{q}=\frac{1}{p}\exp (p\ln a)+\frac{1}{q}\exp (q\ln b)\geq\exp(\ln a+\ln b)=ab$$
+\end{itemize}
+$$\begin{aligned}
+    \int_\Omega\abs{\varphi(x)\psi(x)}\mu(dx) &\leq\frac{\int_\Omega\abs{\varphi(x)}^p\mu(dx)}{p\norm{f}_{L^p}^p}+\frac{\int_\Omega\abs{\psi(x)}^q\mu(dx)}{q\norm{g}_{L^q}^q}\\
+    &=\frac{1}{p}+\frac{1}{q}=1
+\end{aligned}$$
+\section{Hölder inequality}Let $f:\Omega\rightarrow\mathbb{R}$ and $g:\Omega\rightarrow\mathbb{R}$ be measurable mappings. One has 
+$$\norm{fg}_{L^1}\leq\norm{f}_{L^p}\norm{g}_{L^q}$$
+\subsection*{Proof}
+Take$$\varphi=\frac{f}{\norm{f}_{L^p}},\psi=\frac{g}{\norm{g}_{L^q}}$$
+then
+$$\abs{\varphi(x)\psi(x)}\leq\frac{\abs{\varphi(x)}^p}{p}+\frac{\abs{\psi(x)}^q}{q}$$
+\section{Corollary}
+Let $p\geq1$ $\forall(f,g)\in L^p(\Omega,\mathcal{G},\mu)$$$
+\norm{f+g}_{L^p}\leq\norm{f}_{L^p}+\norm{g}_{L^p}$$
+\subsection*{Proof}
+Apply Hölder inequality to $f(f+g)^{p-1}$ and $g(f+g)^{p-1}$
+
 \end{document}
