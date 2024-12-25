@@ -3727,53 +3727,68 @@ Let $\Omega$ be a set $\mathcal{C}$ be a semialgebra on $\Omega$ and $\mathcal{A
 \section{Prop}For any $f\in S$,$\exists (A_i)_{i=1}^n\in\mathcal{A}^n$ pairwisely disjoint and $(\lambda_i)_{i=1}^n$ such that $$f=\sum\limits_{i=1}^n\lambda_i\mathbbm{1}_{A_i}$$
 \subsection*{Proof}
 $f$ is of the form $$f=\sum\limits_{j=1}^m a_j\mathbbm{1}_{B_j}\quad B_j\in \mathcal{C}$$We reason by induction on $m$. For any $I\subseteq\{1,\cdots,m\}$ let 
-$$B_I=\bigcap\limits_{j\in I}B_j\cap\bigcap\limits_{j\in \{1,\cdots,m\}\setminus I}(\Omega\setminus B_j)$$ Then $(B_I)_{I\subseteq\{1,\cdots,m\}}$ are pairwisely disjoint.
+$$B_I=\bigcap\limits_{j\in I}B_j\cap\bigcap\limits_{j\in \{1,\cdots,m\}\setminus I}(\Omega\setminus B_j)$$ Then $(B_I)_{I\subseteq\{1,\cdots,m\}}$ are pairwisely disjoint.\\
+Moreover. if $I=\varnothing, B_I\in \mathcal{A}$$$B_i=\bigsqcup\limits_{I\subseteq\{1,\cdots,m\},i\in I}B_I$$
+Hence$$f=\sum\limits_{U\subseteq\{1,\cdots,m\}}(\sum\limits_{j\in I}a_j\mathbbm{1}_{B_I})$$
+\section{Corollary}
+\begin{itemize}
+    \item [(1)] If $f\in S$ then $$f\wedge 0\in S$$
+    \item [(2)] If $(f,g)\in S^2$ then $$f\wedge g=(f-g)\wedge0+g\in S$$
+\end{itemize}
+\subsection*{Proof}
+We intend to define$$I_\mu(\sum\limits_{i=1}^n\lambda_i\mathbbm{1}_{A_i})$$ as$$\sum\limits_{i=1}^n\lambda_iI_\mu(\mathbbm{1}_{A_i})$$
+for $A_i\in\mathcal{C}$ We need to check that if $f\in S$ is written as 
+$$f=\sum\limits_{i=1}^n\lambda_i\mathbbm{1}_{A_i}=\sum\limits_{j=1}^m\xi_{j}\mathbbm{1}_{{B_j}}$$
+then $$\sum\limits_{i=1}^n\xi_iI_\mu(\mathbbm{1}_{{A_i}})=\sum\limits_{j=1}^m\xi_jI_\mu(\mathbbm{1}_{{B_j}})$$
+so $$0=\sum\limits_{i=1}^n\xi_i\mathbbm{1}_{A_i}-\sum\limits_{j=1}^m\xi_j\mathbbm{1}_{{B_j}}$$I
+t suffices to prove that if $$\sum\limits_{i=1}^n\xi_i\mathbbm{1}_{A_i}=0$$
+then $$\sum\limits_{j=1}^m\xi_j\mathbbm{1}_{{B_j}}=0$$
+For $I\subseteq\{1,\cdots,n\}$ let $$A_I=\{\omega\in\Omega\mid\forall i\in I,\omega\in A_i, \forall i\in \{1,\cdots,n\}\setminus I,\omega\in \Omega\setminus A_i\}$$
+$A_I\in \mathcal{A}$ when $I\neq\varnothing$
+\section{Lemma}
+Let $B\in \mathcal{A}$ If $$B=\bigsqcup\limits_{i=1}^n B_i=\bigsqcup\limits_{j=1}^mC_j$$with 
+$B_i,C_i\in \mathcal{C}$, then $$\sum\limits_{i=1}^n\mu(B_i)=\sum\limits_{j=1}^m\mu(C_j)$$
+In particular, we can extend $\mu:\mathcal{C}\rightarrow\mathbb{R}_{\geq0}$ to $\mu:\mathcal{A}\rightarrow\mathbb{R}_{\geq0}$ such that $\forall D_1,\cdots,D_n$ in $\mathcal{A}$ disjoint$$\mu(D_1\cup\cdots\cup D_n)=\sum\limits_{i=1}^n\mu(D_i)$$
+\subsection{Proof}
+$$B_i=\bigsqcup\limits_{j=1}^m(B_i\cap C_j)\qquad\mu(B_i)=\sum\limits_{j=1}^m\mu(B_i\cap C_j)$$
+$$\begin{aligned}
+    \sum\limits_{i=1}^n\mu(B_i)&=\sum\limits_{i=1}^n\sum\limits_{j=1}^m\mu(B_i\cap C_j)\\
+    &=\sum\limits_{j=1}^m\sum\limits_{i=1}^n\mu(B_i\cap C_j)\\
+    &=\sum\limits_{j=1}^m\mu(C_j)
+\end{aligned}$$
+Back to the proof $$0=\sum\limits_{i=1}^n a_i\mathbbm{1}_{A_i}=\sum\limits_{\varnothing\neq I\subseteq\{1,\cdots,n\}}(\sum\limits_{i\in I}a_i)\mathbbm{1}_{A_i}$$
+hence $$\sum\limits_{i\in I} a_i=0$$
+$$\begin{aligned}
+    0 &=\sum\limits_{i=1}^n a_i\mu(A_i)\\
+    &=\sum\limits_{i=1}^n a_i\sum\limits_{i\in I\subseteq\{1,\cdots,n\}}\mu(A_i)\\
+    &=\sum\limits_{\varnothing\neq I\subseteq\{1,\cdots,n\}}\mu(A_i)\sum\limits_{i\in I}a_i
+\end{aligned}$$
+\chapter{Integral function}
+\section{Setting}
+Let $\Omega$ be a set. $S\subseteq\mathbb{R}^\Omega$ be $\mathbb{R}$-vector subspace, $\forall(f,g)\in S^2,f\wedge g\in S$ $I:S\rightarrow \mathbb{R}$ integral operator.
+\section{Prop}
+Suppose that $\mathbbm{1}_\Omega\in L^1(I)^\uparrow$ The set $$\mathcal{G}=\{A\subseteq\Omega\mid \mathbbm{1}_A\in L^1(I)^\uparrow\}$$
+is a $\sigma$-algebra on $\Omega$
 
+Moreover, if we denote by $\mu:\mathcal{G}\rightarrow\mathbb{R}_{\geq0}$ the mapping define as $$\mu(A):= I(\mathbbm{1}_A)$$ then $\mu$ satisfies : 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$\forall(A_n)_{n\in \mathbb{N}}\in \mathcal{G}^\mathbb{N}$ that's is pairwisely disjoint, then $$\mu(\bigcup\limits_{n\in \mathbb{N}}A_n)=\sum\limits_{n\in \mathbb{N}}\mu(A_n)$$
+\subsection{Proof}
+\begin{itemize}
+    \item [(1)]$$\varnothing\in \mathcal{G}$$ since $$0=\mathbbm{1}\in L^1(I)^\uparrow$$
+    \item [(2)] If A and B are elements of $\mathcal{G}, A\subseteq B$, then $$\mu(A)\leq \mu(B)$$ so$$\mathbbm{1}_B-\mathbbm{1}_{B\setminus A}\in L^1(I)^\uparrow\Rightarrow B\setminus A\in \mathcal{G}$$
+    \item [(3)]If $(A,B)\in \mathcal{G}^2$$$\mathbbm{1}_{A\cup B}=\mathbbm{1}_A+\mathbbm{1}_{B}-\mathbbm{1}_{A\cap B}\in L^1(I)^\uparrow$$
+    So $A\cup B\in \mathcal{G}$
+    \\ If $(A_n)_{n\in \mathbb{N}}\in \mathcal{G}, A=\bigcup\limits_{n\in \mathbb{N}}A_n$ then $$\mathbbm{1}_A=\lim\limits_{n\rightarrow+\infty}\mathbbm{1}_{A_1\cup\cdots\cup A_n}\in L^1(I)^\uparrow\quad\Rightarrow A\in \mathcal{G}$$
+    $$
+    \begin{aligned}
+        \underbrace{I(\mathbbm{1}_{\sum\limits_{n\in \mathbb{N}}A_n})}\limits_{\mu(\bigcup\limits_{n\in \mathbb{N}}A_n)}
+        &=\lim\limits_{n\rightarrow+\infty}\mathbbm{1}_{A_0\cup\cdots\cup A_n}\\ 
+        &=\lim\limits_{n\rightarrow+\infty}\sum\limits_{i=0}^n\mathbbm{1}_{A_n}\in L^1(I)^\uparrow\\
+        &=-\sum\limits_{n\in \mathbb{N}}\mu(A_n)
+    \end{aligned}
+    $$
+\end{itemize}
 
 \chapter{Limit and Differential of Integrals with Parameters}
 Let $\Omega$ be a set. $S\subseteq\mathbb{R}^\Omega$ be $\mathbb{R}$-vector subspace such that $\forall(f,g)\in S^2,f\wedge g\in S$. Let $I:S\rightarrow \mathbb{R}$ be an integral operator.
