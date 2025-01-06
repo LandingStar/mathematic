@@ -1,0 +1,116 @@
+\documentclass{book} 
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{bbm}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} 
+\newcommand{\leftbracket}{[}
+\newcommand{\rightbracket}{]}
+\begin{document}
+\chapter{$\lambda$-terms}
+\section{Def}
+Let V be an infinite set (the elements of which are called variables)
+
+We construct a set $L$ which consists of finite sequences formed with the following symbols:
+\begin{itemize}
+    \item elements of V
+    \item left and right parenthesis()
+    \item $\lambda$ (Suppose that $\lambda$(,) are distinct and do not belongs to V,e.g.$\lambda x(t)$)
+\end{itemize}
+in a recursive way as follows:
+\begin{itemize}
+    \item If $x\in V$ then $x\in L$
+    \item If $t$ and $\mu$ are elements of V, then $t(\mu)\in L$
+    \item If $x\in V$ $t\in L$  then $\lambda xt\in L$
+\end{itemize}
+e.g. $$I:=\lambda x x\in L$$
+
+some time we omit the parenthesis$$t(\mu_1(\mu_2\cdots(\mu_n)\cdots)\cdots)$$ can be written as $$t \mu_1 \mu_2 \cdots \mu_n \cdots$$
+\section{Def}
+Let $\alpha\in V$ and $t\in L$ We define the free occurrences of $x$ in $t$ as
+\begin{itemize}
+    \item If $t=x$, the only occurrence of $x$ in $t$ is free
+    \item If $t=\mu_1(\mu_2)$ the free occurrence of $x$ in $t$ are those of $x$ in $\mu_1$ and $\mu_2$
+    \item If $t=\lambda y \mu,y\neq x$, the free occurrence of $x$ in $t$ are those of $x$ in $\mu$
+    \item If $t=\lambda x \mu$, no occurrence of $x$ in $t$ is free
+\end{itemize}
+If $x$ has at least one free occurrence in $t$, we say that $x$ is a free variable of $t$
+
+If $x$ occur in $t$ just after $\lambda$, we say that $x$ is a bound variable of $t$
+\chapter{Substitutes}
+\section{Def}
+Let $t,t_1,\cdots,t_k$ be elements of $L$ and $x,x_1,\cdots,x_k$ be distinct variables in $V$. We define $$t<t_1/x_1,\cdots,t_k/x_k>\in L$$ as follows:
+\begin{itemize}
+    \item If $t=x_i$$$t<t_1/x_1,\cdots,t_k/x_k>=t_i$$
+    \item If $t\in V\setminus\{x_1,\cdots,x_k\}$$$t<t_1/x_1,\cdots,t_k/x_k>=t$$
+    \item If $t=\mu_1(\mu_2)$ then $$t<t_1/x_1,\cdots,t_k/x_k>=\mu_1<t_1/x_1,\cdots,t_k/x_k>(\mu_2<t_1/x_1,\cdots,t_k/x_k>)$$
+    \item If $t=\lambda x_iu$$$t<t_1/x_1,\cdots,t_k/x_k>=\lambda x_i(t_1<t_1/x_1,\cdots,t_{i-1}/x_{i-1},t_{i+1}/x_{i+1},\cdots,t_k/x_k>)$$
+    \item If $t=\lambda x\mu,x\not\in \{x_1,\cdots,x_k\}$$$t<t_1/x_1,\cdots,t_k/x_k>=\lambda x\mu<t_1/x_1,\cdots,t_k/x_k>$$
+\end{itemize}
+\underline{Reference}: Jean-Louis KrivineLambda-calculus, type and models.
+\chapter{$\alpha$-equivalence}
+\section{Def}
+We define a binary relation $\equiv $ on $L$ in a recursive way as follows:
+\begin{itemize}
+    \item If $t\in V$ $t\equiv t'$ iff $t=t'$
+    \item If $t=\mu_1(\mu_2)$ $t\equiv t'$ iff $\exists \mu_1'\text{ and }\mu_2'$ in $L$ such that $\mu_1\equiv \mu_1',\mu_2\equiv \mu_2'$ and $t'=\mu_1'(\mu_2')$ 
+    \item if $t=\lambda x \mu$ $t\equiv t'$ iff $t'$ is of the form $t'=\lambda x'\mu'$ with $\mu<y/x>\equiv \mu'<y/x'>$ for all but finitely many $y\in V$
+\end{itemize}
+\section{Facts}
+\begin{itemize}
+    \item $\equiv$ is an equivalence relation
+    \item If $t=t'$ then $t$ and $t'$ have the same length and the same free variables.
+    \item Let $t,t',t_1,t_1',\cdots,t_k,t_k'$ be elements of $L$ $x_1,\cdots,x_k$ be distinct variables if $t\equiv t',t_i\equiv t_i',\forall i\in \{1,\cdots,k\}$, and no free variables of $t_1,\cdots,t_k$ is bound in $t$ and $t'$ then $$t<t_1/x_1,\cdots,t_k/x_k>\equiv t'<t_1'/x_1,\cdots,t_k'/x_k>$$
+    \item $\equiv$ is $\lambda$-compatible namely\begin{itemize}
+        \item if $\mu_1\equiv\mu_1',\mu_2\equiv\mu_2'$ then $\mu_1(\mu_2)\equiv\mu_1'(\mu_2')$
+        \item if $t\equiv t'$ then $\lambda x t\equiv \lambda x t'$
+    \end{itemize}
+    Hence the constructions of $L$ induces by taking equivalence classes the following constructions on $\Lambda:=L/\equiv$\begin{itemize}
+        \item For any $U_1$ and $U_2$ in $\Lambda$ with representation $\mu_1$ and $\mu_2$ respectively, we denote $U_1(U_2)$ as the equivalence class of $\mu_1(\mu_2)$
+        \item $\forall x\in V,\forall T\in \Lambda$ with representation $t$, we define $\lambda xT$ as the equivalence class of $\lambda x t$
+    \end{itemize}
+    \item $\lambda xt\equiv\lambda yt<y/x>$ if $y$ is a variable that does not occur on $t$
+    \item Let $t\in L$ and $x_1,\cdots,x_k$ be elements of $V$. $\exists t'\in L, t'\equiv t$ such that none of $x_1,\cdots,x_k$ is bound on $t'$
+    \item Let $T\in \Lambda$ All elements of $T$ have the same set of free variables we call then free variables of $T$
+\end{itemize}
+\section{Def}
+Let $T,T_1,\cdots,T_k$ be elements of $\Lambda$ $t,t_1,\cdots,t_k$ be their representations such that no bound variables of $t$ is free is $t_1,\cdots,t_k$. we define
+$$T[T_1/x_1,\cdots,T_k/x_k]:=\text{ the equivalence class of } t<t_1/x_1,\cdots,t_k/x_k>$$
+\subsection{Facts}
+\begin{itemize}
+    \item If $x_1$ is not free in $T$$$T[T_1/x_1,\cdots,T_k/x_k]=T_1[T_2/x_2,\cdots,T_k/x_k]$$
+    \item Let $x_1,\cdots,x_m,y_1,\cdots,y_m$ be variables such that $x_1=y,\cdots,x_k=y_k$ and $x_1,\cdots,x_m,y_{k+1},\cdots y_n$ are distinct.
+    
+    Let $T,T_1,\cdots,T_m,U_1,\cdots,U_n$ be elements of $\Lambda$ $$T_i'=T_i[\mu_1/y_1,\cdots,\mu_n/y_n]$$
+    Then $$T[T_1/x_1,\cdots,T_m/x_m][U_1/y_1,\cdots,U_n/y_n]=T[T_1'/x_1,\cdots,T'_m/x_m,U_{k+1}/y_{k+1},\cdots,U_n/y_n]$$ 
+    \item If $i\in \{1,.\cdots,k\}$$$x_i[T_1/x_1,\cdots,T_k/x_k]=T_i$$
+    
+    If $x\in V\setminus\{x_1,\cdots,x_k\}$$$\ x[T_1/x_1,\cdots,T_k/x_k]=x$$(we still use $x$ to represent its equivalence class $\{x\}$) 
+
+    If $T=\lambda xU$ $x$ is not free in $T_1,\cdots,T_k$
+    $$x\not\in \{x_1,\cdots,x_k\},T[T_1/x_1,\cdots,T_k/x_k]=\lambda xU[T_1/x_1,\cdots,T_k/x_k]$$
+\end{itemize}
+\chapter{$\beta$-convention}
+\section{Def}
+We define a binary relation $\beta_0$ on $\Lambda$ as follows:
+\begin{itemize}
+    \item If $x\in V$ there is no $T'$ such that $x\beta _0 T'$
+    \item If $T=U_1(U_2)$ $T\beta _0T'$ iff either\begin{itemize}
+        \item $T'=U_1(U_2')$ with $U_2\beta _0 U_2'$
+        \item $T'=U_1'(U_2)$ with $U_1\beta _0 U_1'$
+        \item $U_1=\lambda xW$ $T'=W[U_2/x]$
+    \end{itemize} 
+\end{itemize}
+We denote by $\simeq_\beta$ the smallest equivalence relation that contains $\beta_0$
+\end{document}

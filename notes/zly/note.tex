@@ -745,12 +745,12 @@ Let $A\subseteq X\cup\{y\},A\not=\varnothing$. If $A=\{y\}$ then $Y$ is the leas
 \section{Def: Initial Segment}
 Let $(X,\leq)$ be a well ordered set. $S\subseteq X,$ If $\forall s\in S,x\in X\quad x<s$ initial $x\in S(X_{<s}\subseteq S)$, then we say that S is an initial segment of X
 
-If S is a initial segment such that $S=X$ then we sat that S is a proper initial segment.
+If S is a initial segment such that $S\neq X$ then we sat that S is a proper initial segment.
 \section{Example}$\forall x\in X\quad X_{<x}=\{s\in X\mid s<x\}$ Then $X_{<x}$ is a proper initial segment of X.
 \section{Prop.}Let $(X,\leq)$ be a well ordered set , If $(S_i)_{i\in I}$ is a family of initial segment of X, then $\bigcup\limits_{i\in I}S_i$ is an initial segment of X
 \section{Proof}
 $\forall s\in \bigcup\limits_{i\in I}S_i,\exists i\in I$ such that $s\in S_i,i\in I$ Therefore $X_{<s}\subseteq S_i\subseteq\bigcup\limits_{i\in I}S_i$
-\section{Prop.}
+\section{Prop}
 Let $(X,\leq)$ be a well ordered set.
 \begin{itemize}
     \item[(1)] Let S be a proper initial segment of X, $x= \min(X\backslash S)$ Then $S=X_{<x}$
@@ -3388,8 +3388,8 @@ We call integral operator on S any $\mathbb{R}$-linear mapping $I:S\rightarrow\m
     $$\mathbbm{1}_{{\rightbracket a,b\rightbracket}}=\left\{\begin{aligned}
         1,x\in {\rightbracket a,b\rightbracket}\\ 0, else
     \end{aligned}\right.$$
-    Any element of S is of the form$$\sum\limits_{i=1}^n\mathbbm{1}_{\rightbracket a_i,b_i\rightbracket}$$
-    $I:S\rightarrow R$ is defined as $$I(\sum\limits_{i=1}^n\lambda\mathbbm{1}_{\rightbracket a_i,b_I\rightbracket})=\sum\limits_{i=1}^n\lambda_i(b_i-a_i)$$
+    Any element of S is of the form$$\sum\limits_{i=1}^n\lambda_i\mathbbm{1}_{\rightbracket a_i,b_i\rightbracket}$$
+    $I:S\rightarrow R$ is defined as $$I(\sum\limits_{i=1}^n\lambda_i\mathbbm{1}_{\rightbracket a_i,b_i\rightbracket})=\sum\limits_{i=1}^n\lambda_i(b_i-a_i)$$
 
     More generally if $\varphi:\mathbb{R}\rightarrow R$ is increasing and right continuous $(\forall x\in \mathbb{R},\lim_{\epsilon>0,\epsilon\rightarrow 0}\varphi(x+\epsilon)=\varphi(x))$
     We define $$I_\varphi:S\rightarrow\mathbb{R}$$
@@ -3709,7 +3709,7 @@ $$I_\varphi(\mathbbm{1}_B)=\varphi(b)-\varphi(a')$$
 $$I_\varphi(\mathbbm{1}_A)=\varphi(b)-\varphi(a)$$
 $$I_\varphi(\mathbbm{1}_A)-I_\varphi(\mathbbm{1}_B)=\varphi(a')-\varphi(a)\leq\epsilon$$
 In general $$A=\bigsqcup\limits_{i=1}^n A_i$$ with $A_i\in \mathcal{C} \forall i\in \{1,\cdots,n\},\exists B_i\in \mathcal{C}$$$\varnothing\neq\overline{B_i}\subseteq A_i\quad I(\mathbbm{1}_A)-I(\mathbbm{1}_B)\leq\frac{\epsilon}{n}$$
-Let $B=\bigsqcup\limits_{i=1}^n B_i$ then $$I(\mathbbm{1}_A)-I(\mathbbm{1}_B)=\sum\limits_{i=1}^nI(I(\mathbbm{1}_{A_i})-I(\mathbbm{1}_{B_i}))\leq\epsilon$$
+Let $B=\bigsqcup\limits_{i=1}^n B_i$ then $$I(\mathbbm{1}_A)-I(\mathbbm{1}_B)=\sum\limits_{i=1}^nI(\mathbbm{1}_{A_i})-I(\mathbbm{1}_{B_i})\leq\epsilon$$
 \section{Theorem}
 $I_\varphi$ is an integral operator
 \subsection*{Proof}
