@@ -4049,8 +4049,8 @@ Let $p\geq1$ $\forall(f,g)\in L^p(\Omega,\mathcal{G},\mu)$$$
 \norm{f+g}_{L^p}\leq\norm{f}_{L^p}+\norm{g}_{L^p}$$
 \subsection*{Proof}
 Apply Hölder inequality to $f(f+g)^{p-1}$ and $g(f+g)^{p-1}$
-\part{}
-\chapter{}
+\part{tensor}
+\chapter{tensor product}
 Let $R$ be a commutative ring with unity 
 \section{Theorem}
 Let $M$ and $N$ be two $R$-modules. Then exists an $R$-module denoted by $M\otimes _RN$ and a bilinear mapping 
@@ -4099,11 +4099,11 @@ The $R$-module $M\otimes_RN$ constructed above is called the tensor product of $
 \end{itemize}
 \section{Corollary}
 The mapping $s\mapsto f_s$ defined above gives an isomorphism
-$$\mathcal{L}(M,N;P)\cong \mathcal{L}(M\otimes_RN,P)$$
+$$\mathscr{L}(M,N;P)\cong \mathscr{L}(M\otimes_RN,P)$$
 for any $R$-module $P$
 \subsection*{Proof}
 \begin{itemize}
-    \item[surjection]Take $\varphi\in \mathcal{L}(M\otimes_RN,P)$, the $\varphi\circ t$ is clearly bilinear ($\in\mathcal{L}(M,N;P)$),so $\varphi=f_{\varphi\circ t}$. This shows surjectivity.
+    \item[surjection]Take $\varphi\in \mathscr{L}(M\otimes_RN,P)$, the $\varphi\circ t$ is clearly bilinear ($\in\mathscr{L}(M,N;P)$),so $\varphi=f_{\varphi\circ t}$. This shows surjectivity.
     \item[injection]if $0\neq s=f_s\circ t\Rightarrow f_s\neq0$, hence 
 \end{itemize}
 \section{exercise}
@@ -4113,7 +4113,7 @@ so we can remove parenthesis and write
 $$M_1\otimes_RM_2\otimes_R\cdots\otimes_RM_n$$
 (call it the n-fold tensor product of $M_1,\cdots,M_n$)
 \subsection{}
-show that $M_1\otimes_RM_2\otimes_R\cdots\otimes_RM_n$ factorizes the multi-linear mappings, and $$\mathcal{L}(M_1,\cdots,M_n;P)\cong \mathcal{L}(M_1\otimes_R\cdots\otimes_RM_n,P)$$
+show that $M_1\otimes_RM_2\otimes_R\cdots\otimes_RM_n$ factorizes the multi-linear mappings, and $$\mathscr{L}(M_1,\cdots,M_n;P)\cong \mathscr{L}(M_1\otimes_R\cdots\otimes_RM_n,P)$$
 $$\xymatrix{
     &M_1\times M_2\ar[r]^s\ar[d]_t &P\\
     &M_1\otimes_RM_2\ar[ur]_{f_s}\ar@{~>}[d] &\\
@@ -4121,7 +4121,7 @@ $$\xymatrix{
 }
 $$
 We have the general definition of tensor products for $R$-modules. But we're interested in the case $R=K$ when K is a field.$I$ denotes: $V_1\otimes\cdots\otimes V_n$
-$$\mathcal{L}(V_1,\cdots,V_n;K)\cong(V_1\otimes\cdots\otimes V_n)^\vee$$
+$$\mathscr{L}(V_1,\cdots,V_n;K)\cong(V_1\otimes\cdots\otimes V_n)^\vee$$
 This is the pervious corollary $f\sim P=K$
 \section{Lemma}
 Let $V_1,\cdots,V_n$ be $K$-vector spaces of finite dimension $d_i>0$ let $${e_{i1},\cdots,e_{id_i}}$$ be a basis for $V_i$. Let's define the following functions.
@@ -4131,7 +4131,7 @@ $$
     &(v_1,\cdots,v_n)\mapsto \prod\limits_{j=1}^ne_{ji_j}^\vee(V_j)
 \end{aligned}
 $$
-Then the set $\{\varphi_{i_1,\cdots,i_n}\}$ is a basis for $\mathcal{L}(V_1,\cdots,V_n;K)$
+Then the set $\{\varphi_{i_1,\cdots,i_n}\}$ is a basis for $\mathscr{L}(V_1,\cdots,V_n;K)$
 \subsection{Proof}
 We do the proof for $n=2$. Then the general case follows by induction.
 $$\begin{aligned}
@@ -4141,7 +4141,7 @@ $$\begin{aligned}
 This special our $\varphi_{i_1,\cdots,i_n}$ are denoted by $$
 \xi_{ij}(x,y)=e_i^\vee(x)\omega_j^\vee(y)$$
 Let's show that ${\_\xi_{ij}}_{i,j}$ is a generating set\\
-$\varphi\in \mathcal{L}(V_1,V_2;K)$ such that $\varphi(e_i,\omega_i):=A_{ij}\in K$
+$\varphi\in \mathscr{L}(V_1,V_2;K)$ such that $\varphi(e_i,\omega_i):=A_{ij}\in K$
 
 $$
 \begin{aligned}
@@ -4163,7 +4163,7 @@ Again we assume $n=2$,$m=d_1, n=d_2$
 $$V_1=\left<e_1,\cdots,e_m\right>\quad V_2=\left<\omega_1,\cdots,\omega_n\right>$$
 We know that $$
 \begin{aligned}
-    \mathcal{L}(V_1,V_2;P) &\cong (V_1\otimes V_2)^\vee\\
+    \mathscr{L}(V_1,V_2;P) &\cong (V_1\otimes V_2)^\vee\\
     s&\mapsto f_s
 \end{aligned}
 $$
@@ -4180,28 +4180,28 @@ Let $V_1,\cdots,V_n$ be vector spaces as above. Then $$(V_1^\vee\otimes\cdots\ot
 \subsubsection*{Proof}
 Define
 $$\begin{aligned}
-    V_1^\vee\times\cdots\times V_n^\vee &\rightarrow \mathcal{L}(V_1,\cdots,V_n;K)(\cong(V_1\otimes\cdots\otimes V_n)^\vee)\\
+    V_1^\vee\times\cdots\times V_n^\vee &\rightarrow \mathscr{L}(V_1,\cdots,V_n;K)(\cong(V_1\otimes\cdots\otimes V_n)^\vee)\\
     (\varphi_1,\cdots,\varphi_n) &\mapsto [(v_1,\cdots,v_n)\mapsto \prod \varphi_i(v_i)]
 \end{aligned}$$
 This mapping is multilinear. It describes by the property of tensor product to a map
 $$\begin{aligned}
-    V_1^\vee\otimes\cdots\otimes V_n^\vee &\rightarrow \mathcal{L}(V_1,\cdots,V_n;K)(\cong(V_1\otimes\cdots\otimes V_n)^\vee)\\
+    V_1^\vee\otimes\cdots\otimes V_n^\vee &\rightarrow \mathscr{L}(V_1,\cdots,V_n;K)(\cong(V_1\otimes\cdots\otimes V_n)^\vee)\\
     \varphi_1\otimes\cdots\otimes\varphi_n &\mapsto [(v_1,\cdots,v_n)\mapsto \prod \varphi_i(v_i)]
 \end{aligned}$$
 By Prop 45.8 these two space have the same dim $\prod d_i$. It enough to show that the mapping is surjective. Let's do it for $n=2$ (keep the same notation as above). Take $\xi_{ij}$
 $$\xi_{ij}(x,y)=e_i^\vee(x)w_j^\vee(y)=F(e_i^\vee\otimes w_j^\vee)(x,y)$$\
 \subsection{duacity}
 Let $V$ and $W$ be vector spaces of finite dimension. Then 
-$$\mathcal{L}(V,W)\cong V^\vee\otimes W^\vee$$
+$$\mathscr{L}(V,W)\cong V^\vee\otimes W^\vee$$
 \subsubsection*{Proof}
 $$\begin{aligned}
-    s:V^\vee\times W &\rightarrow\mathcal{L}(V,W)\\ 
+    s:V^\vee\times W &\rightarrow\mathscr{L}(V,W)\\ 
     (\varphi,\omega) &\mapsto[\sigma\mapsto \varphi(\sigma)w]
 \end{aligned}$$
 Let's check that $s$ is bilinear. (note that $\varphi(\sigma)\in K$)
 $$((\varphi+\psi)(\sigma))w=(\varphi(v)+\psi(v))w=\varphi(v)w+\psi(v)w$$
 $$\varphi(v)(w+w')=w\varphi(v)+w'\varphi(v)$$
-Thus map $s$ is then bilinear. So it induces $f_s:V^\vee\otimes W\rightarrow\mathcal{L}(V,W)$. We have to show that this is the required isomorphism.
+Thus map $s$ is then bilinear. So it induces $f_s:V^\vee\otimes W\rightarrow\mathscr{L}(V,W)$. We have to show that this is the required isomorphism.
 
 Let $\{v_1^\vee,\cdots,v_m^\vee\}$ be a basis for $V^\vee$, and let $\{w_1,\cdots,w_n\}$ be a basis for $W$. Let's see what happens to $$f_s(v_i^\vee\otimes w_j)=[v_k\mapsto v_i^\vee(v_k)w_j=\delta_{ik}w_j]$$
 Consider the matrix associated to $f_s$ with respect to the basis.
@@ -4214,20 +4214,20 @@ $$M_{ab}=\left\{\begin{aligned}
 1\quad &if\ (a,b)=(j,i)\\
 0\quad &otherwise
 \end{aligned}\right.$$
-The matrices of this form are a basis of $\mathcal{L}(K^n,K^m)\cong\mathcal{L}(V,W)$
+The matrices of this form are a basis of $\mathscr{L}(K^n,K^m)\cong\mathscr{L}(V,W)$
 
 And important case of this prop is when $V=W$:
-$$\mathcal{L}(V;V)\cong V^\vee\otimes V$$
+$$\mathscr{L}(V;V)\cong V^\vee\otimes V$$
 More in general $$\begin{aligned}
-    \mathcal{L}(V,W)&\stackrel{\cong}\rightarrow V^\vee\otimes W\\
+    \mathscr{L}(V,W)&\stackrel{\cong}\rightarrow V^\vee\otimes W\\
     f &\mapsto\sum a_{ij}\sigma_i^\vee\otimes w_j
 \end{aligned}$$
 note that $\sigma_i^\vee\otimes w_j$ is a basis.
 
-For instance $V=W$$$id_V=\mathcal{L}(V,V)\mapsto\sum\limits_{i}\sigma_i^\vee\otimes \sigma_i$$
+For instance $V=W$$$id_V=\mathscr{L}(V,V)\mapsto\sum\limits_{i}\sigma_i^\vee\otimes \sigma_i$$
 \subsection{Exercise}
 Let $M,N,P$ $R$-modules. Show that 
-$$\mathcal{L}(M\otimes_RN;P)\cong\mathcal{L}(M;\mathcal{L}(N;P))$$
+$$\mathscr{L}(M\otimes_RN;P)\cong\mathscr{L}(M;\mathscr{L}(N;P))$$
 \section{Def}
 We went to define the tensor product of linear mappings. let$M_1,M_2,N_1,N_2$ be $R$-modules and let $f_i:M_i\rightarrow N_i$ be linear mappings. Then we define $$
 \begin{aligned}
@@ -4298,7 +4298,7 @@ Moreover for any linear mapping $(f:M\rightarrow P)\leadsto f\otimes id_N . M\ot
 This association sends $id_M$ to $id_{M\otimes_RN}$ and moreover is well defined with respect to the composition
 $$f\circ g\mapsto (f\circ g)\otimes id_N=(f\otimes id_N)\circ(g\otimes id_N)$$
 \section{Def}
-A sequence of $R$-modules is a diagram of the following form
+A sequence of $R$-modules is a diagram of the following form (also called complex of R-modules)
 $$\xymatrix{
     M_1\ar[r]^{d^1} & M_2\ar[r]^{d^2} & \cdots
 }$$
@@ -4307,16 +4307,9 @@ $$\xymatrix{
     \includegraphics[scale=0.3]{img/1.pdf}
 \end{figure}
 
+$M_i$ is an $R$-module, $d^i$ is linear mapping and $$Ker(d^{i+1})\supseteq Im(d^i)$$ 
 
-
-
-
-
-
-
-
-
-$M_i$ is an $R$-module, $d^i$ is linear mapping and $Ker(d^{i+1})\supseteq Im(d^i)$.
+Thus we also have: $$d^{i+1}\circ d^i=0$$
 
 The diagram is called exact if $$Ker(d^{i+1})=Im(d^i)$$
 take a morphism $f:M\rightarrow N$ then 
@@ -4324,9 +4317,110 @@ take a morphism $f:M\rightarrow N$ then
     \item $f$ is injective iff $$0\rightarrow M \stackrel{f}{\rightarrow} N$$ is exact
     \item $f$ is surjective iff $$M\stackrel{f}\rightarrow N\rightarrow 0$$ is exact
 \end{itemize}
-The first theorem of homomorphism are be written as an exact sequence
+The first theorem of homomorphism 
+$$\overline{f}:M/Ker(f)\stackrel{\cong}{\rightarrow}Im(f)$$
+can be written as an exact sequence
 $$0\rightarrow Ker(f)\stackrel{i}{\rightarrow}M\stackrel{f}{\rightarrow}Im(f)\rightarrow 0$$
 More in general sequence like
 $$0\rightarrow M_1\rightarrow M_2\rightarrow M_3\rightarrow 0$$
 are called short exact sequences.
+\section{Prop}
+N is a R-module 
+$$\_\otimes_RN:\forall M\quad M\mapsto M\otimes_RN$$
+$$f:M\rightarrow P$$
+$$f\otimes id_N:M\otimes_RN\rightarrow P\otimes_RN$$
+Assume that we have a short exact sequence of R-modules
+$$0\rightarrow M_1\stackrel{f}{\rightarrow}M_2\stackrel{g}{\rightarrow}M_3\rightarrow 0$$
+Then we apply $\_\otimes_RN$ to whole sequence
+$$0\rightarrow M_1\otimes_RN\stackrel{f\otimes id_N}{\rightarrow}M_2\otimes_RN\stackrel{g\otimes id_N}{\rightarrow}M_3\otimes_RN\rightarrow 0$$
+is a sequence 
+\subsection{Example}
+$$
+\begin{aligned}
+    0\rightarrow &\mathbb{Z}\stackrel{\mu}\rightarrow \mathbb{Z}&\stackrel{\pi}\rightarrow &\mathbb{Z}/2\mathbb{Z}\rightarrow0\\
+    &x\mapsto 2x& &\\
+    & &y \mapsto &2\mathbb{Z}+y
+\end{aligned}
+$$
+Now apply $\_\otimes_\mathbb{Z}\mathbb{Z}/2\mathbb{Z}$
+$$
+\begin{aligned}
+    0\rightarrow &\mathbb{Z}\otimes\mathbb{Z}/2\mathbb{Z}\stackrel{\mu\otimes id}\rightarrow &\mathbb{Z}\otimes\mathbb{Z}/2\mathbb{Z}\stackrel{\pi}\rightarrow &\mathbb{Z}/2\mathbb{Z}\otimes\mathbb{Z}/2\mathbb{Z}\\
+    & x\otimes(2\mathbb{Z}+y)\mapsto &(2x)\otimes(2\mathbb{Z}+y) & \\
+    & &z\otimes(2\mathbb{Z}+y)\mapsto &(2\mathbb{Z}+z)(z\mathbb{Z}+w)
+\end{aligned}
+$$
+and 
+$$
+\begin{aligned}
+    2x\otimes(2\mathbb{Z}+y) &=2(x\otimes 2\mathbb{Z}+y)\\
+    &=x\otimes(2\mathbb{Z}+2y)\\
+    &=x\otimes 2\mathbb{Z}\\
+    &=0
+\end{aligned}
+$$
+which is not injective, thus above isn't exact.
+\section{Exercise(important)}
+If $R=N$ then $\_\otimes_RN$ (where N is a finite dim vec space) is exact. Hint: use the basis.
+\chapter{Tensor algebra}
+Fix a vec space V (over K) of finite dimension
+\section{Def}
+We denote
+$$
+\begin{aligned}
+    T_p^q:=&(V^\vee)^{\otimes p}\otimes (V^\vee)^{\otimes q}\qquad p,q\in \mathbb{N}\\
+    =&\underbrace{V^\vee\otimes\cdots\otimes V^\vee}\limits_{p\text{ times}}\otimes \underbrace{V\otimes\cdots\otimes V}\limits_{q\text{ times}}\\
+\end{aligned}
+$$
+An element of $T_p^q(V)$ is called a tensor of type $(p,q)$ (or a mixed tensor which is $p$-covariant and $q$-contravariant)
+
+Let's denote:
+$$T(V):=\bigotimes\limits_{q=0}^\infty T_0^q(V)$$
+itemize some item in it:
+$$\begin{aligned}
+    &T_0^0(V)=K\\
+    &T_1^0(V)=V^\vee\\
+    &T_0^1(V)=V\\
+    &T_1^1(V)=V^\vee\otimes V\cong\mathscr{L}(V;V)\\
+    &T_2^0(V)=V^\vee\otimes V^\vee\cong (V\otimes V)^\vee\cong\mathscr{L}(V,V;K)
+\end{aligned}$$
+If you have a R-module M, then 
+$$\bigotimes\limits_{n=0}^\infty M=\left\{(m_1,\cdots,m_n,\cdots):m_i\in M \text{ all but finite many }m_i=0\right\}$$
+On $T(V)$ we have following operation:
+$$
+\begin{aligned}
+    T_0^l(V)\times T_0^q(V)&\rightarrow T_0^{l+q}(V)\\
+    ((x_1\otimes\cdots\otimes x_l),(y_1\otimes\cdots\otimes y_q))&= x_1\otimes\cdots\otimes x_l\otimes y_1\otimes\cdots\otimes y_q
+\end{aligned}
+$$
+
+With this operation $T(V)$ becomes a $K$-algebra. It called the tensor algebra associated to $V$
+\section{exterior product}
+Let W be the two sided ideal of $T(V)$ generated by the element of the type $x\otimes x$
+$$W=\left\{\sum\limits_{i(finite)}(y_1\otimes\cdots\otimes y_{m_i})\otimes(x_i\otimes x_i)\otimes(z_1\otimes\cdots\otimes z_{n_i})\right\} $$
+With $x_j,y_j,z_j\in V$ and $n_i,m_j\in \mathbb{N}$
+\section{Def}
+The quotient algebra $$\bigwedge(V):=T(V)/W$$
+is a K-algebra, which called the exterior algebra of V
+$$
+\begin{aligned}
+    \pi: &T(V) &\rightarrow \bigwedge(V)\\
+    &x_1\otimes\cdots\otimes x_n &\mapsto x_1\wedge\cdots\wedge x_n
+\end{aligned}$$
+This def is try to transform $\bigotimes$ to $\bigwedge$
+\section{Notation}
+$$\bigwedge(V)=\bigoplus \limits_{n=0}^\infty \bigwedge^n(V)$$
+$$\bigwedge^n(V):=T^n_0(V)/W\cap T_0^n(V)$$
+this is called $n$-fold exterior product
+\section{Prop}
+Let $\sigma\in \mathfrak{S}_n$ then $$x_1\wedge\cdots\wedge x_n=sgn(\sigma) x_{\sigma(1)}\wedge\cdots\wedge x_{\sigma(n)}$$
+\subsection*{Proof}
+Since any permutation can be written as the product of adjacent transpositions, it's enough to do the proof for $\sigma=(i,i+1)$
+$$
+\begin{aligned}
+    0 &=(x_i+x_{i+1})\wedge(x_i+x_{i+1})\\
+    &=(x_i\wedge x_i)+(x_i\wedge x_{i+1})+(x_{i+1}\wedge x_i)+(x_{i+1}\wedge x_{i+1})\\
+    &=(x_i\wedge x_{i+1})+(x_{i+1}\wedge x_i)
+\end{aligned}
+$$
 \end{document}
