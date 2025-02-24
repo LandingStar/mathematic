@@ -3171,7 +3171,9 @@ The adjacent transition $\sigma$ is $(i,i+1)$
 \section{Def:}
 $Hom_s$ and $Hom_a$
 
-We denote with $Hom_s^{(n)}(E^n,F)$ and $Hom_a^{(n)}(E^n,F)$ the set of symmetric and alternating $n$-linear mappings from $E$ to $F$. $Hom^{(n)}_s(E^n,F)$ and $Hom^{(n)}_a(E^n,F)$ are sub-K-modules of $Hom^{(n)}(E^n,F)$ and when $n=1$, by convention$$Hom^{(1)}_s(E,F)=Hom^{(1)}_a(E,F)=Hom(E,F)$$
+We denote with $Hom_s^{(n)}(E^n,F)$ and $Hom_a^{(n)}(E^n,F)$ the set of symmetric and alternating $n$-linear mappings from $E$ to $F$. 
+
+$Hom^{(n)}_s(E^n,F)$ and $Hom^{(n)}_a(E^n,F)$ are sub-K-modules of $Hom^{(n)}(E^n,F)$ and when $n=1$, by convention$$Hom^{(1)}_s(E,F)=Hom^{(1)}_a(E,F)=Hom(E,F)$$
 
 \section{Reminder}
  Let $E,F$ be two normed vector spaces over $\mathbb{R}$ $f:E\rightarrow F$ is differentiable(twice) $$df:E\rightarrow\mathscr{L}(E,F)$$
@@ -3972,7 +3974,7 @@ $$\begin{aligned}
     \mu_\varphi:\mathcal{C}&\rightarrow\mathbb{R}_{\geq0}\\ \rightbracket a,b\rightbracket&\mapsto \varphi(b)-\varphi(a)
 \end{aligned}$$is $\sigma$-additive.
 
-Hence $\mu_\varphi$ extends to a measure:$$\sigma(\mathcal{C})\rightarrow[0,+\infty]$$called the Stieftjes measure. In the particular case where $\varphi(x)=x\ (\forall x\in\mathbb{R})$ $\mu_\varphi$ is called a Lebesgue measure.
+Hence $\mu_\varphi$ extends to a measure:$$\sigma(\mathcal{C})\rightarrow[0,+\infty]$$called the Stieltjes measure. In the particular case where $\varphi(x)=x\ (\forall x\in\mathbb{R})$ $\mu_\varphi$ is called a Lebesgue measure.
 \section{Def}
 Let $(\Omega,\mathcal{G},\mu)$ be a measure space. Then $$\{A\in \mathcal{G}\mid\mu(A)<+\infty\}$$ is a semialgebra. $\sigma(\mathcal{C})=\mathcal{G}$ and $\mu\mid_\mathcal{C}$ is $\sigma$-additive.
 \begin{itemize}
@@ -3981,7 +3983,7 @@ Let $(\Omega,\mathcal{G},\mu)$ be a measure space. Then $$\{A\in \mathcal{G}\mid
 \end{itemize}
 We denote by $L^1(\Omega,\mathcal{G},\mu)$ the set of measurable mappings $f:\Omega\rightarrow\mathbb{R}$ that belongs to $L^1(I_\mu)$. For $f\in  L^1(\Omega,\mathcal{G},\mu)$ $$I_\mu(f)$$ is denoted as $$\int_\Omega f(\omega)\mu(d\omega)$$
 \subsection{Particular case}
-If $\Omega=\mathbb{R}$ $\mu=\mu_\varphi$ Stieftjes measure.$$\int_\mathbb{R}f(x)\mu_\varphi(dx)$$ is denoted as$$\int_\mathbb{R}f(x)d\varphi(x)$$
+If $\Omega=\mathbb{R}$ $\mu=\mu_\varphi$ Stieltjes measure.$$\int_\mathbb{R}f(x)\mu_\varphi(dx)$$ is denoted as$$\int_\mathbb{R}f(x)d\varphi(x)$$
 \section{Prop}
 Let $(\Omega,\mathcal{G},\mu)$ be a $\sigma$-finite measure space. $f:\Omega\rightarrow\mathbb{R}$ is measurable. If $$\exists g\in L^1(\Omega,\mathcal{G},\mu),g\leq f$$ then $$f\in L^1(\Omega,\mathcal{G},\mu)^\uparrow$$ 
 \subsection*{Proof}
@@ -4155,7 +4157,7 @@ we prove that $\xi_{ij}$ are linearly independent
 $$\sum A_{ij}\xi_{ij}(x,y)=0\qquad \forall(x,y)\in V_1\times V_2$$
 Evaluate in $$(x,y)=(e_i,\omega_i)\Rightarrow A_{ij}=0\ \forall ij$$
 \section{Prop}
-Assume that $V_1,\cdots,V_n$ are vector spaces and $V_i$ has basis given by $\{e_{i1},\cdots,e_{id_i}\}$, then 
+Assume that $V_1,\cdots,V_n$ are vector spaces and $V_i$ has basis: $\{e_{i1},\cdots,e_{id_i}\}$\\then 
 $$B=\{e_{1i_1},\otimes\cdots\otimes e_{ni_n},1\leq i_j\leq d_j\}$$
 is a basis for $V_1\otimes\cdots\otimes V_n$. In particular, $V_1\otimes\cdots\otimes V_n$ has dimension $\prod\limits_{i=1}^nd_i$
 \subsection*{Proof}
@@ -4174,7 +4176,7 @@ $$f_{\xi_{ij}}(e_k\otimes w_l)=\left\{\begin{aligned}
     &1\quad &if (i,j)=(k,l)\\ &0\quad &otherwise
 \end{aligned}\right.$$
 It follows that $\{e_k\otimes w_l\}_{k,l}$ is a basis of $V_1\otimes V_2$
-\section{tensor product and duacity}
+\section{tensor product and duality}
 \subsection{product}
 Let $V_1,\cdots,V_n$ be vector spaces as above. Then $$(V_1^\vee\otimes\cdots\otimes V_n^\vee)\cong(V_1\otimes\cdots\otimes V_n)^\vee$$
 \subsubsection*{Proof}
@@ -4183,14 +4185,14 @@ $$\begin{aligned}
     V_1^\vee\times\cdots\times V_n^\vee &\rightarrow \mathscr{L}(V_1,\cdots,V_n;K)(\cong(V_1\otimes\cdots\otimes V_n)^\vee)\\
     (\varphi_1,\cdots,\varphi_n) &\mapsto [(v_1,\cdots,v_n)\mapsto \prod \varphi_i(v_i)]
 \end{aligned}$$
-This mapping is multilinear. It describes by the property of tensor product to a map
+This mapping is multi-linear. It describes by the property of tensor product to a map
 $$\begin{aligned}
     V_1^\vee\otimes\cdots\otimes V_n^\vee &\rightarrow \mathscr{L}(V_1,\cdots,V_n;K)(\cong(V_1\otimes\cdots\otimes V_n)^\vee)\\
     \varphi_1\otimes\cdots\otimes\varphi_n &\mapsto [(v_1,\cdots,v_n)\mapsto \prod \varphi_i(v_i)]
 \end{aligned}$$
 By Prop 45.8 these two space have the same dim $\prod d_i$. It enough to show that the mapping is surjective. Let's do it for $n=2$ (keep the same notation as above). Take $\xi_{ij}$
 $$\xi_{ij}(x,y)=e_i^\vee(x)w_j^\vee(y)=F(e_i^\vee\otimes w_j^\vee)(x,y)$$\
-\subsection{duacity}
+\subsection{duality}
 Let $V$ and $W$ be vector spaces of finite dimension. Then 
 $$\mathscr{L}(V,W)\cong V^\vee\otimes W^\vee$$
 \subsubsection*{Proof}
@@ -4241,7 +4243,7 @@ $$\xymatrix{
     M_1\otimes M_2 \ar@{-->}^{f_1\otimes f_2}[r] &N_1\otimes N_2
 }$$
 \section{Extension of scalars}
-Let $\varphi:R\rightarrow S$ be a commutative unitary ring homomorphism. Let $M$ be a $R$-module. Goal is to give to $M$ also a structure of $S$-module "corried by $\varphi$"
+Let $\varphi:R\rightarrow S$ be a commutative unitary ring homomorphism. Let $M$ be a $R$-module. Goal is to give to $M$ also a structure of $S$-module "conveyed by $\varphi$"
 
 Note that $S$ has a structure of $R$-module $s\in S,\mathbcal{r}\in R$$$\mathbcal{r}s:=\varphi(\mathbcal{r})s$$
 Now take thw tensor product $M\otimes_RS$. Now we give a structure of $S$-module to $M\otimes_RS$. 
@@ -4298,6 +4300,15 @@ Moreover for any linear mapping $(f:M\rightarrow P)\leadsto f\otimes id_N . M\ot
 This association sends $id_M$ to $id_{M\otimes_RN}$ and moreover is well defined with respect to the composition
 $$f\circ g\mapsto (f\circ g)\otimes id_N=(f\otimes id_N)\circ(g\otimes id_N)$$
 \section{Def}
+Let $$M_0\stackrel{f_1}{\rightarrow}M_1\rightarrow\cdots\stackrel{f_n}\rightarrow M_n$$
+be a diagram.
+
+If $\forall i\in \{1,\cdots,n\}$$$f_{i+1}\circ f_i=0$$
+then we say that the diagram is complex
+$$H^i=Ker(f_{i+1})/Im(f_i)$$
+This diagram is exact iff $$\forall i\quad H^i=\{0\}$$
+\textcolor{red}{Here's a def contradiction!!!}
+\section{Def}
 A sequence of $R$-modules is a diagram of the following form (also called complex of R-modules)
 $$\xymatrix{
     M_1\ar[r]^{d^1} & M_2\ar[r]^{d^2} & \cdots
@@ -4329,11 +4340,11 @@ N is a R-module
 $$\_\otimes_RN:\forall M\quad M\mapsto M\otimes_RN$$
 $$f:M\rightarrow P$$
 $$f\otimes id_N:M\otimes_RN\rightarrow P\otimes_RN$$
-Assume that we have a short exact sequence of R-modules
+Assume that we have a short exact (also complex)sequence of R-modules
 $$0\rightarrow M_1\stackrel{f}{\rightarrow}M_2\stackrel{g}{\rightarrow}M_3\rightarrow 0$$
 Then we apply $\_\otimes_RN$ to whole sequence
 $$0\rightarrow M_1\otimes_RN\stackrel{f\otimes id_N}{\rightarrow}M_2\otimes_RN\stackrel{g\otimes id_N}{\rightarrow}M_3\otimes_RN\rightarrow 0$$
-is a sequence 
+is a complex sequence if it's exact then we call N a flat R-module. One significant example's that the free module is flat.
 \subsection{Example}
 $$
 \begin{aligned}
@@ -4347,7 +4358,7 @@ $$
 \begin{aligned}
     0\rightarrow &\mathbb{Z}\otimes\mathbb{Z}/2\mathbb{Z}\stackrel{\mu\otimes id}\rightarrow &\mathbb{Z}\otimes\mathbb{Z}/2\mathbb{Z}\stackrel{\pi}\rightarrow &\mathbb{Z}/2\mathbb{Z}\otimes\mathbb{Z}/2\mathbb{Z}\\
     & x\otimes(2\mathbb{Z}+y)\mapsto &(2x)\otimes(2\mathbb{Z}+y) & \\
-    & &z\otimes(2\mathbb{Z}+y)\mapsto &(2\mathbb{Z}+z)(z\mathbb{Z}+w)
+    & &z\otimes(2\mathbb{Z}+y)\mapsto &(2\mathbb{Z}+z)(2\mathbb{Z}+y)
 \end{aligned}
 $$
 and 
@@ -4368,14 +4379,14 @@ Fix a vec space V (over K) of finite dimension
 We denote
 $$
 \begin{aligned}
-    T_p^q:=&(V^\vee)^{\otimes p}\otimes (V^\vee)^{\otimes q}\qquad p,q\in \mathbb{N}\\
+    T_p^q:=&(V^\vee)^{\otimes p}\otimes V^{\otimes q}\qquad p,q\in \mathbb{N}\\
     =&\underbrace{V^\vee\otimes\cdots\otimes V^\vee}\limits_{p\text{ times}}\otimes \underbrace{V\otimes\cdots\otimes V}\limits_{q\text{ times}}\\
 \end{aligned}
 $$
 An element of $T_p^q(V)$ is called a tensor of type $(p,q)$ (or a mixed tensor which is $p$-covariant and $q$-contravariant)
 
 Let's denote:
-$$T(V):=\bigotimes\limits_{q=0}^\infty T_0^q(V)$$
+$$T(V):=\bigotimes\limits_{q\in \mathbb{N}} T_0^q(V)$$
 itemize some item in it:
 $$\begin{aligned}
     &T_0^0(V)=K\\
@@ -4409,7 +4420,7 @@ $$
 \end{aligned}$$
 This def is try to transform $\bigotimes$ to $\bigwedge$
 \section{Notation}
-$$\bigwedge(V)=\bigoplus \limits_{n=0}^\infty \bigwedge^n(V)$$
+$$\bigwedge(V)=\bigoplus \limits_{n\in\mathbb{N}} \bigwedge^n(V)$$
 $$\bigwedge^n(V):=T^n_0(V)/W\cap T_0^n(V)$$
 this is called $n$-fold exterior product
 \section{Prop}
@@ -4423,4 +4434,140 @@ $$
     &=(x_i\wedge x_{i+1})+(x_{i+1}\wedge x_i)
 \end{aligned}
 $$
+\section{Def}
+Let E be an R-module and $f:E^n\rightarrow M$ a mapping.
+We say that the pair $(M,f:E^n\rightarrow M)$ satisfies the universal property for the $n^{th}$-exterior power if
+\begin{itemize}
+    \item $M$ is an R-module, $f:E^n\rightarrow M$ is an n-linear mapping s.t.
+    \begin{itemize}
+        \item[ ] $\forall i\in \{1,\cdots,n-1\}$
+        \item[] if$$x_i=x_{i+1}$$
+        \item[] then$$f(x_1,\cdots,x_n)=0$$
+        \item[] (alternating n-linear mapping)
+    \end{itemize}
+    \item If $P$ is an R-module and $\varphi:E^n\rightarrow P$ is an alternating mapping, then 
+    $$\exists !\ \Phi:M\rightarrow P\text{ s.t. }\Phi\circ f=\varphi$$
+\end{itemize}
+\section{Def}
+V is a K-vct space. A multi-linear mapping:
+$$\begin{aligned}
+    \varphi:V\times\cdots\times V\rightarrow W
+\end{aligned}$$
+is called skew-symmetric(alternating) if
+$$\varphi(x_1,\cdots,x_n)=0\text{ when }\exists i\neq j:x_i=x_j$$
+\section{Prop}
+\label{VIII-46.8}
+FIx a vct space V. For any alternating multi-linear mapping
+$$s:\underbrace{V\times\cdots\times V}\limits_{n\text{ times}}\rightarrow W$$
+when W is another vct space, there exists a unique linear mapping$$g_s:\bigwedge\limits^n(V)\rightarrow W$$
+such that the following diagram commutes
+$$\xymatrix{
+    & V^n\ar[d]_t\ar[r]^s & W\\
+    &T^n_0(V)\ar@{-->}[ur]^{f_s}\ar[d] &\\
+    & \bigwedge\limits^n(V)\ar[uur]_{g_s}
+}$$
+\subsection*{Proof}
+$$g_s(\sigma_1\wedge\cdots\wedge\sigma_n):=s(v_1,\cdots,v_n)$$
+check the diagram is commutative
+$$\xymatrix{
+    &\mathcal{F}(V^n)\ar@{->>}[r]^t &T^n_0(V)\ar@{->>}[r]&\bigwedge\limits^n(V)\\
+    &\{(\sigma_1,\cdots,\sigma_n)\}\ar@{|->}[r]&\{\sigma\otimes\cdots\times\sigma_n\}\ar@{|->}[r]&\{\sigma_1\wedge\cdots\wedge\sigma_n\}
+}$$
+\section{Remark/exercise}
+The couple $\bigwedge\limits^nV$ with
+$$V^n\rightarrow\bigwedge\limits^n(V)$$
+that satisfies Prop \ref{VIII-46.8} is unique to unique isomorphism
+\section{Prop}
+Let V be a vct space of dimension n with a basis $\{e_1,\cdots,e_n\}$. Then $\bigwedge\limits^k(V)$ is a vct space with a basis given by $$\mathcal{B}=\{e_{i_1},\cdots e_{i_k}\big|\ 1\leq i_1<\cdots<i_k\leq n\}$$
+In particular, $\bigwedge\limits^k(V)$ has dimension $\left(\begin{aligned}
+    &n \\ &k
+\end{aligned}
+\right)$
+\subsection{Proof}
+$\mathcal{B}$ is clearly a generating set.The different part is to show that $\mathcal{B}$ is made of linearly independent elements.
+$$I=\{i_1,\cdots,i_k\}$$ with $1\leq i_1<\cdots<i_k\leq n$, define
+$$\begin{aligned}
+    \varphi_I: V^n &\rightarrow K\\
+    (e_{j_1},\cdots,e_{j_n})&\mapsto \left\{\begin{aligned}
+        sgn(t) &\text{ if } \exists \tau\in S_I\quad\tau(j_m)=i_m\\
+        0\quad &\text{otherwise} 
+    \end{aligned}\right.
+\end{aligned}$$
+$\varphi_I$ is multilinear and alternating(skew-symm), hence it induce a linear mapping
+$$
+\begin{aligned}
+    g_{\varphi_I}=\overline{\varphi_I}:\bigwedge\limits^k(V)  &\rightarrow K\\
+    (e_{j_1}\wedge\cdots\wedge e_{j_k})&\mapsto \left\{\begin{aligned}
+        sgn(t) &\text{ if } \exists \tau\in S_I\quad\tau(j_m)=i_m\\
+        0 \quad&\text{otherwise} 
+    \end{aligned}\right.
+\end{aligned}
+$$
+With $\sigma\in\bigwedge\limits^n(V)$,assume that
+$$0=\sigma=\sum\limits_{1\leq j_1<\cdots<j_k\leq n}\lambda_{j_1,\cdots,j_k}e_{j_1}\wedge\cdots\wedge e_{j_k}$$
+By linearity$$0=\overline{\varphi}_I(\sigma)=\pm \lambda_I$$
+Do it for any positive I this shows that any $\lambda_{j_1,\cdots,j_k}$ is zero.
+\section{Def}
+Let V be a vct space of dimension n, then 
+$$\det(V)=\bigwedge\limits^n(V)$$
+is called the determinant of V. It is a vct space of dimension $1=\binom{n}{n}$ and a basis is given by $$e_1\wedge\cdots\wedge e_n$$
+when $\{e_1,\cdots,e_n\}$ is a basis of V.
+\subsection{Proof}
+Let $f\in \mathscr{L}(V;V)$ then consider
+$$\begin{aligned}
+    \widetilde{f}: V^k &\rightarrow \bigwedge\limits^k V\\ 
+    (\sigma_1,\cdots,\sigma_n) &\mapsto f(v_1)\wedge\cdots\wedge f(v_n)
+\end{aligned}$$
+This is multilinear and alternating. Therefore it induces a mapping
+$$
+\begin{aligned}
+    g_{\widetilde{f}}=\bigwedge\limits^kf: &\bigwedge\limits^k(V) &\rightarrow\bigwedge\limits^k(V)\\
+    &v_1\wedge\cdots\wedge v_k &\mapsto f(v_1)\wedge\cdots\wedge f(v_n)
+\end{aligned}$$
+
+Since $\det(V)$ has dim 1
+$$\det (f):\sigma_1\wedge\cdots\wedge\sigma_n\mapsto {\underbrace{\det_f}\limits_{\in K}}(v_1\wedge\cdots\wedge v_n)=f(v_1)\wedge\cdots\wedge f(v_n)$$
+By abuse of notation we identity $$\det(f)=\det_f$$
+\section{Prop}
+$f\in \mathscr{L}(V;V)$ is invertible iff $\det(f)\neq 0$
+\subsection{Proof}
+$f$ is not invertible iff $\{f(e_1),\cdots,f(e_n)\}$ is not a basis.
+
+iff there's a non-trivial linear combination
+$$\sum\limits_n\lambda_if(e_i)=0$$
+After relabelling thee $e_i$ we can assume 
+$$f(e_i)=\sum\limits_{i\geq 2}\mu_if(e_i)$$
+$$\begin{aligned}
+    \det (f)(e_1\wedge\cdots\wedge e_n)&=\det_f\dots(e_1\wedge\cdots\wedge e_n)\\
+    &=(\sum\limits_{i\geq 2}\mu_if(e_i))\wedge f(e_1)\wedge\cdots\wedge f(e_n)\\
+    &=\sum\limits_{i\geq 2}\mu_i(f(e_1)\wedge f(e_2)\wedge\cdots\wedge f(e_n))\\
+    &=0
+\end{aligned}$$
+\section{Prop}
+$$\det(f\circ g)=\det(f)\dots\det(g)$$
+\subsection*{Proof}
+$$\begin{aligned}
+    \det(f\circ g) &=(f\circ g)(e_1)\wedge\cdots\wedge(f\circ g)(e_n)\\
+    &=f(g(e_1))\wedge\cdots f(g(e_n))\\
+    &=(\det f)(g(e_1)\wedge\cdots g(e_n))\\
+    &=\det f\dots\det g(e_1\wedge\cdots g(e_n))
+\end{aligned}$$
+\section{Prop}
+Fix a basis $\{e_1,\cdots,e_n\}$ of V. Then
+
+$$\xymatrix{
+    &v_i &V\ar[r]^f &V \\
+    &e_i\ar@{|->}[u] &K^n\ar[u]_{\mathcal{B}}^\cong \ar[r]^{A_f} &K^n\ar[u]^\cong_{\mathcal{B}}
+}
+$$
+
+$A_f^{(v_1,\cdots,v_n)}$ is the matrix associated to $f$ with respect to the basis $\{v_1,\cdots,v_n\}$
+
+?
+
+?
+
+?
+
+$$A_f:e_i\mapsto \mathcal{B}^{-1}\circ f\circ\mathcal{B}(e_i)$$
 \end{document}
