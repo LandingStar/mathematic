@@ -1828,7 +1828,7 @@ We assume $n\geq 1,p\geq1$ We write A as $$\left(\begin{aligned}
     \item Suppose that $(\lambda_1,...,\lambda_n)\not=(0,...,0)$
     
     By permuting the rows we may assume $\lambda_1\not=0$. As K is division ring, by multiplying the first row by $\lambda_1^{-1}$ , we amy assume $\lambda_1=1$. We add $(-\lambda_i)$ times the first row to the $i^{th}$ row, to reduce A to the form $$\left(\begin{aligned}
-        &1 &\mu_2&\dots&\mu_p\\ & 0\\ &\vdots& &C\\ &0
+        &1 &\mu_2&\cdots&\mu_p\\ & 0\\ &\vdots& &C\\ &0
     \end{aligned}\right)\quad \begin{aligned}
         &C\in M_{n-1,p-1}(K)\\ &(\mu_2,...,\mu_p)\in K^{p-1}
     \end{aligned}$$
@@ -4094,7 +4094,7 @@ $$t:M\times N\rightarrow M\otimes_RN$$ having the following properties:
 $$f_s(\mathcal{G}+(m,n)):=s(m,n)$$
 Extend this mapping to linearity. This makes the diagram commutative. It's clearly the unique mapping
 \section{Def}
-The $R$-module $M\otimes_RN$ constructed above is called the tensor product of $M$ and $N$. An element of $M\otimes_RN$ is called tensor. We denote$$t(m,n):=M\otimes N$$ and any elements of this form is called pure tensor.
+The $R$-module $M\otimes_RN$ constructed above is called the tensor product of $M$ and $N$. An element of $M\otimes_RN$ is called tensor. We denote$$t(m,n):=m\otimes n$$ and any elements of this form is called pure tensor. 
 \section{Remark}Pore tensors generate $M\otimes_R N$. In particular any tensor can be written as sum of pure tensors.
 \begin{itemize}
     \item[Example] $$0=(m+m')\otimes n-m\otimes n-m\otimes n'$$
@@ -4507,6 +4507,7 @@ With $\sigma\in\bigwedge\limits^n(V)$,assume that
 $$0=\sigma=\sum\limits_{1\leq j_1<\cdots<j_k\leq n}\lambda_{j_1,\cdots,j_k}e_{j_1}\wedge\cdots\wedge e_{j_k}$$
 By linearity$$0=\overline{\varphi}_I(\sigma)=\pm \lambda_I$$
 Do it for any positive I this shows that any $\lambda_{j_1,\cdots,j_k}$ is zero.
+\chapter{Determinant}
 \section{Def}
 Let V be a vct space of dimension n, then 
 $$\det(V)=\bigwedge\limits^n(V)$$
@@ -4538,36 +4539,152 @@ $$\sum\limits_n\lambda_if(e_i)=0$$
 After relabelling thee $e_i$ we can assume 
 $$f(e_i)=\sum\limits_{i\geq 2}\mu_if(e_i)$$
 $$\begin{aligned}
-    \det (f)(e_1\wedge\cdots\wedge e_n)&=\det_f\dots(e_1\wedge\cdots\wedge e_n)\\
+    \det (f)(e_1\wedge\cdots\wedge e_n)&=\det_f\cdot(e_1\wedge\cdots\wedge e_n)\\
     &=(\sum\limits_{i\geq 2}\mu_if(e_i))\wedge f(e_1)\wedge\cdots\wedge f(e_n)\\
     &=\sum\limits_{i\geq 2}\mu_i(f(e_1)\wedge f(e_2)\wedge\cdots\wedge f(e_n))\\
     &=0
 \end{aligned}$$
 \section{Prop}
-$$\det(f\circ g)=\det(f)\dots\det(g)$$
+$$\det(f\circ g)=\det(f)\cdot\det(g)$$
 \subsection*{Proof}
 $$\begin{aligned}
     \det(f\circ g) &=(f\circ g)(e_1)\wedge\cdots\wedge(f\circ g)(e_n)\\
     &=f(g(e_1))\wedge\cdots f(g(e_n))\\
     &=(\det f)(g(e_1)\wedge\cdots g(e_n))\\
-    &=\det f\dots\det g(e_1\wedge\cdots g(e_n))
+    &=\det f\cdot\det g(e_1\wedge\cdots g(e_n))
 \end{aligned}$$
 \section{Prop}
+The determinant of $f$ is equal to the determinant of any matrix that represents $f$ with respect to a fixed basis. This doesn't depends on the choice of the basis.
+\subsection*{Proof}
 Fix a basis $\{e_1,\cdots,e_n\}$ of V. Then
 
 $$\xymatrix{
     &v_i &V\ar[r]^f &V \\
     &e_i\ar@{|->}[u] &K^n\ar[u]_{\mathcal{B}}^\cong \ar[r]^{A_f} &K^n\ar[u]^\cong_{\mathcal{B}}
 }
-$$
+\Longrightarrow
+\xymatrix{
+    &\det(V)\ar[r]^{\det(f)} &\det(V)\\
+    &\det(K^n)\ar[u]^{\bigwedge\limits^nb}\ar[r]^{\det(A_f)} &\det(K^n)\ar[u]^{\bigwedge\limits^nb}
+}
+$$ 
 
 $A_f^{(v_1,\cdots,v_n)}$ is the matrix associated to $f$ with respect to the basis $\{v_1,\cdots,v_n\}$
+suppose that $f(v_i)=\xi_{ij}v_i$. One we can see
 
-?
+$$A_f=\mathcal{B}^{-1}\circ f\circ\mathcal{B}(e_i)$$
+$$\begin{aligned}
+    \det (A_f) &((a_{11},a_{12},\cdots,a_{1n})\wedge(0,a_{22},a_{23},\cdots,a_{2n})\wedge\cdots\wedge(0,0,\cdots,1))
+    \\ &=\mathcal{B}^{-1}(f(\mathcal{B}(a_{11},a_{12},\cdots,a_{1n})))\wedge\cdots\wedge\mathcal{B}^{-1(f(\mathcal{B}(0,0,\cdots,1)))}\\
+    &=\xi_{1j}(0,\cdots,a_{1j},\cdots,a_{1n})\wedge\cdots\wedge\xi_{nj}(0,\cdots,a_{nj},\cdots,a_{nn})
+\end{aligned}$$
+(Einstein notation used for $j$)
+We actually done the thing like
+$$\left\lvert\begin{aligned}
+    &a_{11}&a_{12}&\cdots&a_{1n}\\
+    &0&a_{22}&\cdots&a_{2n}\\
+    &\vdots&\vdots&\ddots&\vdots\\
+    &0&0&\cdots&a_{nn}
+\end{aligned}\right\rvert$$
+\\compare the result with 
+$$\det(f)(v_1\wedge\cdots v_n)=\xi_{1j}(v_1)\wedge\cdots\wedge\xi_{nj}(v_n)$$
+We could find that $$\det(A_f)=\det(f)$$
+Then we got $$\det(A)=\prod\limits_{i=1}^na_ii$$
+\section{Prop}
+If one column of $A$ can be expressed as a linear combination of other columns of $A$, then $$\det(A)=0$$
+The columns are images of $\{e_1,\cdots,e_n\}$, means that $A(e_1),\cdots,A(e_n)$ are linearly dependent. Then $A$ is not an isomorphism, thus $\det(A)=0$.
+If we exchange two columns of $A$, then $\det(A)$ changes sign.
+\section{Prop}
+Let $(a_ij)$ be a matrix of dimension $n\times n$. Then $$\det(A)=\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma)\prod\limits_{i=1}^na_{i\sigma(i)}$$
+\subsection*{Proof}
+Let $\{v_1,\cdots,v_n\}$ be the columns of $A$, $v_i=A(e_i)$
+$$\begin{aligned}
+    \det(A)(e_1\wedge\cdots\wedge e_n) &=\sigma_1\wedge\cdots\wedge\sigma_n\\
+    &=(\sum\limits_ia_{i1}e_i)\wedge\cdots\wedge(\sum\limits_ia_{in}e_i)\\
+    &=\sum\limits_{\sigma\in\mathfrak{S}_n}\prod\limits_ia_{i\sigma(i)}\cdot e_{\sigma(1)}\wedge\cdots\wedge e_{\sigma(n)}\\
+    &=(\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma)\prod\limits_{i=1}^na_{i\sigma(i)})e_1\wedge\cdots\wedge e_n
+\end{aligned}$$
+\section{Corollary}
+$$\det A=\det A^T$$
+\subsection*{Proof}
+$A^T=(\alpha_{ij}), A=(a_{ij})\quad \forall ij\ a_ij=\alpha_{ji}$
+$$\begin{aligned}
+    \det A^T &=\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma)\prod\limits_{i=1}^n\alpha_{i\sigma(i)}\\
+    &=\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma)\prod\limits_{i=1}^na_{\sigma(i)i}\\
+    &\overset{j=\sigma(i)}{=}\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma^{-1})\prod\limits_{i=1}^na_{j\sigma^{-1}(j)}\\
+    &\overset{sgn(\sigma)=sgn(\sigma^{-1})}{=}\det A
+\end{aligned}$$
+\section{Prop}
+If you fix some basis on V and W, then $A_f$ is the matrix associated to $f^T$ is $A_f^T$
+\section{?}
+Fix  A of dimension of $n\times n$. Apply Gauss reduction and we get $A'$ a upper-triangle.
 
-?
+By the properties listed above$$\abs{\det A}=\abs{\det A'}$$
+But on $A'$ the $\det$ is just the product of elements on then diagonal
 
-?
+Second method to compare the determinant is to use Gauss reduction and keep track of the row/column exchanges.
+\section{Def}
+Fix $A=(a_{ij}) (i,j)\in \{1,\cdots,n\}^2$. Denote with $A_{[i,j]}$ the matrix obtained removing the $i^{th}$ row and $j^{th}$ column of $A$. 
+\section{Laplace expansion of the determinant}
+Let $A=(a_{ij})$ then 
+$$
+\begin{aligned}
+    \det A=&\sum\limits_{j=1}^n(-1)^{i+j}a_{ij}\det A_{[i,j]}\\
+    &=\sum\limits_{i=1}^n(-1)^{i+j}a_{ij}\det A_{[i,j]}
+\end{aligned}
+$$
+\subsection*{Proof}TEDIOUS
 
-$$A_f:e_i\mapsto \mathcal{B}^{-1}\circ f\circ\mathcal{B}(e_i)$$
+$$\xymatrix{
+    &K^n\ar[r]^A &K^n\ar[d]_{p_i}\\
+    & K^{n-1}\ar[u]^{t_j}\ar[r]^{A_{[i,j]}} &K^{n-1}
+}$$
+$\{e'_1,\cdots,e'_n\}$ is a standard basis of $K^n$
+\\$\{e_1,\cdots,e_n\}$ is a standard basis of $K^{n-1}$
+$p_i$ is the mapping that forgets about the i-th row.
+$$p_i=(x_1,\cdots,x_i,\cdots,x_n)\mapsto(x_1,\cdots,\widehat{x_i},\cdots,x_n)=(x_1,\cdots,x_{i-1},x_{i+1},\cdots,x_n)$$
+$$\tau_j(e_i)=\left\{\begin{aligned}e'_i &\text{ if } i<j\\ e_i &\text{ if } i\geq j\end{aligned}\right.$$
+
+You can check that the above diagram is commutative. Now take $\bigwedge\limits^{n-1}$ of the diagram
+$$\xymatrix{
+    &\bigwedge\limits^{n-1}K^n\ar[r]^{\bigwedge\limits^{n-1}A} &\bigwedge\limits^{n-1}K^n\ar[d]_{\bigwedge\limits^{n-1}p_i}\\
+    & \det(K^{n-1})\ar[u]^{\bigwedge\limits^{n-1}t_j}\ar[r]^{\det(A_{[i,j]})} &\det(K^{n-1})
+}$$
+$$\begin{aligned}
+    \det(A) (e'_1,\cdots,e'_n)&=(-1)^{i-1}\det(A)(e'_i\wedge e'_1\wedge\cdots\wedge \widehat{e_i}\wedge\cdots\wedge e'_n)\\
+    &=(-1)^{i-1} A(e'_i)\wedge A(e'_1)\wedge\cdots\wedge A(\widehat{e_i})\wedge\cdots\wedge A(e'_n)\\
+    &=(-1)^{i-1}A(e'_i)\wedge\bigwedge\limits^{n-1}A(e'_1,\cdots,\widehat{e_i},\cdots,e'_n)=(*)
+\end{aligned}$$
+Let $$
+\begin{aligned}
+    \pi_j:K^n&\rightarrow K^n\\(x_1,\cdots,x_n)&\mapsto (0,\cdots,x_j,\cdots,0)
+\end{aligned}
+$$
+Then $$A=\sum\limits_{i}(\pi_j\circ A)$$
+It means that
+$$
+\begin{aligned}
+    (*)&=(-1)^{i-1}A(e'_i)\wedge\sum\limits_j\bigwedge\limits^{n-1}(\pi_j\circ A)(e'_1,\cdots,\widehat{e_i},\cdots,e'_n)\\
+    &=(-1)^{i-1}A(e'_i)\wedge\sum\limits_j\bigwedge\limits^{n-1}(\pi_j\circ A\circ \tau_i)(e_1,\cdots,e_{n-1})\\
+    &=\sum\limits_{k,j}\left((-1)^{i-1}a_{kj}e'_k\wedge\bigwedge\limits^{n-1}(\pi_j\circ A\circ \tau_i)(e_1,\cdots,e_{n-1})\right)=(**)
+\end{aligned}
+$$
+But $\pi_j(\cdot)$ is always collinear of $e_j$, so when $k=j$, the element in the sum is zero. We can remove the items that $k=j$
+$$
+\begin{aligned}
+    \rho_k:=\tau_k\circ p_k: &K^n &\rightarrow &K^n\\ &(x_1,\cdots,x_n)&\mapsto &(x_1,\cdots,x_{k-1},0,x_{k+1},\cdots,x_n)
+\end{aligned}$$
+$\pi_k=id_{K^n}-\rho_k$ and $\sum\limits_{j\neq k}\pi_j=\rho_k$\\
+Then
+$$\begin{aligned}
+    (**)&=\sum\limits_{k}(-1)^{i-1}a_kie'_k\wedge\bigwedge\limits^{n-1}\tau_k\circ\bigwedge\limits^{n-1}(p_k\circ A\circ \tau_i)(e_1\wedge\cdots\wedge e_{n-1})\\
+    &=(***)
+\end{aligned}$$
+But by the diagram $$\bigwedge\limits^{n-1}(p_k\circ A\circ \tau_i)=\det A_{[i,k]}$$
+$$\bigwedge\limits^{n-1}\tau_k(e_1\wedge\cdots\wedge e_{n-1})=e'_1\wedge\cdots\wedge \widehat{e_k}\wedge\cdots\wedge e'_n$$
+Thus
+$$\begin{aligned}
+    (***)&=\sum_k(-1)^{i-1}a_{ki}\det (A_{[k,i]})(e'_k\wedge e'_1\wedge\cdots\wedge \widehat{e_k}\wedge\cdots\wedge e'_n)\\
+    &=\sum\limits_{k}(-1)^{i+k}a_{ki}\det(A_[k,i])e'_1\wedge\cdots\wedge e'_n
+\end{aligned}$$
 \end{document}
