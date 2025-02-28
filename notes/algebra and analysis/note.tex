@@ -4527,8 +4527,8 @@ $$
 \end{aligned}$$
 
 Since $\det(V)$ has dim 1
-$$\det (f):\sigma_1\wedge\cdots\wedge\sigma_n\mapsto {\underbrace{\det_f}\limits_{\in K}}(v_1\wedge\cdots\wedge v_n)=f(v_1)\wedge\cdots\wedge f(v_n)$$
-By abuse of notation we identity $$\det(f)=\det_f$$
+$$\det (f):\sigma_1\wedge\cdots\wedge\sigma_n\mapsto {\underbrace{det_f}\limits_{\in K}}(v_1\wedge\cdots\wedge v_n)=f(v_1)\wedge\cdots\wedge f(v_n)$$
+By abuse of notation we identity $$\det(f)=det _f$$
 \section{Prop}
 $f\in \mathscr{L}(V;V)$ is invertible iff $\det(f)\neq 0$
 \subsection{Proof}
@@ -4539,7 +4539,7 @@ $$\sum\limits_n\lambda_if(e_i)=0$$
 After relabelling thee $e_i$ we can assume 
 $$f(e_i)=\sum\limits_{i\geq 2}\mu_if(e_i)$$
 $$\begin{aligned}
-    \det (f)(e_1\wedge\cdots\wedge e_n)&=\det_f\cdot(e_1\wedge\cdots\wedge e_n)\\
+    \det (f)(e_1\wedge\cdots\wedge e_n)&=det_f\cdot(e_1\wedge\cdots\wedge e_n)\\
     &=(\sum\limits_{i\geq 2}\mu_if(e_i))\wedge f(e_1)\wedge\cdots\wedge f(e_n)\\
     &=\sum\limits_{i\geq 2}\mu_i(f(e_1)\wedge f(e_2)\wedge\cdots\wedge f(e_n))\\
     &=0
@@ -4687,4 +4687,42 @@ $$\begin{aligned}
     (***)&=\sum_k(-1)^{i-1}a_{ki}\det (A_{[k,i]})(e'_k\wedge e'_1\wedge\cdots\wedge \widehat{e_k}\wedge\cdots\wedge e'_n)\\
     &=\sum\limits_{k}(-1)^{i+k}a_{ki}\det(A_[k,i])e'_1\wedge\cdots\wedge e'_n
 \end{aligned}$$
+\chapter{The Structure of Linear Mappings}
+\section{Theorem}
+Let $f:V\rightarrow W$ be a linear mapping between vct spaces of finite and same dim. Then:
+\begin{itemize}
+    \item [1] there exists decomposition $V=V_0\oplus V_1$ and $W=W_1\oplus W_2$ such that $V_0=\ker f$ and $f$ includes an isomorphism between $V_1$ and $W_1$(namely $f\mid_{V_1}$)
+    \item [2] There exists basis in V nad W s.t. the associated matrix $A_f=a_{ij}$ satisfies $\forall 1\leq i\leq r,\exists r\leq n$ have $a_{ii}=1$ and  have $a_{ij}=0$ elsewhere
+    \item [3] Let $A$ be a $m\times n$ matrix Then there exists two square matrices (with $\det\neq 0$) $B$ and $C$ of dim $m\times m$ and $n\times n$ and a num $r\leq min(m,n)$ s.t. $BAC$ has the form in $(2)$ Moreover the number $r$ is unique $r=rank(A)$
+    
+\end{itemize}
+
+\section{Def}
+Let $F:V\rightarrow V$ be a linear mapping. A subspace $V_0\subseteq V$ is said to be an invariant subspace of $F$ is $F(V_0)\subseteq V_0$
+\section{Def}
+A linear mapping $f:V\rightarrow V$ (finite dim) is diagonalizable if the following equivalent conditions are satisfied
+\begin{itemize}
+    \item [1] $V$ decomposes as a direct sum of one-dimensional invariant subspace of $f$
+    \item [2] There exists a basis of $V$, in which the matrix $A_f$ is diagonal.
+\end{itemize}
+\subsection*{Proof of equivalence}
+\begin{itemize}
+    \item [2 $\Rightarrow$ 1]Assume that in the base $\{v_1,\cdots,v_n\}$ , we have $A_f=\left(\begin{aligned}
+        &\lambda&&\\ &&\ddots&\\ &&&\lambda_n\end{aligned}\right)$ by the familiar diagram
+        $$\xymatrix{&V\ar[r]^f &V\\ &K^n\ar[u]^b\ar[r]^{A_f} &K^n\ar[u]^b}$$$$f(v_i)=b\circ A_f(e_i)=b(\lambda_ie_i)=\lambda_iv_i\in\left<v_i\right>$$
+        So $$V=\left<v_1\right>\oplus\cdots\oplus\left<v_n\right>$$
+    \item [1 $\Rightarrow$ 2]Assume that $V=\left<v_1\right>\oplus\cdots\oplus\left<v_n\right>$, where $f(\left<v_i\right>)\subseteq\left<v_i\right>$
+    , then $\{v_1,\cdots,v_n\}$ forms a basis of $V$\\
+    Consider the previous diagram
+    $$A(e_1)=b^{_1}\circ f\circ b(e_i)=b^{-1}(f(v_i))=b^{-1}(\lambda_iv_i)=\lambda_ie_i$$
+\end{itemize}
+\subsection{Example}
+Take $$A:\mathbb{R}^2\rightarrow\mathbb{R}^2\quad A=\left(\begin{aligned}&\cos\theta &\sin\theta\\ &-\sin\theta&\cos\theta\end{aligned}\right)$$ $A$ is not diagonalizable.
+\section{Def}
+Let $L$ be a one-dimensional invariant subspace of $f:V\rightarrow V$ . Then $F\mid_L$ is a multiplication by a scalar $\lambda\in K$. Such $\lambda$ is called eigenvalue of $f$. Anon-zero vector $v\in V$ is called an eigenvector of $V$ if $\left<v\right>$ is an invariant subspace of $f$
+\section{Remark}
+$$\xymatrix{ &\{eigenvectors\}\ar[r]&\{\text{Set of invariant subspaces of dim 1}\}\ar[r] &K\\
+&&v\ar@{|->}[r]\left<v\right>\ar@{|->}[r]&eigenvalue
+}$$
+This mapping is generally NOT injective. If $V$ is an eigenvector, then $\mu v$ is also an eigenvector, $\forall \mu\in K$
 \end{document}
