@@ -4725,4 +4725,82 @@ $$\xymatrix{ &\{eigenvectors\}\ar[r]&\{\text{Set of invariant subspaces of dim 1
 &&v\ar@{|->}[r]\left<v\right>\ar@{|->}[r]&eigenvalue
 }$$
 This mapping is generally NOT injective. If $V$ is an eigenvector, then $\mu v$ is also an eigenvector, $\forall \mu\in K$
+\section{Remark/exercise}
+Assume that $f$ is diagonalizable and $A_f$ is a diagonal matrix that represents $f$ Then $A_f$ is unique up to permutation of the columns in the diagonal.
+$$V=\left<v_1\right>\oplus\cdots\oplus\left<v_n\right>=\left<v_{\sigma(1)}\right>\oplus\cdots\oplus\left<v_{\sigma(n)}\right>\quad \sigma\in \mathfrak{S}_n$$
+\section{Def}
+V a vector space over K $dim(V)=n,f\in \mathscr{L}(V;V)$ let $A_f$ be an associated matrix (in any basis) the mapping
+$$\begin{aligned}
+    P: &K &\rightarrow& K\\&t&\mapsto& \det(tI_n-A_f)
+\end{aligned}$$
+This is a polynomial in $K[t]$ (with degree $n$)
+\section{Lemma}
+$P(t)$ is a monic polynomial of degree $n$
+\subsection*{Proof}
+$$P(t)=\det(tI_n-A_f)=\sum\limits_{\sigma}sgn(\sigma)\prod\limits_{i=1}^n(t\delta_{i\sigma(i)}-A_{i\sigma(i)})$$
+The only item giring $t^n$ is when $\sigma=id$
+\section{Theorem}
+Use the notations introduced before
+\begin{itemize}
+    \item[1]$P(t)$ doesn't depends on $A_f$ (if you change basis, $P(t)$ does not change)
+    \item[2] Any eigenvalue of $f$ is a root of $P(t)$. Conversely any $K$-root of $P(t)$ is an eigenvalue of $f$
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [1] Put $A=A_f$ and $A'$ be another representation of $f$ Then $A'=B^{-1}AB$ where $B$ invertible $n\times n$ matrix.
+    $$
+    \begin{aligned}
+        \det(tI_n-A')&=\det(tI_n-B^{-1}AB)\\ &=\det(B^{-1}(tI_n)B-B^{-1}AB)\\ &=\det(B^{-1}(tI_n-A)B)\\ &=\det(tI_n-A)
+    \end{aligned}
+    $$
+    \item[2] Let $\lambda\in K$ be a $K$-root of $P(t)$, then $$\det(\lambda I_n-A_f)=0=P(\lambda)$$
+    $\lambda I_n-A_f$ is not invertible, $\exists v\neq0\in \ker(\lambda I_n-A_f)$ s.t. $$A_f(\sigma)=\lambda\sigma$$ then $\sigma$ is an eigenvector
+
+    Vice versa if $\sigma\neq0,f(\sigma)=\lambda\sigma,\sigma\in Ker(\lambda I_n-A_f)$,$\det(\lambda I_n-A_f)=0=P(t)$ 
+\end{itemize}
+\section{Def}
+The polynomial $P(t)$ will be  denoted by $P_f(t)$. It's called the characteristic polynomial of $f$
+\section{Corollary}
+If $P_f(t)$ splits with  no repeated roots, then $f$ is diagonalizable.
+\subsection*{Proof}
+Natural$$\left<\sigma_1\right>,\cdots\left<\sigma_n\right>$$
+are all different then
+$$V=\left<\sigma_1\right>\oplus\cdots\oplus\left<\sigma_n\right>$$
+\section{Remark}
+The inverse version does not hold.
+\section{Def:Jordan block}A matrix of form
+$$J_r(\lambda)=\begin{pmatrix}
+    \lambda &1&&&\\
+    0&\lambda&1&&\\
+    &&\ddots&\ddots\\
+    &&& &1\\
+    &&&&\lambda\\
+\end{pmatrix}\in M_{r\times r}(K) \quad r\geq 1$$ is called a Jordan block (element $\lambda\in K$ is $J_1(\lambda)$)
+\section{Def:Jordan matrix}
+A Jordan matrix if a matrix of form
+$$J=\begin{pmatrix}
+    J_{r_1}(\lambda_1)&\cdots&\\
+    &J_{r_2}(\lambda_2)&&\\
+    &&\ddots&
+\end{pmatrix}$$
+\section{Example}
+Let $V_n(\lambda)$ be the vector space of complex functions:
+$$F(x)=e^{\lambda x}f(x)$$ where $\lambda\in \mathbb{C},f\in \mathbb{C}[x]\leq n-1$
+
+Verify that $V_n(\lambda)$ is a vector space of dim $n$
+$$\begin{aligned}
+    \frac{d}{dx}(e^\lambda x f(x)) &=\lambda e^{\lambda x}f(x)+e^{\lambda x}f'(x)\\ &=e^{\lambda x}(\lambda f(x)+f'(x))
+\end{aligned}$$
+$\frac{d}{dx}\in\mathscr{L}(V_n(\lambda);V_n(\lambda))$ Consider$$v_{i+1}=\frac{x^i}{i!}e^{\lambda x}$$
+Show that $\{v_0,\cdots,v_{n-1}\}$ forms a basis of $V_n(\lambda)$
+$$\begin{aligned}
+    \frac{d}{dx}v_{i+1} &=\lambda v_{i+1}+\frac{x^{i-1}}{(i-1)!}e^{\lambda x}\\ &=\lambda\sigma_{i+1}+\sigma_i
+\end{aligned}$$
+Then 
+$$A_{\frac{d}{dx}}=\begin{pmatrix}
+    \lambda& & &\\
+    1&\ddots&&\\
+    &\ddots&&\\
+    &&1&\lambda
+\end{pmatrix}=(J_n(\lambda))^T$$
 \end{document}
