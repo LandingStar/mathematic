@@ -4738,7 +4738,7 @@ This is a polynomial in $K[t]$ (with degree $n$)
 $P(t)$ is a monic polynomial of degree $n$
 \subsection*{Proof}
 $$P(t)=\det(tI_n-A_f)=\sum\limits_{\sigma}sgn(\sigma)\prod\limits_{i=1}^n(t\delta_{i\sigma(i)}-A_{i\sigma(i)})$$
-The only item giring $t^n$ is when $\sigma=id$
+The only item giving $t^n$ is when $\sigma=id$
 \section{Theorem}
 Use the notations introduced before
 \begin{itemize}
@@ -4768,7 +4768,7 @@ are all different then
 $$V=\left<\sigma_1\right>\oplus\cdots\oplus\left<\sigma_n\right>$$
 \section{Remark}
 The inverse version does not hold.
-\section{Def:Jordan block}A matrix of form
+\section{Def: Jordan block}A matrix of form
 $$J_r(\lambda)=\begin{pmatrix}
     \lambda &1&&&\\
     0&\lambda&1&&\\
@@ -4776,7 +4776,7 @@ $$J_r(\lambda)=\begin{pmatrix}
     &&& &1\\
     &&&&\lambda\\
 \end{pmatrix}\in M_{r\times r}(K) \quad r\geq 1$$ is called a Jordan block (element $\lambda\in K$ is $J_1(\lambda)$)
-\section{Def:Jordan matrix}
+\section{Def: Jordan matrix}
 A Jordan matrix if a matrix of form
 $$J=\begin{pmatrix}
     J_{r_1}(\lambda_1)&\cdots&\\
@@ -4803,4 +4803,120 @@ $$A_{\frac{d}{dx}}=\begin{pmatrix}
     &\ddots&&\\
     &&1&\lambda
 \end{pmatrix}=(J_n(\lambda))^T$$
+\section{Def}
+Let $a_0+a_1t+\cdots+a_nt^n= Q(t)\in K[t]$, then for $f\in \mathscr{L}(V;V)$ we define 
+$$Q(f):=a_0id_V+a_1f+a_2f^{\circ 2}+\cdots+a_nf^{\circ n}$$
+\begin{itemize}
+    \item[Remark]
+From now on we write
+$$f^{\circ k}=f^k$$
+\end{itemize}
+these are operations in $\mathscr{L}(V;V),+,\circ$
+
+we say that $Q$ annihilates $f$ if $Q(f)=0$
+\section{Prop}
+\label{Prop.48.17}
+Let $f\in \mathscr{L}(V;V)$. There exists a polynomial $Q\in K[t]\setminus\{0\}$ that annihilates $f$ (i.e. $Q(f)=0$)
+\subsection*{Proof}
+$$dim(\mathscr{L}(V;V))=n^2$$
+Hence the mapping $\underbrace{id_V,f^2,\cdots,f^{n^2}}\limits_{n^2+1\text{ mappings}}\in\mathscr{L}(V;V)$ are linear dependent. There exists a non-trivial linear comb:
+$$\lambda_0id_V+\lambda_1f+\cdots+\lambda_{n^2}f^{n^2}=0$$
+So, take $$Q(t)=\lambda_0+\lambda_1t+\cdots+\lambda_{n^2}t^{n^2}$$ This show that $Q\neq0$ and $Q(f)=0$
+\subsection*{Remark}The proof of this proposition also gives the degree of a polynomial that annihilates $(\leq n^2)$
+\section{Def}
+Let $m(t)\in K[t]\setminus\{0\}$ be a monic polynomial of minimal degree that annihilates $f\in \mathscr{L}(V;V)$. Then $m(t)$ is called minimal polynomial of $f$
+
+And by prop above (\ref{Prop.48.17}), $m(t)$ exists.
+\section{Prop}
+If $m(t)$ is minimal polynomial of $f$, then $m(t)$ is unique.
+\subsection*{Proof}
+Assume that $m_1(t)$ is another minimal polynomial of $f$. Then $m-m_1(t)\in K[t]$
+$$(m-m_1)(f)=m(f)-m_1(f)=0-0=0$$
+Now $m$ and $n$ are both monic, so $$deg(m-m_1)<deg(m)=deg(m_1)$$
+$m-m_1$ is a polynomial of $deg<deg(m)$ that annihilates $f$, thus $$m-m_1=0\in K[t]$$
+\section*{Notation}
+Form now no we denote the minimal polynomial of $f$ by $m_f$
+\subsection*{Question}
+$f\in\mathscr{L}(V;V)$ we have $P_f,m_f\in K[t]$.
+
+What is the relationship between $P_f$ and $m_f$?  
+\section{Prop}
+Let $Q\in K[t]\setminus\{0\}$ be a polynomial that annihilates $f$. Then $m_f\mid Q$ 
+\subsection*{Proof}
+Let $$Q(t)=m_f(t)\cdot s(t)+\mathbcal{r}(t)$$
+such that $deg(\mathbcal{r})< deg(m_f)$. So
+$$0=Q(f)=m_f(f)s(f)_\mathbcal{r}(f)=0+\mathbcal{r}(f)\Rightarrow \mathbcal{r}(f)=0$$
+But since $m_f$ is the minimal polynomial of $f$, then $$\mathbcal{r}(t)=0$$
+\section{Def}
+Let $A$ be a matrix of dim $n\times n$ and $$M_{ij}:=(-1)^{i+j}\det(A_{[i,j]})\quad \forall (i,j)\in \{1,\cdots,n\}^2$$
+In this expression $$\det(A_{[i,j]})$$ is called the $(i,j)$-monic of $A$.
+
+Then we define$$Adj(A):=(M_{ij})^T$$ called adjugate matrix of $A$
+\section{Prop}
+$$Adj(A)\cdot A=A\cdot Adj(A)=\det(A)\cdot I_n$$
+\subsection*{Proof}
+use Laplace expansion.
+\section{Theorem: Cayley-Hamilton Theorem}
+The characteristic polynomial $P_f$ annihilates $f$
+
+Consequence: $m_f\mid P_f$
+\subsection*{Proof}
+Let $A=A_f$ any matrix that represents $f$. COnsider $$B:=Adj(tI_n-A)$$
+$B$ is a matrix with coefficient in $K[t]$($B\in M_{n\times n}(K[t])$)
+
+Then$$(tI_n-A)\cdot B=\det(tI_n-A)\cdot B==P_f(t)\cdot I_n$$
+We can decompose $B$ in the following way
+$$B=\sum\limits_{i=0}^{n-1}t^iB_i\quad B_i\in M_{n\times n}(K)$$
+We have at most $n-1$, because the coefficient of $B$ have degree at most $n-1$
+
+(Any entry Adj is a det ogf a matrix of dim $(n-1)\times(n-1)$)
+$$
+\begin{aligned}
+    P_f(t)I_n &=(tI_n-A)\cdot\sum\limits_{i=0}^{n-1}t^iB_i\\
+    &=(\sum\limits_{i=0}^{n-1}tI_n\cdot t^iB_i)-(\sum\limits_{i=0}^{n-1}A\cdot t^iB_i)\\
+    &=\sum\limits_{i=0}^{n-1}t^{i+1}B_i-\sum\limits_{i=0}^{n-1}A\cdot t^iB_i\\
+    &= t^nB_{n-1}+\sum\limits_{i=0}^{n-1}t^i(B_{i-1}-AB_i)-AB_0
+\end{aligned}
+$$Recall that $P_f(t)\cdot I_n=t^nI_n+ c_{n-1}t^{n-1}I_n+\cdots+c_1tI_n+c_0I_n$
+$$
+\begin{aligned}
+    &t^nI_n+c_{n-1}t^{n-1}I_n+\cdots+c_0I_n\\=&\cdots\\=&t^nB_{n-1}+\sum\limits_{i=1}^{n-1}t^i(B_{i-1}-AB_i)-AB_0
+\end{aligned}
+$$
+Then we can compare the coefficients:
+$$B_{n-1}=I_n$$
+$$B_{i-1}-AB_i=c_iI_n\quad 1\leq i\leq n-1$$
+$$-AB_0=c_0I_n$$
+Multiply by $A^i\ 0\leq i\leq n$
+$$A^nB_{n-1}+\sum\limits_{i=1}^{n-1}(A^iB_{n-1}-A^{i+1}B)-AB_0=A^n+c_{n-1}A^{n-1}+\cdots+c_1A+c_0I_n$$
+Now the LHS we have a telescopic sum and got
+$$0=P_f(A) \Leftrightarrow 0=P_f(f)$$
+\section{Example}
+\begin{itemize}
+    \item[(a)] $m_f$ and $P_f$ are in general different. let $f=id_V,(dim V=n)$
+    $$P_f(t)=(t-1)^n\quad m_f(t)=t-1$$
+    \item[(b)]Assume $f:V\rightarrow V(dim V=\mathbcal{r})$ and $A_f=J_\mathbcal{r}(\lambda)$. Then
+    $$P_f(t)=(t-\lambda)^\mathbcal{r}$$
+    Moreover $$J_\mathbcal{r}(\lambda)=\lambda I_\mathbcal{r}+J_\mathbcal{r}(0)$$ and $$J_\mathbcal{r}(o)^k=\begin{pmatrix}
+        \overbrace{0\cdots 1}\limits^{k+1}&&\\&\ddots&\\ &&1\\&&\vdots\\&&0
+    \end{pmatrix}$$ if $k\geq\mathbcal{r},J_\mathbcal{r}(o)^k=0$
+    $$(J_\mathbcal{r}(\lambda)-\lambda I_n)^k=(\lambda I_\mathbcal{r}-J_\mathbcal{r}(0)-\lambda I_\mathbcal{r})^k=J_\mathbcal{r}(0)^k\neq 0$$ if $0\leq k\leq\mathbcal{r}-1$\\We know that $m_f\mid (t-\lambda)^\mathbcal{r}$(by Cayley-Hamilton), $m_f$ must be of the type $$m_f=(t-\lambda)^k$$
+    But the only possibility is $k=\mathbcal{r}$, thus$$m_f=P_f$$
+\end{itemize}
+\section{Theorem}Let $f\in\mathscr{L}(V;V)$ when $V$ is a vector space of dim $n$, over an algebraically closed field.\\Then
+\begin{itemize}
+    \item [(1)]$f$ can be represented by a Jordan matrix
+    \item [(2)]This above matrix is unique up to permutation of the Jordan blocks
+\end{itemize}
+
+
+(Note that a field $K$ is algebraically closed if any non-zero polynomial has a root in $K$)
+\section{Def}
+Let $f\in\mathscr{L}(V;V)$ and let $\lambda\in K$. A vector $w\in V\setminus\{0\}$ is called a root vector of $f$ corresponding to $\lambda$, if there exists $\mathbcal{r}\in\mathbb{N}$ s.t. $$(f-\lambda id_V)^\mathbcal{r}(w)=0$$
+\subsection*{Remark}
+Eigenvector are root vectors (corresponding to their eigenvalues) take $\mathbcal{r}=1$
+
+\subsection*{Remark}
+Let $J_\mathbcal{r}(\lambda)$ be a Jordan block. Then any $\sigma\in V$ is a root vector of $f$ corresponding to $\lambda$. In fact:
+$$(J_\mathbcal{r}(\lambda)-\lambda I_n)^m=0\quad\text{if }m\geq\mathbcal{r}$$
 \end{document}
