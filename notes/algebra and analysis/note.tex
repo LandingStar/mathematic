@@ -4919,4 +4919,143 @@ Eigenvector are root vectors (corresponding to their eigenvalues) take $\mathbca
 \subsection*{Remark}
 Let $J_\mathbcal{r}(\lambda)$ be a Jordan block. Then any $\sigma\in V$ is a root vector of $f$ corresponding to $\lambda$. In fact:
 $$(J_\mathbcal{r}(\lambda)-\lambda I_n)^m=0\quad\text{if }m\geq\mathbcal{r}$$
+\section{Prop}
+Let $K$ be an algebraically closed field. Let $\lambda_1,\cdots,\lambda_k$ be all of distinct eigenvalues of $f(k\geq1)$, then 
+$$V=\bigoplus\limits_{i=1}^kV(\lambda_i)$$
+\subsection*{Proof}
+Since $K$ is algebraically closed, then
+$$P_f(t)=\prod\limits_{i=1}^k(t-\lambda_i)^{r_i}\in K[t]$$
+Consider $$F_i(t):=P_f(t)\cdot(t-\lambda_i)^{-r_i}\in K[t]$$
+Then we define $$f_i:=F_i(f)\in\mathscr{L}(V;V),V_i=Im f_i$$
+\subsubsection{Setp 1}
+We want to prove that $$(f-\lambda_i Id_V)^{\circ r_i}(V_i)=0\Leftrightarrow V_i\subseteq V(\lambda_i)$$
+which got from 
+$$(f-\lambda_i Id_V)^{\circ r_i}\circ(f_i)=(t-\lambda_i)^{r_i}(f)\circ F_i(f)=P_f(f)=0$$
+\subsubsection{Step 2}
+We want to prove that $$V=\bigoplus\limits_{i=1}^kV_i$$
+Since the polynomials $F_i(t)$ are coprime, then
+$$\exists G_i(t)\in K[t]\text{ s.t. }\sum\limits_{i=1}^k F_i(t)G_i(t)=1$$
+Let $f$ substitute for $t$
+$$\sum\limits_{i=1}^k F_i(f)G_i(f)=Id$$
+take $v\in V$
+$$\sum\limits_{i=1}^k f_i\circ G_i(f)(v)=v$$
+$$\xymatrix{
+    &&&\bigoplus\limits_{i=1}^kV_i&&\\
+    &V_1\ar[urr]_i&V_2\ar[ur]_i&\cdots&V_{k-1}\ar[ul]^i&V_k\ar[ull]^i\\
+    &V\ar@{}[r]|=\ar[u]^{f_1\circ G_1(f)}&V\ar[u]^{f_2\circ G_2(f)}\ar@{}[r]|=&\cdots\ar@{}[r]|=&V\ar@{}[r]|=\ar[u]^{f_{k-1}\circ G_{k-1}(f)}&V\ar[u]^{f_k\circ G_k(f)}
+}$$
+$i$ is the inclusion mapping.
+\subsubsection{Step 3}
+We want to show that $$V_i\cap (\sum\limits_{i\neq j}V_j)=\{0\}$$
+Let $v$ be a vector in this intersection. Then by calculation,
+$$(f-\lambda_i)^{r_i}(v)=0$$
+$$F_i(f)(v)=\prod\limits_{i\neq j}(f-\lambda_j)Id^{\circ r_i}(v)=0$$
+Now $(t-\lambda_i)^{r_i}$ and $F_i(t)$ are coprime. Then there exists $G_1(t)$ and $G_2(t)$  such that:
+$$G_1(t)(t-\lambda_i)^{t_i} +G_2(t)F_i(t)=1$$
+substitute $f$ instead of $t$ by 
+$$G_1(f)\circ (f-\lambda_i Id_V)^{\circ r_i}+G_2(f)\circ F_i(f)=Id_V$$
+Then apply to $v=\sum\limits_{j\neq i}v_j,v_j\in V_j$
+$$G_1(f)\circ (f-\lambda_i Id_V)^{\circ r_i}(v) +G_2(f)\circ F_i(f)(v)=v=0$$
+\subsubsection{Step 4}
+We want to show that $$V_i=V(\lambda_i)$$
+By step 1 we get $$V_i\subseteq V(\lambda_i)$$Take $v\in V(\lambda_i)$, write it as $$v=v'(\in V(\lambda_i))+v''(\in \bigotimes\limits_{j\neq i}V_j)$$
+By step 3, $$v''=v-v'\in V(\lambda_i)$$
+Use same trick,substitute f for t and calculate in $v''$
+$$v''=0$$
+\section{Def}
+Let $f\in  \mathscr{L}(V;V)$. Then $f$ is said to be nilpotent if there exists $t\in \mathbb{N}$ that $f^t=0$
+\section{Lemma}
+Let $f$ be a nilpotent mapping, then $$Ker(f)=\{\text{set of eigenvalues of }f\}$$
+\subsection*{Proof}
+Let $v\in Ker(f)$ then $v$ is an eigenvector with eigenvalue$=0$
+
+Let $v$ be an eigenvector, then $\forall m\geq r$
+$$0=f^m(v)=f^{m-1}(f(v))=f^{m-1}(\lambda v)=\lambda^m v\Rightarrow \lambda^m=0\Rightarrow \lambda=0$$
+\section{Lemma}
+Let $f$ be a nilpotent mapping, then $Ker (f)\neq\{0\}$
+\subsection*{Proof}
+Let $\mathbcal{r}$ be the minimal integer s.t. $f^\mathbcal{r}=0$ then
+$$f^{\mathbcal{r}-1}(V)\subseteq Ker(f)$$
+but $f^{\mathbcal{r}-1}(V)\neq\{0\}$ because of the minimality of $\mathbcal{r}$
+\subsection*{Remark}
+Another way to prove is that $Q(t)=t^\mathbcal{r}$ annihilates $f$. So $m_p=t^{\mathbcal{r}'},\mathbcal{r}'\leq\mathbcal{r}$ Note that 0 is a root of $m_f$, by Cayley-Hamilton theorem, 0 is an eigenvalue $f(x)=0\cdot x=0$ for some $x\neq0$
+\section{Jordan matrix of form $J_\mathbcal{r}(0)$}
+Recall that $$J_\mathbcal{r}(0)^k=0\text{ if }k\geq \mathbcal{r}$$
+Then the Jordan matrix $$\begin{pmatrix}
+    J_{\mathbcal{r}_1}(0)&&\\
+    &J_{\mathbcal{r}_2}(0)&&\\
+    &&\ddots
+\end{pmatrix}$$
+Are nilpotent mappings since each block is nilpotent. Take one block
+$$J_\mathbcal{r}(0)=\begin{pmatrix}
+    0&1&&\\
+    &0&1&&\\
+    &&\ddots&\ddots
+\end{pmatrix}\quad=\left\{\begin{matrix}
+    e_1\mapsto 0\\e_2\mapsto 1\\\vdots\\e_\mathbcal{r}\mapsto e_{\mathbcal{r}-1}
+\end{matrix}\right.$$
+We represent the action of a Jordan block on a basis as the following diagram
+$$\underbrace{e_\mathbcal{r}\rightarrow e_{\mathbcal{r}-1}\rightarrow e_{\mathbcal{r}-2}\rightarrow \cdots \rightarrow e_1\rightarrow 0}\limits_{\text{lenth of the block}(\mathbcal{r})}$$$e_1$ is the one which mapped to 0 (thus an eigenvector)
+
+Given $f\in \mathscr{L}(V;V)$ if we find a basis on which $f$ acts as in the previous diagram. Then we have found a Jordan basis made of  blocks of the type "$J_\mathbcal{r}(0)$"
+\section{Theorem}
+Let $f\in\mathscr{L}(V;V)$ be a nilpotent mapping, then there exists a Jordan basis for $f$ that gives a Jordan matrix made of blocks of the type $J_\mathbcal{r}(0)$
+\subsection*{Proof}
+We need to find a basis that induces a diagram of the type $\mathcal{D}:$(dots in the diagram are basis)
+$$\xymatrix{
+    \cdot\ar[d]&&&&\cdot\ar[d]\\
+    \cdot\ar@{}[d]|\vdots&\cdot\ar[d]&&&\cdot\ar[d]\\
+    \cdot\ar[d]&\cdot\ar[d]&\cdot\ar[d]&\cdots&\cdot\ar[d]\\
+    \cdot\ar[d]&\cdot\ar[d]&\cdot\ar[d]&&\cdot\ar[d]\\
+    0&0&0&&0
+}$$
+(Last line of dots naturally be eigenvectors)
+
+We work by induction on $dim(V)$. If $dim(V)=1$, then $$f=\mu(\cdot),f^\mathbcal{r}=0\ \mu^\mathbcal{r}v=0\ \forall v\Rightarrow \mu=0$$
+But $0=J_1(0)$. Assume that the theorem is true for $dim(V)<n$ Let $$V_0=Ket f=\{\text{the set of eigenvalues}\}\cup\{0\}$$ Since $f$ is nilpotent $$dim(V_0)\geq 1$$. Therefore$$dim(V/V_0)<n$$ So define the following mapping
+$$
+\begin{aligned}
+    \overline{f}: &V/V_0 &\rightarrow &V/V_0\\&\overline{\sigma}=V_0+\sigma&\mapsto &V_0+f(v)=\overline{f(v)}
+\end{aligned}$$
+$$\overline{f}\cdot\overline{\sigma}\mapsto\overline{f(v)}$$
+is nilpotent
+We use the induction hypothesis
+
+We have a Jordan basis for $\overline{f}$, so we have elements $\overline{\sigma_1},\cdots,\overline{\sigma_m}\in V/V_0$ that give a diagram $\overline{\mathcal{D}}$:
+$$\xymatrix{}$$
+Now left $\overline{\sigma_i}$ to some element $\sigma_i\in V$ choose $\sigma_i\in V$ s.t $\sigma+V_0=\overline{\sigma_i}$Now start applying $f$ to these elements $\sigma_i\neq 0$
+
+$$v_i\rightarrow f(v_i)\rightarrow\cdots\rightarrow f^{b_i-1}(v_i)\rightarrow f^{b_i}(v_i)$$
+
+
+When $b_i$ is the first integer such that $$\overline{f}^{b_i}(\overline{v_i})=0$$
+This means that $$f^{b_i}(v_i)\in V_0$$ hence $f^{b_i}(\sigma_i)$ is an eigenvalue for ? Consider now the vector subspace generated by $f^{b_1}(v_1),f^{b_2}(v_2),\cdots,f^{b_m}(v_m)$$$\left<f^{b_1}(v_1),\cdots,f^{b_m}(v_m)\right>\subseteq V_0$$
+Extract a basis and complete to a basis of $V_0$. The new vectors are denoted by $u_1,\cdots, u_t$
+
+We want to prove that the elements of $\mathcal{D}$ form $\cdot$ basis of $V$
+\subsubsection*{1}The elements of $\mathcal{D}$ generate $V$ let $\sigma\in V$$$\overline{\sigma}=\sum\limits_{i=1}^m\sum\limits_{j=0}^{b_i-1}a_ij\overline{f^j}(\overline{v_i})$$
+Now I use the properties of $\overline{f}$$$\begin{aligned}
+    &\overline{f}(\overline{v_i})=\overline{f(v_i)}\\ &\overline{f}(\overline{f(v)})=\overline{f(f(v))}
+\end{aligned}$$
+then $$\overline{\sigma}=\overline{\sum\limits_{i=1}^m\sum\limits_{j=0}^{b_i-1}a_ij{f^j}({v_i})}$$
+which gives
+$$\sigma-\sum\limits_{i=1}^m\sum\limits_{j=0}^{b_i-1}a_ij{f^j}({v_i})\in V_0$$
+this finishes. We know that
+$$V_0=\left<f^{b_1}(v_1),\cdots,f^{b_m}(v_m),u_1,\cdots,u_t\right>$$
+\subsubsection*{2}
+We need to prove that the elements of $\mathcal{D}$ are linearly independent
+\begin{itemize}
+    \item [a] We show that the elements of the bottom row are linearly independent$$\sum\limits_{i=1}^ma_if^{b_i}(v_i)+\sum\limits_{i=1}^tb_iu_t=0$$
+    This is a non-trivial linear comb.
+    
+    The first observation is that $b_i=0$. Because if $b_j\neq0$ $$u_j=\frac{\sum\limits_{i=1}^ma_if^{b_i}(v_i)}{\sum\limits_{i=1}^tb_i}$$ But $u_1,\cdots,u_t$ were an extension of a basis. So $$0=\sum\limits_{i=1}^ma_if^{b_i}(v_i)=f(\sum\limits_{i=1}^ma_if^{b_i-1}(v_i))\Rightarrow(\sum\limits_{i=1}^ma_if^{b_i-1}(v_i))\in V_0$$
+    It means that
+    $$\sum\limits_{i=1}^ma_i\overline{f}^{b_i}(v_i)=0\Rightarrow a_i=0\forall i$$
+    \item [b] If there is a non-trivial linear comb that equals to 0. For elements of $\mathcal{D}$. We can write it as linear comb of elements of the last row
+    $$f(\sum\limits_{i=1}^m\sum\limits_{j=1}^{b_i}a_{ij}f^j(v_i)+\sum\limits_{i=1}^tb_iu_t)=0$$
+    By applying $f$ many times we get a linear comb of elements of the last row.
+
+    By point a,finished.
+\end{itemize}
+
 \end{document}
