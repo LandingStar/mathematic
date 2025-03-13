@@ -4920,6 +4920,7 @@ Eigenvector are root vectors (corresponding to their eigenvalues) take $\mathbca
 Let $J_\mathbcal{r}(\lambda)$ be a Jordan block. Then any $\sigma\in V$ is a root vector of $f$ corresponding to $\lambda$. In fact:
 $$(J_\mathbcal{r}(\lambda)-\lambda I_n)^m=0\quad\text{if }m\geq\mathbcal{r}$$
 \section{Prop}
+\label{Prop 48.27}
 Let $K$ be an algebraically closed field. Let $\lambda_1,\cdots,\lambda_k$ be all of distinct eigenvalues of $f(k\geq1)$, then 
 $$V=\bigoplus\limits_{i=1}^kV(\lambda_i)$$
 \subsection*{Proof}
@@ -5045,17 +5046,81 @@ $$V_0=\left<f^{b_1}(v_1),\cdots,f^{b_m}(v_m),u_1,\cdots,u_t\right>$$
 \subsubsection*{2}
 We need to prove that the elements of $\mathcal{D}$ are linearly independent
 \begin{itemize}
-    \item [a] We show that the elements of the bottom row are linearly independent$$\sum\limits_{i=1}^ma_if^{b_i}(v_i)+\sum\limits_{i=1}^tb_iu_t=0$$
+    \item [a] We show that the elements of the bottom row are linearly independent$$\sum\limits_{i=1}^ma_if^{b_i}(v_i)+\sum\limits_{i=1}^tc_iu_t=0$$
     This is a non-trivial linear comb.
     
-    The first observation is that $b_i=0$. Because if $b_j\neq0$ $$u_j=\frac{\sum\limits_{i=1}^ma_if^{b_i}(v_i)}{\sum\limits_{i=1}^tb_i}$$ But $u_1,\cdots,u_t$ were an extension of a basis. So $$0=\sum\limits_{i=1}^ma_if^{b_i}(v_i)=f(\sum\limits_{i=1}^ma_if^{b_i-1}(v_i))\Rightarrow(\sum\limits_{i=1}^ma_if^{b_i-1}(v_i))\in V_0$$
+    The first observation is that $b_i=0$. Because if $b_j\neq0$ $$u_j=\frac{\sum\limits_{i=1}^ma_if^{b_i}(v_i)}{\sum\limits_{i=1}^tc_i}$$ But $u_1,\cdots,u_t$ were an extension of a basis. So $$0=\sum\limits_{i=1}^ma_if^{b_i}(v_i)=f(\sum\limits_{i=1}^ma_if^{b_i-1}(v_i))\Rightarrow(\sum\limits_{i=1}^ma_if^{b_i-1}(v_i))\in V_0$$
     It means that
     $$\sum\limits_{i=1}^ma_i\overline{f}^{b_i}(v_i)=0\Rightarrow a_i=0\forall i$$
     \item [b] If there is a non-trivial linear comb that equals to 0. For elements of $\mathcal{D}$. We can write it as linear comb of elements of the last row
-    $$f(\sum\limits_{i=1}^m\sum\limits_{j=1}^{b_i}a_{ij}f^j(v_i)+\sum\limits_{i=1}^tb_iu_t)=0$$
+    $$f(\sum\limits_{i=1}^m\sum\limits_{j=1}^{b_i}a_{ij}f^j(v_i)+\sum\limits_{i=1}^tc_iu_t)=0$$
     By applying $f$ many times we get a linear comb of elements of the last row.
 
     By point a,finished.
 \end{itemize}
+\section{Prop}
+The Jordan matrix that represents a nilpotent mapping $f\in \mathscr{L}(V)$ is unique to permutations of the blocks.
+\subsection*{Proof}
+Recall that a Jordan basis of $f$ is given be diagram of the type $\mathcal{D}$
+$$\xymatrix{
+    \cdot\ar[d]&&&&\\
+    \cdot\ar[d]&\cdot\ar[d]&&\\
+    \cdot\ar[d]&\cdot\ar[d]&\cdot\ar[d]&\cdots&\\
+    \vdots\ar[d]&\vdots\ar[d]&\vdots\ar[d]&&\\
+	\cdot&\cdot&\cdot&\cdots&\cdot&\cdot
+}$$
+These columns are ordered in a decreasing height on them, recalling that the height of a column is the dimension of a Jordan block. In the proof of existence of Jordan basis, the diagram was constructed as a lift of $\mathcal{D}$
 
+Focus on the last row. The elements of last row generates $V_0=\ker f$ and moreover, they are linearly independent. Then the length of the last row is exactly $dim(V_0)$, which is independent of the choice of basis.
+
+Viewing the penultimate row, this corresponds to the last row of the diagram $\overline{\mathcal{D}}$. So if we work by induction, we done the proof:
+
+All the rows have length independent of the choice of basis.
+\subsection*{Remark}
+$$\ker(f^{\circ 3})/\ker(f^{\circ2})\rightarrow\ker(f^{\circ 2})/\ker(f)\rightarrow\ker f=V_0$$
+\section{Lemma}
+\label{Lemma 48.34}
+Let $f\in \mathscr{L}(V)$, $\lambda$ be an eigenvalue of $f$. Then there exists $r\in \mathbb{N}$ s.t.$$\forall v\in V(\lambda)\quad (f-\lambda Id)(v)=0$$
+\subsection*{Proof}
+Take a basis $\{v_1,\cdots,v_n\}$ of $V(\lambda)$. By definition, we have $(r_1,\cdots,r_n)$ such that $\forall i$ $r_i$ is the least integer that $$\forall v\in V\quad (f-\lambda Id)^{\circ r}(v)=0$$
+Take $r=\max\{r_i\}$,then proved by calculation.
+\section{Theorem}
+Let $K$ be an algebraically closed field. Let $f\in \mathscr{L}(V)$. Then  $f$ admits a Jordan basis (namely there exists a basis s.t. $A_f$ is a Jordan matrix). 
+\subsection*{Proof}
+Since $K$ is algebraically closed, by Prop \ref{Prop 48.27}
+$$V=\bigoplus\limits_{i=1}^kV(\lambda_i)$$
+where $\lambda_i$ are distinct eigenvalues of $f$
+
+Recall that $V(\lambda_i)$ is the set of root vectors for $\lambda_i$ and 0
+
+Consider $f\mid_{V(\lambda_i)}=g,\lambda_i=\lambda$. Only need to prove the theorem for $g$ $$(g-\lambda Id):V(\lambda)\rightarrow V(\lambda)$$
+This function is nilpotent on $V(\lambda)$ by definition. By lemma \ref{Lemma 48.34}, we have some $J_{g-\lambda Id}$ made of blocks of the type $J_{g-\lambda Id}(0)$
+
+Take the matrix and restrict to $J_r(0)$$$g-\lambda Id=BJ_r(0)B^{-1}$$
+One see that
+$$\lambda Id+BJ_r(0)B^{-1}=B\lambda IdB^{-1}+BJ_r(0)B^{-1}=B(\lambda Id+J_r(0))B^{-1}$$
+Uniqueness follows the uniqueness of $J_r(0)$
+\chapter{Jordan Matrix}
+To find relations between Jordan matrix and diagonal representations
+\section{Def}
+Let $\lambda$ be an eigenvalue of $f\in \mathscr{L}(V)$
+$$E(\lambda):=\ker (f-\lambda Id)$$
+This $E(\lambda)$ is called the eigenspace of $\lambda$
+$$mult(\lambda)_{geo}=dim(E(\lambda))$$
+is called the geometric multiplicity of $\lambda$
+
+Moreover
+$$mult(\lambda)_{alg}=\max\left\{k\in \mathbb{N}\left| (t-\lambda)^k\mid P_f(t)\right.\right\}$$
+is called the algebraic multiplicity of $\lambda$
+\section{Prop}
+Let $K$ be algebraically closed. Then $\forall \lambda$ eigenvalues of $f$
+$$mult(\lambda)_{geo}\leq mult(\lambda)_{alg}$$
+\subsection*{Proof}
+$$V=\bigoplus\limits_{i=1}^kV(\lambda_i)$$
+
+Take $\lambda=\lambda_i$. Let $J_f$ be the Jordan matrix of $f$. Then $$\det J_f=\det f$$
+so 
+$$P_f(t)=\prod\limits_i(t-\lambda_i)^{\dim (V(\lambda_i))}\quad\Rightarrow\quad \dim(V(\lambda))=mult(\lambda)_{alg}$$
+\section{Corollary}
+Let $K$ be an algebraically closed field. Let $f\in \mathscr{L}(V)$. $f$ is diagonalizable iff $$\forall\lambda_i\quad mult(\lambda_i)_{geo}=mult(\lambda_i)_{alg}$$
 \end{document}
