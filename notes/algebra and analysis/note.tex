@@ -5123,4 +5123,101 @@ so
 $$P_f(t)=\prod\limits_i(t-\lambda_i)^{\dim (V(\lambda_i))}\quad\Rightarrow\quad \dim(V(\lambda))=mult(\lambda)_{alg}$$
 \section{Corollary}
 Let $K$ be an algebraically closed field. Let $f\in \mathscr{L}(V)$. $f$ is diagonalizable iff $$\forall\lambda_i\quad mult(\lambda_i)_{geo}=mult(\lambda_i)_{alg}$$
+\chapter{Inner Product}
+\section{Def}Two matrices $G,G'\in M_{n\times n}(K)$ are said conjugate if $\exists A\in \mathcal{Q}_{n\times n}(K)$ s.t. $G=G'^T$
+\subsection*{Exercise}
+Verify that this is an equivalence relation
+\section{Def}
+Let V n-dimensional vector space over $K$($K=\mathbb{R}$ or $K=\mathbb{C}$), $g\in \mathscr{L}(V,V;K)$ is said a bilinear form. Choose a basis $\{v_1,\cdots,v_n\}$ of $V$ The matrix $$G=(g(v_i,v_j))_{ij}\in M_{n\times n}(K)$$ is called the Gram matrix of $g$ with respect to $\{v_1,\cdots,v_n\}$
+
+By bilinearity, $G$ determinant uniquely $g$$$x=\sum\alpha_iv_i\rightarrow x=\sum\alpha_ie_i\quad x=\begin{pmatrix}
+    \alpha_1\\vdots\\\alpha_n
+\end{pmatrix}$$
+$x,y\in V$
+$$g(x,y)=g(\sum x_iv_i,\sum y_jv_j)=\sum\limits_{i,j}x_iy_jg(v_i,v_j)=x^TGy$$
+On the other hand, given a basis $\{v_1,\cdots,v_n\}$ and $G\in M_{n\times n}(K)$ the mapping:
+$$\begin{aligned}
+    &V\times V &\rightarrow &K\\
+    &(x,y)&\mapsto &x^TGy
+\end{aligned}$$
+this is a bilinear form and the associated Gram matrix is exactly $G$
+
+Fix a couple $(V,\{v_1,\cdot,v_n\})$ we have defined a bijection.
+$$\begin{aligned}
+    &\mathscr{L}V,V;K&\stackrel{\cong}\leftrightarrow &K\\
+    &g&\mapsto &G
+\end{aligned}$$
+What happens if $g$ is fixed but we change basis. We have also $\{v'_1,\cdots,v'_n\}$
+$$\xymatrix{
+    &v_i&V&v'_i&\\
+    e_i\ar@{|->}[ur]&K^n\ar[ur]^b&&K^n\ar[ll]^A\ar[ul]_{b'}&e_i\ar@{|->}[lu]
+}$$
+$$A=b^{-1}\circ(b')\quad (b')^{-1}(x)=x'$$
+then $A$ satisfies $$Ax'=x$$
+so
+$$g(x,y)=x^TGy=(Ax')^TG(Ay')=(x')^T(A^TGA)(y')$$
+The new Gram matrix with respect to the basis $\{v'_1,\cdots,v'_n\}$ is $A^TGA$
+\section{Prop}
+There exists a bijection:
+$$\mathscr{L}(V,V;K)\stackrel{\cong}\leftrightarrow M_{n\times n}(K)/\sim_{conj}$$
+\subsection*{Proof}
+Recall
+$$
+\begin{aligned}
+&\mathscr{L}(V,V;K)&\stackrel{\cong}\rightarrow&\mathscr{L}(T_0^2(V);K)&\stackrel{\cong}\rightarrow&\mathscr{L}(V;V^\vee)\\
+&g&\mapsto& g_s&\mapsto&[x\mapsto g_s(x\otimes-)]=\tilde{g}
+\end{aligned}$$
+\section{Def}
+Given $g\in\mathscr{L}(V,V;K)$ we can define several other bilinear mappings:
+$$\begin{aligned}
+    g_p:&V\times V&\rightarrow&K\\ &(x,y)&\mapsto& g(y,x)
+\end{aligned}$$
+$$
+\begin{aligned}
+    \overline{g_p}:&V\times V&\rightarrow&K\\ &(x,y)&\mapsto& \overline{g(y,x)}=\overline{g_p(x,y)}
+\end{aligned}$$
+If $K=\mathbb{R}$ then $g_p=\overline{g_p}$
+\section{Def}
+A bilinear form $g$ is said\begin{itemize}
+    \item [Symmetric] if $g=g_p$
+    \item [Symplectic](skew-symmetric)if $g=-g_p$
+    \item [hermitian] if $g=\overline{g_p}$
+\end{itemize}
+(if $K=\mathbb{R}$ symmetric$\neq$ hermitian)
+\subsection{Example}
+$$\begin{aligned}
+    &K^n\times K^n&\rightarrow&K\\ &(x,y)&\mapsto &x^Ty
+\end{aligned}$$
+is symmetric
+$$\begin{aligned}
+    &K^2\times K^2&\rightarrow&K\\ &(v_1,v_2)&\mapsto &\det(v_1\mid v_2)
+\end{aligned}$$ is skew-symmetric
+$$\begin{aligned}
+    &\mathbb{C}^n\times\mathbb{C}^n&\rightarrow&\mathbb{C}\\ &(x,y)&\mapsto &x^T\overline y
+\end{aligned}$$
+is hermitian
+\section{Def}
+$g\in \mathscr{L}(V,V;K)$ is an inner product of $V$, if $g$ is either symmetric, symplectic or hermitian.
+
+And $(V,g)$ is called an inner space.
+
+(note that $g=-\overline{g_p}$ is complicated)
+\section{Def}
+Let $(V,g)$ be an inner product space. Two vectors $v_1,v_2\in V$ are said orthogonal( with respect to $g$) if $g(v_1,v_2)=0$. Two subspace $V_1,V_2\subseteq V$ are orthogonal if $g(v_1,v_2)=0$  $\forall v_1\in V_1,v_2\in V_2$($g(V_1,V_2)=0$)
+\subsection*{Exercise}
+Show the following
+\begin{itemize}
+    \item If $g$ is symmetric $$G=G^T$$
+    \item If $g$ is symplectic $$G=-G^T$$
+    \item If $g$ is hermitian $$G=\overline{G^T}$$
+\end{itemize}
+\section{Def}
+Let $(V_g)$ be an inner product space the kernel of $g$
+$$\ker(g):=\{v\in V\ g(v,w)=0\ \forall w\in V\}$$
+Moreover $g$ is said non-degenerated if
+$$\ker(g)=\{0\}$$
+\section{Remark}
+Note that $\ker(g)=\ker(\tilde{g})$ when $$\tilde{G}\in \mathscr{L}(V;V^\vee)$$
+$$\tilde{g}_x=0\ \Leftrightarrow\ g(x,y)=0\forall y\in V$$
+This implies that $\ker(g)$ is a linear subspace of $V$
 \end{document}
