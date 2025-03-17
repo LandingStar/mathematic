@@ -4386,7 +4386,7 @@ $$
 An element of $T_p^q(V)$ is called a tensor of type $(p,q)$ (or a mixed tensor which is $p$-covariant and $q$-contravariant)
 
 Let's denote:
-$$T(V):=\bigotimes\limits_{q\in \mathbb{N}} T_0^q(V)$$
+$$T(V):=\bigoplus\limits_{q\in \mathbb{N}} T_0^q(V)$$
 itemize some item in it:
 $$\begin{aligned}
     &T_0^0(V)=K\\
@@ -4785,16 +4785,16 @@ $$J=\begin{pmatrix}
 \end{pmatrix}$$
 \section{Example}
 Let $V_n(\lambda)$ be the vector space of complex functions:
-$$F(x)=e^{\lambda x}f(x)$$ where $\lambda\in \mathbb{C},f\in \mathbb{C}[x]\leq n-1$
+$$F(x):=e^{\lambda x}f(x)$$ where $\lambda\in \mathbb{C},f\in \mathbb{C}[x]\leq n-1$
 
 Verify that $V_n(\lambda)$ is a vector space of dim $n$
 $$\begin{aligned}
-    \frac{d}{dx}(e^\lambda x f(x)) &=\lambda e^{\lambda x}f(x)+e^{\lambda x}f'(x)\\ &=e^{\lambda x}(\lambda f(x)+f'(x))
+    \frac{d}{dx}(e^{\lambda x} f(x)) &=\lambda e^{\lambda x}f(x)+e^{\lambda x}f'(x)\\ &=e^{\lambda x}(\lambda f(x)+f'(x))
 \end{aligned}$$
 $\frac{d}{dx}\in\mathscr{L}(V_n(\lambda);V_n(\lambda))$ Consider$$v_{i+1}=\frac{x^i}{i!}e^{\lambda x}$$
 Show that $\{v_0,\cdots,v_{n-1}\}$ forms a basis of $V_n(\lambda)$
 $$\begin{aligned}
-    \frac{d}{dx}v_{i+1} &=\lambda v_{i+1}+\frac{x^{i-1}}{(i-1)!}e^{\lambda x}\\ &=\lambda\sigma_{i+1}+\sigma_i
+    \frac{d}{dx}v_{i+1} &=\lambda v_{i+1}+\frac{x^{i-1}}{(i-1)!}e^{\lambda x}\\ &=\lambda v_{i+1}+v_i
 \end{aligned}$$
 Then 
 $$A_{\frac{d}{dx}}=\begin{pmatrix}
@@ -5131,7 +5131,7 @@ Verify that this is an equivalence relation
 Let V n-dimensional vector space over $K$($K=\mathbb{R}$ or $K=\mathbb{C}$), $g\in \mathscr{L}(V,V;K)$ is said a bilinear form. Choose a basis $\{v_1,\cdots,v_n\}$ of $V$ The matrix $$G=(g(v_i,v_j))_{ij}\in M_{n\times n}(K)$$ is called the Gram matrix of $g$ with respect to $\{v_1,\cdots,v_n\}$
 
 By bilinearity, $G$ determinant uniquely $g$$$x=\sum\alpha_iv_i\rightarrow x=\sum\alpha_ie_i\quad x=\begin{pmatrix}
-    \alpha_1\\vdots\\\alpha_n
+    \alpha_1\\\vdots\\\alpha_n
 \end{pmatrix}$$
 $x,y\in V$
 $$g(x,y)=g(\sum x_iv_i,\sum y_jv_j)=\sum\limits_{i,j}x_iy_jg(v_i,v_j)=x^TGy$$
@@ -5158,13 +5158,13 @@ so
 $$g(x,y)=x^TGy=(Ax')^TG(Ay')=(x')^T(A^TGA)(y')$$
 The new Gram matrix with respect to the basis $\{v'_1,\cdots,v'_n\}$ is $A^TGA$
 \section{Prop}
-There exists a bijection:
-$$\mathscr{L}(V,V;K)\stackrel{\cong}\leftrightarrow M_{n\times n}(K)/\sim_{conj}$$
+There exists a surjection:
+$$\mathscr{L}(V,V;K)\stackrel{ }\rightarrow M_{n\times n}(K)/\sim_{conj}$$
 \subsection*{Proof}
 Recall
 $$
 \begin{aligned}
-&\mathscr{L}(V,V;K)&\stackrel{\cong}\rightarrow&\mathscr{L}(T_0^2(V);K)&\stackrel{\cong}\rightarrow&\mathscr{L}(V;V^\vee)\\
+&\mathscr{L}(V,V;K)&\stackrel{ }\rightarrow&\mathscr{L}(T_0^2(V);K)&\stackrel{ }\rightarrow&\mathscr{L}(V;V^\vee)\\
 &g&\mapsto& g_s&\mapsto&[x\mapsto g_s(x\otimes-)]=\tilde{g}
 \end{aligned}$$
 \section{Def}
@@ -5220,4 +5220,96 @@ $$\ker(g)=\{0\}$$
 Note that $\ker(g)=\ker(\tilde{g})$ when $$\tilde{G}\in \mathscr{L}(V;V^\vee)$$
 $$\tilde{g}_x=0\ \Leftrightarrow\ g(x,y)=0\forall y\in V$$
 This implies that $\ker(g)$ is a linear subspace of $V$
+\chapter{Differential Forms in $\mathbb{R}^n$}
+\subsection{Notation}
+$$a\mid_p:=(p,a)$$
+\section{Def}
+
+Let $p\in \mathbb{R}^n$ be a fixed point
+$$\mathbb{R}^n_p:=\{p\}\times\mathbb{R}^n$$
+$(p,a)\in \mathbb{R}^n_p,a\in \mathbb{R}^n$
+$$\begin{aligned}
+    &(p,a)+(p,b)=(p,a+b)\\ &\alpha(p,a)=(p,\alpha a)\  \alpha\in \mathbb{R}
+\end{aligned}$$
+
+With these operation $\mathbb{R}^n_p$ is a vector space, which is called the tangent space of $\mathbb{R}^n$ at $p$.
+
+The dual space is $$(\mathbb{R}^n_p)^\vee=\{p\}\times(\mathbb{R}_p^n)^\vee$$
+A basis of $\mathbb{R}_p^n$ is denoted by $$(e_1\mid_p,\cdots,e_n\mid_p)$$
+
+$\bigsqcup\limits_p \mathbb{R}^n_p$ is called the tangent bundle of $\mathbb{R}^n$
+
+We have a projection mapping:
+$$ 
+\begin{aligned}
+    &\bigsqcup \limits_{p}\mathbb{R}^n_p&\stackrel{\pi}{\twoheadrightarrow}&\mathbb{R}^n_p\\ &(p,a)&\mapsto &p
+\end{aligned}$$
+and 
+$$
+\begin{aligned}
+    \mathbb{R}^n\times\mathbb{R}^n &\cong \bigsqcup \limits_{p}\mathbb{R}^n_p\\ (p,a) &\reflectbox{\ensuremath{\mapsto}} (p,a)
+\end{aligned}
+$$
+
+Take $\{e_1\mid_p,\cdots,e_n\mid_p\}$ as a basis of $\mathbb{R}^n_p$. The dual basis is denoted by $$\{dx_1\mid_p,\cdots,dx_n\mid_p\}=\{(e_1\mid_p)^\vee,\cdots,(e_n\mid_p)^\vee\}\in (\mathbb{R}_p^n)^\vee$$
+$$\begin{aligned}
+    dx_i\mid_p: &\mathbb{R}^n_p &\rightarrow &\mathbb{R}\\
+    &v=(\sum\alpha_ie_i\mid_p)&\mapsto &\alpha_i
+\end{aligned}$$
+$$\frac{\partial x_i}{\partial x_j}=dx_i\mid_p(e_j\mid_p)=\left\{\begin{aligned}
+    &1&\text{ if }i=j\\
+    &0&\text{ if }i\neq j
+\end{aligned}\right.$$
+Recalled the wedge algebra:
+$$\bigwedge(\text{ if }^n_p)^\vee:=T(\text{ if }^n_p)^\vee/I=\bigoplus\limits_{k\in \mathbb{N}}\bigwedge\limits^k(\mathbb{R}_p^n)^\vee$$
+Consider $$\bigwedge\limits^k(\mathbb{R}_p^n)^\vee$$
+what's a basis of this vector space?
+$$\left\{dx_1\mid_p\wedge\cdots\wedge dx_k\mid_p\textbf{\big|}1\leq i_1<\cdots< i_k\leq n\right\}$$
+and $$\dim(\bigwedge\limits^k(\mathbb{R}_p^n)^\vee)={n\choose k}$$
+Proved.
+\section{Do Carmo Differential forms}
+\section{Def}
+An exterior $k$-form in $\mathbb{R}^n$ is a mapping:
+$$\begin{aligned}
+    \omega: &\mathbb{R}^n &\rightarrow &\bigsqcup\limits_{p}\bigwedge\limits^k(\mathbb{R}_p^n)^\vee\\
+    &p&\mapsto&\omega(p)
+\end{aligned}$$
+that's a section of the projection $\pi$
+$$(\pi\circ \omega=id_\mathbb{R})=(\omega(p)\in \bigwedge\limits^k(\mathbb{R}^n_p)^\vee)$$
+$$\omega(p)=\sum\limits_{1\leq i_1<\cdots<i_k\leq n}a_{i_1,\cdots,i_k}(p)dx_{i_1}\mid_p\wedge\cdots\wedge dx_{i_k}\mid_p\in \bigwedge\limits^k(\mathbb{R}_p^n)^\vee$$
+Note that
+$$\begin{aligned}
+    &\bigsqcup\limits_{p}\bigwedge\limits^k(\mathbb{R}_p^n)^\vee&\stackrel{\pi}{\twoheadrightarrow}&\mathbb{R}^n\\
+    &f\mid_p&\mapsto&p 
+\end{aligned}$$
+$$\omega\leftrightarrow\{a_{i_1},\cdots,a_{i_k}\}$$
+if all $a_{i_j}$ are of class $C^m(\mathbb{R})$ the $\omega$ is called a $C^m$-differential $k$-form. If $m=+\infty$ $omega$ is called a smooth $k$-form.
+\section{Notation}
+$$\omega=\sum\limits_{I}a_Idx_I$$
+where $I=(i_1,\cdots,i_k)$
+\subsection*{Example}
+take $n=4$
+\begin{itemize}
+    \item [1-form]$$\omega=a_1dx_1+a_2dx_2+a_3dx_3+a_4dx_4$$
+    $$\omega(p)=a_1(p)dx_1\mid_p+a_2(p)dx_2\mid_p+a_3(p)dx_3\mid_p+a_4(p)dx_4\mid_p$$
+    \item [2-form]$$\begin{aligned}
+    \omega&=a_{12}dx_1\wedge dx_2+a_{13}dx_1\wedge dx_3+a_{14}dx_1\wedge dx_4\\ &+a_{23}dx_2\wedge dx_3+a_{24}dx_2\wedge dx_4+a_{34}dx_3\wedge dx_4
+    \end{aligned}$$
+\end{itemize} 
+\section{Notation}
+When $k=0$ a $0$-form of class $C^m$-differential 0-form is $f\in C^m(\mathbb{R}^n)$$$C^m(\mathbb{R}^n)=\{f:\mathbb{R}^n\rightarrow \mathbb{R}\text{ of class }C^m\}$$
+\section{Notation}
+$$\Omega^k_{(m)}(\mathbb{R}^n):=\{\text{set of }C^m\text{-diff }k\text{-forms}\}$$
+$$\Omega^0_{(m)}(\mathbb{R}^n)=C^m(\mathbb{R}^n)$$
+$m$ could be omitted if no confusion.
+
+\section{Prop}
+$\Omega^k_{(m)}(\mathbb{R}^n)$ is a module over $\Omega^0_{(m)}(\mathbb{R}^n)$
+\subsection*{Proof}
+$\omega,\eta\in \Omega^k(\mathbb{R}^n)$
+$$\begin{aligned}
+    (\omega+\eta)(p)=\omega(p)+\eta(p)\in \bigwedge\limits^k(\mathbb{R}^n_p)^\vee
+\end{aligned}$$
+$f\in \Omega^0(\mathbb{R}^n),\omega\in \Omega^k(\mathbb{R}^n)$
+$$f\omega\in \Omega^k(\mathbb{R}^n)\quad (f\omega)(p)=f(p)\omega(p)\in \bigwedge\limits^k(\mathbb{R}^n_p)^\vee$$
 \end{document}
