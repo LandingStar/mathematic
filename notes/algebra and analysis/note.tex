@@ -5312,4 +5312,134 @@ $$\begin{aligned}
 \end{aligned}$$
 $f\in \Omega^0(\mathbb{R}^n),\omega\in \Omega^k(\mathbb{R}^n)$
 $$f\omega\in \Omega^k(\mathbb{R}^n)\quad (f\omega)(p)=f(p)\omega(p)\in \bigwedge\limits^k(\mathbb{R}^n_p)^\vee$$
+\section{Def}
+$f:\mathbb{R}^n\rightarrow \mathbb{R}$ differentiable then$$df\mid_p:\mathbb{R}^n_p\rightarrow \mathbb{R}_{f(p)}\cong\mathbb{R}$$$$df\mid_p\in (\mathbb{R}^n_p)^\vee$$$$df\mid_p=\sum\limits_{i=1}^nf_i(p)dx_i\mid_p$$
+because$$\{dx_1\mid_p,\cdots,dx_n\mid_p\}$$ is a basis of $(\mathbb{R}^n_p)^\vee$
+
+By $df$ then $f_i$ are the partial derivatives of $f$. This means that $df$ is a differential 1-form.
+
+Moreover, $$F:\mathbb{R}^n\rightarrow \mathbb{R}^m$$ differential, then
+$$F=(F_1,\cdots,F_m)$$ when $F_i:\mathbb{R}^n\rightarrow\mathbb{R}$ differential.
+$$dF\mid_p:\mathbb{R}^n_p\rightarrow\mathbb{R}_{f(p)}^m$$
+$$dF_i\mid_p=dx_i\mid_{f(p)}(dF\mid_p)=d(x_i\circ F)\mid_p$$
+$$dF_i\mid_p:\mathbb{R}^n_p\stackrel{dF\mid_p}\rightarrow\mathbb{R}^m_p\stackrel{dx_i\mid_{f(p)}}\rightarrow\mathbb{R}$$
+and $$\begin{aligned}
+    dx_i\mid_p: &\mathbb{R}^n_p&\rightarrow&\mathbb{R}\\ &v=\sum\alpha_ie_i\mid_p&\mapsto &\alpha_i
+\end{aligned}$$
+where $e_i\mid_p=(p,(0,\cdots,\underbrace{1}\limits_{i-th},0,\cdots))$
+
+Recall that if $V$ is a vector space, then $$T(V)=\bigoplus\limits_{n\in \mathbb{N}}V^{\otimes n}$$ This is a $K$-module with the multiplication:
+$$\begin{aligned}
+    &V^{\otimes n}\times V^{\otimes n}&\rightarrow &V^{\otimes n+m}\\
+    &(x_1\otimes\cdots\otimes x_n,y_1\otimes\cdots\otimes y_m)&\mapsto &x_1\otimes\cdots\otimes x_n,y_1\otimes\cdots\otimes y_m
+\end{aligned}$$
+From $T(V)$ we construct$$\bigwedge(V)=T(V)/I$$$$\begin{aligned}
+    &T(V)&\rightarrow\bigwedge(V)\\
+    &x_1\otimes\cdots\otimes x_n&\mapsto &x_1\wedge\cdots\wedge x_n
+\end{aligned}$$
+therefore also in $\bigwedge(V)$ we have the multiplication that makes $\bigwedge(V)$ a $K$-algebra
+$$\begin{aligned}
+    &\bigwedge\limits^k(V)&\rightarrow &\bigwedge\limits^l(V)\\
+    &(x_1\wedge\cdots\wedge x_k, y_1\wedge\cdots\wedge y_l)&\mapsto &x_1\wedge\cdots\wedge x_k\wedge y_1\wedge\cdots\wedge y_l
+\end{aligned}$$
+
+We define now a wedge product on $\Omega(\mathbb{R}^n)$
+$$\begin{aligned}
+    \Omega^k(\mathbb{R}^n)\times\Omega^l(\mathbb{R}^n)&\rightarrow\Omega^{k+l}(\mathbb{R}^n)\\
+    &(\omega,\eta)&\mapsto &\omega\wedge\eta
+\end{aligned}$$
+take $\omega=\sum\limits_{I}a_Idx_I$ and $\eta=\sum\limits_{J}b_Jdx_J$
+$$\omega\wedge\eta:=\sum\limits_{IJ}a_ib_Jdx_{IJ}$$
+where $$IJ:=(i_1,\cdots,i_k,j_1,\cdots,j_l)$$with $I=(i_1,\cdots,i_k)$ and $J=(j_1,\cdots,j_l)$
+\subsection*{Example}
+$$\omega=x_1dx_1+x_2dx_2+x_3dx_3\in \Omega^1(\mathbb{R}^3)$$
+$$\eta=x_1dx_1\wedge dx_2+dx_1\wedge dx_3\in \Omega^2(\mathbb{R}^3)$$
+$$\omega\wedge\eta=(x_1x_3-x_2)dx_1\wedge dx_2\wedge dx_3$$
+\section{Prop}
+Take $\omega\in \Omega^k(\mathbb{R}^n),\eta\in \Omega^l(\mathbb{R}^n),\varphi\in \Omega^s(\mathbb{R}^n)$, then
+\begin{itemize}
+    \item [(1)]$$(\omega\wedge\eta)\wedge\varphi=\omega\wedge(\eta\wedge\varphi)$$
+    \item [(2)]$$(\omega+\eta)=(-1)^{kl}(\eta\wedge\omega)$$
+    \item [(3)]Take $\theta\in \Omega^k(\mathbb{R}^n)$$$\omega\wedge(\varphi+\theta)=\omega\wedge\varphi+\omega\wedge\theta$$
+\end{itemize}
+\subsection*{Proof}
+Exercise
+
+Try to do this. Consequence of the properties of $\wedge$ for vector spaces.
+\section{Def}
+Now we have $$\Omega(\mathbb{R}^n)=\bigoplus\limits_{k\in \mathbb{N}}\Omega^k(\mathbb{R}^n)$$ a $\mathbb{R}$-algebra with the $\wedge$-product
+
+And it's also a $\Omega^0(\mathbb{R}^n)$ module and $\Omega^0(\mathbb{R}^n)$-algebra
+\section{Remark}
+$f\in \Omega^0(\mathbb{R}^n),\omega\in \Omega^k(\mathbb{R}^n)$$$f\wedge\omega=f\omega$$
+\section{Def: Pullback of forms}
+Let $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$ be a mapping of $C^\mathbcal{r}$, then it induces a mapping 
+$$\begin{aligned}
+    f^*:\Omega^k_{(\mathbcal{r})}(\mathbb{R}^m)&\rightarrow\Omega^k_{(\mathbcal{r})}(\mathbb{R}^n)\\\omega&\mapsto f^*\omega
+\end{aligned}$$
+and $$f^*(\omega)(p)(v_1,\cdots,v_k)=\omega(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))$$
+recalling$$df\mid_p:\mathbb{R}^n_p\rightarrow\mathbb{R}^m_{f(p)}\ \Rightarrow\ df\mid_p(v_i)\in \mathbb{R}^n_{f(p)}$$
+\section{Prop}
+Let $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$ be a differentiable mapping. $\omega,\eta\in \Omega^k(\mathbb{R}^n)$ and $g:\mathbb{R}^m\rightarrow\mathbb{R}$ a differentiable mapping.($g\in \Omega^0(\mathbb{R}^m)$)Then
+\begin{itemize}
+    \item[(1)] $$f^*(\omega+\eta)=f^*(\omega)+ f^*(\eta)$$
+    \item[(2)] $$f^*(g\omega)=f^*g^*f^*(\omega)$$where $f^*g:=g\circ f$
+    \item[(3)] If $\omega_1,\cdots,\omega_k$ are 1-forms in $\mathbb{R}^m$, then $$f^*(\omega_1\wedge\cdots\wedge\omega_k)=f^*(\omega_1)\wedge\cdots\wedge f^*(\omega_k)$$
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [(1)]
+    $$\begin{aligned}
+        f^*(\omega+\eta)(p)(v_1,\cdots,v_k)&=(\omega+\eta)(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\\
+        &=\omega(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\\ &+\eta(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\\
+        &=(f^*\omega)(p)(v_1,\cdots,v_k)+(f^*\eta)(p)(v_1,\cdots,v_k)
+    \end{aligned}$$
+    \item [(2)]
+    $$\begin{aligned}
+        f^*(g\omega) &=g\omega(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\\
+        &=(g\circ f)(p)(f^*\omega)(p)(v_1,\cdots,v_k)
+    \end{aligned}$$
+    \item [(3)]
+    $$(f_1f_2)(x)=f_1(x)f_2(x)$$
+    $$\begin{aligned}
+        f^*(\omega_1\wedge\cdots\wedge\omega_k)(p)(v_1,\cdots,v_k)&=(\omega_1\wedge\cdots\wedge\omega_k)(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\\
+        &=\omega_1(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\wedge\\ &\cdots\wedge\omega_k(f(p))(df\mid_p(v_1),\cdots,df\mid_p(v_k))\\
+        &=(f^*(\omega_1))(p)(v_1)\wedge\cdots\wedge(f^*(\omega_k))(p)(v_k)
+    \end{aligned}$$
+    General fact 
+    $$\begin{aligned}
+        &f_1,\cdots,f_k:&V&\rightarrow &V\\
+        &f_1\wedge\cdots\wedge f_k:&\bigwedge\limits^kV&\rightarrow &\bigwedge\limits^kV\\
+        &&(v_1,\cdots,v_k)&\mapsto &f_1(v_1)\wedge\cdots\wedge f_k(v_k)
+    \end{aligned}$$
+    $$\begin{aligned}
+        g^{\otimes n}: &V^{\otimes n}&\rightarrow &V^{\otimes n}\\
+        &(v_1,\cdots,v_n)&\mapsto &g(v_1)\otimes\cdots\otimes g(v_n)
+    \end{aligned}$$
+    Let's see what happens in terms of coordinates:
+    $$\begin{aligned}
+        f:&\mathbb{R}^n &\rightarrow&\mathbb{R}^m\\
+        &(x_1,\cdots,x_n)^T& \mapsto &(f_1(x_1,\cdots,x_n),\cdots,f_m(x_1,\cdots,x_n))^T
+    \end{aligned}$$
+    $\Omega=\sum\limits_Ia_Idy_I\in \Omega^k(\mathbb{R}^m)$
+    $$f^*\omega=\sum\limits_If^*(a_I)(f^*dy_{i_1})\wedge\cdots\wedge(f^*dy_{i_k})$$
+    Note that $$(f^*dy_i)(v)=dy_i(df(v))=d(y_i\circ f)(v)=(df_i)(v)$$
+    then 
+    $$f^*\omega=\sum\limits_Ia_I(f_1(x_1,\cdots,x_n),\cdots,f_m(x_1,\cdots,x_n))df_{i_1}\wedge\cdots\wedge df_{i_k}$$
+\end{itemize}
+\section{Remark}
+$U\subseteq\mathbb{R}^n$ open then consider $\Omega^k(U)\subseteq \Omega^k(\mathbb{R}^n)$
+\subsection*{Example}$$
+\omega=-\frac{y}{x^2+y^2}dx+\frac{x}{x^2+y^2}dy\in \Omega^1(\mathbb{R}^2\setminus\{(0,0)\}(=U))$$
+$V=\{(r,\theta)\in \mathbb{R}^2:r>0,0\leq\theta\leq 2\pi\}$
+$$\begin{aligned}
+    f: &V&\rightarrow &U\\
+    &(r,\theta)^T&\mapsto &f(r,\theta)=\begin{pmatrix}
+        r\cos\theta\\r\sin\theta
+    \end{pmatrix}
+\end{aligned}$$
+Let's compute $f^*\omega$
+$$df_1=\cos\theta dr-r\sin\theta d\theta$$
+$$df_2=\sin\theta dr+r\cos\theta d\theta$$
+$$f^*\omega=-\frac{r\sin\theta}{r^2}(\cos\theta dr-r\sin\theta d\theta)+\frac{r\cos\theta}{r^2}(\sin\theta dr+r\cos\theta d\theta)=d\theta$$
 \end{document}
