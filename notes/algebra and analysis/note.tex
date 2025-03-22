@@ -3182,7 +3182,7 @@ $Hom^{(n)}_s(E^n,F)$ and $Hom^{(n)}_a(E^n,F)$ are sub-K-modules of $Hom^{(n)}(E^
     D^2d:E &\rightarrow\mathscr{L}(E,\mathscr{L}(E,F))\\
     A &\mapsto ((x,y)\rightarrow A(x)(y))
  \end{aligned}$$
- \section{Theorem(Schweiz)}
+ \section{Theorem(Schwarz)}
  $U\subseteq E$ is an open set, $f:U\rightarrow F$ is a function of class $C^n$. Then for any $p\in U$$$D^nf(p)\in \mathscr{L}^n(E^n,F)$$ is symmetric
  \subsection*{Proof}
  By induction and by the fact that permutation are decomposed in transpositions, we can reduce to prove only the case $n=2$
@@ -5442,4 +5442,101 @@ Let's compute $f^*\omega$
 $$df_1=\cos\theta dr-r\sin\theta d\theta$$
 $$df_2=\sin\theta dr+r\cos\theta d\theta$$
 $$f^*\omega=-\frac{r\sin\theta}{r^2}(\cos\theta dr-r\sin\theta d\theta)+\frac{r\cos\theta}{r^2}(\sin\theta dr+r\cos\theta d\theta)=d\theta$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{}
+$U\in \mathbb{R}$ an open subset
+$$\Omega_{(m)}^kU()$$
+this is a module over $\Omega^0_{(m)}(U)$ 
+Moreover, $\omega\in \Omega^k(U),\eta\in \Omega^l(U)$
+$$\omega\wedge\eta\in \Omega^{k+l}(U)$$
+$f:\underbrace{U}\limits_{\subseteq\mathbb{R}^n}\rightarrow \underbrace{\mathbb{R}^m}\limits_{\subseteq\mathbb{R}^m}$
+$f$ is of class $C^{m+1}$
+$$f^*\omega\in \Omega_{(m)}^kU()$$
+$df$ is a one-form$$df=\sum\frac{\partial f}{\partial x_i}dx_i$$
+where $\frac{\partial f}{\partial x_i}=a_i:\mathbb{R}^n\rightarrow\mathbb{R}$ differentiable
+\section{Prop}
+Let $f:\mathbb{R}^n\rightarrow\mathbb{R}$ be a differentiable mapping. Then
+\begin{itemize}
+    \item [(1)]for any two forms in $\mathbb{R}^m$$$f^8(\omega\wedge\eta)=(f^*\omega)\wedge(f^*(\eta))$$
+    \item [(2)]for $g:\mathbb{R}^p\rightarrow\mathbb{R}^n$ differentiable$$(f\circ g)^*\omega=g^*(F^*\omega)$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{1}
+$(y_1,\cdots,y_m)=(f_1(x_1,\cdots,x_n),\cdots,f_m(x_1,\cdots,x_n))\in \mathbb{R}^m$, $(x_1,\cdots,x_n)\in \mathbb{R}^n$
+$$\omega=\sum\limits_Ia_Idy_I\quad\eta=\sum\limits_Jb_Jdy_J$$
+$$\begin{aligned}
+    f^*(\omega\wedge\eta) &=f^*(\sum\limits_{IJ}a_Ib_Jdy_I\wedge dy_J)\\ (\text{by def of pullback})&=\sum\limits_{IJ}a_I(f_1,\cdots,f_m)b_J(f_1,\cdots,f_m)df_I\wedge df_J\\
+    &=(\sum\limits_{I}a_I(f_1,\cdots,f_m)df_I)\wedge(\sum\limits_{J}b_J(f_1,\cdots,f_m)df_J)\\ &=(f^*\omega)\wedge(f^*(\eta))
+\end{aligned}$$
+\subsubsection{2}
+$$\begin{aligned}
+    (f\circ g)^*\omega &=\sum\limits_Ia_I((f\circ g)_1,\cdots,(f\circ g)_m)d(f\circ g)_I\\
+    &=\sum\limits_Ia_I(f_1(g_1,\cdots,g_n),\cdots,f_m(g_1,\cdots,g_n))df_I(dg_1,\cdots,dg_n)\\ &=g^*(f^*\omega)
+\end{aligned}$$
+\section{}
+The deferential of a function is a one-form
+$$\underbrace{f}\limits_{\text{0-form}}\rightsquigarrow \underbrace{df}\limits_{\text{1-form}}$$
+We went to generalize this to any (exterior) differentials
+$$\begin{aligned}
+    d: &\Omega^k_{(m)}(U) &\rightarrow &\Omega^{k+1}_{(m)}(U)\\
+    &\omega &\mapsto &d\omega\\
+    &\sum\limits_Ia_Idx_I&\mapsto &\sum\limits_Ida_I\wedge dx_I
+\end{aligned}$$
+where $a_I\in C^m(U)$, $da_I=\sum\frac{\partial a_I}{\partial x_i}dx_i$
+\section{Example}
+$\omega=xyz\text{d}x+yz\text{d}y+(x+z)\text{d}z$
+
+$$
+\begin{aligned}
+    \text{d}\omega &=\text{d}(xyz)\wedge\text{d}x+\text{d}(yz)\wedge\text{d}y+\text{d}(x+z)\wedge\text{d}z\\
+    &=(yz\text{d}x+xz\text{d}y+xy\text{d}z)\wedge\text{d}x+(z\text{d}y+y\text{d}z)\wedge\text{d}y+(x\text{d}z)\wedge\text{d}z\\
+    &=-xz\text{d}x\wedge\text{d}y-xy\text{d}x\wedge\text{d}z-y\text{d}y\wedge\text{d}z+\text{d}x\wedge\text{d}z\\
+    &=-xz\underline{\text{d}x\wedge\text{d}y}+(1-xxy)\underline{\text{d}x\wedge\text{d}z}-y\underline{\text{d}y\wedge\text{d}z}
+\end{aligned}
+$$
+\section{Prop}$\forall \omega_1,\omega_2\in \Omega^k(U),\eta\in \Omega^l(U)$
+\begin{itemize}
+    \item [(1)]
+    $$\text{d}(\omega_1+\omega_2)=\text{d}(\omega_1)+\text{d}(\omega_2)$$
+    \item [(2)]
+    $$\text{d}(\omega_1\wedge\omega_2)=\text{d}(\omega_1)\wedge\eta+(-1)^k\omega\wedge\text{d}\eta$$
+    \item [(3)]
+    $$\text{d}(\text{d}\omega)=0\quad(\text{d}^2\omega=0)$$
+    \item [(4)]$f:\underbrace{U}\limits_{\subseteq \mathbb{R}^n}\rightarrow \underbrace{V}\limits_{\subseteq \mathbb{R}^m}$
+    $$\text{d}(f^*\omega)=f^*(\text{d}\omega)$$
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item [(1)]Exercise
+    \item [(2)]$\omega=\sum\limits_Ia_Idx_I,\eta=\sum\limits_Jb_Jdx_J;\ \omega\wedge\eta=\sum\limits_{IJ}a_Ib_Jdx_I\wedge dx_J$
+    $$\begin{aligned}
+        \text{d}(\omega\wedge\eta) &=\sum\limits_{IJ}\text{d}(a_Ib_J)\wedge dx_I\wedge dx_J\\
+        &=(\sum\limits_{IJ}b_Jda_I\wedge dx_I\wedge dx_J)+(\sum\limits_{IJ}a_Idb_J\wedge dx_I\wedge dx_J)\\
+        &=\text{d}\omega\wedge\eta+(-1)^k\sum\limits_{IJ}a_Id dx_I\wedge b_J\wedge dx_J\\
+        &=\text{d}\omega\wedge\eta+(-1)^k\omega\wedge\text{d}\eta
+    \end{aligned}$$
+    \item [(3)]First assume $\omega=f\in\Omega^0(U)$
+        $$\begin{aligned}
+            \text{d}(\text{d}f)&=\text{d}(\sum\limits_{j=1}^n\frac{\partial f}{\partial x_j}dx_j)\\
+            &=\sum\limits_{j=1}^n\text{d}(\frac{\partial f}{\partial x_j}\wedge dx_j)\\
+            &=\sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{\partial^2 f}{\partial x_i\partial x_j}dx_i\wedge dx_j)\\
+            &=0
+        \end{aligned}$$
+        Notice that$\frac{\partial^2 f}{\partial x_i\partial x_j}=\frac{\partial^2 f}{\partial x_j\partial x_i}$
+\end{itemize}
 \end{document}
