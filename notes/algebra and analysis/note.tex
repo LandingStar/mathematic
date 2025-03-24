@@ -5538,5 +5538,57 @@ $$
             &=0
         \end{aligned}$$
         Notice that$\frac{\partial^2 f}{\partial x_i\partial x_j}=\frac{\partial^2 f}{\partial x_j\partial x_i}$
-\end{itemize}
+
+        By (1) we can prove for $\omega=a_Idx_I,a_I=\neq0$, from (2) we have
+        $$\text{d}\omega=\text{d}a_I\wedge\text{d}x_I+a_I\text{d}^2x_I$$
+        But $$\text{d}^2x_I=d(1\cdot\text{d}x_I)=\text{d}1\wedge\text{d}x_I=0$$
+        Hence $$\begin{aligned}
+        \text{d}^2\omega&=\text{d}(\text{d}\omega)\\ &=\text{d}(\text{d}a_I\wedge\text{d}x_I)\\&=0
+        \end{aligned}$$
+        \item[(4)]As above let's prove it for $\omega=g\in \Omega^0(U)$
+        $$\begin{aligned}
+            g:&\mathbb{R}^m&\rightarrow&\mathbb{R}\\ &(y_1,\cdots,y_m)&\mapsto &g(y_1,\cdots,y_m)
+            \end{aligned}$$
+        $$\begin{aligned}
+            f^*(\text{d}g) &=f^*(\sum\limits_{i=1}^m\frac{\partial g}{\partial y_i}dy_i)\\
+            &=\sum\limits_{i,j}\frac{\partial g}{\partial y_i}\frac{\partial f}{\partial x_j}\text{d}x_j\\
+            &=\sum\limits_j\frac{\partial (g\circ f)}{\partial x_j}dx_j\\
+            &=\text{d}(g\circ f)\\
+            &=\text{d}(f^*g)
+        \end{aligned}$$
+        Now let's do the proof for $\omega\in \Omega^k(U), \omega=\sum\limits_{I}a_I\text{d}x_I$
+        $$\begin{aligned}
+            \text{d}(f^*g) &=\text{d}(f^*(\sum\limits_{I}a_I\text{d}x_I))\\
+            (\text{ by prop of } f^*)&=\text{d}(\sum\limits_If^*a_I\wedge f^*\text{d}x_I)\\
+            (by (1))&=\sum\limits_I\text{d}(f^*a_I\wedge f^*\text{d}x_I)\\
+            (\text{use} (2))&=\sum\limits_If^*(\text{d}a_I)\wedge f^*\text{d}x_I\\
+            (\text{prop of }f^*)&=f^*(\sum\limits_I\text{d}a_I\wedge \text{d}x_I)\\
+            &=f^*(\text{d}\omega)
+        \end{aligned}$$
+    \end{itemize}
+\section{}
+$$df:p\mapsto df_p$$ is a differential form.
+\section{Def?}
+$$D_hf(p):=\lim\limits_{t\rightarrow 0}\frac{f(p+th)-f(p)}{h}=df_p(h)$$
+\chapter{}
+\section{Def}
+$\omega=\sum\limits_{i}a_i\text{d}x_i\in \Omega^1_(m)(U)$, $U\subseteq\mathbb{R}^n$
+$$\gamma:[a,b]\rightarrow U^n$$a parametric curve
+$$f:[a,b]\rightarrow\mathbb{R}$$ of class $C^1$$$\gamma:t\mapsto(t,f(t))=\text{Graph of }f$$
+this is a parametric curve
+piecewise of class $C^1$: $\exists t_0=a<t_1<\cdots<t_k=b$ such that $$\gamma_j:=\gamma\mid_{\rightbracket t_j,t_{j+1} \leftbracket}$$
+is of class $C^1$
+$$\gamma_j(\rightbracket t_k,t_{k+1}\leftbracket)\rightarrow\mathbb{R}^n$$
+we can define $\gamma^*_j\omega$ this is one form in $\Omega^1(\rightbracket t_k,t_{k+1}\leftbracket)$
+
+if $\gamma_j(t)=(x_1(t),\cdots,x_n(t))$ then $$\gamma_j^*\omega=\sum\limits_{i=1}^na_i(x_1(t),\cdots,x_n(t))\frac{\text{d}x_i}{\text{d}t}\text{d}t\qquad x_i(t)=\frac{\text{d}x_i}{\text{d}t}?$$
+\section{Def}
+Let $\gamma$ and $\omega$ be as above.
+$$\int_\gamma\omega:=\sum\limits_i\int_{t_k}^{t_{k+1}}\gamma_j^*\omega$$
+this is the integral of $\omega$ along the parametric curve $\gamma$ with
+$$\gamma=t\mapsto(x_1(t),\cdots,x_n(t))$$
+where $x_i(t)=\frac{\text{d}x_i}{\text{d}t}$
+\section{What's this in physics?}
+Fix $\gamma(t),\gamma'(t)=(\frac{\text{d}x_1}{\text{d}t},\cdots,\frac{\text{d}x_n}{\text{d}t})=$the tangent vector of $\gamma$ in $\gamma(t)$ then
+$$\int_{t_k}^{t_{k+1}}\gamma^*_j\omega=\int_{t_k}^{t_{k+1}}\left<a\circ\gamma_j,\gamma_j'\right>\text{d}t$$ where $a=(a_1,\cdots,a_n), a_i:\mathbb{R}^n\rightarrow\mathbb{R}$
 \end{document}
