@@ -5591,11 +5591,11 @@ where $x_i(t)=\frac{\text{d}x_i}{\text{d}t}$
 \section{What's this in physics?}
 Fix $\gamma(t),\gamma'(t)=(\frac{\text{d}x_1}{\text{d}t},\cdots,\frac{\text{d}x_n}{\text{d}t})=$the tangent vector of $\gamma$ in $\gamma(t)$ then
 $$\int_{t_k}^{t_{k+1}}\gamma^*_j\omega=\int_{t_k}^{t_{k+1}}\left<a\circ\gamma_j,\gamma_j'\right>\text{d}t$$ where $a=(a_1,\cdots,a_n), a_i:\mathbb{R}^n\rightarrow\mathbb{R}$
-\chapter{COmplement of measure theory}
+\chapter{Complement of measure theory}
 \section{Def($\sigma$-finite)}
 Let $(X,\Sigma_X,\mu)$ be a measure space. WE say that it's $\sigma$-finite if there exists a sequence $\{E_n\}_{n\in \mathbb{N}}$ of measurable sets. (namely $E_n\in \Sigma_X$) such that $$X=\bigcup\limits_{n\in \mathbb{N}}E_n\text{ and }\mu(E_n)<+\infty, \forall n\in \mathbb{N}$$
 \section{Example($\mathbb{R}$, Norel $\sigma$-algebra, Lebesgue measure)}
-thisi is $\sigma$-finite$$\lambda([-n,n])=2n<+\infty$$
+this is $\sigma$-finite$$\lambda([-n,n])=2n<+\infty$$
 \section{Notation}
 Take sets $A\subseteq X\times Y$ For $x\in X$, we define
 $$A_x:=\{u\in Y\mid(x,y)\in A\}$$
@@ -5733,6 +5733,14 @@ Now show that $F$ is a Dynkin system:
     \end{aligned}$$
     If follows that $f_E$ is measurable
     
+    Then we need prove that $F\supseteq\Sigma_X\times\Sigma_Y$ and $F$ is $\sigma$-algebra, so $F\supseteq\sigma(\Sigma_X\times\Sigma_Y)=\Sigma_X\otimes\Sigma_Y$
+    \begin{itemize}
+        \item $E_\mu\in \Sigma_X$ and $E_\epsilon\in \Sigma_Y$$$(E_\mu\times E_\epsilon)_x=\left|\begin{aligned}
+            &E_\epsilon\quad &\text{if }x\in E_\mu\\
+            &\varnothing\quad &\text{otherwise}
+        \end{aligned}\right.\in \Sigma_X$$
+        \item exercise
+    \end{itemize}
     
 \end{itemize}
 \section{Prop}
@@ -5763,7 +5771,7 @@ We already know that $f_E$ and $g_E$ are measurable. So the integral makes sense
     \end{aligned}$$
 \end{itemize}
 \section{Prop}
-\label{53.11}
+\label{Prop 53.11}
 Let $(X,\Sigma_X,\mu)$ and $(Y,\Sigma_Y,\nu)$ be $\sigma$-finite measure spaces. Any measure $\eta$ on $(X\times Y,\Sigma_X\otimes\Sigma_Y)$ that satisfies
 $$\eta(S_1\times S_2)=\mu(S_1)\nu(S_2)\quad \forall(S_1,S_2)\in\Sigma_X\times \Sigma_Y$$
 is $\sigma$-finite
@@ -5815,7 +5823,7 @@ $$\mu\times\nu(S_1\times S_2)=\mu(S_1)\nu(S_2)\quad \forall(S_1,S_2)\in\Sigma_X\
 and moreover, we have 
 $$(\mu\times\nu)(E)=\int_Xf_E\text{d}\mu=\int_Yg_E\text{d}\nu$$
 \section{Corollary}
-On $\mathbb{R}^n$, we can define a  unique measure $\lambda^{(n)}$ as product of the Lebesgue measure on $\mathbb{R}$. This is called the Lebesgus measure on $\mathbb{R}^n$
+On $\mathbb{R}^n$, we can define a  unique measure $\lambda^{(n)}$ as product of the Lebesgue measure on $\mathbb{R}$. This is called the Lebesgue measure on $\mathbb{R}^n$
 \subsection*{Proof}
 Assume that $\eta$ and $\eta'$ are two measures on the product satisfies the equation. Let $\mathcal{G}=\Sigma_1\times\Sigma_2,\ \sigma(\mathcal{G})=\Sigma_1\otimes\Sigma_2$ And $\mathcal{G}$ is stable under finite intersection.
 
@@ -5831,4 +5839,112 @@ We apply prop\ref{Prop 53.12} to get $$\eta=\eta'=\mu\times\nu$$
 By prop\ref{Prop 53.11}$$\mu\times\nu$$ is $\sigma$-finite
 
 And $\mu\times\nu$ exists by Prop\ref{Prop 53.10}
+
+\section{Monotone convergence theorem}
+Let $(X,\Sigma_X,\mu)$ be a measure space. $f:X\rightarrow\mathbb{R}_{\geq0}$ be a measurable function. Let $\{f_n\}_{n\in \mathbb{N}}$ be a sequence of measurable functions$$f_n:X\rightarrow\mathbb{R}_{\geq 0}$$
+such that $f_i<f_j\quad \forall i<j$ and $$\lim\limits_{n\rightarrow+\infty}f_n(x)=f(x)$$
+almost everywhere in $X$($\forall x\in X\setminus Z$ when $Z\in \Sigma,\mu(Z)=0$)Then 
+$$\int_Xf\text{d}\mu=\lim\limits_{n\rightarrow+\infty}\int_Xf_n\text{d}\mu$$
+\subsection*{Proof}
+dominated convergence theorem $\Rightarrow$ monotone convergence theorem.
+\section{Recall}
+Product measure on $\mathbb{R}^n$. This is the unique measure on $\lambda^n$ that exact is the naive product measure on rectangles.
+$$
+\begin{aligned}
+    &\Sigma_{\mathbb{R}^n}=\mathscr{B}(\mathbb R)\otimes\cdots\otimes\mathscr{B}(\mathbb{R})\\
+    \leftrightarrow&\\
+    &\mathscr{B}(\mathbb R ^n);\ \lambda^n(\prod\limits_i[a_i,b_i])=\prod\limits_i\lambda[a_i,b_i]
+\end{aligned}
+$$
+\section{Def}
+$$\mathscr{O}^n=\left\{\text{set of open sets of } \mathbb{R}^n\right\}$$
+$$\mathscr{Cl}=\left\{\text{set of closed sets of } \mathbb{R}^n\right\}$$
+$$\mathscr{R}^n=\left\{ \text{set  of compact sets of }\mathbb{R}^n\right\}$$
+$$\mathscr{I}_{ha}^n=\left\{\text{set of all half-open rectangles in }\mathbb{R}^n\right\}$$
+$$\mathscr{I}^n_{ha,rat}=\left\{\text{set of all half-open rectangles of }\mathbb{R}^n,\text{ with rational end points}\right\}$$
+\section{Prop}
+$$\mathscr{B}(\mathbb{R}^n)=\sigma(\mathscr{O}^n)=\sigma(\mathscr{Cl}^n)=\sigma(\mathscr{R}^n)=\sigma(\mathscr{I}_{ha}^n)=\sigma(\mathscr{I}_{ha,rat}^n)$$
+\subsection*{Proof}Exercise
+\section{Recall}
+Let $(X,\Sigma_X)$ and  $(Y,\Sigma_Y)$ be measurable spaces. Moreover, assume that $$\Sigma_Y=\sigma(\mathcal{G})$$ where $\mathcal{G}\subseteq\wp(X)$.
+
+A function $f:X\rightarrow Y$ is measurable iff
+$$\forall S\in \mathcal{G}\quad f^{-1}(S)\in \Sigma(X)$$
+\subsection*{Hint}$$\mathscr{M}:=\left\{B\subseteq Y\mid f^{-1}(B)\in \Sigma_X\right\}\subseteq\wp(X)$$
+show that this is a $\sigma$-algebra
+\section{Corollary}
+$f:\mathbb{R}^n\rightarrow\mathbb{R}^m$, if $f$ is continuous, the $f$ is measurable with respect to the Lebesgue measure.
+\section{Def: Push-forward measure}
+Let $(X,\Sigma_X,\mu)$ be a measure space, and let $(Y,\Sigma_Y)$ be a measurable space. If $f:X\rightarrow Y$ is a measurable function, then define:
+$$f_{*\mu}(E)=\mu(f^{-1}(E))\quad \forall E\in \Sigma^Y$$
+This is a measure on $Y$, called the push forward of $\mu$ through $f$
+\section{Prop}
+Let $p\in \mathbb{R}$ and let $E\in \mathscr{B}(\mathbb{R}^n)$, then $$\lambda^n(E+p)=\lambda^n(E)$$
+note that
+$$E+p=\{x+p\mid x\in E\}$$
+\subsection*{Proof}
+$$p=(p_1,\cdots,p_n)$$ Consider the translation
+$$\begin{aligned}
+    \tau_p: &\mathbb{R}^n&\rightarrow&\mathbb{R}^n\\ &x&\mapsto&x-p
+\end{aligned}$$
+this is continuous, so measurable. We consider$$\lambda^n_p:=\tau_{p*}\lambda^n$$
+let's show that $\lambda^n_p=\lambda^n$
+$$
+\begin{aligned}
+    \lambda^n_p(\prod\limits_{i=1}^n\leftbracket a_i,b_i\leftbracket) &\stackrel{\text{by def of }f_* }{=}\lambda^n(\tau_p^{-1}(\prod\limits_{i=1}^n\leftbracket a_i,b_i\leftbracket))\\
+    &=\lambda^n(\prod\limits_{i=1}^n\leftbracket a_i+p_i,b_i+p_i\rightbracket)\\
+    &=\prod\limits_{i=1}^n(b_1-a_i)
+\end{aligned}$$
+By thee uniqueness of the product measure, we have $$\lambda^n_p=\lambda^n$$
+\section{Fubini-Tonelli Theorem}
+Let $(X,\Sigma_X,\mu)$ and $(Y,\Sigma_Y,\nu)$ be two $\sigma$-finite measure spaces. Let $(X\times Y,\Sigma_X\otimes\Sigma_Y,\mu\times\nu)$ be the product space. Let $f:X\times Y\rightarrow \mathbb{R}\cup\{-\infty,+\infty\}$ be a measurable function. Then 
+$$\begin{aligned}
+    \int_{X\times Y}\abs{f}\text{d}(\mu\times\nu) &=\int_X(\int_Y\abs{f(x,y)}\text{d}\nu(y))\text{d}\mu(x)\\
+    &=\int_X(\int_Y\abs{f(x,y)}\text{d}\nu(y))\text{d}\mu(x)
+\end{aligned}$$
+\subsection*{Proof}
+We can assume that $f\geq0$ and 
+$$\begin{aligned}
+    \forall x\in X\quad &f_x: &Y\rightarrow&\mathbb{R}\cup\{+\infty\}\\
+    &&y&\mapsto&f(x,y)\\
+    \forall y\in Y\quad &f_y: &X\rightarrow&\mathbb{R}\cup\{+\infty\}
+\end{aligned}$$
+\subsubsection{Step 1: $f_x$ and $f_y$ are measurable}
+Let's do it for $f_y$. We have to show that for $D\in \mathscr{B}(\mathbb{R})$ where $f^{-1}_y(D)\in \Sigma_X$
+$$f_y^{-1}(D)=\{x\in X\mid f(x,y)\in D\}=\{x\in X\mid(x,y)\in f^{-1}(D)\}=(f^{-1}(D))_y$$
+We have shown that if $E$ is measurable, the $E_y$ is measurable.
+\subsubsection{Step 2}
+Consider the functions $$\begin{aligned}
+    &G:&Y\rightarrow\mathbb{R}\cup\{+\infty\}\\
+    &&y&\mapsto&\int_Xf(x,y)\text{d}\mu(x)\\
+    &F:&X\rightarrow\mathbb{R}\cup\{+\infty\}\\
+    &&x&\mapsto&\int_Yf(x,y)\text{d}\nu(y)
+\end{aligned}$$
+we want to prove that they're both measurable
+
+Let do this for $G$. Assume that $f=\chi_E$ for $E\in \Sigma_X\otimes\Sigma_Y$
+$$\begin{aligned}
+&(\chi_E)_y(x)(x)=\chi_E(x,y)=1\\
+\Leftrightarrow &(x,y)\in E\\
+\Leftrightarrow &x\in E_y\\
+\Leftrightarrow &\chi_{E_y}(x)=1
+\end{aligned}$$
+This chain of implications shows that $$(\chi_E)_y=\chi_{E_y}$$
+Hence 
+$$G(y)=\int_X(\chi_E)_y\text{d}\mu=\int_X\chi_{E_y}\text{d}\mu=\mu(E_y)$$
+And we have proved that such functions are measurable
+
+Now assume $$f=\sum\limits_{i=1}^na_k\chi_{E_k}\quad E_k\in \Sigma_X\otimes\Sigma_Y,\ a_k\in \mathbb{R}_{\geq0}$$
+and $$f_y=\sum\limits_{i=1}^na_k\chi_{E_k\cap E_y}$$
+then
+$$
+\begin{aligned}
+    G(y)=\int_Xf_y\text{d}\mu\\
+    &=\sum\limits_{k=1}^na_k\int_X\chi_{(E_k)_y}\text{d}\mu\\
+    &=\sum\limits_{k=1}^na_k\mu((E_k)_y)\\
+    &\Rightarrow\ G\text{ is measurable}
+\end{aligned}
+$$
+Now assume $f$ measurable
+
 \end{document}
