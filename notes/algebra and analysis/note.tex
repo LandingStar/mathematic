@@ -5570,7 +5570,7 @@ $$
 $$df:p\mapsto df_p$$ is a differential form.
 \section{Def?}
 $$D_hf(p):=\lim\limits_{t\rightarrow 0}\frac{f(p+th)-f(p)}{h}=df_p(h)$$
-\chapter{}
+\chapter{Line integral}
 \section{Def}
 $\omega=\sum\limits_{i}a_i\text{d}x_i\in \Omega^1_(m)(U)$, $U\subseteq\mathbb{R}^n$
 $$\gamma:[a,b]\rightarrow U^n$$a parametric curve
@@ -5896,6 +5896,11 @@ $$
     &=\prod\limits_{i=1}^n(b_1-a_i)
 \end{aligned}$$
 By thee uniqueness of the product measure, we have $$\lambda^n_p=\lambda^n$$
+\section{Lemma}
+\label{Lemma 53.23}
+Let $f:\Omega\rightarrow\mathbb{R}_{\geq0}$ be a mapping. Then there exists an increasing sequence $\{f_n\}_{n\in mathbb{N}}$ such that converges pointwisely to $f$
+\subsection*{Proof}
+$$f_n=\sum\limits_{k=0}^{n2^n-1}\frac{k}{2^n}\mathbbm{1}_{\{\omega\in \Omega\mid \frac{k}{2^n}\leq f(\omega)\leq \frac{k+1}{2^n}\}}+n\mathbbm{1}_{\{\omega\in \Omega\mid f(\omega)\geq 0\}}$$
 \section{Fubini-Tonelli Theorem}
 Let $(X,\Sigma_X,\mu)$ and $(Y,\Sigma_Y,\nu)$ be two $\sigma$-finite measure spaces. Let $(X\times Y,\Sigma_X\otimes\Sigma_Y,\mu\times\nu)$ be the product space. Let $f:X\times Y\rightarrow \mathbb{R}\cup\{-\infty,+\infty\}$ be a measurable function. Then 
 $$\begin{aligned}
@@ -5939,7 +5944,7 @@ and $$f_y=\sum\limits_{i=1}^na_k\chi_{E_k\cap E_y}$$
 then
 $$
 \begin{aligned}
-    G(y)=\int_Xf_y\text{d}\mu\\
+    G(y) &=\int_Xf_y\text{d}\mu\\
     &=\sum\limits_{k=1}^na_k\int_X\chi_{(E_k)_y}\text{d}\mu\\
     &=\sum\limits_{k=1}^na_k\mu((E_k)_y)\\
     &\Rightarrow\ G\text{ is measurable}
@@ -5947,4 +5952,61 @@ $$
 $$
 Now assume $f$ measurable
 
+By lemma \ref{Lemma 53.23}, $\exists \{f_n\}$ increasing
+sequence such that converges pointwisely to $f$
+
+Moreover, $\{(f_n)_y\}_{n\in \mathbb{N}}$(all simple functions) converges to $f_y$ too. Consider
+$$\begin{aligned}
+    g_n: &Y &\rightsquigarrow &\mathbb{R}\\
+    &y & \mapsto &\int_X(f_n)_y\text{d}\mu
+\end{aligned}$$
+Since $f_n$ are simple. By the previous claim in step 2, we know that $g_n$ isn measurable. And since $Im(g_n)\subseteq\mathbb{R}$$$G(y)=\lim\limits_{n\rightarrow+\infty}g_n(y)=\sup\limits_{n\rightarrow_\infty}g_n(y)$$
+$G$ is measurable.
+\subsubsection{Step 3}
+First we show that the equation in theorem holds for $f=\mathbbm{1}_E$. By prop \ref{Prop 53.10}
+$$\int_X(\int_y f_x\text{d}\nu)\text{d}\mu=\int_X\nu(E_x)\text{d}\mu=(\mu\times\nu)(E)$$
+while
+$$\int_{X\times Y}f\text{d}(\mu\times\nu)=\int_{X\times Y}\mathbbm{1}_E\text{d}(\mu\times\nu)=(\mu\times\nu)(E)$$
+By two equations above:
+$$\int_X(\int_Yf_x\text{d}\nu)\text{d}\mu=\int_{X\times Y}f\text{d}(\mu\times\nu)$$
+Second we then prove for ant measurable $f\geq 0$
+
+There exists a increasing sequence $\{f_n\}_{n\in \mathbb{N}}$ of simple non-negative functions converges pointwisely to $f$. Then define
+$$g_n(y)=\int_X(f_n)_y\text{d}\mu$$
+Note that
+$$\int_{X\times Y}f\text{d}\mu\times \nu=\int_Y(\int_Xf_y\text{d}\mu)\text{d}\nu=\int_Yg_n\text{d}\nu$$
+take the limits
+$$\begin{aligned}
+    \int_{X\times Y}f\text{d}(\mu\times\nu)&=\int_{X\times Y}\lim\limits_{n\rightarrow+\infty}f_n\text{d}(\mu\times\nu)\\
+    &=\int_Y\lim\limits_{n\rightarrow+\infty}g_n\text{d}\nu\\
+    &=\int_X\lim\limits_{n\rightarrow+\infty}(f_n)_y\text{d}\mu\\
+    &=\int_Y(\int_Xf_y\text{d}\mu)\text{d}\nu
+\end{aligned}
+$$
+\section{Corollary}
+Fubini-Tobelli holds for $f\in L^1(X\times ,\Sigma_X\otimes \Sigma_Y,\mu\times\nu)$
+\subsection{Proof}
+Apply the theorem to $f\vee 0$ and $-(f\wedge 0)$ , since $$f=f\vee 0-(-(f\wedge 0))=f\vee0+f\wedge0$$
+\section{Remark}
+Deny of the corollary neither hold nor make sense. The integral gives either $+\infty$ or $-\infty$
+\section{Remark}
+If $X=Y=\mathbb{R}$ and $\Sigma=\mathscr{B}(\mathbb{R})$ For $f:U\subseteq \mathbb{R}^2\rightarrow \mathbb{R},\ f\in L^1(I_{\lambda^2})$, you can find a rectangle $E\subseteq R=[a,b]\times[c,d]$ And define
+$$\tilde{f}(x)=\left|\begin{aligned}
+    &f(x) &\text{if }x\in E\\
+    &0 &\text{otherwise}
+\end{aligned}\right.$$
+Then apply Fubini-Tobelli theorem.
+\subsection*{Example}
+\begin{itemize}
+    \item$E=\{(x,y)\in \mathbb{R}:0\leq x\leq\frac{\pi}2,0\leq y\leq x\}$
+    $$\iint_E\sim(x+y)\text{d}x\text{d}y$$
+    \item
+    $$\begin{aligned}
+        \iint_E\sin(x+y)\text{d}x\text{d}y &=\int_0^{\frac{\pi}2}\int_0^x\sin(x+y)\text{d}y\text{d}x\\
+        &=\int_0^{\frac{\pi}2}-\cos(x+y)\mid_0^x\text{d}x\\
+        &=\int_0^{\frac{\pi}2}-\cos(2x)+\cos(x)\text{d}x\\
+        &=(-\frac{\sin(2x)}x+\sin x)\mid_0^{\frac{\pi}2}\\
+        &=1
+    \end{aligned}$$
+\end{itemize}
 \end{document}
