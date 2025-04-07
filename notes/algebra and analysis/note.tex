@@ -5901,7 +5901,7 @@ By thee uniqueness of the product measure, we have $$\lambda^n_p=\lambda^n$$
 Let $f:\Omega\rightarrow\mathbb{R}_{\geq0}$ be a mapping. Then there exists an increasing sequence $\{f_n\}_{n\in mathbb{N}}$ such that converges pointwisely to $f$
 \subsection*{Proof}
 $$f_n=\sum\limits_{k=0}^{n2^n-1}\frac{k}{2^n}\mathbbm{1}_{\{\omega\in \Omega\mid \frac{k}{2^n}\leq f(\omega)\leq \frac{k+1}{2^n}\}}+n\mathbbm{1}_{\{\omega\in \Omega\mid f(\omega)\geq 0\}}$$
-\section{Fubini-Tonelli Theorem}
+\section{Fubini-Tobelli Theorem}
 Let $(X,\Sigma_X,\mu)$ and $(Y,\Sigma_Y,\nu)$ be two $\sigma$-finite measure spaces. Let $(X\times Y,\Sigma_X\otimes\Sigma_Y,\mu\times\nu)$ be the product space. Let $f:X\times Y\rightarrow \mathbb{R}\cup\{-\infty,+\infty\}$ be a measurable function. Then 
 $$\begin{aligned}
     \int_{X\times Y}\abs{f}\text{d}(\mu\times\nu) &=\int_X(\int_Y\abs{f(x,y)}\text{d}\nu(y))\text{d}\mu(x)\\
@@ -6009,4 +6009,121 @@ Then apply Fubini-Tobelli theorem.
         &=1
     \end{aligned}$$
 \end{itemize}
+\section{Notation}
+$U\subseteq\mathbb{R}^n$ is an open set. $C^0_c(U)$ denotes the set of continuous functions $f:U\rightarrow\mathbb{R}$ that have compact support $$Supp(f):=\{x\in U\mid f(x)\neq 0\}$$
+\section{Remark}
+Functions of $C^0_c(U)$ are measurable
+
+Let $g:\underbrace U\limits{\subseteq\mathbb{R}^n}\rightarrow\mathbb{R}^m$ be a differentiable function. THen the Jacobian of $g$ is the matrix
+$$J_g(x)=\begin{pmatrix}
+    \frac{\partial g_1}{\partial x_1}(x)&\cdots&\frac{\partial g_1}{\partial x_n}(x)\\
+    \vdots&\ddots&\vdots\\
+    \frac{\partial g_m}{\partial x_1}(x)&\cdots&\frac{\partial g_m}{\partial x_n}(x)    
+\end{pmatrix}$$
+where
+$$g(x_1,\cdots,x_n)=\begin{pmatrix}
+    g_1(x_1,\cdots,x_n)\\
+    \vdots\\
+    g_m(x_1,\cdots,x_n)
+\end{pmatrix}$$
+The Jacobian is related to the differential of $g$. In fact
+$$\begin{aligned}
+    \text{d}g_p: &\mathbb{R}^n_p &\rightarrow &\mathbb{R}^m_{g(p)}\\
+    &\sigma&\mapsto&J_g\mid_p(\sigma)
+\end{aligned}$$
+\section{Theorem(Change of variables for the Lebesgue integral)}
+Let $V\subseteq\mathbb{R}^n$ be an open set, and let $\varphi:V\rightarrow\mathbb{R}^n$ be a $C^1$-differ morphism, then 
+$$\int_{\varphi(V)}f\text{d}\lambda^n=\int_V(f\circ g)\abs{\det J_\varphi}\text{d}\lambda^n\quad\forall f\in C^0_c(\varphi(V))$$
+\subsection*{Proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Remark}
+The theorem can be generalized to a bigger classes of functions. In fact, it possible to show:
+
+It holds whenever one of the two integrals exists
+
+(Zorich II)
+\section{Compute integrals in $\mathbb{R}^n$}
+\subsection{Example}
+$f(x,y)=\frac{1}{1+x^2+y^2}$
+
+$A=\{(x,y)\in \mathbb{R}^n\mid 0<y<\sqrt{3}x;1<x^2+y^2<4\}$
+$\int_Af\text{d}x\text{d}y=?$
+
+Use polar coordinates
+$$\begin{aligned}
+    \varphi:\leftbracket0,+\infty\leftbracket\times\leftbracket0,2\pi\leftbracket&\rightarrow&\mathbb{R}^2\\
+    &(\rho,\theta)&\mapsto&(\rho\cos\theta,\rho\sin\theta)
+\end{aligned}$$
+$\varphi$ is $C^1$-differentiable.
+
+use the theorem
+$$
+\begin{aligned}
+    \int_Af(x,y)\text{d}x\text{d}y &=\int_{\tilde{A}}(f\circ\varphi)\abs\det J_\varphi\text{d}\rho\text{d}\theta\\
+    &=\int_0^{\frac{\pi}3}\int_1^2\frac{\rho}{1+\rho^2}\text{d}\rho\text{d}\theta\\
+    &=\int_0^{\frac{\pi}3}\left[\frac{1}2\ln(1+\rho^2)\right]^2_1\text{d}\theta\\
+    &=\frac{\pi}6\ln(\frac{5}2)
+\end{aligned}
+$$
+\section{Def}
+$\omega=\sum a_ix_i\in \Omega^n(U)$ $\gamma:[a,b]\rightarrow U$ is piecewise of class $C^1$
+Then we have defined $\int_\gamma\omega$ The fact that $\gamma$ is differentiable is important thus we need $\gamma^*\omega$\\
+Let $$\varphi:\tau=[c,d]\rightarrow t=[a,b]$$ is a $C^1$-differmorphism. We say that $\varphi$ preserves the orientation if $\varphi'>0$, we say that $\varphi$ reveres the orientation if $\varphi'<0$
+
+Assume it preserves orientation
+$$
+\begin{aligned}
+    \int_\gamma\omega &=\int_a^b\left(\sum\limits_ia_i(\gamma(t))\cdot\frac{\text{d}x_i}{\text{d}t}\right)\text{d}t\\
+    &=\gamma(t)=(x_1(t),\cdots,x_n(t))\\
+    &=\int_a^b\left(\sum\limits_ia_i\gamma(\varphi(\tau))\frac{\text{d}x_i}{\text{d}\tau}\underbrace{\frac{\tau}t}\limits{=\abs{J_{\varphi^{-1}}}}\right)\text{d}t\\
+    \text{the change of variables }&=\int_c^d\sum\limits_ia_i\gamma(\varphi(\tau))\frac{\text{d}x_i}{\text{d}\tau}\text{d}\tau\\
+    &=\int_{\gamma\circ\varphi}
+\end{aligned}$$
+We call $\gamma\circ\varphi$ a reparameterization of the curve $\gamma$, with the $C^1$-differ $\varphi$. If $\varphi$ preserves the orientation, then
+$$\int_\gamma\omega=\int_{\gamma\circ\varphi}\omega$$
+if reverse
+$$\int_\gamma\omega=-\int_{\gamma\circ\varphi}\omega$$
+\section{Def}
+$\omega=\sum\limits_{i=1}^na_i\text{d}x_i\in\Omega^1(U)$
+\begin{itemize}
+    \item We say that $\omega$ is \textbf{closed} if $\text{d}\omega=0$
+    \item We say that $\omega$ is \textbf{exact} in $V\subseteq U$ if there exists a mapping $f:V\rightarrow\mathbb{R}$ s.t. $\omega=\text{d}f$ in $V$
+\end{itemize}
+\section*{Goal:}
+to relate the notions of exact forms/closed forms/integrals along curves.
+\section{Def}
+Let $X$ be topological space. $U\in X$ is connected if cannot be written as disjoint union of non-empty open sets.
+
+Equally, $U\in X$ is connected if$$U=A\sqcup B\Rightarrow A=\varnothing\text{ or }B=\varnothing$$ 
+\section{Lemma}
+Let $U\subseteq\mathbb{R}^n$ be a connected open set. Then any two points of $U$ can be joined by a piecewise $C^1$-curve.
+\subsection*{Proof}
+Take $a\in U$ let $H\subseteq U$ the set of points that can be joined to $a$ with a piecewise $C^1$-curve. Let $K=U\setminus H$. 
+
+Take $x\in H$ then $\exists \mathcal{B}(x,\epsilon)\subseteq U$ since $U$ is open
+
+Any two points in $\mathcal{B}(x,\epsilon)$ can be jointed with a segment. Take any $y\in \mathcal{B}(x,\epsilon)$, this $y$ can be joined to $a$ with a piecewise $C^1$-curve.
+
+This means that $H$ is open. Similarly $K$ is also open. Since $U=H\sqcup K$ and for $U$ connected $H=U$
+\section{Theorem}
+The following statements are equivalent:
+\begin{itemize}
+    \item $\omega$ is exact in a connected open set $V\subseteq U$
+    \item $\int_\gamma\omega$ depends only on the end-point of $\gamma$ ($\forall \gamma$ in $V$)
+    \item $\int_\gamma\omega=0$ for all closed curves $\gamma$ in $ V$
+\end{itemize}
+\subsection*{Proof}
+
 \end{document}
