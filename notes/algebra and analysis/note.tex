@@ -6108,6 +6108,7 @@ Let $X$ be topological space. $U\in X$ is connected if cannot be written as disj
 
 Equally, $U\in X$ is connected if$$U=A\sqcup B\Rightarrow A=\varnothing\text{ or }B=\varnothing$$ 
 \section{Lemma}
+\label{Lemma 53.36}
 Let $U\subseteq\mathbb{R}^n$ be a connected open set. Then any two points of $U$ can be joined by a piecewise $C^1$-curve.
 \subsection*{Proof}
 Take $a\in U$ let $H\subseteq U$ the set of points that can be joined to $a$ with a piecewise $C^1$-curve. Let $K=U\setminus H$. 
@@ -6117,13 +6118,72 @@ Take $x\in H$ then $\exists \mathcal{B}(x,\epsilon)\subseteq U$ since $U$ is ope
 Any two points in $\mathcal{B}(x,\epsilon)$ can be jointed with a segment. Take any $y\in \mathcal{B}(x,\epsilon)$, this $y$ can be joined to $a$ with a piecewise $C^1$-curve.
 
 This means that $H$ is open. Similarly $K$ is also open. Since $U=H\sqcup K$ and for $U$ connected $H=U$
+
+\section{Notation}
+Let $\gamma:[a,b]\rightarrow\mathbb{R}^n$ be a curve, we define:
+$$(-\gamma)(t)=\gamma(a+b-t)$$
+as reserved curve of $\gamma$
+$$\int_{-\gamma}\omega=-\int_\gamma\omega$$
+\section{Def}
+If $\gamma_1:[a,b]\rightarrow U$ and $\gamma_2:[b,c]\rightarrow U$ are two curves and $\gamma_1(b)=\gamma_2(b)$, we define
+$$\begin{aligned}
+    \gamma_1\sqcup\gamma_2:&[a,c]&\rightarrow&U\\
+    &t&\mapsto&\begin{cases}
+        \gamma_1(t) &\text{if }t\in[a,b]\\
+        \gamma_2(t) &\text{if }t\in[b,c]
+    \end{cases}
+\end{aligned}$$
+One has
+$$\int_{\gamma_1\sqcup\gamma_2}\omega=\int_{\gamma_1}\omega+\int_{\gamma_2}\omega$$
 \section{Theorem}
 The following statements are equivalent:
 \begin{itemize}
-    \item $\omega$ is exact in a connected open set $V\subseteq U$
-    \item $\int_\gamma\omega$ depends only on the end-point of $\gamma$ ($\forall \gamma$ in $V$)
-    \item $\int_\gamma\omega=0$ for all closed curves $\gamma$ in $ V$
+    \item[1] $\omega$ is exact in a connected open set $V\subseteq U$
+    \item[2] $\int_\gamma\omega$ depends only on the end-point of $\gamma$ ($\forall \gamma$ in $V$)
+    \item[3] $\int_\gamma\omega=0$ for all closed curves $\gamma$ in $ V$
 \end{itemize}
 \subsection*{Proof}
+\begin{itemize}
+    \item[$1\rightarrow 2$]Since $\omega=\text{d}f$
+    $$\int_\gamma\omega=\int_\gamma\text{d}f=f(\gamma(b))-f(\gamma(b))$$
+    \item[$2\rightarrow 3$]Take a closed curve such that $\gamma(a)=\gamma(b)=p\in V$. Take the curve $\gamma'=\{p\}$$$\int_\gamma\omega=\int_{\{p\}}\omega=0$$
+    \item[$3\rightarrow 2$]consider $\gamma\sqcup-\gamma$, trivial
+    \item[$2\rightarrow1$]
+    FIx $p\in V$ For any $(p+t)\in V$ by the lemma \ref{Lemma 53.36}, there exists a curve $\gamma_x$ piecewise $C^1$ that connects $p$ and $(p+t)$\\
+    Let$$\begin{aligned}
+        f:&V&\rightarrow&\mathbb{R}\\
+        &x&\mapsto&\int_{\gamma_x}\omega
+    \end{aligned}$$
+    Take $\omega=\sum\limits_{i=1}^na_i\text{d}x_i$, one knows that
+    $$\inf\limits_{x\in [p_i,p_i+t_i]}a_i(x)\leq\int_{p_i}^{p_i+t_i}a_i\text{d}x_i\leq\sup\limits_{x\in [p_i,p_i+t_i]}a_i(x)$$ 
+    Since $a_i$ are continuous$$\lim\limits_{t_i\rightarrow0}\inf\limits_{x\in [p_i,p_i+t_i]}a_i(x)=\lim\limits_{t_i\rightarrow0}\sup\limits_{x\in [p_i,p_i+t_i]}a_i(x)=a_i(p_i)$$
+    This means that for any curve $\gamma$ with end points and $p+t$
+    $$\int_\gamma\omega=\omega(p)(t)+o(\norm{t})$$
+    Hence $$o(\norm{t})+\text{d}_pf(t)=f(p+t)-f(p)=\int_\gamma\omega=\omega(p)(t)+o(\norm t)$$
+    which ends the proof.
+\end{itemize}
+\section{Poincare Lemma}
+Let $\omega$ be a 1-form. Then $\text{d}\omega=0$ iff
+$$\forall p\in U\quad \exists V\in \mathcal{V}_p,f:V\rightarrow\mathbb{R}\in C^1(\mathbb{R})$$such that $$\text{d}f=\omega$$
+\subsection*{Proof}
+Assume that $\omega$ is locally exact, then locally $$\omega=\text{d}f$$
+Assume that $U=\bigcup\limits_\alpha V_\alpha$, $\omega$ is exact,$\text{d}$ on $V_\alpha$ is $\text{d}(\text{d}f)=0$
+
+Assume that $\text{d}\omega=0,\forall p=(p_1,\cdots,p_n)\in U$, consider an open ball $\mathcal{B}_p$ centered on $p$ and all contained in $V$
+
+Fix an $x\in \mathcal{B}_p$ Consider $B(t)=p+t(x-p),t\in [0,1]$ Let
+$$f(x)=\int_{B(t)}\omega=\int_0^1a_i(B(t))(x_i-p_i)\text{d}t$$
+We put $V=B(p)$ and show that $\text{d}f=\omega$\\
+Note that
+$$0=\text{d}\omega=\sum\limits_i\text{d}\wedge\text{d}x_i=\sum\limits_i\left(\sum\limits_j\frac{\partial a_i}{\partial x_j}\text{d}x_j\right)\text{d}x_i=\sum\limits_{ij}\frac{\partial a_i}{\partial x_j}\text{d}x_j\wedge\text{d}x_i$$
+$$\frac{\partial a_i}{\partial x_j}=\frac{\partial a_j}{\partial x_i}$$
+Consider $x_i=x_1$
+$$\begin{aligned}
+    \frac{\partial f}{\partial x_1}&=\int_0^1\left(\frac{\partial a_1}{\partial x_1}t(x_1-p_1)+a_1+\sum\limits_{i>1}\frac{\partial a_i}{\partial x_1}t(x_i-p_i)\right)\text{d}t\\
+    &=\int_0^1\left(\frac{\text{d}t}{\text{d}}(a_1B(t))t+a_1\right)\text{d}t\\
+    &=\int_0^1\frac{\text{d}t}{\text{d}}\left(a_1\circ B(t)\cdot t\right)\text{d}t\\
+    &=a_1\circ B(1)\\
+    &=a_1(x)
+\end{aligned}$$
 
 \end{document}
