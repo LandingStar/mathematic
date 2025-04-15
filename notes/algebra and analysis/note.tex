@@ -5582,7 +5582,8 @@ $$\gamma_j(\rightbracket t_k,t_{k+1}\leftbracket)\rightarrow\mathbb{R}^n$$
 we can define $\gamma^*_j\omega$ this is one form in $\Omega^1(\rightbracket t_k,t_{k+1}\leftbracket)$
 
 if $\gamma_j(t)=(x_1(t),\cdots,x_n(t))$ then $$\gamma_j^*\omega=\sum\limits_{i=1}^na_i(x_1(t),\cdots,x_n(t))\frac{\text{d}x_i}{\text{d}t}\text{d}t\qquad x_i(t)=\frac{\text{d}x_i}{\text{d}t}?$$
-\section{Def}
+\section{Def: Path integral}
+\label{Def 52.2}
 Let $\gamma$ and $\omega$ be as above.
 $$\int_\gamma\omega:=\sum\limits_i\int_{t_k}^{t_{k+1}}\gamma_j^*\omega$$
 this is the integral of $\omega$ along the parametric curve $\gamma$ with
@@ -6163,6 +6164,7 @@ The following statements are equivalent:
     which ends the proof.
 \end{itemize}
 \section{Poincare Lemma}
+\label{Poincare Lemma}
 Let $\omega$ be a 1-form. Then $\text{d}\omega=0$ iff
 $$\forall p\in U\quad \exists V\in \mathcal{V}_p,f:V\rightarrow\mathbb{R}\in C^1(\mathbb{R})$$such that $$\text{d}f=\omega$$
 \subsection*{Proof}
@@ -6186,4 +6188,88 @@ $$\begin{aligned}
     &=a_1(x)
 \end{aligned}$$
 
+When locally exact implies exact depends on the topological properties of $U$
+\section{Notation}
+For any mapping $\gamma:[a,b]\rightarrow U$
+\begin{itemize}
+    \item $\gamma$ is called a closed curve if $\gamma(a)=\gamma(b)$ and $\gamma$ is a curve
+    \item $\gamma$ is called a path if $\gamma$ is of class $C^0$
+    \item $\gamma$ is called a loop if $\gamma$ is a closed path
+\end{itemize}
+We try to integrate forms along paths.
+\section{Def}
+Let $\omega$ be a closed 1-form $\gamma:[a,b]\rightarrow U$ be a path. We derive a partition of $[a,b]:$$$0\leq t_0<t_1<\cdots<t_k<t_{k+1}<b$$ such that $\gamma_i:=\gamma_{t_i,t_{i+1}}$ form a finite open covering$$\bigcup\limits_i B_i\supseteq\gamma([a,b])$$
+We may assume that $\gamma_i\subseteq B_i$. From Poincare lemma, we find a function $f_i:B_i\rightarrow\mathbb{R}$ s.t. on $B_i$$$\text{d}f_i=\omega$$
+We define the integral along path $\gamma$ as $$\int_\gamma\omega:=\sum\limits_if_i(t_{i+1})-f_i(t_i)$$
+\section{Prop}
+The def of path integral is unique and coincides with the usual definition \ref{Def 52.2}
+\subsection*{Proof}
+Let $\mathcal{P}=\{t_1,\cdots,t_n\}$ be a partition of $[a,b]$ and $\mathcal{P}'$ be a refinement of $\mathcal{P}$, namely $\mathcal{P}\in \mathcal{P}'$. We know that $\exists t'\in \mathcal{P}'\setminus\mathcal{P}$ s.t. $t'\in\rightbracket t_i,t_{i+1}\leftbracket,\gamma(t')\subseteq B_i$
+
+Compute the integral with the partition $\mathcal{P}'$, in the summation:
+$$f_i(\gamma_i(t_{i+1}))-f_i(\gamma_i(t'))+f_i(\gamma_i(t'))+c-f_i(\gamma_i(t_i))-c$$
+This means that if $\mathcal{P}'\subseteq\mathcal{P}$ then $$\int_\gamma^{(\mathcal{P})}\omega=\int_\gamma^{(\mathcal{P}')}\omega$$
+For any two partition $\mathcal{P}_1$ and $\mathcal{P}_2$, find the common refinement $$\int_\gamma^{(\mathcal{P}_1)}\omega=\int_\gamma^{(\mathcal{P}_1\cup\mathcal{P}_2)}=\int_\gamma^{(\mathcal{P}_2)}\omega$$
+\section{Def}
+Let $\gamma_0,\gamma_1:[a,b]\rightarrow U$ be two paths. A \textbf{homotopy} between $\gamma_0$ and $\gamma_1$ is a continuous mapping:
+$$\begin{aligned}
+    H:&[a,b]\times[0,1]&\rightarrow&U\\
+    &(s,t)&\mapsto&H(s,t)
+\end{aligned}$$
+such that\begin{itemize}
+    \item $H(\cdot,0)=\gamma_0\quad H(\cdot,1)=\gamma_1$
+    \item $H(a,\cdot)\equiv \gamma_0(a)=\gamma_1(a)\quad H(b,\cdot)\equiv\gamma_0(b)=\gamma_1(b)$
+\end{itemize}
+
+\section{Def: Lebesgue number}
+Let $(X,\rho)$ be a metric space and $\mathcal{U}=\{U_i\}$ be an open covering $X$
+
+A \textbf{Lebesgue number} $\delta=\delta_{\mathcal{U}}$ (of the open covering $\mathcal{U}$) is a non-negative number that:
+
+If $Z\subseteq X$ is a subset with $diam(Z)<\delta$, then $Z\subseteq U_j$ for some $U_j\in \mathcal{U}$
+\subsection*{Remark}\begin{itemize}
+    \item $\delta'<\delta$ is also a Lebesgue number
+    \item In principle, a Lebesgue number $\delta$ can be 0
+\end{itemize}
+\section{Lemma} If $X$ is compact, then for any open covering there exists a positive Lebesgue number.
+\subsection*{Proof}
+Let $\mathcal{U}$ be am open covering. Since $X$ is compact, then $$\mathcal{U}\supseteq\{U_1,\cdots,U_n\}$$
+If one of $U_i$ is equal to $X$, then any $\delta>0$ is a Lebesgue number. So we can assume that $\forall i\in \{1,\cdots,n\}$ the set$$C_i:=X\setminus U_i$$
+is non-empty. let the mapping $f$ be:
+$$\begin{aligned}
+    f:&X&\rightarrow&\mathbb{R}\\
+    &x&\mapsto&\frac{1}{n}\sum\limits_{i=1}^n d(x,C_i)
+\end{aligned}$$
+$f$ is continuous on a compact set. Hence it attains a minimum. This minimum is not 0 because $d(x,C_i)>0$ for some $i$
+
+Let $\delta=\min_{x\in X}f(x)$, we show that $\delta $ is a Lebesgue number
+
+Let $Y\subseteq X$ s.t. $diam(Y)<\delta$. Take $x_0\in Y$, then $$Y\subseteq \mathcal{B}(x_0,\delta)$$
+Since $f(x_0)\geq\delta$, then there exists $i$ such that$$d(x_0,C_i)\geq\delta$$
+(otherwise $f(x_0)=\frac{1}{n}\sum\limits_{i=1}^n d(x_0,C_i)<\frac{1}nn\delta=\delta$)\\this means$$(X\setminus U_i)\cap Y=\varnothing$$
+Hence $Y\subseteq U_i$
+\subsection*{Exercise}Being homotopic is an equivalence relation.
+\section{Theorem(homotopy invariance of the integrals)}
+Ler $\omega$ be a closed form on an open set $U$. Let $\gamma_0,\gamma_1$ be homotopy paths in $U$, then $$\int_{\gamma_0}\omega=\int_{\gamma_1}\omega$$
+\subsection*{Proof}
+Since $\omega$ is closed, it's locally exact (by Poincare lemma\ref{Poincare Lemma}) Let $H:[a,b]\times[0,1]\rightarrow U$ be the homotopy between $\gamma_0$ and $\gamma_1$. Let $\mathscr{B}=\{B_i\}$ be a open cover of $Im(H)\subseteq U$ made of finite many open balls (since compact) where $\omega$ is locally exact in each. 
+
+Consider $W_i=H^{-1}(B_i)$ We have covered the departure set $\mathscr{D}_H$ with $\{W_i\}$. Since $\mathscr{D}_H$ is compact, we can choose a Lebesgue number $\delta>0$ for the covering $\{W_i\}$ (by lemma \ref{Lemma 53.36})
+
+Divide $\mathscr{D}_H$ into rectangles $\{R_jk\}$ having diameter $<\delta$
+
+The border of the rectangles are loops. We divide the loops in this way:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{img/2.pdf}
+\end{figure}
+$$\partial R_{j,k}=\alpha_{j,k}\sqcup\beta_{j,k+1}\sqcap(-\alpha_{j+1,k})\sqcup(-\beta_{j,k})$$
+$$H\partial R_{j,k}= H\alpha_{j,k}\sqcup H\beta_{j,k+1}\sqcap H(-\alpha_{j+1,k})\sqcup H(-\beta_{j,k})$$
+$H\partial R_{j,k}$ is closed curve contained in some $B_i$, but in such balls $\omega$ is exact, then $\int_{\partial R_{j,k}}\omega=0$. Do this $\forall j,k$
+$$0=\sum\limits_{j,k}\int_{\partial R_{j,k}}\omega=\sum\limits_{j,k}\left(\int_{H\alpha_{j,k}}\omega+\int_{H\beta_{j,k+1}}\omega-\int_{H\alpha_{j+1,k}}\omega-\int_{H\beta_{j,k}}\omega\right)$$
+Moreover, if we do this for some particular $j,k$
+$$0=\int_{H(a,0)\leadsto(b,0) }\omega+\int_{H(b,0)\leadsto(b,1)}\omega-\int_{H(a,1)\leadsto(b,1)}-\int_{H(a,0)\leadsto(a,1)}$$
+Since $H(a,0)\leadsto(b,0)$ and $H(a,1)\leadsto(b,1)$ are points, then 
+$$\int_{H(a,0)\leadsto(a,1)}\omega=\int_{H(b,0)\leadsto(b,1)}\omega$$
+Proved
 \end{document}
