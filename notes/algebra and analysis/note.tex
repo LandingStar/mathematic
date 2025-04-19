@@ -6272,4 +6272,160 @@ $$0=\int_{H(a,0)\leadsto(b,0) }\omega+\int_{H(b,0)\leadsto(b,1)}\omega-\int_{H(a
 Since $H(a,0)\leadsto(b,0)$ and $H(a,1)\leadsto(b,1)$ are points, then 
 $$\int_{H(a,0)\leadsto(a,1)}\omega=\int_{H(b,0)\leadsto(b,1)}\omega$$
 Proved
+\chapter{Winding Numbers}
+\section{Def: Free Homotopy}
+Let $\gamma_0,\gamma_1:[a,b]\rightarrow U$ be two loops (namely $\gamma(a)=\gamma(b)$)
+
+A \textbf{free homotopy} between $\gamma_0$ and $\gamma_1$ is a continuous mapping:
+$$\begin{aligned}
+    H:&[a,b]\times[0,1]&\rightarrow&U\\
+    &(s,t)&\mapsto&H(s,t)
+\end{aligned}$$
+such that\begin{itemize}
+    \item $$H(\cdot,0)=\gamma_0\quad H(\cdot,1)=\gamma_1$$
+    \item For any fixed $t_0$$$H(\cdot,t_0)$$ is a loop
+\end{itemize}
+\section{Notation}
+A path $\gamma:[a,b]\rightarrow I$ is said simple if $\gamma\mid_{\rightbracket a,b\leftbracket}$ is injective (No self-cross this is)
+\section{Jordan Theorem}
+Let $\gamma$ be a simple loop $\gamma:[a,b]\rightarrow U$ , then $\mathbb{R}^2\setminus\gamma([a,b])$ consists exactly of two connected components. One of this is bounded (interior), the other one unbounded (exterior). Moreover $\gamma([a,b])$ is the boundary of two components.
+\subsection*{Proof}Exercise?
+
+Let $S^1\subseteq \mathbb{R}$ be the unit circle. Let $c:I\rightarrow S^1$ be a closed curve. ($0\in I$)
+
+We want to measure the "net" turns of $c$ around the region.
+$$c(t)=(x(t,y(t)), x^2+y^2=1\quad \forall t\in I)$$
+$$\Rightarrow 2(xx'+yy')=0$$
+
+Consider $\varphi_0\in \leftbracket 0, 2\pi\leftbracket$ such that $$\cos(\varphi_0)=x(0),\sin(\varphi_0)=y(0)$$
+Define the function $$\begin{aligned}
+    \varphi:&I&\rightarrow&\leftbracket 0,2\pi\rightbracket\\
+    &t&\mapsto&\varphi_0+\int_0^t(xy'-yx')\text{d}t
+\end{aligned}$$
+$\varphi$ is called an angle function of $c$, namely is of class $C^0$ and $c(t)=(\cos(\varphi(t)),\sin(\varphi(t)))$
+
+And 
+$$\begin{aligned}
+    F(t) &=(x(t)-\cos\varphi(t))^2+(y(t)-\sin \varphi(t))^2\quad t\in I\cap[0,2\pi]\\
+    F'(t)&=-y\sin\varphi(yy'+xx')-x\cos\varphi(xx'+yy')=0
+\end{aligned}$$
+This implies $F(t)=C$ a constant. However
+$$F(0)=(x(0)-x(0))^2+(y(0)-y(0))^2=0$$
+So $C=0$ It means that 
+$$\begin{cases}
+    \cos(\varphi(t))=x(t)\\
+    \sin (\varphi(t))=y(t)
+\end{cases}\forall t\in I$$
+\section{Def}
+Let $c:[a,b]\rightarrow S^1$ be a closed curve. Let $\varphi$ be the angular function of $c$. We define the winding number of $c$ as:
+$$n(c)=\frac{1}{2\pi}(\varphi(b)-\varphi(a))$$
+Since $c$ us a closed curve, $n(c)\in \mathbb{Z}$
+\section{Def}
+Let $\gamma:[a,b]\rightarrow\mathbb{R}^2\setminus\{p\}$ be a closed curve. ($\gamma_p+\rho(t)c(t)$), when $c(t)\in S^1$$$\gamma(t)=p+\rho(t)(\cos(\theta(t))+\sin(\theta(t)))$$
+Then we define the winding number of $\gamma$ at $p$
+$$n_p(\gamma):=n(c)$$
+\section{Prop}
+Let $\gamma=p+\rho(t)c(t)$ be a closed curve $\gamma:[a,b]\rightarrow \mathbb{R}^2\setminus\{p\}$ then
+$$n_p(\gamma)=\frac{1}{2\pi i}\int_C\omega_0$$
+where $$\omega_0=-\frac{y}{x^2+y^2}\text{d} x+\frac{x}{x^2+y^2}\text{d}y$$
+\subsection*{Proof}
+$$\begin{aligned}
+    \frac{1}{2\pi}\int_C\omega_0 &=\frac{1}{2\pi}\int_a^b(x(t)y'(t)-y(t)x'(t))\text{d}t\\
+    &=\frac{\varphi(b)-\varphi(a)}{2\pi}\\
+    &=n(c)
+\end{aligned}$$
+\section{Prop}
+Let $\gamma_0,\gamma_1:[0,b]\rightarrow\mathbb{R}^2\setminus\{p\}$ be two closed curves. Then they're freely homotopic iff$$n_p(\gamma_0)=n_p(\gamma_1)$$
+\subsection*{Proof}
+\begin{itemize}
+    \item[$\Rightarrow$]
+    Follows fromm the invariance of the integral of $\omega_0$ along free homotopic loops. (We use the previous prop)
+    \item[$\Leftarrow$]
+    Assume $\gamma_0=p+\rho_0c_0(t);\gamma_1=p+\rho_1c_1(t)$. The angle functions of $c_0$ and $c_1$ are $\varphi_0$ and $\varphi_1$ respectively. Consider
+    $$\varphi(s,t)=(1-t)\varphi_0(s)+t\varphi_1(s)$$
+    $(s,t)\in [0,b]\times [0,1]$
+    $$H(s,t)=(\cos(\varphi(s,t)),\sin(\varphi(s,t)))$$
+    To claim this is a free homotopy between $c_0$ and $c_1$, we have to check that any  curve in the homotopy is closed.
+    $$\begin{aligned}
+        \varphi(b,t)-\varphi(0,t)&=(1-t)\varphi_0(b)+t\varphi_1(b)-(1-t)\varphi_0(0)-t\varphi_1(0)\\
+        &=(1-t)(\varphi_0(b)-\varphi_0(0))+t(\varphi_1(b)-\varphi_1(0))\\
+        &=2\pi (1-t)n_p(\gamma_0)+2\pi tn_p(\gamma_1)\\
+        &=2\pi n_p(\gamma_0)
+    \end{aligned}$$
+    So we have proved that $c_0$ and $c_1$ are freely homotopic. What we anticipate is
+    $$\gamma_i\sim_{hom}\hat{\gamma_i}=p+c_i\sim_{hom}c_i$$
+    Now we only need to prove the first homotopic.
+    $$H(s,t)=p+\frac{\rho_1(s)}{(1-t)+t\abs{\rho_1(s)}}c_i(s)$$
+\end{itemize}
+
+
+\section{Def}
+Let $F:U\subseteq \mathbb{R}^2\rightarrow\mathbb{R}^2$ be a differential mapping. We say that $p\in U$ is a zero of $F$ if $F(p)=0$. If then exists a neighborhood $V$ of $p$ such that $V$ contains no zero of $F$ other then $p$,  then $p$ is called isolated zero.
+
+If $p$ is a zero of $F$ and $\text{d}F\mid_p$ is non singular at $p$, then we say that $p$ is a simple zero.
+\section{Remark}
+By the inverse function then $F$ is one to one in a neighborhood of a simple zero. Hence a simple zero if isolated.
+$$F(x,y)=(f(x,y),g(x,y))$$
+$D\subseteq U$ is a closed disk, with boundary $\partial D=C$ Assume that $C$ doesn't contain zeros of $F$. Consider the form
+$$\theta=\frac{f\text{d}g-g\text{d}f}{f^2+g^2}\in \Omega^\vee(U\setminus\{(x,y)\}:F(x,y)=0)$$
+\section{Def} The index of $F$ in $D$, is defined as
+$$n(F,D):=\frac{1}{2\pi}\int_C\theta$$
+See that $\theta=F^*\omega_0$, $\omega_0=\frac{-y\text{d}x+x\text{d}y}{x^2+y^2}$
+$$\begin{aligned}
+    n(F,D)&=\frac{1}{2\pi}\int_C\theta\\
+    &=\frac{1}{2\pi}\int_CF^*\omega_0\\
+    &=\frac{1}{2\pi}\int_{F\circ}\omega_0\\
+    &=(\text{winding number of }F\circ C\text{ at the center of }F D)
+\end{aligned}$$ 
+\section{Remark}
+$$n(F,D)=\frac{1}{2\pi}\int_C\theta=\frac{1}{2\pi}\int_{F\circ C}\omega_0$$
+\section{Prop}
+If $n(F,D)\neq 0$ then $\exists q\in D$ s.t. $F(q)=0$
+\subsection*{Proof}
+Assume that such $q$ doesn't exist. Let $p$ be the center of $D$
+$$H(s,t)=F((1-t)C(s)+t\cdot p)$$
+then $H$ is a free homotopy between $F\circ s\mapsto p$ and $\circ C$
+$$0=\frac{1}{2\pi}\int_F\circ C
+\omega_0=n(F,D)$$
+Contradiction
+\section{Def}
+A simple zero $p$ of $F$ is said \textbf{positive} if $\det(\text{d}_p F)>0$, otherwise is said \textbf{negative} ?(what's =0?)
+
+\section{Kronecker Index Theorem}
+Assume that $F;U\subseteq \mathbb{R}^2\rightarrow\mathbb{R}^2$ has only finite simple zeros in a disk $D\subseteq U$ and none of them in $\partial D$. Then
+$$n(F,D)=P-N$$
+where $P$ is the number of positive simple zeros and $N$ is the number of negative simple zeros.
+\subsection*{Lemma}
+Assume that $F$ has a simple zero $p\in D\subseteq U$ then $n(F,D)=\pm 1$ corresponding to $\det(\text{d}_p F)>0$ or $\det(\text{d}_p F)<0$
+\subsubsection*{Proof}
+After translating, we assume that $p=(0,0)$ By definition of differential
+$$F(q)=Tq+R(q)\abs q\quad q\rightarrow 0\quad\lim\limits_{q\rightarrow 0}R(q)=0$$
+Consider the mapping
+$$\begin{aligned}
+    H:&[0,b]\times[0,1]&\rightarrow&\mathbb{R}^2\\
+    &(s,t)&\mapsto&Tq+(1-t)R(q)\abs q
+\end{aligned}$$
+If we show that for $D$ small enough, $H(q,t)\neq 0, \forall q\in D,t\in [0,1]\ (*)$ Then $H(C(s),t)$ is a free homotopy between $F_0\circ C$ and $T\circ C$ (Exercise) Then $$n(F,D)=n(T,D)$$
+which one should prove is $n(T,D)=1$
+
+For the part $(*)$, since $p$ is non-singular, $c=\frac{1}{\norm{T^{-1}}}>0$, then 
+$$\norm{q}=\norm{ T^{-1}T q}\leq\norm{T^{-1}}\norm{Tq}=\frac{Tq}c$$
+Take $\epsilon>0$ such that $\forall p\in D$ (disk of radius $<\epsilon$)$\norm{R(q)}\leq\frac{c}2$ Then if $q\in D_\epsilon\setminus\{0,0\}$
+$$\begin{aligned}
+    \norm{H(q,t)}&=\norm{Tq+(1-t)R(q)\norm q}\\
+    \geq&\norm{Tq}-(1-t)\norm{R(q)}\norm{q}\\
+    \geq&c\norm{q}-\frac{(1-t)c}2\norm{q}\\
+    \geq&c\norm q-\frac{c}2\norm q>0 
+\end{aligned}$$\newpage
+\subsection*{Proof}
+Let $p_1,\cdots,p_k$ be the zeros of $F$ in $D$. Since these zeros are isolated, we choose a set of balls $\{B_i\}_{i=1}^k$ containing $\{p_i\}_{i=1}^k$ respectively. Then cut the circle into $k$ sections correspondingly.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{img/3.pdf}
+\end{figure}
+One can easily construct the homotopy for these balls and sections.
+
+By lemma
+$$\int_{F\circ C}\omega_0=\sum\limits_{i=1}^k\int_{F B_i}\omega_0=\sum\limits_{i=1}^k sgn( \det\text{d}_{p_i}F)=P-N$$
 \end{document}
