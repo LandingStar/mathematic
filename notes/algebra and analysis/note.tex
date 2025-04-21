@@ -6428,4 +6428,107 @@ One can easily construct the homotopy for these balls and sections.
 
 By lemma
 $$\int_{F\circ C}\omega_0=\sum\limits_{i=1}^k\int_{F B_i}\omega_0=\sum\limits_{i=1}^k sgn( \det\text{d}_{p_i}F)=P-N$$
+\section{Lemma}
+Let $\gamma:[a,b]\rightarrow\mathbb{R}^n$
+\begin{itemize}
+    \item[1] If $\gamma\in C^1([a,b])$ then $$\int_a^b\gamma'(t)\text{d}t=\gamma(b)-\gamma(a)$$
+    \item[2] For any $c\in \mathbb{R}^n$:
+    $$\left<c,\int_a^b\gamma(t)\text{d}t\right>=\int_a^b\left<c,\gamma(t)\right>\text{d}t$$
+    \item[3] $$\norm{\int_a^b\gamma(t)\text{d}t}\leq\int_a^b\norm{\gamma(t)}\text{d}t$$
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+    \item[1] Is consequence of the fundamental theorem of calculus computation
+    \item[2] $$\begin{aligned}
+        \left<c,\int_a^b\gamma(t)\text{d}t\right>&=\sum\limits_{i=1}^nc_i\int_a^b\gamma_i(t)\text{d}t\\
+        &=\int_a^b\sum\limits_ic_i\gamma_i(t)\text{d}t\\
+        &=\int_a^b\left<c,\gamma(t)\right>\text{d}t
+    \end{aligned}$$
+    \item[3] We apply (2) with $c=\int_a^b\gamma(t)\text{d}t\in \mathbb{R}^n$$$\begin{aligned}
+        \norm{\int_a^b\gamma(t)\text{d}t}&=\left<\int_a^b\gamma(\tau)\text{d}\tau,\int_a^b\gamma(t)\text{d}t\right>\\
+        (\text{by }(2))&=\int_a^b\left<\int_a^b\gamma(\tau)\text{d}\tau,\gamma(t)\right>\text{d}t=(*)
+    \end{aligned}$$
+    Apply Cauchy-Schwartz inequality
+    $$(*)\leq\int_a^b\norm{\int_a^b\gamma(\tau)\text{d}\tau}\norm{\gamma(t)}\text{d}t=\norm{\int_a^b\gamma(\tau)\text{d}\tau}\int_a^b\norm{\gamma(t)}\text{d}t$$Divide by $\norm{\int_a^b\gamma(\tau)\text{d}\tau}$
+\end{itemize}
+\section{Def}
+Let $\mathcal{P}=\{t=t_a,t_1,\cdots,t_n=b\}$, $p_i=\gamma(t_i)$
+$$l_\mathcal{P}(\gamma)=\sum\limits_{i=0}^n\norm{p_{i+1}-p_i}$$
+The length of $\gamma$ is 
+$$l(\gamma):=\sup\limits_p\{l_p(\gamma)\}$$
+If $l(\gamma)<+\infty$, then path $\gamma$ is said rectifiable.
+\subsection{Example}
+Consider $\gamma:[0,1]\rightarrow\mathbb{R}$ $\gamma_1(t)=t$ $\gamma_2(t)=\begin{cases}
+    t\sin\frac{\pi}{2t}\quad \text{if }t\neq0\\0\quad\text{ otherwise}
+\end{cases}$
+$$\mathcal{P}_n\{0,\frac{1}{2n+1},\frac{1}{2n-1},\cdots,\frac{1}{3},1\}$$
+Recall that $\sin((j-\frac{1}{2})\pi)=(-1)^{j+1}$, then for $i>0$, $$p_i=\gamma(t_i)=\left(\frac{1}{2j-1},\frac{1}{2j-1}(-1)^{j+1}\right)$$
+$$
+\begin{aligned}
+    \norm{p_i-p_j}&=\sqrt{(\frac{2}{4j^2-1})^2+(\frac{4j}{4j^2-1})^2}\\
+    &=\sqrt{\frac{4(4j^2+1)}{(4j^2-1)^2}}\\
+    &\geq\sqrt{\frac{4(4j^2-1)}{(4j^2-1)^2}}\\
+    &=\sqrt{\frac{4}{4j^2-1}}\\
+    &\geq\frac{1}{j}
+\end{aligned}
+$$
+then $$l_p(\gamma)\geq\sum\limits_{j=1}^n\frac{1}{j}\Rightarrow l(\gamma)=+\infty$$
+\section{Prop}
+Let $\gamma:[a,b]\rightarrow\mathbb{R}^n$ be of class $C^1$, then $\gamma$ is rectifiable and $$l(\gamma)=\int_a^b\norm{\gamma'(t)}\text{d}t$$
+moreover $l(\gamma)$ doesn't depend on the parametrization of $\gamma$
+\subsection*{Proof}
+Let $\mathcal{P}$ be a partition of $[a,b]$. $$\norm{\gamma(t_{j+1})-p_j}=\norm{\int_{t_i}^{t_{j+1}}\gamma'(t)\text{d}t}\leq\int_{t_i}^{t_{j+1}}\norm{\gamma'(t)}\text{d}t$$
+So 
+$$
+\begin{aligned}
+    l_mathcal{P}(\gamma)&=\sum\limits_{j=0}^{n-1}\norm{\gamma(t_{j+1}-\gamma(t_j))}\\
+    &\leq\sum\limits_{j=0}^{n-1}\int_{t_i}^{t_{j+1}}\norm{\gamma'(t)}\text{d}t\\
+    &=\int_a^b\norm{\gamma'(t)}\text{d}t
+\end{aligned}
+$$
+take sup over $\mathcal P$
+$$l(\gamma)\leq\int_a^b\norm{\gamma'(t)}\text{d}t$$
+which means $l(\gamma)$ is finite.
+
+Let's prove the other inequality:
+
+$\gamma'(t)$ is continuous on $[a,b]$ then is uniformly continuos(Cantor-Iteiner Theorem): $\forall \epsilon>0 \exists\delta=\delta(\epsilon)$ such that if $t,s\in [a,b]$ and
+$\abs{t-s}<\delta$. Then $\norm{\gamma'(t)-\gamma'(s)}<\epsilon$
+
+Choose now a partition $\mathcal{P}$ such that $\abs{t_{j+1}-t_j}<\delta\ \forall i$ then if $t\in [t_{i},t_{i+1}]$ then$\norm{\gamma'(t)-\gamma'(t_j)}<\epsilon$
+$$\begin{aligned}
+    \norm{\gamma'(t)}-\norm{\gamma'(t_j)} &\leq\abs{\norm{\gamma'(t)}-\norm{\gamma'(t_j)}}\\
+    &\leq\norm{\gamma'(t)-\gamma'(t_j)}\\
+    &\leq\epsilon
+\end{aligned}$$
+Hence
+$$\begin{aligned}
+    \int_{t_j}^{t_{j+1}}\norm{\gamma'(t)}\text{d}t &\leq\norm{\gamma'(t_j)}(t_{j+1}-t_j)+(t_{j+1}-t_j)\epsilon\\
+    &\leq\norm{\int_{t_j}^{t_{j+1}}(\gamma'(t)-\gamma'(t)+\gamma'(t_j))\text{d}t}+(t_{j+1}-t_j)\epsilon\\
+    &\leq\norm{\int_{t_j}^{t_{j+1}}\gamma'(t)\text{d}t}+\norm{\int_{t_j}^{t_{j+1}}(\gamma'(t)-\gamma'(t_j))\text{d}t}+(t_{j+1}-t_j)\epsilon\\
+    &\underbrace{\leq\norm{\gamma(t_{j+1}-\gamma(t_j))}}\limits_{\text{lemma 1}}+\underbrace{\int_{t_j}^{t_{j+1}}\norm{\gamma'(t)-\gamma'(t_j)}\text{d}t}\limits_{\text{lemma 2}}+(t_{j+1}-t_j)\epsilon\\
+    &\leq\norm{\gamma(t_{j+1}-\gamma(t_j))}+2(t_{j+1}-t_j)\epsilon
+\end{aligned}$$
+Hence 
+$$
+\begin{aligned}
+    \int_a^b\norm{\gamma'(t)}\text{d}t&\leq\sum\limits_{j=0}^{n-1}\int_{t_j}^{t_{j+1}}\norm{\gamma'(t)}\text{d}t\\
+&\leq\sum\limits_{j=0}^{n-1}\norm{\gamma(t_{j+1})-\gamma(t_j)}+2(t_{j+1}-t_j)\epsilon\\
+&=l_\mathcal{P}(\gamma)+2\epsilon(b-a)\leq l(\gamma)+2\epsilon(b-a)
+\end{aligned}
+$$
+Take limit for $\epsilon\rightarrow0$
+
+Now the formula proved. We'll show that $l(\gamma)$ doesn't depends on the parametrization. Let $\varphi:[\alpha,\beta]\rightarrow[a,b]$ is of class $C^1$, $\varphi'(\tau)\neq0,\forall\tau\in [\alpha,\beta]$ Let $$\tilde{\gamma}=\gamma\circ \varphi$$
+might as while assume $\varphi'>0$
+$$\begin{aligned}
+    l(\gamma)=\int_a^b\norm{\gamma'(t)}\text{d}t&=\int_{\alpha}^\beta\norm{\gamma'(\varphi(\tau))}\varphi'(\tau)\text{d}\tau\\
+    &=\int_{\alpha}^\beta\norm{\tilde{\gamma'}(\tau)}\text{d}\tau
+    &=l(\tilde{\gamma})
+\end{aligned}$$
+Same for $\varphi'<0$
+\section{Corollary(exercise)}
+If $\gamma$ is a curve (piecewise $C^1$), then $\gamma$ is rectifiable and the length is the sum of the length of it's $C^1$ pieces.
+\section{Def}
+A $C^1$-curve is \textbf{regular} if $\gamma'(t)\neq0$ for any $t\in [a,b]$ A piecewise $C^1$-path (curve) is regular if all its pieces are regular
 \end{document}
