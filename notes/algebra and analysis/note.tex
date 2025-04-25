@@ -6531,4 +6531,281 @@ Same for $\varphi'<0$
 If $\gamma$ is a curve (piecewise $C^1$), then $\gamma$ is rectifiable and the length is the sum of the length of it's $C^1$ pieces.
 \section{Def}
 A $C^1$-curve is \textbf{regular} if $\gamma'(t)\neq0$ for any $t\in [a,b]$ A piecewise $C^1$-path (curve) is regular if all its pieces are regular
+
+
+
+\section{Def}
+$$N:=\frac{T}{\norm{T}}$$ is \textbf{normal vector} of $T$
+\section{Def}
+Let $\gamma:[a,b]\rightarrow\mathbb{R}^n$ a $C^1$ curve; Let $l$ be the length of $\gamma$ (by theorem proved $l(\gamma)<+\infty$) Let's define the following function:
+$$s(t):=\int_a^t\norm{\gamma'(t)}\text{d}u$$
+$s(t)$ is the length of $\gamma\mid_{[a,t]}$
+THe function $\norm{\gamma'(u)}$ iss continuous, hence
+$$s'(t)=\norm{\gamma'(t)}$$
+Now assume that $\gamma$ is $C^1$ and \textbf{regucar}($\gamma'(t)\neq0,\forall t\in [a,b]$), then $s'(t)>0$
+
+So $s:[a,b]\rightarrow[0,l]$ is a $C^1$-differmorphism, the inverse is $$t:[0,l]\rightarrow[a,b]$$$$\frac{\text{d}t}{\text{d}s}=frac{1}{\norm{\gamma'(t)}}$$
+We reparameterize $\gamma$ with $t$ and get
+$$\tilde{\gamma}(s)=(\gamma\circ t)(s)$$
+$\tilde{\gamma}:[0,l]\rightarrow\mathbb{R}^n$ we say that $\tilde{\gamma}$ is the reparameterization of $\gamma$ with respect to its \textbf{curvilinear coordinate} $s(t)$
+\section{Def}
+$f:U\subseteq\mathbb{R}^n\rightarrow\mathbb{R}^n$ $f$ is a $C^{(k)}$-differ if \begin{itemize}
+    \item $f$ is of class $C^{(k)}$
+    \item $f$ is bijection, and the inverse is $C^{(k)}$
+\end{itemize}
+\section{Def}
+In general $$\gamma:[a,b]\rightarrow\mathbb{R}^n\leadsto \tilde{\gamma}:[0,l]\rightarrow\mathbb{R}^n$$
+regular and $C^1$
+$$\frac{\text{d}\tilde{\gamma}}{\text{d}s}=\frac{\text{d}\gamma}{\text{d}t}\frac{\text{d}t}{\text{d}s}=\frac{\gamma'(t)}{\norm{\gamma'(t)}}$$
+$\norm{\frac{\text{d}\tilde{\gamma}}{\text{d}s}}=1$
+$$T(t):=\frac{\text{d}\tilde{\gamma}}{\text{d}s}=\frac{\gamma'(t)}{\norm{\gamma'(t)}}$$
+tangent: (vector) $\rightarrow$ vector of norm 1
+$$0=\frac{\text{d}}{\text{d}t}\norm{T(t)}^2=\frac{\text{d}}{\text{d}t}\left<T(t),T(t)\right>=2\left<T(t),T'(t)\right>\Leftrightarrow T'(t)\perp T(t)$$
+use the fact that in $\mathbb{R}^n$, $u,v:\mathbb{R}\rightarrow\mathbb{R}^n$ differentiable
+$$\begin{aligned}
+    \frac{\text{d}}{\text{d}t}\left<u(t),v(t)\right> &= \left<\frac{\text{d}u}{\text{d}t},v(t)\right>+\left<u(t),\frac{\text{d}v}{\text{d}t}\right>
+\end{aligned}$$
+then
+$$
+\begin{aligned}
+    \frac{\text{d}^2\tilde{\gamma}}{\text{d}s^2}&=\frac{\text{d}}{\text{d}s}(\frac{\text{d}\tilde{\gamma}}{\text{d}s})\\
+    &=\frac{\text{d}}{\text{d}s}(T(t))\\
+    &=\frac{\text{d}T}{\text{d}t}\frac{\text{d}t}{\text{d}s}\\
+    &=\frac{T'(t)}{\norm{\gamma'(t)}}    
+\end{aligned}$$
+$N(t)=\frac{\text{d}^2\tilde{\gamma}}{\text{d}s^2}/\norm{\frac{\text{d}^2\tilde{\gamma}}{\text{d}s^2}}$. If $n=2$
+Along the curve we have a 'moving' canonical basis of 
+$$\begin{aligned}
+    \mathbb{R}^2_{\gamma(t)}&=\span\{T(t),N(t)\}\\
+    &=\{\alpha T(t)+\beta N(t)\mid\alpha,\beta\in \mathbb{R}\}
+\end{aligned}$$
+$\{T(t),N(t)\}$ is a orthonormal basis of $\mathbb{R}^2_{\gamma(t)}$
+
+
+
+\chapter{Curvilinear integral}
+Let $f:U\in\mathbb{R}^n\rightarrow\mathbb{R}$ measurable and $\gamma:[a,b]\rightarrow\mathbb{R}^n$ regular
+\section{Def}
+The curvilinear integral of $f$ along $\gamma$ is defined as:
+$$\int_\gamma f(t)\text{d}s=\int_a^bf(\gamma(t))s'(t)\text{d}t=\int_a^bf(\gamma(t))\norm{\gamma'(t)}\text{d}t$$
+where $s'(t)$ is curvilinear coordinate.
+\section{Prop}
+Let $f,g:U\subseteq\mathbb{R}^n\rightarrow\mathbb{R}$ be two measurable functions $\gamma,\gamma_1,\gamma_2$(piecewise) regular $C^1$ curves, then
+\begin{itemize}
+    \item[1] $\alpha,\beta\in \mathbb{R}$$$\int_\gamma(\alpha f+\beta g)\text{d}s=\alpha\int_\gamma f\text{d}s+\beta\int_\gamma g\text{d}s$$
+    \item[2] If $\gamma_a\sqcup\gamma_2$ make sense
+    $$\int_{\gamma_a\sqcup\gamma_2}f\text{d}s=\int_{\gamma_a}f\text{d}s+\int_{\gamma_2}f\text{d}s$$
+    \item[3]$$\int_{\gamma_1}f\text{d}s=\int_{-\gamma_1}f\text{d}s$$
+    \item[4] $\int_\gamma f\text{d}s$ doesn't depends on the reparameterization of $\gamma$
+\end{itemize}
+\subsection*{Proof}Exercise
+\section{Geometry}
+Let $V$ be a finite dim vector space over $K$($K=\mathbb{R},\mathbb{C}$). Let $g:V\times V\rightarrow K$ be a bilinear function. Choose a basis $\{\sigma_1,\cdots,\sigma_n\}$ we have the Gram matrix $G=(g(\sigma_i,\sigma_j))_{i,j}$
+$$g(x,y)=x^TGy$$
+what happens when we change basis:
+$$\xymatrix{
+    &x\in V\ar@/^/@{.>}[ld]\ar@/_/@{.>}[rd]&\\
+    x\in K^n\ar[ur]^b&&x'\in K^n\ar[ll]_A\ar[ul]_{b'}
+}$$
+$$g(x,y)=x^TGy=(x'^T)(A^TGA)y'$$
+$$\{v_1,\cdots,v_n\}\quad G\leadsto A^TGA$$
+\section{Def}
+Two matrices $G,G'\in M_{n\times n}(K)$ are said \textbf{congruent} if $\exists A\in GL_n(K)$ (namely $A$ invertible) such that $G'=A^TGA$
+$$\begin{aligned}
+    \mathscr{L}(V,V;K)&\stackrel{\cong}\rightarrow&\mathscr{L}(T_0^2(V);K)&\stackrel{\cong}\rightarrow&\mathscr{L}(V,V^\vee)\\
+    g&\mapsto&g_s&\mapsto&[x\mapsto g_s(x\otimes -)]
+\end{aligned}$$
+In particular
+$$\begin{aligned}
+    \tilde{g}:V&\rightarrow V^\vee\\
+    x&\mapsto&[y\mapsto g(x,y)]
+\end{aligned}$$
+\begin{itemize}
+    \item $g:V\times V\rightarrow K$
+    \item $\begin{aligned}
+        g_p:V\times V&\rightarrow& K\\(x,y)&\mapsto&g(y,x)
+    \end{aligned}$
+    \item$\begin{aligned}
+        \overline{g_p}:V\times V&\rightarrow& K\\(x,y)&\mapsto&\overline{g(y,x)}
+    \end{aligned}$
+\end{itemize}
+\section{Def}
+A bilinear form $g$ is 
+\begin{itemize}
+    \item \textbf{symmetric} if $g=g_p$
+    \item \textbf{symplectic} if $g=-g_p$
+    \item \textbf{hermitian} if $g=-\overline{g_p}$ 
+\end{itemize}
+\section{Def}
+$(V,g)$ is a vector space with an inner product. Two vector $v_1,v_2\in V$ are said \textbf{orthogonal} (w.r.t(with respect to ) $g$) if$$g(v_1,v_2)=0$$
+Two subspaces $V_1,V_2\in V$ are \textbf{orthogonal} (w.r.t $g$) if $$g(v_1,v_2)=0\quad\forall v_1,v_2\in V$$
+\section{Def}
+The kernel of an inner product $g$ is 
+$$\ker{g}:=\{\sigma\in V\mid g(\sigma,w)=0,\forall w\in V\}$$
+$g$ is said non-degenerate if $$\ker{g}=\{0\}$$
+\section{Remark}
+$\ker g=\ker\tilde{g}$ where $\tilde{g}$ a linear mapping $\tilde{g}:V\rightarrow V^\vee$
+\section{Prop}
+Let $g$ be a bilinear form on $V$ and let $G$ be the Gram matrix of $g$ w.r.t the basis $\{\sigma_1,\cdots,\sigma_n\}$ Then the matrix of $\tilde{g}$ ww.r.t. the basis $\{\sigma_1,\cdots,\sigma_n\}$ and $\{\sigma^\vee_1,\cdots,\sigma^\vee_n\}$ is $G^T$
+$$\xymatrix{
+    V\ar[r]^{\tilde{g}} &V^\vee\\
+    K^n\ar[u]_{b}\ar[r]^{G^T}&K^n\ar[u]_{b^\vee}
+}$$
+\subsection*{Proof}
+$$\begin{aligned}
+    ((b^\vee)^{-1}\circ\tilde{g}\circ b)(e_i) &=(b^\vee)^{-1}\tilde{g}(v_i)\\
+    &=(b^\vee)^{-1}g(v_i,-)\\
+    &=g_{v_i}(\cdot):V\rightarrow K
+\end{aligned}$$
+$$\begin{aligned}
+    g_{v_i}(x)&=g(v_i,\sum\limits_jx_jv_j)\\
+    &=\sum\limits_jx_jG_{ij}\\
+    &=\sum\limits_jG_{ij}v_j^\vee(x)
+\end{aligned}$$
+so $g_{v_i}=\sum\limits_jG_{ij}v_j^\vee$
+$$\begin{aligned}
+    (b^\vee)^{-1}(g_\vee(\cdot))&=(b^\vee)^{-1}(\sum\limits_jG_{ij}v_j^\vee)\\
+    &=\sum\limits_jG_{ij}e_j\\
+    &=\text{i-th row of }G
+\end{aligned}$$
+\section{Prop}\begin{itemize}
+    \item $g$ is symmetric iff $G=G^T$
+    \item $g$ is symplectic iff $G=-G^T$
+    \item $g$ is hermitian iff $G=\overline{G^T}$
+\end{itemize}
+\subsection*{Proof}Exercise
+\section{Prop}
+Let $g$ be an inner product on $V$, THen $g$ is non-degenerate iff $$\det G\neq 0$$
+(w.r.t. any choose of basis)
+\subsection*{Proof}
+Let $G$ and $G'$ be two Gram matrices of $g$. $$G'=A^TGA$$
+for $A$ invertible
+$$\det G'=(\det A)^2\det G$$
+$$\det{G'}\neq0\Leftrightarrow\det G\neq0$$
+
+Fix a basis $\{v_1,\cdots,v_n\}$$$\ker g\cong\ker G^t$$ by the fact that $\ker g=\ker \tilde{g}$. So $\ker g\neq0$ iff $$\det G=\det G^T\neq0$$
+
+
+\section{Def:isometry}
+$$(V,g)\stackrel{f}\rightarrow(W,g')$$
+a morphism $f$ of vector space with inner product is \textbf{isometry} if $$g(x,y)=g'(f(x),f(y))$$
+\section{Def:isometric}
+$V\stackrel{\cong}\rightarrow W$ up to isomorphism.
+
+Then $(V,g)$ and $(W,g')$ are \textbf{isometric} if there are two isometry
+$$\begin{aligned}
+    f:(V,g)&\rightarrow&(W,g')\\
+    f':(W,g')&\rightarrow&(V,g)
+\end{aligned}$$
+such that
+$$f\circ f'=f'\circ f=Id$$
+\chapter{Complex conjugate vector space}
+\section{Def:complex conjugate vector space}
+Let $V$ be a vector space over $K=\mathbb{C}$. The \textbf{complex conjugate} $\overline{V}$ is the same set of $V$. The sum on $\overline{V}$ is the same of $V$, but we define $$\alpha*v:=\overline{\alpha}v\quad \alpha\in \mathbb{C}$$
+\section{Def: Semilinear}
+If $V$ and $W$ are two complex vector sapce, then a \textbf{semilinear mapping} is a mapping $f:V\rightarrow W$ such that
+\begin{itemize}
+    \item $f(v_1+v_2)=f(v_1)+f(v_2)$
+    \item $f(\alpha v)=\alpha*f(v)=\overline{\alpha}f(v)$
+\end{itemize}
+So a semilinear mapping is a linear mapping: $f:V\rightarrow W$
+
+For sesquilinear forms, the theory is similar to the theory of bilinear forms.
+$$g\leadsto G(\text{fix a basis})\quad g(x,y)=xG\overline{y}$$
+If you change basis, then the Gram matrix changes in the following way:
+$$G\leadsto A^TG\overline{A}$$
+If $g$ is bilinear
+$$g\leadsto \tilde{g}:V\rightarrow V^\vee$$
+and $$g\leadsto\tilde{g}:V\rightarrow\overline{V^\vee}$$
+linear if $g$ is sesquilinear ($\tilde{g}:V\rightarrow V^\vee$ is semilinear)
+\section{Def}
+A sesquilinear form $g:V\times \overline{V}\rightarrow K$ is \textbf{hermitian} if
+$$g(x,y)=\overline{g(y,x)}$$
+And note that inner product is any of symmetric symplectic or hermitian.
+\chapter{Classification (up to isometry) of vector spaces of small dim}
+Let $(V,g)$ be vector space over $K(=\mathbb{R},\mathbb{C})$ with inner product.
+\section{$\dim V=1$ and $g$ is symmetric}
+choose $v\in V\setminus\{0\}$ if $g(v,v)=0$, then $g$ is degenerated $\Rightarrow\ g=0$
+
+If $g$ is non-deg (non-degenerate) $\exists v$ s.t. $g(v,v)=a\neq0$$$\forall x\in K\quad g(xv,xv)=ax^2$$
+
+Any $v$ s.t. $g(v,v)=a\neq0$ induce a set
+$$\mathcal{C}(v):=\{ax^2:x\in K^*\}$$ this is an element in $K^*/\{x^2\mid x\in K^*\}$
+\subsection{Prop}Let $(V_1,g_1),(V_2,g_2)$ be two vector spaces of $\dim\ 1$ s.t. $g_1$ and $g_2$ are symplectic. Then $(V_1,g_1)$ and $(V_2,g_2)$ are isometric iff
+$$\exists v_1\in V_1,v_2\in V_2\text{ s.t. }\mathcal{C}_{g_1}(v_1)=\mathcal{C}_{g_2}(v_2)$$
+\subsubsection*{Proof}
+\begin{itemize}
+    \item[$\Rightarrow$] $f:V_1\rightarrow V_2$ be an isometry, $v_1\in V\setminus\{0\}$, $v_2:=f(v_1)$
+    $$g_2(v_2,v_2)=g_2(f(v_1),f(v_1))=g_1(v_1,v_1)$$
+    $\Rightarrow$
+    $$\mathcal{C}_{g_1}(v_1)=\mathcal{C}_{g_2}(v_2)$$
+    \item[$\Leftarrow$] Assume $\exists v_1,v_2:\mathcal{C}_{g_1}(v_1)=\mathcal{C}_{g_2}(v_2)$ then $\forall a\in K^*$$$g_1(v_1,v_1)=ax^2\quad g_2(v_2,v_2)=ay^2$$
+    Then let$$\begin{aligned}
+        f:V_1&\rightarrow&V_2\\
+        v_1&\mapsto&y^{-1}xv_2
+    \end{aligned}$$
+    for dim 1 this can def whole mapping. So
+    $$g_2(\frac{x}{y}v_2,\frac{xx}{y}v_2)=\frac{x^2}{y^2}g(v_2,v_2)=ax^2=g(v_1,v_1)$$
+\end{itemize}
+
+For $K=\mathbb{R}$ $\mathbb{R}^*/\{x^2\mid x\in \mathbb{R}^*\}\cong\{\pm1\}$$$\begin{aligned}
+    f:\mathbb{R}^*&\rightarrow&\{\pm1\}\\x&\mapsto&sgn(x)
+\end{aligned}$$
+
+For $K=\mathbb{C}$ $C^*\cong\{x^2\mid x\in\mathbb{C}\}$, $\mathbb{C}^*/\{x^2\mid x\in\mathbb{C}^*\}=\{[1]\}$
+
+\subsection{Theorem}
+$(V,g)$ has dim 1, $g$ symmetric. Then $(V,g)$ is isometric to one of the following
+\begin{itemize}
+    \item $K=\mathbb{R}$$$(\mathbb{R},g(x,y)=xy)\quad(\mathbb{R},g(x,y)=-xy)\quad (\mathbb{R},g(x,y)=0)$$
+    \item $K=\mathbb{C}$$$(\mathbb{C},g(x,y)=xy)\quad (\mathbb{C},g(x,y)=0)$$ 
+\end{itemize}
+\subsubsection*{Proof}Follows form last prop
+\section{$\dim V=1$ $g$ is hermitian}
+Again $g$ degenerate $\Rightarrow g=0$We use that same reason as above. $v\in V:g(v,v)=a\neq 0$, $\forall a\in \mathbb{C}^*$$$g(av,av)=\norm{a}^2g(v,v)$$
+So any element $v\in V\setminus\{0\}$ s.t. $g(v,v)=a$ induces a coset in $\mathbb{C}^*/\mathbb{R}_{> 0}$
+
+Inside $\mathbb{C}^*$ $\mathbb{R}_{>0}$ is a (mult) subgroup
+
+For any $z\in \mathbb{C}^*$ can be written uniquely as $z=re^{i\theta}$, hence
+$$\begin{aligned}
+    \mathcal{C}^* &\cong&\mathbb{R}_{>0}\times S^1&\rightarrow& S^1\\
+    z& \mapsto&(r,e^{i\theta}) &\mapsto& e^{i\theta} 
+\end{aligned}$$
+The kernel is $\mathbb{R}_{>0}$ and $S^1\cong\mathbb{C}^*/\mathbb{R}_{>0}$.
+
+But $g$ is hermitian, so$$g(v,v)\in \mathbb{R}$$
+If follows that the coset $$\{\norm{a}^2g(v,v)\mid a\in  \mathbb{C}^*\}\in (\mathbb{C}^*/\mathbb{R}_{>0})\cap(\mathbb{R}/\mathbb{R}_{>0})\cong\{\pm1\}$$
+We repeat the proposition before with $g$ hermitian and the following theorem
+\subsection{Theorem} $(V,g)$ if dim 1, with $g$ hermitian. Then $(V,g)$ is isometry to one of the following
+$$(\mathbb{C},g(x,y)=x\overline{y})\quad(\mathbb{C},g(x,y)=-x\overline{y})\quad(\mathbb{C},g(x,y)=0)$$
+\section{$\dim V=1$ $g$ symplectic}
+With dim 1 $\forall v_1,v_2\in V$ can be write as $v_1=ae,v_2=be$ with $e\in K^*$$$g(v_1,v_2)=ab\cdot g(v,v)=0$$
+\subsection{Theorem}$(V,g)$ of dim 1, $g$ symplectic, then $$(V,g)\cong(K,g=0)$$
+\section{$\dim V=2$ $g$ symplectic}
+Assume that $g$ is degenerated, then $\exists x\in V$ s.t. $g(x,y)=0,\forall y\in V$
+
+Extend $x$ to a basis $\{x,x'\}$ of $V$
+$$g(ax+a'x',bx+b'x')=ab\cdot g(x,x)+ab'\cdot g(x,x')-a'b\cdot g(x,x')+a'b'\cdot g(x',x')=0$$
+
+So when $g$ degenerated $g=0$
+
+
+Take $g$ non-degenerated $\exists v_1,v_2\in V$ s.t. $g(v_1,v_2)=a\neq0$. 
+
+For $g(a^{-1}v_1,v_2)=a^{-1}a=1$, we may assume that $a=1$
+
+Let's show that $v_1,v_2$ are linearly independent. Assume by contraction: $v_1=\lambda v_2$
+$$1=g(v_1,v_2)=g(\lambda v_2,v_2)=\lambda\cdot g(v_2,v_2)=0$$
+$\Rightarrow$ $\{v_1,v_2\}$ is a basis of $V$. Then
+$$\alpha_1\beta2-\alpha_2\beta_1=g(\alpha_1v_1+\alpha_2v_2,\beta_1v_1+\beta_2v_2)=(\alpha_1,\alpha_2)\begin{pmatrix}
+    0 &1\\-1&0
+\end{pmatrix}\begin{pmatrix}
+    \beta_1\\\beta_2
+\end{pmatrix}\stackrel{(?)}{=}\begin{pmatrix}
+    \ \overline{\beta_1}\ \\\overline{\beta_2}
+\end{pmatrix}$$
+\subsection{Theorem}
+$(V,g)$ is dim 2, $g$ symplectic. Then $(V,g)$ is isometry to one of the following
+$$(K^2,g(x,y)=0)\quad(K^2,g(x,y)=x_1y_2-x_2y_1)$$
 \end{document}
