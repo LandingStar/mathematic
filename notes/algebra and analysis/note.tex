@@ -4095,7 +4095,7 @@ $$f_s(\mathcal{G}+(m,n)):=s(m,n)$$
 Extend this mapping to linearity. This makes the diagram commutative. It's clearly the unique mapping
 \section{Def}
 The $R$-module $M\otimes_RN$ constructed above is called the tensor product of $M$ and $N$. An element of $M\otimes_RN$ is called tensor. We denote$$t(m,n):=m\otimes n$$ and any elements of this form is called pure tensor. 
-\section{Remark}Pore tensors generate $M\otimes_R N$. In particular any tensor can be written as sum of pure tensors.
+\section{Remark}Pure tensors generate $M\otimes_R N$. In particular any tensor can be written as sum of pure tensors.
 \begin{itemize}
     \item[Example] $$0=(m+m')\otimes n-m\otimes n-m\otimes n'$$
 \end{itemize}
@@ -4300,15 +4300,6 @@ Moreover for any linear mapping $(f:M\rightarrow P)\leadsto f\otimes id_N . M\ot
 This association sends $id_M$ to $id_{M\otimes_RN}$ and moreover is well defined with respect to the composition
 $$f\circ g\mapsto (f\circ g)\otimes id_N=(f\otimes id_N)\circ(g\otimes id_N)$$
 \section{Def}
-Let $$M_0\stackrel{f_1}{\rightarrow}M_1\rightarrow\cdots\stackrel{f_n}\rightarrow M_n$$
-be a diagram.
-
-If $\forall i\in \{1,\cdots,n\}$$$f_{i+1}\circ f_i=0$$
-then we say that the diagram is complex
-$$H^i=Ker(f_{i+1})/Im(f_i)$$
-This diagram is exact iff $$\forall i\quad H^i=\{0\}$$
-\textcolor{red}{Here's a def contradiction!!!}
-\section{Def}
 A sequence of $R$-modules is a diagram of the following form (also called complex of R-modules)
 $$\xymatrix{
     M_1\ar[r]^{d^1} & M_2\ar[r]^{d^2} & \cdots
@@ -4396,12 +4387,12 @@ $$\begin{aligned}
     &T_2^0(V)=V^\vee\otimes V^\vee\cong (V\otimes V)^\vee\cong\mathscr{L}(V,V;K)
 \end{aligned}$$
 If you have a R-module M, then 
-$$\bigotimes\limits_{n=0}^\infty M=\left\{(m_1,\cdots,m_n,\cdots):m_i\in M \text{ all but finite many }m_i=0\right\}$$
+$$\bigoplus\limits_{n=0}^\infty M=\left\{(m_1,\cdots,m_n,\cdots):m_i\in M \text{ all but finite many }m_i=0\right\}$$
 On $T(V)$ we have following operation:
 $$
 \begin{aligned}
     T_0^l(V)\times T_0^q(V)&\rightarrow T_0^{l+q}(V)\\
-    ((x_1\otimes\cdots\otimes x_l),(y_1\otimes\cdots\otimes y_q))&= x_1\otimes\cdots\otimes x_l\otimes y_1\otimes\cdots\otimes y_q
+    ((x_1\otimes\cdots\otimes x_l),(y_1\otimes\cdots\otimes y_q))&\mapsto  x_1\otimes\cdots\otimes x_l\otimes y_1\otimes\cdots\otimes y_q
 \end{aligned}
 $$
 
@@ -4421,7 +4412,7 @@ $$
 This def is try to transform $\bigotimes$ to $\bigwedge$
 \section{Notation}
 $$\bigwedge(V)=\bigoplus \limits_{n\in\mathbb{N}} \bigwedge^n(V)$$
-$$\bigwedge^n(V):=T^n_0(V)/W\cap T_0^n(V)$$
+$$\bigwedge^n(V):=T^n_0(V)/\left(W\cap T_0^n(V)\right)$$
 this is called $n$-fold exterior product
 \section{Prop}
 Let $\sigma\in \mathfrak{S}_n$ then $$x_1\wedge\cdots\wedge x_n=sgn(\sigma) x_{\sigma(1)}\wedge\cdots\wedge x_{\sigma(n)}$$
@@ -4458,27 +4449,27 @@ $$\varphi(x_1,\cdots,x_n)=0\text{ when }\exists i\neq j:x_i=x_j$$
 \section{Prop}
 \label{VIII-46.8}
 FIx a vct space V. For any alternating multi-linear mapping
-$$s:\underbrace{V\times\cdots\times V}\limits_{n\text{ times}}\rightarrow W$$
-when W is another vct space, there exists a unique linear mapping$$g_s:\bigwedge\limits^n(V)\rightarrow W$$
+$$s:\underbrace{V\times\cdots\times V}\limits_{n\text{ times}}\rightarrow M$$
+when $M$ is another vct space, there exists a unique linear mapping$$g_s:\bigwedge\limits^n(V)\rightarrow M$$
 such that the following diagram commutes
 $$\xymatrix{
-    & V^n\ar[d]_t\ar[r]^s & W\\
+    & V^n\ar[d]_t\ar[r]^s & M\\
     &T^n_0(V)\ar@{-->}[ur]^{f_s}\ar[d] &\\
     & \bigwedge\limits^n(V)\ar[uur]_{g_s}
 }$$
 \subsection*{Proof}
-$$g_s(\sigma_1\wedge\cdots\wedge\sigma_n):=s(v_1,\cdots,v_n)$$
+$$g_s(\sigma_1\wedge\cdots\wedge\sigma_n):=s(\sigma_1,\cdots,\sigma_n)$$
 check the diagram is commutative
 $$\xymatrix{
     &\mathcal{F}(V^n)\ar@{->>}[r]^t &T^n_0(V)\ar@{->>}[r]&\bigwedge\limits^n(V)\\
-    &\{(\sigma_1,\cdots,\sigma_n)\}\ar@{|->}[r]&\{\sigma\otimes\cdots\times\sigma_n\}\ar@{|->}[r]&\{\sigma_1\wedge\cdots\wedge\sigma_n\}
+    &\{(\sigma_1,\cdots,\sigma_n)\}\ar@{|->}[r]&\{\sigma\otimes\cdots\otimes\sigma_n\}\ar@{|->}[r]&\{\sigma_1\wedge\cdots\wedge\sigma_n\}
 }$$
 \section{Remark/exercise}
 The couple $\bigwedge\limits^nV$ with
 $$V^n\rightarrow\bigwedge\limits^n(V)$$
 that satisfies Prop \ref{VIII-46.8} is unique to unique isomorphism
 \section{Prop}
-Let V be a vct space of dimension n with a basis $\{e_1,\cdots,e_n\}$. Then $\bigwedge\limits^k(V)$ is a vct space with a basis given by $$\mathcal{B}=\{e_{i_1},\cdots e_{i_k}\big|\ 1\leq i_1<\cdots<i_k\leq n\}$$
+Let V be a vct space of dimension n with a basis $\{e_1,\cdots,e_n\}$. Then $\bigwedge\limits^k(V)$ is a vct space with a basis given by $$\mathcal{B}=\{e_{i_1}\wedge\cdots\wedge e_{i_k}\big|\ 1\leq i_1<\cdots<i_k\leq n\}$$
 In particular, $\bigwedge\limits^k(V)$ has dimension $\left(\begin{aligned}
     &n \\ &k
 \end{aligned}
@@ -4517,13 +4508,13 @@ when $\{e_1,\cdots,e_n\}$ is a basis of V.
 Let $f\in \mathscr{L}(V;V)$ then consider
 $$\begin{aligned}
     \widetilde{f}: V^k &\rightarrow \bigwedge\limits^k V\\ 
-    (\sigma_1,\cdots,\sigma_n) &\mapsto f(v_1)\wedge\cdots\wedge f(v_n)
+    (v_1,\cdots,v_n) &\mapsto f(v_1)\wedge\cdots\wedge f(v_n)
 \end{aligned}$$
 This is multilinear and alternating. Therefore it induces a mapping
 $$
 \begin{aligned}
-    g_{\widetilde{f}}=\bigwedge\limits^kf: &\bigwedge\limits^k(V) &\rightarrow\bigwedge\limits^k(V)\\
-    &v_1\wedge\cdots\wedge v_k &\mapsto f(v_1)\wedge\cdots\wedge f(v_n)
+    g_{\widetilde{f}}=\bigwedge\limits^kf: &\bigwedge\limits^k(V) &\rightarrow &\bigwedge\limits^k(V)\\
+    &v_1\wedge\cdots\wedge v_k &\mapsto & f(v_1)\wedge\cdots\wedge f(v_n)
 \end{aligned}$$
 
 Since $\det(V)$ has dim 1
@@ -4595,7 +4586,7 @@ If one column of $A$ can be expressed as a linear combination of other columns o
 The columns are images of $\{e_1,\cdots,e_n\}$, means that $A(e_1),\cdots,A(e_n)$ are linearly dependent. Then $A$ is not an isomorphism, thus $\det(A)=0$.
 If we exchange two columns of $A$, then $\det(A)$ changes sign.
 \section{Prop}
-Let $(a_ij)$ be a matrix of dimension $n\times n$. Then $$\det(A)=\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma)\prod\limits_{i=1}^na_{i\sigma(i)}$$
+Let $(a_{ij})$ be a matrix of dimension $n\times n$. Then $$\det(A)=\sum\limits_{\sigma\in\mathfrak{S}_n}sgn(\sigma)\prod\limits_{i=1}^na_{i\sigma(i)}$$
 \subsection*{Proof}
 Let $\{v_1,\cdots,v_n\}$ be the columns of $A$, $v_i=A(e_i)$
 $$\begin{aligned}
@@ -4719,7 +4710,7 @@ A linear mapping $f:V\rightarrow V$ (finite dim) is diagonalizable if the follow
 \subsection{Example}
 Take $$A:\mathbb{R}^2\rightarrow\mathbb{R}^2\quad A=\left(\begin{aligned}&\cos\theta &\sin\theta\\ &-\sin\theta&\cos\theta\end{aligned}\right)$$ $A$ is not diagonalizable.
 \section{Def}
-Let $L$ be a one-dimensional invariant subspace of $f:V\rightarrow V$ . Then $F\mid_L$ is a multiplication by a scalar $\lambda\in K$. Such $\lambda$ is called eigenvalue of $f$. Anon-zero vector $v\in V$ is called an eigenvector of $V$ if $\left<v\right>$ is an invariant subspace of $f$
+Let $L$ be a one-dimensional invariant subspace of $f:V\rightarrow V$ . Then $f\mid_L=x\mapsto\lambda x$ with a scalar $\lambda\in K$. Such $\lambda$ is called eigenvalue of $f$. A non-zero vector $v\in V$ is called an eigenvector of $V$ if $\left<v\right>$ is an invariant subspace of $f$
 \section{Remark}
 $$\xymatrix{ &\{eigenvectors\}\ar[r]&\{\text{Set of invariant subspaces of dim 1}\}\ar[r] &K\\
 &&v\ar@{|->}[r]\left<v\right>\ar@{|->}[r]&eigenvalue
@@ -4835,7 +4826,7 @@ $$(m-m_1)(f)=m(f)-m_1(f)=0-0=0$$
 Now $m$ and $n$ are both monic, so $$deg(m-m_1)<deg(m)=deg(m_1)$$
 $m-m_1$ is a polynomial of $deg<deg(m)$ that annihilates $f$, thus $$m-m_1=0\in K[t]$$
 \section*{Notation}
-Form now no we denote the minimal polynomial of $f$ by $m_f$
+Form now we denote the minimal polynomial of $f$ by $m_f$
 \subsection*{Question}
 $f\in\mathscr{L}(V;V)$ we have $P_f,m_f\in K[t]$.
 
@@ -4966,7 +4957,7 @@ $$v''=0$$
 \section{Def}
 Let $f\in  \mathscr{L}(V;V)$. Then $f$ is said to be nilpotent if there exists $t\in \mathbb{N}$ that $f^t=0$
 \section{Lemma}
-Let $f$ be a nilpotent mapping, then $$Ker(f)=\{\text{set of eigenvalues of }f\}$$
+Let $f$ be a nilpotent mapping, then $$Ker(f)=\{\text{set of eigenvectors of }f\}\cup\{0\}$$
 \subsection*{Proof}
 Let $v\in Ker(f)$ then $v$ is an eigenvector with eigenvalue$=0$
 
@@ -5261,7 +5252,7 @@ $$\frac{\partial x_i}{\partial x_j}=dx_i\mid_p(e_j\mid_p)=\left\{\begin{aligned}
     &0&\text{ if }i\neq j
 \end{aligned}\right.$$
 Recalled the wedge algebra:
-$$\bigwedge(\text{ if }^n_p)^\vee:=T(\text{ if }^n_p)^\vee/I=\bigoplus\limits_{k\in \mathbb{N}}\bigwedge\limits^k(\mathbb{R}_p^n)^\vee$$
+$$\bigwedge(\mathbb{R}^n_p)^\vee:=T(\mathbb{R}^n_p)^\vee/I=\bigoplus\limits_{k\in \mathbb{N}}\bigwedge\limits^k(\mathbb{R}_p^n)^\vee$$
 Consider $$\bigwedge\limits^k(\mathbb{R}_p^n)^\vee$$
 what's a basis of this vector space?
 $$\left\{dx_1\mid_p\wedge\cdots\wedge dx_k\mid_p\textbf{\big|}1\leq i_1<\cdots< i_k\leq n\right\}$$
@@ -5460,7 +5451,7 @@ $$f^*\omega=-\frac{r\sin\theta}{r^2}(\cos\theta dr-r\sin\theta d\theta)+\frac{r\
 
 \section{}
 $U\in \mathbb{R}$ an open subset
-$$\Omega_{(m)}^kU()$$
+$$\Omega_{(m)}^k(U)$$
 this is a module over $\Omega^0_{(m)}(U)$ 
 Moreover, $\omega\in \Omega^k(U),\eta\in \Omega^l(U)$
 $$\omega\wedge\eta\in \Omega^{k+l}(U)$$
@@ -5472,8 +5463,8 @@ where $\frac{\partial f}{\partial x_i}=a_i:\mathbb{R}^n\rightarrow\mathbb{R}$ di
 \section{Prop}
 Let $f:\mathbb{R}^n\rightarrow\mathbb{R}$ be a differentiable mapping. Then
 \begin{itemize}
-    \item [(1)]for any two forms in $\mathbb{R}^m$$$f^8(\omega\wedge\eta)=(f^*\omega)\wedge(f^*(\eta))$$
-    \item [(2)]for $g:\mathbb{R}^p\rightarrow\mathbb{R}^n$ differentiable$$(f\circ g)^*\omega=g^*(F^*\omega)$$
+    \item [(1)]for any two forms in $\mathbb{R}^m$$$f^*(\omega\wedge\eta)=(f^*\omega)\wedge(f^*(\eta))$$
+    \item [(2)]for $g:\mathbb{R}^p\rightarrow\mathbb{R}^n$ differentiable$$(f\circ g)^*\omega=g^*(f^*\omega)$$
 \end{itemize}
 \subsection*{Proof}
 \subsubsection{1}
@@ -5594,7 +5585,7 @@ Fix $\gamma(t),\gamma'(t)=(\frac{\text{d}x_1}{\text{d}t},\cdots,\frac{\text{d}x_
 $$\int_{t_k}^{t_{k+1}}\gamma^*_j\omega=\int_{t_k}^{t_{k+1}}\left<a\circ\gamma_j,\gamma_j'\right>\text{d}t$$ where $a=(a_1,\cdots,a_n), a_i:\mathbb{R}^n\rightarrow\mathbb{R}$
 \chapter{Complement of measure theory}
 \section{Def($\sigma$-finite)}
-Let $(X,\Sigma_X,\mu)$ be a measure space. WE say that it's $\sigma$-finite if there exists a sequence $\{E_n\}_{n\in \mathbb{N}}$ of measurable sets. (namely $E_n\in \Sigma_X$) such that $$X=\bigcup\limits_{n\in \mathbb{N}}E_n\text{ and }\mu(E_n)<+\infty, \forall n\in \mathbb{N}$$
+Let $(X,\Sigma_X,\mu)$ be a measure space. We say that it's $\sigma$-finite if there exists a sequence $\{E_n\}_{n\in \mathbb{N}}$ of measurable sets. (namely $E_n\in \Sigma_X$) such that $$X=\bigcup\limits_{n\in \mathbb{N}}E_n\text{ and }\mu(E_n)<+\infty, \forall n\in \mathbb{N}$$
 \section{Example($\mathbb{R}$, Norel $\sigma$-algebra, Lebesgue measure)}
 this is $\sigma$-finite$$\lambda([-n,n])=2n<+\infty$$
 \section{Notation}
@@ -5622,7 +5613,7 @@ Let $(\mathcal{G}\subseteq\wp(X))$ then $\delta(\mathcal{G})\subseteq\wp(X)$ is 
 \subsection*{Exercise}$\delta(\mathcal{G})$ exists and it's unique.
 \section{Prop}
 If $\mathscr{D}$ is a Dynkin system closed under the intersection, then it's a $\sigma$-algebra, namely
-$$\forall(D,E)\in \mathscr{D}^2, D\cap E\in \mathscr{D}\ \Rightarrow\ \forall\{D_n\}_{n\in \mathbb{N}}\in \mathscr{D}^\mathbb{N}\quad \bigcup\limits_{n\in \mathbb{N}D_n\in \mathscr{D}}$$
+$$\forall(D,E)\in \mathscr{D}^2, D\cap E\in \mathscr{D}\ \Rightarrow\ \forall\{D_n\}_{n\in \mathbb{N}}\in \mathscr{D}^\mathbb{N}\quad \bigcup\limits_{n\in \mathbb{N}}D_n\in \mathscr{D}$$
 \subsection*{Proof}
 We have to show that $\mathscr{D}$ is closed under any countable union. Let $\{D_n\}_{n\in \mathbb{N}}$ be any sequence in $\mathscr{D}$, let
 $$E_n=D_n\cap\bigcap\limits_{m<n}X\setminus D_m$$
@@ -5654,7 +5645,7 @@ Verify that $\forall D\in \mathcal{G},\delta_D$ is a Dynkin system:
 Then $\forall G\in \mathcal{G}$$$\delta(\mathcal{G})\subseteq\delta_G$$
     since $\delta(\mathcal{G})$ is the smallest Dynkin system containing $\mathcal{G}$ and $\forall G\in \mathcal{G}\ \mathcal{G}\subseteq\delta_G$ since $\mathcal{G}$ is closed under finite intersection. By definition$$\forall H\in \delta(\mathcal{G}), H\cup G\in\delta(\mathcal{G})$$
 \section{Lemma}
-Let $(X,\Sigma_X)$ be a measurable space. Then the mapping o is measurable
+Let $(X,\Sigma_X)$ be a measurable space. Then the mapping 0 is measurable
 \subsection*{Proof}
 By def $$0_*(\Sigma_X)=\{B\subseteq\mathbb{R}\mid 0^{-1}(B)\in \Sigma_X\}$$
 Since either $0^{-1}(B)=\varnothing$ or $0^{-1}(B)=X$, then $$0_*(\Sigma_X)=\wp(\mathbb{R})$$
@@ -5899,7 +5890,7 @@ $$
 By thee uniqueness of the product measure, we have $$\lambda^n_p=\lambda^n$$
 \section{Lemma}
 \label{Lemma 53.23}
-Let $f:\Omega\rightarrow\mathbb{R}_{\geq0}$ be a mapping. Then there exists an increasing sequence $\{f_n\}_{n\in mathbb{N}}$ such that converges pointwisely to $f$
+Let $f:\Omega\rightarrow\mathbb{R}_{\geq0}$ be a mapping. Then there exists an increasing sequence $\{f_n\}_{n\in \mathbb{N}}$ such that converges pointwisely to $f$
 \subsection*{Proof}
 $$f_n=\sum\limits_{k=0}^{n2^n-1}\frac{k}{2^n}\mathbbm{1}_{\{\omega\in \Omega\mid \frac{k}{2^n}\leq f(\omega)\leq \frac{k+1}{2^n}\}}+n\mathbbm{1}_{\{\omega\in \Omega\mid f(\omega)\geq 0\}}$$
 \section{Fubini-Tobelli Theorem}
@@ -6481,7 +6472,7 @@ Let $\mathcal{P}$ be a partition of $[a,b]$. $$\norm{\gamma(t_{j+1})-p_j}=\norm{
 So 
 $$
 \begin{aligned}
-    l_mathcal{P}(\gamma)&=\sum\limits_{j=0}^{n-1}\norm{\gamma(t_{j+1}-\gamma(t_j))}\\
+    l_{\mathcal{P}}(\gamma)&=\sum\limits_{j=0}^{n-1}\norm{\gamma(t_{j+1}-\gamma(t_j))}\\
     &\leq\sum\limits_{j=0}^{n-1}\int_{t_i}^{t_{j+1}}\norm{\gamma'(t)}\text{d}t\\
     &=\int_a^b\norm{\gamma'(t)}\text{d}t
 \end{aligned}
@@ -6806,6 +6797,121 @@ $$\alpha_1\beta2-\alpha_2\beta_1=g(\alpha_1v_1+\alpha_2v_2,\beta_1v_1+\beta_2v_2
     \ \overline{\beta_1}\ \\\overline{\beta_2}
 \end{pmatrix}$$
 \subsection{Theorem}
-$(V,g)$ is dim 2, $g$ symplectic. Then $(V,g)$ is isometry to one of the following
+$(V,g)$ is dim 2, $g$ symplectic. Then $(V,g)$ is isometric to one of the following
 $$(K^2,g(x,y)=0)\quad(K^2,g(x,y)=x_1y_2-x_2y_1)$$
+
+\chapter{Compliment}
+\section{Def: non-degenerate}
+Let $(V,g)$ be a inner product space. Let $V_0\subseteq V$ be a subspace. We say that $V_0$ is non-degenerate if $g\mid_{V_0}$ is non-degenerate.
+
+Moreover, $V_0$ is isotropic if $g\mid_{V_0}=0$
+\subsection*{Remark}Isotropic means degenerate
+\subsection*{Example}
+\begin{itemize}
+    \item [1]$(\mathbb{R}^2,g)$$$g(x,y)=x_1y_1-x_2y_2$$ symmetric non-degenerate. $V_0=\left<\begin{pmatrix}
+        1\\1
+    \end{pmatrix}\right>$
+    \item [2]$(\mathbb{R}^2,g)$$$g(x,y)=x_1y_2+x_2y_1$$ $V_0=\left<\begin{pmatrix}1\\1\end{pmatrix}\right>$
+\end{itemize}
+\section{Def}
+Let $(V,g)$ be a inner product space. Let $V_0\subseteq V$ be a subspace. The orthogonal complement of $V_0$ is define as
+$$V_0^\bot:=\{v\in V\mid g(v,v_0)=0,\forall v_0\in V_0\}$$
+\section{Prop}
+Let $(V,g)$ be a inner product space. Let $V_0\subseteq V$ be a non-degenerate subspace. Then$$V=V_0\oplus V_0^\bot$$
+\subsection*{Proof}
+Let $\{v_0,\cdots,v_n\}$ be a basis of $V_0$ ($\dim V_0=r\leq\dim V=n$) Extend this to a basis of $V$$$\{v_1,\cdots,v_r,v_{r+1},\cdots,v_n\}$$
+Let $G$ be the Gram matrix of $g$ with respect to such case:
+$$G=\begin{pmatrix}
+    g(v_1,v_1)&\cdots&g(v_1,v_r)&\cdots&g(v_1,v_n)\\
+    \vdots&&\vdots&&\vdots\\
+    g(v_r,v_1)&\cdots&g(v_r,v_r)&\cdots&g(v_r,v_n)\\
+    \vdots&&\vdots&&\vdots\\
+    g(v_n,v_1)&\cdots&g(v_n,v_r)&\cdots&g(v_n,v_n)
+\end{pmatrix}$$
+while $G_0\in M_{r,n}(K)$ is defined as a part of $G$
+$$G_0=\begin{pmatrix}
+    g(v_1,v_1)&\cdots&g(v_1,v_r)\\
+    \vdots&&\vdots\\
+    g(v_r,v_1)&\cdots&g(v_r,v_r)
+\end{pmatrix}$$
+Consider the dimension:
+$$\begin{aligned}
+    \dim V_0^\bot &=\dim \ker G_0\\
+    &=n-rank G_0\\
+    &=n-rank G_0^T
+\end{aligned}$$
+Since $V_0$ is non-degenerated. $G_0^T$ is non-degenerated with $rank=\dim V_0=r$
+$$\dim V_0+\dim V_0^\bot=\dim V$$
+We finally have to show that this sum is a direct sum:
+
+If $x\in V_0\cap V_0^\bot$, then $g(x,V_0)=0$ since $x\in V_0^\bot$ and $g_0(x,V_0)=0$ implies $x=0$ since $g_0$ is non-degenerate.
+\section{Theorem}
+Let $(V,g)$ be an finite dimensional inner product space. If both $V_0$ and $V_0^\bot$ are non-degenerate, then $(V^\bot)^\bot=V_0$
+\subsection*{Proof}
+\subsection*{Remark}$V_0\subseteq(V_0^\bot)^\bot$ always holds, regardless of degenerate and dimension.
+\section{Theorem}
+\label{theorem 58.5}
+Let $(V,g)$ be an finite dimensional inner product space. Then There exists a decomposition$$V=V_1\oplus\cdots\oplus V_n$$
+such that $\{V_i\}_{i=1}^n$ are pairwisely orthogonal and \begin{itemize}
+    \item [1] They are 1-dim if $g$ is symmetric or hermitian
+    \item [2]They are 1-dim but degenerated or 2-dim non-degenerate if $g$ is symplectic.
+\end{itemize}
+\subsection*{Proof}We work by induction on $n=\dim V$
+\subsubsection{$n=1$}trivial
+\subsubsection{$n\geq 2$}If $g=0$, there is nothing to prove.
+\begin{itemize}
+    \item [$g$ symplectic]There exists $x$ and $x'$ such that $g(x,x')=0$ and $\left<x,x'\right>=V_0$. Since $V_0$ is non-degenerate, then apply induction on $V_0^\bot$
+    \item [$g$ symmetric/hermitian]It's enough to show that there exists $V_0\subseteq V$ of dim 1, which is non-degenerate.
+\end{itemize}
+\chapter{Signature}
+Now we discuss the uniqueness of such decomposition
+\section{Def}
+Let $(V,g)$ be an inner product space with dim 1. Moreover, assume that $g$ is symmetric or hermitian. We say that $(V,g)$ is \textbf{positive} if $(V,g)$ is isometry to either $(\mathbb{R},g(x,y)=xy)$ or $(\mathbb{C},g(x,y)=x\overline{y})$
+
+We say that $(V,g)$ is \textbf{negative} if $(V,g)$ is isometry to either $(\mathbb{R},g(x,y)=-xy)$ or $(\mathbb{C},g(x,y)=-x\overline{y})$
+\section{Notation}
+By theorem \ref{theorem 58.5}, we can count the number of positive subspace of any inner product space.
+\begin{itemize}
+    \item $r_0:=\dim\ker g$
+    \item $r_+:=$ the number of positive subspaces
+    \item $r_-:=$ the number of negative subspaces
+\end{itemize}
+\section{Def}
+Let $(V,g)$ be an inner product space.
+\begin{itemize}
+    \item [1]If $g$ is real symmetric or, hermitian, then $(r_0,r_+,r_-)$ is signature of $V$
+    \item [2]If $g$ is symplectic or complex symmetric, then $(\dim V,r_0)$ is the signature of $V$
+\end{itemize}
+\section{Theorem}
+Let $(V,g)$ and $(V',g')$ be two inner product spaces, with $g,g'$ that are either (both) symplectic or complex symmetric.
+
+Then $(V,g)$ and $(V',g')$ are isometric iff$$(n,r_0)=(n',r_0')$$
+\subsection*{Proof}
+\subsubsection{$\Rightarrow$}trivial
+\subsubsection{$\Leftarrow$}
+Use orthogonal decomposition
+$$V=\bigoplus\limits_{i=1}^nV_i$$
+We rearrange the subspaces as $V_0,\cdots,V_r,v_{r+1},\cdots,V_n$ such that $V_i\subseteq\ker g,\ \forall 1\leq i\leq r$
+
+The remaining is shown as below:
+$$\xymatrix{
+    (V_1,g)\ar@{<->}[r]^\cong&(\mathbb{R},0)\ar@{<->}[r]^\cong&(V'_1,g')\\
+    \vdots&&\vdots\\
+    (V_r,g)\ar@{<->}[r]^\cong&(\mathbb{R},0)\ar@{<->}[r]^\cong&(V'_r,g')\\
+    (V_{r+1},g)\ar@{<->}[r]^\cong&(\mathbb{R},0)\ar@{<->}[r]^\cong&(V'_{r+1},g')\\
+    \vdots&&\vdots\\
+    (V_n,g)\ar@{<->}[r]^\cong&(\mathbb{R},0)\ar@{<->}[r]^\cong&(V'_n,g')
+}$$
+\section{Theorem}
+Let $(V,g)$ and $(V',g')$ be two inner product spaces, with $g,g'$ that are either (both) hermitian or real symmetric.
+
+Then $(V,g)$ and $(V',g')$ are isometric iff$$(r_0,r_+,r_-)=(r_0',r_+',r_-')$$
+\subsection*{Proof}
+?
+
+
+
+
+
+
 \end{document}
