@@ -5115,6 +5115,7 @@ $$P_f(t)=\prod\limits_i(t-\lambda_i)^{\dim (V(\lambda_i))}\quad\Rightarrow\quad 
 \section{Corollary}
 Let $K$ be an algebraically closed field. Let $f\in \mathscr{L}(V)$. $f$ is diagonalizable iff $$\forall\lambda_i\quad mult(\lambda_i)_{geo}=mult(\lambda_i)_{alg}$$
 \chapter{Inner Product}
+\newcommand{\inprod}[2]{\left<#1,#2\right>}
 \section{Def}Two matrices $G,G'\in M_{n\times n}(K)$ are said conjugate if $\exists A\in \mathcal{Q}_{n\times n}(K)$ s.t. $G=G'^T$
 \subsection*{Exercise}
 Verify that this is an equivalence relation
@@ -6907,11 +6908,140 @@ Let $(V,g)$ and $(V',g')$ be two inner product spaces, with $g,g'$ that are eith
 
 Then $(V,g)$ and $(V',g')$ are isometric iff$$(r_0,r_+,r_-)=(r_0',r_+',r_-')$$
 \subsection*{Proof}
-?
+exercise
+\chapter{Orthonormal}
+\section{Def}
+Let $(V,g)$ be an inner product space. The basis $\{v_1,\cdots, v_n\}$ is said \textbf{orthogonal} if $g(v_i,v_j)=0,\forall i\neq j$
 
+Moreover, $g$ is said \textbf{orthonormal} if $g(v_i,v_i)\in \{0,-1,1\},\forall i$
+\subsection*{Remark}
+If $g$ is hermitian or symmetric. We can always find an orthonormal basis from an orthogonal basis.
+\section{Def}
+Let $V$ be a vector space over $K$($char K\neq 2$). A \textbf{quadratic form} on $V$ is a mapping $a:V\rightarrow K$ such that
+\begin{itemize}
+    \item $q(\alpha v)=\alpha^2q(v)\forall \alpha\in K,v\in V$
+    \item $f=(u,v)\mapsto\ q(u+v)-q(u)-q(v)$ is bilinear
+\end{itemize}
+\subsection*{Remark}
+Any symmetric bilinear form $h:V^2\rightarrow K$ is a quadratic form. Given a quadratic form $q:V\rightarrow K$, we can define a symmetric bilinear form$$h_p(u,v)=\frac{1}{2}\left(q(u+v)-q(u)-q(v)\right)$$
+\section{Gram-Schmidt algorithm}
+Let $(V,g)$ be an inner product space with $g$ symmetric or hermitian. Let $\{v'_1,\cdots,v'_n\}$ be a basis of $V$ such that $V_i=\left<v'_1,\cdots,v'_i\right>\ \forall i\in \{1,\cdots,n\}$ is non-degenerate.
 
+Then there exists an orthogonal basis $\{v_1,\cdots,v_n\}$ such that $V_i=\left<v_1,\cdots,v_i\right>$ $\forall i\in \{1,\cdots,n\}$ is non-degenerate.
 
+\subsection*{Proof}
+We construct the $v_i$ be induction. $v_1=v'_1$ If $v_1,\cdots,v_{i-1}$  have been already constructed, then $v_i$ must be of the form:$$v_i=v'_i-\sum\limits_{j=1}^{i-1}\frac{g(v'_i,v_j)}{g(v_j,v_j)}v_j$$
+We have $\left< v_1,\cdots,v_{i-1}\right>=\left<v'_1,\cdots,v'_{i-1}\right>$ by induction hypothesis, then
+$$\left<v_1,\cdots, v_{i-1}\right>=\left<v'_1,\cdots,v'_{i-1},v_i\right>=\left<v'_1,\cdots,v'_i\right>$$
+We have to show that $v_i$ are orthogonal
+$$\begin{aligned}
+    g\left(v'_i-\sum\limits_{j=1}^{i-1}\frac{g(v'_i,v_j)}{g(v_j,v_j)}v_j,v_k\right) &= g(v'_i,v_k)-\sum\limits_{j=1}^{i-1}\frac{g(v'_i,v_j)}{g(v_j,v_j)}g(v_j,v_k)\\
+    &=g(v'_i,v_k)-\frac{g(v'_i,v_k)}{g(v_k,v_k)}g(v_k,v_k)\\
+    &=0
+\end{aligned}$$
+\chapter{Euclidean and Unitary Spaces}
+\section{Def:Euclidean vector space}
+A euclidean vector space is a finite dimensional inner product space over $\mathbb{R}$ $(E,g)$ with $g$ symmetric and positive definite ($g(x,x)>0,\forall x\neq 0$)
 
+We denote$$\left<x,y\right>:=g(x,y)$$\
+\subsection*{Remark}
+Any non-zero subspace of $(E,\left<\cdot,\cdot\right>)$ is non-degenerated:
 
+Take $V\subseteq E$ if $\exists x\in V\setminus\{0\}$ s.t. $\left<x,V\right>=0$ then $$\left<x,x\right>=0$$
+
+The signature of $E$ is of the type $(0,\mathbcal{r}_+,\mathbcal{r}_-)$ denoted by $(P,Q)(P=\mathbcal{r}_+,Q=\mathbcal{r}_-)$
+
+An euclidean space is a normed vector space $$\norm{x}=\sqrt{\inprod{x}{x}}$$
+($\inprod{}{}$ positive defined required)
+
+Any euclidean vector admits an orthonormal basis $\{v_1,\cdots,v_n\},\inprod{v_i}{v_i}=1$ So orthonormal means $$\norm{v_1}=1$$
+In a euclidean space we have a distance $$d(x,y)=\norm{x-y}$$
+It's a topological metric space
+\section{Prop}
+A euclidean space $(E,\inprod{}{})$ of dim $n$ is isometric to $(\mathbb{R}^n,\underbrace{\inprod{}{}}\limits_{usual scalar product})$
+\subsection*{Proof}
+$\{v_1,\cdots,v_n\}$ is an orthonormal basis of $E$. Consider the mapping$$f:v_i\mapsto e_i=(0,\cdots,\underbrace{1}\limits_{i\text{-th}},\cdots,0)$$
+Let $x=\sum\alpha_iv_i, y=\sum\beta_iv_i$ then
+$$\inprod{x}{y}=\sum\alpha_i\beta_i$$
+and $f(x)=\sum\alpha_ie_i,f(y)=\sum\beta_ie_i$, so
+$$\inprod{f(x)}{f(y)}=\sum\alpha_i\beta_i=\inprod{x}{y}$$
+Thus $f$ an isometry.
+\section{Remark}
+\begin{itemize}
+    \item [Cauchy-Schwartz inequality]$$\inprod{x}{y}\leq\norm{x}\norm{y}$$
+    \item [Triangle inequality]$$\norm{x+y}\leq\norm{x}+\norm{y}$$
+\end{itemize}
+\section{Pythagona's Theorem}
+If $x_1,\cdots,x_k$ are pairwise orthogonal, then
+$$\norm{\sum\limits_{i=1}^kx_i}^2=\sum\limits_{i=1}^k\norm{x_i}^2$$
+\section{Def:Angles}
+By Cauchy-Schwartz inequality:
+$$-1\leq\frac{\inprod{x}{y}}{\norm{x}\norm{y}}\leq1$$
+Then there exists a element $\phi\in [0,\pi]$ such that
+$$\cos\phi=\frac{\inprod{x}{y}}{\norm{x}\norm{y}}$$
+$\phi$ is defined as the angle between $x$ and $y$
+
+Notice that $\phi$ is not an oriented angle.
+\section{Notation}
+Let $U,V\subseteq E$ be two subspace, then $$d(U,V):=\inf\{\norm{u-v}\mid u\in U,v\in V\}$$
+\section{Def}
+$V\subsetneq E$ a vector subspace, $x\in E\setminus\{0\}$. Then $E=V\oplus V^\perp$ (proved) Then we write (uniquely)
+$$x=x_0,+x'_0$$ where $x_0\in V, x'_0\in V^\perp$.
+
+Then $x_0$ is called the orthogonal projection of $x$ on $V$, $x'_0$ is called the orthogonal projection of $x$ on $V^\perp$
+\section{Prop}
+Use the above notation:
+$$d(x,V)=\norm{x'_0}$$
+\subsection*{Proof}
+$\forall y\in V$$$\norm{x-y}^2=\norm{x_0+x'_0-y}^2=\norm{x_0-y}^2+\norm{x'_0}^2$$
+then$$\norm{x-y}\geq\norm{x'_0}^2$$
+$\Rightarrow$
+$$d(x,V)\geq\norm{x'_0}^2$$
+The equality is achieved iff $y=x_0$.
+$$d(x,V)=\norm{x'_0}$$
+\section{Prop}
+Use the previous notations. Assume that $m=\dim V,\ V\subseteq E$, $\{v_1,\cdots,v_m\}$($m\leq n=\dim E$) is an orthonormal basis of $V$. Then
+$$x_0=\sum\limits_{i=1}^m\inprod{x}{v_i}v_i$$
+\subsection*{Proof}
+Consider $y=x_0-\sum\limits_{i=1}^m\inprod{x}{v_i}v_i$, $y\in V$. Moreover$$
+\begin{aligned}
+    \inprod{y}{v_j}&=\inprod{x_0-\sum\limits_{i=1}^m\inprod{x}{v_i}v_i}{v_j}\\
+    &=\inprod{x-\sum\limits_{i=1}^m\inprod{x}{v_i}v_i}{v_j}\\
+    &=\inprod{x}{v_j}-\inprod{x}{v_j}\\
+    &=0
+\end{aligned}$$
+$y$ is orthonormal to any $v_j\ \Rightarrow\inprod{y}{V}=0\Rightarrow \ y\in V^\perp$ so
+$$y\in V\cap V^\perp=\{0\}$$
+\section{Relationship with calculus}
+$(E,\inprod{}{})=(\mathbb{R}^n,\inprod{}{})$ on $\mathbb{R}^n$ we have the notion of volumes$$vol(B):=\lambda^n(B)$$
+where $B$ is a Borel set.
+
+A $n$-dimensional parallelepiped is :
+$$P_n=\left\{t_1v_1+\cdots+t_nv_n\mid t_i\in[0,1]\forall i\right\}$$
+Consider a linear mapping
+$$\begin{aligned}
+    A_{P_n}=A:\mathbb{R}^n&\rightarrow&\mathbb{R}^n\\x&\mapsto&Ax
+\end{aligned}$$
+where $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, $A=(v_1\mid\cdots\mid v_n)$
+
+$A$ is invertible iff $\{v_1,\cdots,v_n\}$ is a basis. Let $\prod_n=[0,1]^n$ then$$A(\prod_n)=P_n$$
+If $A$ invertible
+$$\begin{aligned}
+    vol(P_n)&=\lambda^n(P_n)\\
+    &=\int_{A(\prod_n)}\chi_{P_n}\text{d}\lambda^n\\
+    \text{change of variables }&=\int_{A(\prod_n)}\abs{\det A}\text{d}\lambda^n\\
+    &=\abs{\det A}\\
+    \text{by the prop of det }&=\sqrt{\det A^TA}
+\end{aligned}$$
+\section{Prop}
+$$vol(P_n)=\sqrt{\det G}$$
+\subsection*{Proof}
+The Gram matrix$$G=(\inprod{v_i}{v_j}_{ij})$$
+Notice that $\det G=0$ iff $\{v_1,\cdots,v_n\}$ is not a basis. Let $A=(v_1\mid\cdots\mid v_n)$ then $G=A^TA$
+$$\begin{aligned}
+    \det G&=(\det A)^2\\
+    &=\det A^TA\\
+    &=vol(P_n)
+\end{aligned}$$
 
 \end{document}
