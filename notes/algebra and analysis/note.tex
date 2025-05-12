@@ -7043,5 +7043,204 @@ $$\begin{aligned}
     &=\det A^TA\\
     &=vol(P_n)
 \end{aligned}$$
+\chapter{Unitary Space}
+\section{Def}
+A complex inner vector space $(H,h)$ where $h$ is hermitian and positive define then it's called \textbf{unitary space}
 
+As in the Euclidean space, we have orthonormal basis and define a norm,then a distance.
+
+$$\norm{x}=\sqrt{h(x,x)}$$
+\section{Decomplexification}
+Let $V$ be a complex vector space of dimension $n$. We resist the module structure $\mathbb{C}\times V\rightarrow V$ to $\mathbb{R}\times V\rightarrow V$
+
+The $\mathbb{R}$-vector space denoted by $V_\mathbb{R}$ has the same vector of $V$. For any $\mathbb{C}$-linear mapping $f:V\rightarrow W$, the module induces a mapping $$f_\mathbb{R}\rightarrow W_\mathbb{W}$$
+\subsection*{Exercise}Verify that $(\cdot)_\mathbb{R}$ is a functor
+\section{Theorem}
+Let $V$ be a complex vector of dim $n$
+\begin{itemize}
+    \item Let $V$ be a complex vector basis of $V$, then $\{v_1,\cdots, v_n,iv_1,\cdots, iv_n\}$ is a real basis of $V_\mathbb{R}$
+    \item $f:V\rightarrow W$ is a linear mapping. Assume that it's metric representation with respect to the basis $\{v_1,\cdots, v_n\}$ of $V$ and $\{w_1,\cdots, w_n\}$ of $W$ is $$A=B+iC$$
+    where $B,C\in\mathbb{R}$ Then the metric representation of $f_\mathbb{R}$ with respect to the basis $\{v_1,\cdots, v_n,iv_1,\cdots, iv_n\}$ and $\{w_1,\cdots, w_n,iw_1,\cdots, iw_n\}$ is$$\begin{pmatrix}
+        B&-C\\C&B
+    \end{pmatrix}$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{1}
+Take $v\in V$
+$$\begin{aligned}
+    v&=\sum\limits_{k=1}^na_kv_k\\
+    &=\sum\limits_{k=1}^n(\mathfrak{R}a_k+\mathfrak{J}a_k)v_k\\
+    &=\sum\limits_{k=1}^n(\mathfrak{R}a_k)v_k-\sum\limits_{k=1}^n(\mathfrak{R}ia_k)iv_k
+\end{aligned}$$generate.
+Assume $\sum b_kv_k+\sum c_kiv_k=0$. But $\{v_k\}$ is a basis, implying $$b_k+ic_k=0\Rightarrow b_l=c_k=0$$
+linearly independent.
+\subsubsection{2}
+Decompose $V=\bigoplus\limits_{k=1}^nV_k$ and $W=\bigoplus\limits_{k=1}^nW_k$ into 1 dimensional orthogonal subspaces.
+
+Take $k,k'$ consider
+$$\begin{aligned}
+    f_{k,k'}:V_k&\rightarrow&W_k\\
+    v_k&\mapsto&\alpha w_{k'}
+\end{aligned}$$
+Take $$\begin{aligned}
+    f_{k,k',\mathbb{R}}:V_{k,\mathbb{R}}&\rightarrow&W_{k',\mathbb{R}}\\
+    v_k&\mapsto&(\mathfrak{R}\alpha)w_{k'}+(\mathfrak{J}\alpha)iw_{k'}\\
+    iv_k&\mapsto&-(\mathfrak{J}\alpha)w_{k'}+(\mathfrak{R}\alpha)iw_{k'}
+\end{aligned}$$
+$$A_{f_{k,k',\mathbb{R}}}=\begin{pmatrix}
+    \mathfrak{R}\alpha & -\mathfrak{J}\alpha\\
+    \mathfrak{J}\alpha & \mathfrak{R}\alpha
+\end{pmatrix}$$
+Rearrange the whole mapping, we get$$A=\begin{pmatrix}
+    B&-C\\C&B
+\end{pmatrix}$$
+\section{Corollary}
+Let $f:V\rightarrow V$ be a $\mathbb{C}$-linear mapping. Then$$\det f_\mathbb{R}=\det f\overline{\det f}$$
+\subsection*{Proof}
+Assume $A=B+iC$ is the matrix representation of $f$
+$$\begin{aligned}
+    \det f_\mathbb{R}&=\det\begin{pmatrix}
+        B&-C\\C&B
+    \end{pmatrix}\\
+    &=\det\begin{pmatrix}
+        B+iC&-C+iB\\C&B\end{pmatrix}\\
+    &=\det\begin{pmatrix}
+        B+iC&0\\C& B-iC\end{pmatrix}\\
+    &=\det(B+iC)\cdot\det(B-iC)\\
+    &=\det A\cdot\overline{\det A}
+\end{aligned}$$
+\chapter{Complexification}
+\section{Def: Complex structure}
+Let $W$ be a real vector space of dim $n$ Consider $J:W\rightarrow W$ a linear mapping such that $J^{\circ 2}=-Id$. Then $J$ is called the \textbf{complex structure} of $W$. Then couple $(W,J)$ is a vector space with a complex structure.
+\subsection*{Example}$$\begin{aligned}
+    J:V_\mathbb{R}&\rightarrow & V_\mathbb{R}\\
+    v&\mapsto&iv\\
+    iv&\mapsto&-v
+\end{aligned}$$
+\section{Theorem}
+Let $(W,J)$ be a real vector space with a complex structure. Then on $W$ we introduces the following complex module:
+$$(a+bi)w:=aw+bJ(w)$$
+We obtain a complex vector space $W$ such that $(W)_\mathbb{R}=W$
+\section{Corollary}
+If $(W,J)$ is a vector space with a complex structure,then $\dim W$ is even. Assume that if it's even, then it's possible to find a basis on $W$ such that $J$ is represented by$$\begin{pmatrix}
+    0&-I_n\\I_n&0
+\end{pmatrix}$$
+Consider a orthonormal basis on $H\{v_1,\cdots, v_n\}$. $G_h:\mathbb{C}^n\rightarrow C^n$ is the Gram matrix of $h$ with respect to $\{v_1,\cdots,v_n\}$ $$G_h=B_iC$$ Now$$G_\mathbb{R}=\begin{pmatrix}
+    B&-C\\C&B
+\end{pmatrix}$$
+Then $G_\mathbb{R}$ defines an inner product and $(H_\mathbb{R},\inprod{}{})$ is Euclidean.
+\section{Notation}
+Now fix a inner product space. Then $$h(x,y)=a(x,y)+ib(x,y)$$when $a,b: V\times V\rightarrow \mathbb{R}$
+\section{Prop}
+In the above notation the following structure holds:
+\begin{itemize}
+    \item [1] $a(x,y)$ and $b(x,y)$ are inner products on $V_\mathbb{R}$, with a symmetric and $b$ skew-symmetric. In addition:$$a(ix,iy)=a(x,y)\quad b(ix,iy)=b(x,y)$$In other word $a,b$ are invariant by the multiplication by $i$ Invariance w.r.t. the complex structure of $H_\mathbb{R}$
+    \item [2]The following relations hold. $$a(x,y)=b(ix,y)\quad b(x,y)=-a(ix,y)$$
+    \item [3]Any pair of $J$-invariant bilinear forms on $V_\mathbb{R}$ $a,b:V\times V\rightarrow \mathbb{R}$ that are symmetric and symplectic, respectively and s.t. (2) is satisfied. Define an hermitian inner product$$h(x,y):=a(x,y)+ib(x,y)$$ Moreover $h$ is positive define iff $a$ is positive define.
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{1}
+First to check is$$\begin{aligned}
+    &h(x,y)=h(y,x)\\
+    \Rightarrow&a(x,y)+ib(x,y)=a(y,x)-ib(y,x)\\
+    \Rightarrow&\begin{cases}
+        a(x,y)=a(y,x)&\text{symm}\\b(x,y)=-b(y,x)&\text{skew-symm}
+    \end{cases}
+\end{aligned}$$
+and $$\begin{aligned}
+    &h(ix,iy)=i\overline i h(x,y)=h(x,y)\\
+    \Rightarrow&a(ix,iy)+ib(ix,iy)=a(x,y)+ib(x,y)
+    \Rightarrow&\begin{cases}
+        a(ix,iy)=a(x,y)\\b(ix,iy)=b(x,y)
+    \end{cases}\end{aligned}$$
+\subsubsection{2}
+$$\begin{aligned}
+    &h(ix,y)=ih(x,y)\\
+    \Rightarrow &a(ix,y)+ib(ix,y)=ia(x,y)-b(x,y)\\
+    \Rightarrow&\begin{cases}
+        a(ix,y)=-b(x,y)\\b(ix,y)=a(x,y)
+    \end{cases}\end{aligned}$$
+\subsubsection{3}
+$$\begin{aligned}
+    ih(x,y)&=ia(x,y)-b(x,y)\\
+    (2)&=ib(ix,y)+a(ix,y)\\
+    &=h(ix,y)    
+\end{aligned}$$
+We have linearity in the first variable, then positive/negative define follows from $$b(x,x)=-b(x,x)\ \Rightarrow\ b(x,x)=0$$ so $$h(xx,x,)=a(x,x)$$
+\section{Complex Cauchy-Schwartz inequality}
+$(H,h)$ is a unitary space with finite dim. Then the inequality$$\abs{h(x,y)}\leq\norm{x}\norm{y}$$holds iff $x$ and $y$ are propositional $(x=ty)$
+\subsection*{Proof}
+When $x=0$, obvious. $x\neq 0$, $\forall t\in \mathbb{R}$$$
+\begin{aligned}
+0 &\leq\norm{tx+y}^2\\
+&=t^2\norm{x}^2+2t\text{Re}(h(x,y))+\norm{y}^2
+\end{aligned}$$
+This is a quadratic inequality. The equality has at most one solution when $y=-tx$. In general the discriminent of the quadratic polynomial in $t\leq 0$$$(\text{Re}h(x,y))^2\leq\norm{x}^2\norm{y}^2$$
+Now take $$h(x,y)=\abs{h(x,y)}e^{i\theta}$$
+Then$$\text{Re}(h(e^{-i\theta,y}))=\abs{h(x,y)}$$
+Hence
+$$\text{Re}(h(e^{-i\theta},y))^2=\abs{h(x,y)}^2\leq\norm{e^{-i\theta}}^2\norm{y}^2$$
+\section{Corollary:Complex triangle inequality}$$\norm{x+y}\leq\norm{x}+\norm{y}$$
+\section{Def:Angle for unitary space}
+For $$0\leq\frac{\abs{h(x,y)}}{\norm{x}\cdot\norm{y}}$$
+$\exists !\phi\in [0,\frac{\pi}{2}]$$$\cos\phi=\frac{\abs{h(x,y)}}{\norm{x}\cdot\norm{y}}$$
+The physical application is that $\phi$ can be considered as probability.
+\section{Prop}
+Let $(V,g)$ be an inner product space with a non-degenerate inner product hermitian or real symm and $f:V\rightarrow V$ be a linear mapping. Then the following statements are equivalent:
+\begin{itemize}
+    \item [0] $f$ is isometry
+    \item [1] $g(f(x),f(x))=g(x,x)\ \forall x\in V$
+    \item [2] Let $\{v_1,\cdots,v_n\}$ be a basis for $V$ and let $G$ be a Gram matrix of $g$ w.r.t. such baisi. If $A$ is the matrix of $f$ w.r.t. $\{v_1,\cdots,v_n\}$, then $$A^TGA=G\text{ or } A^TG\overline A=G$$
+    \item [3] $f$ transforms orthonormal basis into orthonormal basis
+    \item [4] If the signature of $g$ is $(p,q)\ (\mathbcal{r}_0=0)$, then the matrix of $f$ w.r.t. any orthonormal basis $\{v_1,\cdots,v_p,v_{p+1},\cdots,v_{p+q}\}$ where$$(v_i,v_i)=\begin{cases}
+    1&\text{ if }i\leq p\\-1&\text{ if }p<i\leq p+q
+    \end{cases}$$
+    satisfies the following property:\begin{itemize}
+        \item [symm case]$$A^T\begin{pmatrix}
+            I_p&0\\0&-I_q
+        \end{pmatrix}A=\begin{pmatrix}
+            I_p&0\\0&I_q\end{pmatrix}$$
+        \item [hermitian case]$$A^T\begin{pmatrix}
+            I_p&0\\0&-I_q
+        \end{pmatrix}\overline A=\begin{pmatrix}
+            I_p&0\\0&I_q\end{pmatrix}$$
+    \end{itemize}
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{0$\Leftrightarrow$1}
+\begin{itemize}
+    \item [$\Rightarrow$]trivial
+    \item[$\Leftarrow$]
+    \begin{itemize}
+        \item [real symm]$q_g(x)=g(x,x)$$$g=\frac{1}{2}\left(q(x+y)-q(x)-q(y)\right)\qquad(*)$$
+        From (*) it's evident that if $f$ preserves $q$, then it also preserves $g$.
+        \item [hermitian]$q(x)=g(x,x)$$$\text{Re} g(x,y)=\frac{1}{2}\left(q(x,y)-q(x)-q(y)\right)$$
+        and $$\text{Im} g(x,y)=-\text{Re}g(ix,y)$$ by the proposition proved. So if $f$ preserves the quadratic form, then it also preserves $g$.
+    \end{itemize}
+\end{itemize}
+\subsubsection{0$\Leftrightarrow$2}
+$\mathcal{B}=\{v_1,\cdot,v_n\}$ is orthonormal. let $\mathcal{B}'=\{f(v_1),\cdots,f(v_n)\}$. 
+\begin{itemize}
+    
+\item[$\Rightarrow$]
+Since $f$ is an isometry then the Gram matrix is the same. We also proved that if we change the Gram matrix changes in the following way
+$$G\leadsto A^TGA\Rightarrow G=A^TGA$$(real symm case)
+\item[$\Leftarrow$]$$\begin{aligned}
+    g(x,y)&=x^TGy\\
+    &=x^TA^TGAy\\
+    &=f(x)^TGf(y)\\
+    &=g(f(x),f(y))
+\end{aligned}$$ 
+The same proof holds in hermitian case.(taking care of the conjugation)
+\end{itemize}
+\subsubsection{3 and 4}they are just special cases of the others(Exercise)
+\section{Def}
+$(E,\inprod{}{})$ is a Euclidean space, then an isometry $f:E\rightarrow E$ is called an \textbf{orthogonal operator}
+
+$(H,h)$ a unitary space, then an isometry $f:H\rightarrow H$ is said a \textbf{unitary operator}
+\section{Corollary}
+Orthogonal and unitary operators have the following properties:
+
+w.r.t. an (all) orthonormal basis, they are represented by a matrix $U$
+$$UU^T=I_n\text{ or }UU^\dagger=I_n$$
 \end{document}
