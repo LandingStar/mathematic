@@ -7173,13 +7173,13 @@ $(H,h)$ is a unitary space with finite dim. Then the inequality$$\abs{h(x,y)}\le
 When $x=0$, obvious. $x\neq 0$, $\forall t\in \mathbb{R}$$$
 \begin{aligned}
 0 &\leq\norm{tx+y}^2\\
-&=t^2\norm{x}^2+2t\text{Re}(h(x,y))+\norm{y}^2
+&=t^2\norm{x}^2+2t\Re (h(x,y))+\norm{y}^2
 \end{aligned}$$
-This is a quadratic inequality. The equality has at most one solution when $y=-tx$. In general the discriminent of the quadratic polynomial in $t\leq 0$$$(\text{Re}h(x,y))^2\leq\norm{x}^2\norm{y}^2$$
+This is a quadratic inequality. The equality has at most one solution when $y=-tx$. In general the discriminent of the quadratic polynomial in $t\leq 0$$$(\Re h(x,y))^2\leq\norm{x}^2\norm{y}^2$$
 Now take $$h(x,y)=\abs{h(x,y)}e^{i\theta}$$
-Then$$\text{Re}(h(e^{-i\theta,y}))=\abs{h(x,y)}$$
+Then$$\Re (h(e^{-i\theta,y}))=\abs{h(x,y)}$$
 Hence
-$$\text{Re}(h(e^{-i\theta},y))^2=\abs{h(x,y)}^2\leq\norm{e^{-i\theta}}^2\norm{y}^2$$
+$$\Re (h(e^{-i\theta},y))^2=\abs{h(x,y)}^2\leq\norm{e^{-i\theta}}^2\norm{y}^2$$
 \section{Corollary:Complex triangle inequality}$$\norm{x+y}\leq\norm{x}+\norm{y}$$
 \section{Def:Angle for unitary space}
 For $$0\leq\frac{\abs{h(x,y)}}{\norm{x}\cdot\norm{y}}$$
@@ -7214,8 +7214,8 @@ Let $(V,g)$ be an inner product space with a non-degenerate inner product hermit
     \begin{itemize}
         \item [real symm]$q_g(x)=g(x,x)$$$g=\frac{1}{2}\left(q(x+y)-q(x)-q(y)\right)\qquad(*)$$
         From (*) it's evident that if $f$ preserves $q$, then it also preserves $g$.
-        \item [hermitian]$q(x)=g(x,x)$$$\text{Re} g(x,y)=\frac{1}{2}\left(q(x,y)-q(x)-q(y)\right)$$
-        and $$\text{Im} g(x,y)=-\text{Re}g(ix,y)$$ by the proposition proved. So if $f$ preserves the quadratic form, then it also preserves $g$.
+        \item [hermitian]$q(x)=g(x,x)$$$\Re  g(x,y)=\frac{1}{2}\left(q(x,y)-q(x)-q(y)\right)$$
+        and $$\Im g(x,y)=-\Re g(ix,y)$$ by the proposition proved. So if $f$ preserves the quadratic form, then it also preserves $g$.
     \end{itemize}
 \end{itemize}
 \subsubsection{0$\Leftrightarrow$2}
@@ -7234,13 +7234,125 @@ $$G\leadsto A^TGA\Rightarrow G=A^TGA$$(real symm case)
 The same proof holds in hermitian case.(taking care of the conjugation)
 \end{itemize}
 \subsubsection{3 and 4}they are just special cases of the others(Exercise)
+\chapter{Special operators}
 \section{Def}
 $(E,\inprod{}{})$ is a Euclidean space, then an isometry $f:E\rightarrow E$ is called an \textbf{orthogonal operator}
 
 $(H,h)$ a unitary space, then an isometry $f:H\rightarrow H$ is said a \textbf{unitary operator}
 \section{Corollary}
+\label{corollary 63.11}
 Orthogonal and unitary operators have the following properties:
 
 w.r.t. an (all) orthonormal basis, they are represented by a matrix $U$
 $$UU^T=I_n\text{ or }UU^\dagger=I_n$$
+\section{Def: orthogonal matrices}
+$$O(n):=\{A\in GL_n(\mathbb{R})\mid AA^T=I_n\}$$
+\section{Def: unitary matrices}
+$$U(n):=\{A\in GL_n(\mathbb{C})\mid AA^\dagger=I_n\}$$
+\subsection*{Remark}
+By the corollary \ref{corollary 63.11}, we have\begin{itemize}
+    \item $O(n)$ is the set of orthogonal operators of $(\mathbb{R}^n,\inprod{}{})$
+    \item $U(n)$ is the set of unitary operators of $(\mathbb{C}^n,\inprod{}{})$
+\end{itemize}
+\subsection*{Remark}
+$$
+\begin{aligned}
+    O(n)\\\text{isometry}
+\end{aligned}
+\subseteq
+\begin{aligned}
+    GL_n(\mathbb{R})
+\end{aligned}
+\subseteq
+\begin{aligned}
+    M_{n,n}(\mathbb{R})\\\text{endomorphism}
+\end{aligned}$$
+Take $T\in O(n),TT^T=I_n$$$(\det T)^2=1\ \Rightarrow\ \det T=\pm 1$$
+\section{Notation}
+$$\begin{aligned}
+    SL_n(\mathbb{R})&:=\{A\in GL_n(\mathbb{R})\mid \det A=1\}\\
+    SO(n)&:=\{A\in O_n\mid\det A=1\}
+\end{aligned}$$
+\chapter{Classification of operators}
+$$\begin{aligned}
+    &U(1)=\{a\in \mathbb{C}\mid a\overline{a}=1\}=\{e^{i\phi}\mid \phi\in \mathbb{R}\}\\
+    &O(1)=\{1,-1\}=U(1)\cap\mathbb{R}
+\end{aligned}$$
+Let's study $O(2)$ and classify all its elements
+
+$O(n)/SO(n)=\{\pm1\}$ $SO(n)$ is a normal subgroup of $O(n)$ of index 2, namely $$\#(O(n)/SO(n))=2$$
+Take $T\in O(2)$, we have two cases:$\begin{cases}
+    T\in SO(2)\\T\in O(2)\setminus SO(2)
+\end{cases}$
+\subsection{$T\in SO(2)$}
+Assume $T=\begin{pmatrix}
+    a&b\\c&d
+\end{pmatrix}$, and $TT^T=Id_2$
+$$\begin{cases}
+    \det T=ad-bc=1\\a^2+b^2=1\\c^2+d^2=1\\ac+bd=0
+\end{cases}$$
+This implies $\exists\alpha$ unique op to add by $2k\pi$ s.t.$$a=\cos\alpha\quad b=\sin\alpha$$
+We have shown that
+$$SO(2)=\left\{\left.\begin{pmatrix}
+    \cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha
+\end{pmatrix}\right| \alpha\in \leftbracket 0,2\pi\leftbracket\right\}$$
+Note that $T$ doesn't have eigenvalues for $\alpha=\neq 0,\pi$
+\subsection{$T\in O(2)\setminus SO(2)$}
+$A=\begin{pmatrix}
+    1&0\\0&-1
+\end{pmatrix}$ is the reflection with respect to the line $y=0$$$TA\in SO(2)$$since $$\det(TA)=\det T\cdot\det A=1$$
+By the previous reasoning,$$T=\begin{pmatrix}
+    \cos\alpha&-\sin\alpha\\-\sin\alpha&-\cos\alpha
+\end{pmatrix}$$
+The set $O(2)\setminus SO(2)$ represents reflections.
+
+Consider the mapping$$\begin{aligned}
+    U(1) &\stackrel{\cong}\rightarrow&SO(2)\\
+    e^{i\phi}&\mapsto&\begin{pmatrix}
+        \cos\phi&-\sin\phi\\\sin\phi&\cos\phi
+    \end{pmatrix}
+\end{aligned}$$
+$O(2)\cong U(1)\cup\left(O(2)\setminus SO(2)\right)$
+\subsection*{Remark}
+Reflections are diagonalizable with eigenvalues $\{\pm 1\}$ and the corresponding eigenvectors are orthogonal.
+\section{Theorem}
+\begin{itemize}
+    \item[1] Let $(H,h)$ be a unitary space. A linear mapping $f:H\rightarrow H$ is unitary iff it's diagonalizable in an orthonormal basis and with eigenvalues in $S^1$
+    \item Let $(E,\inprod{}{})$ be a Euclidean space. A linear mapping $f:E\rightarrow E$ is orthogonal iff in some orthonormal basis $f$ is represented by matrix:
+    $$\begin{pmatrix}
+        R(\phi_1)&&&&&\\
+        &\ddots&&&\\
+        &&R(\phi_n)&&\\
+        &&&Id_1&\\
+        &&&&\ddots&\\
+        &&&&&Id_m
+    \end{pmatrix}$$
+    where $$R(\phi_i)=\begin{pmatrix}
+        \cos\phi_i&-\sin\phi_i\\\sin\phi_i&\cos\phi_i
+    \end{pmatrix}\quad \phi_i\in \leftbracket 0,2\pi\leftbracket$$
+    \item[3] The eigenvectors of orthogonal/unitary operators corresponding to different eigenvalues are orthogonal.
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{1}
+\begin{itemize}
+    \item [$\Leftarrow$]Assume that $f=ADA^\dagger $, $D=diag{\lambda_1,\cdots,\lambda_n}$ with $\lambda_i\overline{\lambda_i}=1$. Then $f$ is represented by a unitary matrix $D$
+    \item [$\Rightarrow$]Assume $f$ unitary. Let $L_\lambda$ be the eigenspace of $\lambda$. We can write $H=L_\lambda\oplus L_\lambda^\bot.$. $L_\lambda$ is a invariant subspace of $f$, that's, $f\mid_{L_\lambda}$ is the scalar multiplication by $\lambda$. Any orthonormal basis of $L_\lambda$ is a basis of eigenvector for $F\mid_{L_\lambda}$. So if we show that $L_\lambda^\bot$ is $f$-invariant, we done the proof, for we can prove the theorem for $f\mid_{L_\lambda}$ by induction.
+    
+    Take $v\in L_\lambda^\bot,\ \forall v_0\in L_\lambda$, then $$h(f(v),v_0)=0$$ because$$h(f(v),v_0)=h(f(v),f(\lambda^{-1}v_0))=\overline{\lambda}^{-1}h(f(v),v_0)=0$$    
+\end{itemize}
+\subsubsection{2}\begin{itemize}
+    \item [$\Leftarrow$]Directly check because it's easy to see that $A$ is orthogonal.
+    \item [$\Rightarrow$]The cases where $E$ is of dim 1 or 2 are right for the declaration of $O(1),O(2)$ Assume that $\dim E\geq 3$
+    \begin{itemize}
+        \item [a]$f$ have at least one real eigenvalue. $E=L_\lambda\oplus L_\lambda^\bot$ and the proof is the same with (1)
+        \item [b]$f$ have no real eigenvalues. We have two complex conjugate eigenvalues $\lambda$ and $\overline{\lambda}$. (We already know that $\lambda=e^{i\theta}$ by (1))
+        
+        Let $v$ and$\overline{v}$ two eigenvectors of $\lambda$ and $\overline{\lambda}$ respectively. This means that $\left<v,\overline{v}\right>$ is 2-dim. $v,\overline{v}$ are already $f$-invariant.$$f(\alpha v+\beta \overline{v})=\alpha\lambda v+\beta\overline \lambda\overline{v}$$
+        $f$ has a 2-dim invariant subspace. And if $E=L_0\oplus L_0^\bot$, the theorem is right for the classification of elements of $O(2)$
+    \end{itemize}
+    As above it's enough to show that $$f(L_0^\bot)\subseteq L_0^\bot(1)$$
+    \item[3]Let $\lambda_1\neq\lambda_2$ and $f(v_i)-\lambda_iv_i$$$\inprod{v_1}{v_2}=\inprod{f(v_1)}{f(v_2)}=\lambda_1\overline{\lambda_2}\inprod{v_1}{v_2}$$
+    since $\lambda_1\neq\lambda_2$$$\lambda_1\overline{\lambda_2}\neq 1\ \Rightarrow\ \inprod{v_1}{v_2}=0$$
+\end{itemize}
+\chapter{}
 \end{document}
