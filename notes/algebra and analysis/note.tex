@@ -6971,7 +6971,8 @@ Thus $f$ an isometry.
     \item [Cauchy-Schwartz inequality]$$\inprod{x}{y}\leq\norm{x}\norm{y}$$
     \item [Triangle inequality]$$\norm{x+y}\leq\norm{x}+\norm{y}$$
 \end{itemize}
-\section{Pythagona's Theorem}
+\section{Pythagoras's Theorem}
+\label{Pythagoras}
 If $x_1,\cdots,x_k$ are pairwise orthogonal, then
 $$\norm{\sum\limits_{i=1}^kx_i}^2=\sum\limits_{i=1}^k\norm{x_i}^2$$
 \section{Def:Angles}
@@ -7354,5 +7355,198 @@ Reflections are diagonalizable with eigenvalues $\{\pm 1\}$ and the correspondin
     \item[3]Let $\lambda_1\neq\lambda_2$ and $f(v_i)-\lambda_iv_i$$$\inprod{v_1}{v_2}=\inprod{f(v_1)}{f(v_2)}=\lambda_1\overline{\lambda_2}\inprod{v_1}{v_2}$$
     since $\lambda_1\neq\lambda_2$$$\lambda_1\overline{\lambda_2}\neq 1\ \Rightarrow\ \inprod{v_1}{v_2}=0$$
 \end{itemize}
+\part{Fourier Series}
+\chapter{Fourier Coefficient}
+\begin{itemize}
+    \item[Goal]We have an infinite dim vector space (usually a space of function) we want to express the elements as combinations of "orthogonal" vectors. (w.r.t. some nice inner product)
+\end{itemize}
+\section{Def: Orthogonal and Orthonormal System}
+$V$ is a vector space over $\mathbb{R}$ or $\mathbb{C}$, $\inprod{}{}$ is an inner product which either symm or hermitian.. Moreover, $\inprod{}{}$ is non-degenerate and positive define. 
+
+A set of vectors $\{l_k\mid k\in I\}$ (where $I$ be the set of indexes) is said to be an orthogonal system if$$\inprod{l_j}{l_k}\text{ iff } j\neq k$$
+Moreover $\{l_k\}$ is an orthonormal system if$$\inprod{l_j}{l_k}=\delta_{jk}$$
+\section{Prop}
+Let $\{l_k\}$ be an orthogonal system, then $\{l_k\}$ is a set of non-zero linearly independent vectors.
+\subsection*{Proof}trivial
+\section{Prop}
+\subsection*{}The inner product $\inprod{}{}$ is continuous (w.r.t. the Euclidean topology in the co-domain, and the product topology on the domain, where on $V$ we put the topology induced by $\inprod{}{}$)
+\subsection*{}If $\{f_k\}$ is orthogonal system and $x\in V=\sum\limits_{k=1}^\infty x_kl_k$, then $\forall y\in V$$$\inprod{x}y=\sum\limits_{k=1}^\infty\inprod{x_k}{y}$$
+\subsection*{}If $\{f_k\}$ is orthonormal system and $ x=\sum\limits_{k=1}^\infty x_kl_k$, $y=\sum\limits_{k=1}^\infty y_kl_k$, then $$\inprod{x}{y}=\sum\limits_{k=1}^\infty x_k\overline y_k$$or$$\inprod{x}{y}=\sum\limits_{k=1}^\infty x_ky_k$$
+\subsection*{Proof}
+\subsubsection{}Follow from the Cauchy-Schwartz inequality (both real/complex)
+\subsubsection{}$$\inprod{x}{y}=\sum\limits_{k=1}^n\inprod{v_i}{y}+\inprod{\sum\limits_{k=n+1}^\infty}{v_i}$$ then use (1). Since $$\lim\limits_{n\rightarrow+\infty}\sum\limits_{k=n+1}^\infty v_i=0$$
+\subsubsection{}This is an application of (2) keeping in mind that $\{l_k\}$ is orthonormal.
+\section{Corollary: Pythagoras}
+\label{Pythagoras}
+\begin{itemize}
+    \item [1]If $\{l_k\}$ is an orthogonal system and $v=\sum\limits_{k=1}^\infty v_k$, then$$\norm{v}^2=\sum\limits_i\abs{x_i}^2$$
+    \item [2]If $\{l_k\}$ is an orthonormal system and $x=\sum\limits_{k=1}^\infty x_kl_k$, then$$\norm{x}^2=\sum\limits_i\abs{x_i}^2$$
+\end{itemize}
+\subsection*{Proof}Application of the pervious prop.
+\section{Def: Fourier coefficient}
+Let $\{l_k\}$ be an orthogonal system in $V$. Assume that $x=\sum\limits_{k=1}^\infty x_kl_k$, then $$x_k:=\frac{\inprod{x}{l_k}}{\inprod{l_k}{l_k}}$$
+is called a \textbf{Fourier coefficient} of $x$ in $\{l_k\}$
+
+Consider $x\in V$, then the Fourier series of $x$ in $\{l_k\}$ is $$x\sim\sum\limits_{k=1}^\infty x_k l_k$$
+We don't know whether it converges to $x$ yet.
+\section{Main example}
+$$V=L^2(X,\mathbb{K})/\sim$$
+where $X\in \mathbb{K}^n$ a measurable subset (w.r.t. $\lambda^n$), $\mathbb{K}=\mathbb{R}\text{ or }=\mathbb{C}$
+$$L^2(X,\mathbb{K}):=\{f:X\rightarrow \mathbb{K}\mid \int_X\abs{f}^2\text{d}x<+\infty\}$$
+We define a equivalence relation on $L^2(X,\mathbb{K})$ by$$f\sim g\text{ iff }\lambda^n\left(\{x\in X\mid f(x)\neq g(x)\}\right)=0$$
+we identify two functions equal if they're equal on almost everywhere(only diff on set that measures zero) From now on, we write elements in $V$ simply by representatives.
+
+We define an inner product on $V$:
+$$\begin{aligned}
+    \inprod{}{}:V\times V &\rightarrow &\mathbb{K}\\
+    (f,g)&\mapsto&\int_Xf\overline g\text{d}\lambda^n
+\end{aligned}$$
+(Well defined w.r.t. $\sim$ ?) Check that is $\int_Xf\overline{g}\text{d}\lambda^n$ well defined? Recall that$$\norm{f(x)\overline{g(x)}}=\norm{f(x)}\norm{g(x)}$$ Then inequality:
+$$\begin{aligned}
+    &\norm{f(x)}\norm{g(x)}&\leq\frac{1}{2}(\norm{f(x)}^2+\norm{g(x)}^2)\\
+    \Leftrightarrow&0&\leq(\norm{f(x)}+\norm{g(x)})^2
+\end{aligned}$$
+We always have $\norm{f(x)}\norm{g(x)}\leq\frac{1}{2}(\norm{f(x)}^2+\norm{g(x)}^2)$ It follows that $\inprod{f}{g}$ is well-defined. It easy to show that $\inprod{}{}$ is hermitian. The only non-trivial thing is:
+$$0=\inprod{f}{f}\Leftrightarrow f(x)=0\text{ almost everywhere}$$
+This means that if we don't use $\sim$ that we cannot say $\inprod{}{} $is positive defined.
+
+Consider the following Integral:
+$$\int_{\pi}^\pi e^{imx}e^{-inx}\text{d}x=\begin{cases}
+    0 & \text{ if }m\neq n\\2\pi&\text{ if }m=n
+\end{cases}$$
+So $\{x\mapsto e^{imx}\mid m\in \mathbb{Z}\}$ is an orthogonal system for $V=L^2([-\pi,\pi],\mathbb{C})/\sim$. To make it orthonormal, consider
+$$\left\{\left.\frac{1}{\sqrt{2\pi}}e^{imx}\right| n\in \mathbb{Z}\right\}$$
+If you want to replace $[-\pi,\pi]$ by $[-a,a]$, consider:
+$$\left\{\left.\frac{1}{\sqrt{2\pi}}e^{\frac{imx}a}\right| n\in \mathbb{Z}\right\}$$
+This is an orthonormal system for $L^2([-a,a],\mathbb{C})/\sim$ In the real case, consider the following integrals:
+$$\int_{-\pi}^\pi\cos(mx)\cos(nx)\text{d}x=\begin{cases}
+    0 & \text{ if }m\neq n\\\pi &\text{ if }m=n\neq0\\2\pi&\text{ if }m=n=0
+\end{cases}$$
+$$\int_{-\pi}^\pi\cos(nx)\sin(nx)\text{d}x=0$$
+$$\int_{-\pi}^\pi\sin(nx)\sin(mx)\text{d}x=\begin{cases}
+    0 & \text{ if }m\neq n\text{ or }mn=0\\\pi &\text{ if }m=n\neq0
+\end{cases}$$
+If follows that $\{1,\cos(nx),\sin(mx)\mid(m,n)\in \mathbb{N}^2\}$ is an orthogonal system for $L^2([-\pi,\pi],\mathbb{R})$
+$$f\sim\frac{a_0}{2}+\sum\limits_{k=1}^\infty a_k\cos(kx)+b_k(f)\sin(kx)$$
+$$\begin{cases}
+    a_k=\frac{1}\pi\int_{-\pi}^\pi f(x)\cos(kx)\text{d}x\\
+    b_k=\frac{1}\pi\int_{-\pi}^\pi f(x)\sin(kx)\text{d}x
+\end{cases}$$
+For instance if $f=Id$ then $a_k=0,b_k=(-1)^{k+1}\frac{2}{k}$
+\chapter{Convergence}
+Always assume that the orthogonal system countable this chapter
+\section{Prop}Take $x\in V$ and let$$\overline x=\sum\limits_{k=1}^\infty\frac{\inprod{x}{l_k}}{\inprod{l_x}{l_x}}l_k$$
+Then if we write $x=x\overline x+h$ then $h$ is orthogonal to $\overline{x}$ and $h$ is orthogonal to the topological closure of $\left<\{l_k\}\right>$
+\subsection*{Proof}Since the inner product is continuous, it's enought to show that $\inprod{h}{l_m}=0\forall m$
+$$
+\begin{aligned}
+    \inprod{h}{l_m} &=\inprod{x}{l_m}+\inprod{\sum\limits_{k=1}^\infty \frac{\inprod{x}{l_k}}{\inprod{l_x}{l_x}}l_k}{l_m}\\
+    &=\inprod{x}{l_m}-\frac{\inprod{x}{l_m}}{\inprod{l_x}{l_x}}\inprod{l_m}{l_m}\\ &=0
+\end{aligned}
+$$
+\subsection*{Remark}
+By Pythagoras Theorem \ref{Pythagoras}, since $x=\overline{x}+h$
+$$\norm{x}^2=\norm{\overline{x}}^2+\norm{h}^2\geq\norm{\overline{x}}^2$$
+If we write that inequality with respect to the Fourier coefficients, we get \textbf{Bessel's inequality}\\Note that
+$$\norm{x}^2=\sum\limits_k^\infty\abs{\frac{\inprod{x}{l_m}}{\inprod{l_k}{l_k}}}\inprod{l_k}{l_k}=\sum\limits_k\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}$$
+$$\sum\limits_{k}^\infty\frac{\inprod{x}{l_k}}{\inprod{l_k}{l_k}}\leq\norm{x}^2\quad(\text{Bessel's inequality})
+$$
+So far we have assumed that the Fourier series converges to prove Bessel's inequality. But we DON'T NEED this assumption (exercise)
+\section{Theorem}
+Assume $\{l_k\}$ is orthonormal. Let $x_k=\inprod{x}{l_k}$. If $V$ is complete. then $\sum\limits_{k}x_kl_k$ converges.
+\subsection*{Proof}
+Only to prove that $\sum\limits_kx_kl_k$ is Cauchy. Bessel's inequality implies that $$\sum\limits_k\abs{\inprod{x}{l_k}}\leq\norm{x}^2$$
+By Pythagoras $\forall m,n \in \mathbb{N},\epsilon>0$ have
+$$\norm{x_ml_m+\cdots+x_nl_n}=\abs{x_m}^2+\cdots+\abs{x_n}^2<\sqrt{\epsilon}$$
+\subsection*{Remark}In the proof we assumed $\{l_k\}$ orthogonal. But this is not essential.
+
+\textbf{We have studied the existence of the limit} $x$ \textbf{. What about the relation between } $\overline{x}$\textbf{ and }$x$
+\section{Prop}\label{Prop 67.3}
+Let $\{l_k\}$ be an orthogonal system. Take $x\in V$ and assume that
+$$V\ni\overline{x}=\sum\limits_{k=1}^\infty
+\frac{\inprod{x}{l_k}{\inprod{l_x}{l_x}}}l_k$$
+Then for any $y=\sum\limits_{k}d_kl_k\ (d_k\in \mathbb{F})$ it holds that:
+$$\norm{x-\overline{x}}\leq\norm{x-y}$$
+The equality is true iff $\overline{x}=y$
+\subsection*{Proof}
+$$\begin{aligned}
+    \norm{x-y}^2 &=\norm{x-\overline{x}+(\overline x-y)}^2\\
+    &=\norm{h}^2+\norm{\overline x-y}^2
+\end{aligned}$$
+\section{Def}
+A family of vectors $\mathcal{F}=\{x_\alpha\mid\alpha\in A\}$ in a normed vector space $V$ is \textbf{complete} in a subset $E\subseteq V$ if every vector $x\in E$ can be approximated with arbitrary accuracy by a \textbf{finite} linear combination of elements in $\mathcal{F}$
+\subsection*{Another statement}
+Let $L=\{\mathcal{F}\}$, then $\mathcal{F}$ is complete in $E$ if $E\subseteq\overline{L}$
+\subsection*{Example}
+$V=L^2([a,b],\mathbb{F})/\sim$ and the family $\mathcal{F}=\{x^k\mid k\in \mathbb{N}\}$, then $\mathbb{F}$ is complete in $V$
+\section{Weierstrass Approximation Theorem}
+Let $f\in \mathcal{C}([a,b])$. For any $\epsilon>0$, there exists a polynomial $p\in \mathbb{F}[x]$ such that for any $x\in [a,b]$, we have
+$$\abs{f(x)-p(x)}<\epsilon$$
+In fact$$\norm{f-p}=\sqrt{\int_a^b\abs{f-p}^2\text{d}\lambda}<\epsilon\sqrt{b-a}$$
+\subsection*{Proof}
+check \href{https://proofwiki.org/wiki/Weierstrass_Approximation_Theorem}{here}
+\section{Prop}
+\label{Prop 63.1}
+Let $V$ be a complete vector space over $\mathbb{F}$ with inner product $\inprod{}{}$ hermitian or real symm, and positive define and non-degenerate.
+
+Moreover, $\{l_k\}$ is an orthogonal system at most countable. Then the following conditions are equivalent:
+\begin{itemize}
+    \item [1]$\{l_k\}$ is complete in $E\subseteq V$
+    \item [2]For any $x\in E$, we have $x=\sum\limits_{k}\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}l_k$
+    \item [3]Any vector $x\in E$ satisfies$$\norm{x}^2=\sum\limits_{k}\frac{\abs{\inprod{x}{l_k}}^2}{\inprod{l_k}{l_k}}$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{$(1)\Rightarrow(2)$}Take $x\in V$. Since $V$ is complete, $\overline{x}=\sum\limits_kx_kl_k,\ x_k:=\frac{\inprod{x}{l_k}}{\inprod{l_k}{l_k}}$\\
+$\forall\epsilon>0,\ \exists$ a finite linear combination $\alpha_1l_1+\cdots+\alpha_ml_m$ s.t.$$\norm{x-(\alpha_1l_1+\cdots,\alpha_ml_m)}<\epsilon$$
+By prop \ref{Prop 67.3}$$0\leq\norm{x-\overline{x}}\leq\norm{x-(\alpha_1l_1+\cdots+\alpha_ml_m)}<\epsilon$$
+\subsubsection{$(2)\Rightarrow(3)$}Pythagoras
+\subsubsection{$(3)\Rightarrow(1)$}
+$$x-\sum\limits_k\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}=h_n+\sum\limits_{k>n}\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}l_k$$
+$$\inprod{x-\sum\limits_{k=1}^nx_kl_k}{\sum\limits_{k=1}^nx_kl_k}=\inprod{h_n+\sum\limits_{k>n}\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}}{\sum\limits_{k=1}^nx_kl_k}=0$$
+(By prop \ref{Prop 63.1})
+
+Apply Pythagoras
+$$\norm{x-\sum\limits_{k=1}^nx_kl_k}^2=\norm{x}^2-\norm{\sum\limits_{k=1}^nx_kl_k}^2=\norm{x^2}-\sum\limits_{k=1}^n\frac{\abs{\inprod{x}{l_k}}^2}{\inprod{l_k}{l_k}}$$
+The RHS can be arbitrary small. That ends the proof.
+
 \chapter{}
+\section{Def: Hamal basis}A countable family of vectors $\{b_k\}$ is a \textbf{Hamal basis} of $V$ if any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ in $\mathbb{K}$ with $alpha_k=0$ for all but finitely many $k$ s.t. $$v=\sum\limits_k\alpha_kb_k$$
+(In this def we don't need to use the topological properties of $V$)
+\section{Def: Schauder basis}A countable family of vectors $\{b_k\}$ is a \textbf{Schauder basis} for $V$ if for any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ such that$$v=\sum\limits_k a_kb_k\quad \text{(as convergent series)}$$
+
+A Hamal basis is a Schauder basis(? to prove an element in basis can't be represented by others). In particular, a Schauder basis is a complete family of vectors (in $E=V$)
+
+In pervious, we've proved that if $\{l_k\}$ is an orthogonal complete system (in $E=V$) with $V$ complete, then any $x\in V$ can be written as$$x=\sum\limits_k\alpha_kl_k$$ when $\alpha_k$ are the Fourier coefficients.
+
+In general it's FALSE that a complete family $\{b_k\}$ is a Schauder ($x\in \overline{\left<\{b_k\}\right>}$)
+\section*{Example}
+$V=\mathcal{C}([-1,1],\mathbb{R})\subseteq L^2([-1,1],\mathbb{R})$
+we induce on $V$ the inner product from $L^2([-1,1],\mathbb{R})$. We've proved that $\{x^k\mid k\geq0\}$ is a complete family in $V$ Now we show that it's not a Schauder basis (in particular we show that not any element $v\in V$ can be expressed as convergent series)
+\subsection{}
+We show that if $\sum\limits_k\alpha_kx^k$ converges in the $L^2$-norm, then it converges pointwisely in $\rightbracket-1,1\leftbracket$. In fact $$\norm{\alpha_kx^k}_2^2=\int_{-1}^1(\alpha_kx^k)^2\text{d}x=\alpha_k^2\frac{2}{k+1}$$
+$\norm{\alpha_kx^k}_2^2\rightarrow 0$, so it follows that for $k$ big enough $$\alpha_k^2<(2k+1)\frac{\epsilon}2<2k+1$$
+In other words for $k\geq N$ then $\alpha_k<\sqrt{2k+1}$
+Now take $x\in \rightbracket 0,1\leftbracket$ Consider $$\sum\limits_{k\geq N}\alpha_kx^k\leq\sum\limits_{k\geq N}(2k+1)^{\frac{1}{2}}x^k$$
+Use the ratio test$$\lim\limits_{k\rightarrow+\infty}\frac{x^{k+1}(2k+3)^{\frac{1}{2}}}{x^k(2k+1)^{\frac{1}{2}}}=x<1$$ It means that the series converges, because $\sum\limits_{k\geq N}\alpha_kx^k$ converges.
+
+By symmetry do the same in $\rightbracket-1,0\rightbracket$ It follows $\sum\limits_k\alpha_kx^k$ converges pointwisely $\forall x\in \rightbracket-1,1\leftbracket$
+
+Call $\varphi:\rightbracket-1,1\leftbracket\rightarrow \mathbb{R}$ the limit of such sequence. This means that the radius of convergence for $\sum\limits_k\alpha_kx^k$ is $\mathbb{R}>1$. It means that $\sum\limits_k\alpha_kx^k$  converges uniformly in any $[a,b]\subseteq\rightbracket-1,1\leftbracket$ to $\varphi\mid_{[a,b]}$
+
+Assume that $f\stackrel{L^2}{=}\sum\limits_k\alpha_kx^k$ so on $\rightbracket-1,1\leftbracket$ $f=\varphi\mid_{\rightbracket-1,1\leftbracket}$
+But $\varphi$ is uniform limit of a power series, then $\varphi$ is a $C^\infty(\rightbracket-1,1\leftbracket)$ function.(if $f$ is the $L^2$-limit of $\sum\limits_k\alpha_kx^k$) then $f$ is of class $C^\infty$ in $\leftbracket-1,1\rightbracket$ Therefore it's enough to take $g\in V\setminus(C^\infty(\rightbracket-1,1\leftbracket))$ such function cannot be a $L^2$-limit then$$\{x^l\mid x\geq 0\}$$ is not a Schauder basis.
+
+$V=L^2([-\pi,\pi],\mathbb{K})$ if $mathbb{K}=\mathbb{R}$ $\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ an orthogonal system (trigonometric system) $f\in V$$$f\sim\frac{a_0}{2}+\sum\limits_{k=1}{\infty}a_k(f)\cos kx+b_k(f)\sin kx$$
+and the Bessel's inequality:$$\frac{\abs{a_0(f)}^2}2+\sum\limits_{k=1}^\infty\abs{a_k(f)}^2+\abs{b_k(f)}^2\leq(=)\frac{1}{\pi}\int_{-\pi}^\pi\abs{f}^2\text{d}\lambda$$
+
+Question: Consider $$\sum\limits_k\frac{\sin(kx)}{\sqrt{k}}$$this converges pointwisely on $\mathbb{R}$ Is this a Fourier series of some $f\in V$?
+
+No for Bessel inequality failed:$$\sum\limits_k(\frac{1}{\sqrt{k}})^2=\sum\limits_k\frac{1}k\quad\text{diverges}$$
+
+What we want to prove in remaining part is \begin{itemize}
+    \item [1]$L^2([-\pi,\pi],\mathbb{K})$ is complete
+    \item[2]$\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family in $E=V$
+\end{itemize}
+Then conclude that any $f\in V$ $$f\stackrel{L^2}=\frac{a_0}{2}+\sum\limits_{k=1}^\infty a_k\cos kx+b_k\sin kx$$
+Parseval equality
 \end{document}
