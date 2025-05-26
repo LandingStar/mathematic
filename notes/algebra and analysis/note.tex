@@ -7379,7 +7379,7 @@ Let $\{l_k\}$ be an orthogonal system, then $\{l_k\}$ is a set of non-zero linea
 \section{Corollary: Pythagoras}
 \label{Pythagoras}
 \begin{itemize}
-    \item [1]If $\{l_k\}$ is an orthogonal system and $v=\sum\limits_{k=1}^\infty v_k$, then$$\norm{v}^2=\sum\limits_i\abs{x_i}^2$$
+    \item [1]If $\{v_k\}$ is an orthogonal system and $v=\sum\limits_{k=1}^\infty v_k$, then$$\norm{v}^2=\sum\limits_i\abs{v_i}^2$$
     \item [2]If $\{l_k\}$ is an orthonormal system and $x=\sum\limits_{k=1}^\infty x_kl_k$, then$$\norm{x}^2=\sum\limits_i\abs{x_i}^2$$
 \end{itemize}
 \subsection*{Proof}Application of the pervious prop.
@@ -7436,8 +7436,8 @@ For instance if $f=Id$ then $a_k=0,b_k=(-1)^{k+1}\frac{2}{k}$
 \chapter{Convergence}
 Always assume that the orthogonal system countable this chapter
 \section{Prop}Take $x\in V$ and let$$\overline x=\sum\limits_{k=1}^\infty\frac{\inprod{x}{l_k}}{\inprod{l_x}{l_x}}l_k$$
-Then if we write $x=x\overline x+h$ then $h$ is orthogonal to $\overline{x}$ and $h$ is orthogonal to the topological closure of $\left<\{l_k\}\right>$
-\subsection*{Proof}Since the inner product is continuous, it's enought to show that $\inprod{h}{l_m}=0\forall m$
+Then if we write $x=\overline x+h$ then $h$ is orthogonal to $\overline{x}$ and $h$ is orthogonal to the topological closure of $\left<\{l_k\}\right>$
+\subsection*{Proof}Since the inner product is continuous, it's enought to show that $\inprod{h}{l_m}=0\ \forall m$
 $$
 \begin{aligned}
     \inprod{h}{l_m} &=\inprod{x}{l_m}+\inprod{\sum\limits_{k=1}^\infty \frac{\inprod{x}{l_k}}{\inprod{l_x}{l_x}}l_k}{l_m}\\
@@ -7536,7 +7536,7 @@ Call $\varphi:\rightbracket-1,1\leftbracket\rightarrow \mathbb{R}$ the limit of 
 Assume that $f\stackrel{L^2}{=}\sum\limits_k\alpha_kx^k$ so on $\rightbracket-1,1\leftbracket$ $f=\varphi\mid_{\rightbracket-1,1\leftbracket}$
 But $\varphi$ is uniform limit of a power series, then $\varphi$ is a $C^\infty(\rightbracket-1,1\leftbracket)$ function.(if $f$ is the $L^2$-limit of $\sum\limits_k\alpha_kx^k$) then $f$ is of class $C^\infty$ in $\leftbracket-1,1\rightbracket$ Therefore it's enough to take $g\in V\setminus(C^\infty(\rightbracket-1,1\leftbracket))$ such function cannot be a $L^2$-limit then$$\{x^l\mid x\geq 0\}$$ is not a Schauder basis.
 
-$V=L^2([-\pi,\pi],\mathbb{K})$ if $mathbb{K}=\mathbb{R}$ $\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ an orthogonal system (trigonometric system) $f\in V$$$f\sim\frac{a_0}{2}+\sum\limits_{k=1}{\infty}a_k(f)\cos kx+b_k(f)\sin kx$$
+$V=L^2([-\pi,\pi],\mathbb{K})$ if $\mathbb{K}=\mathbb{R}$ $\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ an orthogonal system (trigonometric system) $f\in V$$$f\sim\frac{a_0}{2}+\sum\limits_{k=1}{\infty}a_k(f)\cos kx+b_k(f)\sin kx$$
 and the Bessel's inequality:$$\frac{\abs{a_0(f)}^2}2+\sum\limits_{k=1}^\infty\abs{a_k(f)}^2+\abs{b_k(f)}^2\leq(=)\frac{1}{\pi}\int_{-\pi}^\pi\abs{f}^2\text{d}\lambda$$
 
 Question: Consider $$\sum\limits_k\frac{\sin(kx)}{\sqrt{k}}$$this converges pointwisely on $\mathbb{R}$ Is this a Fourier series of some $f\in V$?
@@ -7549,4 +7549,104 @@ What we want to prove in remaining part is \begin{itemize}
 \end{itemize}
 Then conclude that any $f\in V$ $$f\stackrel{L^2}=\frac{a_0}{2}+\sum\limits_{k=1}^\infty a_k\cos kx+b_k\sin kx$$
 Parseval equality
+\chapter{}
+\section{Gaol}
+what we want to prove here are:
+\subsection{1}
+$L^2(\leftbracket -\pi,\pi\leftbracket,\mathbb{K})$ is complete as topological vector space.
+\subsection{2}$\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family.
+\section{The first one}
+For (1) we prove more.
+
+Let $(X,\mu)$ be a measure space 
+$$L^p(X,\mu)=\{f:X\rightarrow\mathbb{K}\mid\int_X\abs{f}^p\text{d}\mu<+\infty\}$$
+where $p\in \mathbb{R}_{\geq 1}$. In particular$$X=\Omega\subseteq\mathbb{R}^n$$
+when $p=2$ $L^2(X,\mu)$ is a inner product space.$$\inprod{f}{g}=\int_Xf\overline g\text{d}\mu$$
+$L^p(X,\mu)$ is anyway a normed vector space:
+$$\norm{f}_p:=(\int_X\abs{f}^p\text{d}\mu)^{\frac{1}{p}}$$
+The normed vector space are called $L^p$-space.
+\section{Def}
+$f:X\setminus\{x_0\}\rightarrow\leftbracket 0,+\infty\leftbracket$ we say that $f$ is \textbf{unbounded} at $x_0$ if $\forall U\ni x_0,\ M>0$$$ \exists x\in U \text{ s.t. }f(x)>M$$
+\section{Def: extend by periodicity}
+Let $f:\leftbracket -\pi,\pi\leftbracket\rightarrow \mathbb{R}$ extend this func by periodicity.
+$$\tilde{f}=f(x-2k\pi)\quad k\in\mathbb{Z}$$
+\section{Things used}
+\begin{itemize}
+    \item $\mathbb{K}$ is complete
+    \item Holden inequality
+    \item Monotone convergence theorem
+    \item Fatou lemma
+\end{itemize}
+\section{Theorem}
+$L^p(X,\mu)$ is complete w.r.t the topology induced by $\norm\cdot_p$
+\subsection*{Proof}
+We need to show that any Cauchy sequence is convergent.
+
+Consider $\{f_n\}\subseteq L^p(X,\mu)$ Cauchy sequence. Choose $n_1<\cdots<n_j$ such that$$\norm{f_n-f_m}_p\leq 2^{-2j}\text{ for }m,n\geq n_j:=n_j(\epsilon)$$
+Define $g_j:=f_{n_j};\ h_k:=g_{k+1}-g_k$ Now we will study $\{h_k\}_{k\in \mathbb{N}}$ \label{69.4.(1)}Notice that:
+$$\int_X\abs{h_k}^p\text{d}\mu=\norm{h_k}^p=\norm{g_{k+1}-g_k}^p\leq 2^{-2pk}\qquad (*)$$
+\subsubsection{Step 1}
+We show that $\sum\limits_{k=1}^\infty h_k(x)$ converges pointwisely almost everywhere in $X$
+
+Let $a_k:=\abs{h_k(x)}2^{\frac{k}{p}};\ b_k:=2^{-\frac{k}{p}}$
+$$\begin{aligned}
+    \sum\limits_{k=1}^\infty \abs{h_k(x)}&=\sum\limits_{k=1}^\infty a_kb_k\\
+    (\text{by Holden})&\leq\left(\sum\limits_{k=1}^\infty \abs{a_k}^p\right)^{\frac{1}p}\left(\sum\limits_{k=1}^\infty \abs{b_k}^q\right)^{\frac{1}q}\\
+    &=\left(\sum\limits_{k=1}^\infty 2^k\abs{h_k}^p\right)^{\frac{1}p}\left(\sum\limits_{k=1}^\infty 2^{-\frac{kq}{p}}\right)^q\\
+\end{aligned}$$
+then
+$$\int_X(\sum\limits_{k=1}^\infty \abs{h_k})^p\text{d}\mu\leq C^p\int_X\sum\limits_{k=1}^\infty 2^k\abs{h_k}^p\text{d}\mu$$
+Use the monotone convergence theorem on the sequence $$S_N(x):=\sum\limits_{k=1}^N 2^k\abs{h_k(x)}^p$$then
+$$\begin{aligned}
+    C^p\int_X\sum\limits_{k=1}^\infty 2^k\abs{h_k}^p\text{d}\mu&\stackrel{\hyperref[69.4.(1)]{(*)}}{\leq} C^p\sum\limits_{k=1}^\infty 2^k2^{-2pk}\\
+    &=C^p\sum\limits_{k=1}^\infty 2^{-k(2p-1)}<+\infty
+\end{aligned}$$
+
+what we what is that
+$$\int_X(\sum\limits_{k=1}^\infty \abs{h_k})^p\text{d}\mu<+\infty\ \Rightarrow\ \sum\limits_{k=1}^\infty\abs{h_k(x)}<+\infty$$
+\subsubsection{Lemma}
+$f:X\rightarrow[-\infty,+\infty]$ measurable. If $\int_X\abs{f}^p<+\infty$. Then $\abs{f}^p$ is bounded almost everywhere
+\subsubsection*{Proof}
+$E_n=\left\{x\in X\mid \abs{f(x)}^p>n\right\}$$$C\geq\int_X\abs{f}^p\text{d}\mu\geq\int_{E_n}\abs{f}^p\text{d}\mu\geq n\mu(E_n)$$
+$$n\mu(E_n)<C\ \Rightarrow\ \mu(E_n)\leq\frac{C}n\text{ and }\lim\limits_{n\rightarrow+\infty}\mu(E_n)=0$$
+Let $E=\bigcap\limits_{n=1}^\infty E_n=\{x\in X\mid\abs{f(x)}^p=+\infty\}$
+$$\mu(E)=\mu(\bigcap\limits_{n=1}^\infty E_n)=\lim\limits_{n\rightarrow+\infty}\mu(E_n)=0$$
+This lemma means that $\{\sum h_k(x)\}$ absolutely converges almost everywhere. Since $\mathbb{K}$ is  complete, then $\{\sum h_k(x)\}$ converges almost everywhere
+\subsection{Step 2: Conclusion}
+Define$$f(x):=\begin{cases}
+    \underbrace{g_1(x)+\sum\limits_{k=1}^\infty h_k(x)}\limits_{=\lim\limits_{n\rightarrow+\infty}g_n(x)} &\text{if series converge}
+    \\ 0&\text{otherwise}
+\end{cases}$$
+Fix an index $k$
+$$\begin{aligned}
+    2^{-2kp}&\stackrel{\geq}{\hyperref[69.4.(1)]{(*)}}\liminf\limits_{j\rightarrow+\infty}\int_X\abs{g_j(x)-g_k(x)}^p\text{d}\mu\\
+    (\text{Fatou's lemma})&\geq\int_X\liminf\limits_{j\rightarrow+\infty}\abs{g_j(x)-g_k(x)}^p\text{d}\mu\\
+    &=
+\end{aligned}$$
+Notice that for $k=1$ $$f-g_1=\in L^p(X,\mu)$$
+so
+$$f=(f-g_1)+g_1\in L^p(X,\mu)$$
+
+we want to show $$f_n\stackrel{L^p}{\rightarrow}f$$
+for all $n\geq n_k$
+$$\norm{f_n-f}_p\leq\underbrace{\norm{f_n-g_k}_p}\limits_{\text{by }\hyperref[69.4.(1)]{(*)}\leq 2^{-2k}}+\underbrace{\norm{g_k-f}_p}\limits_{\leq 2^{-2k}}\leq 2^{-2k+1}$$
+this means $$f_n\stackrel{L^2}\rightarrow f$$
+
+In particular $L^2(\leftbracket -\pi,\pi\leftbracket,\mathbb{K})$ is complete.
+
+We want to prove $\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family.
+
+We need to study the pointwise convergence of Fourier series$$\sum\limits_k\frac{\inprod{v}{l_k}}{\inprod{l_k}{l_k}}l_k\rightarrow f(x)$$
+let $$T_n(x)=\sum\limits_{k=-n}^n\left(\frac{1}{2\pi}\int_{-\pi}^\pi f(t)e^{-ixt}\text{d}t\right)e^{ikx}=\pi=\frac{1}{2\pi}\int_{-\pi}^\pi f(t)\left(\sum\limits_{k=-n}^n e^{ik(x-t)}\right)\text{d}t$$
+the Goal is to write the Fourier coefficients in a "better".
+\section{Def: Dirichlet kernel}$$D_n(x):=\sum\limits_{k=-n}^ne^{iku}=\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}$$
+this is called \textbf{Dirichlet kernel}, which has the prop
+$$\frac{1}{2\pi}\int_{-\pi}^\pi D_n(u)\text{d}u=\frac{1}{\pi}\int_0^\pi D_n(u)\text{d}u=1$$
+Back to $T_n$ putting $u=x-t$
+$$\begin{aligned}
+    T_n(x)&=\frac{1}{2\pi}\int_{-\pi}^\pi f(x-u)D_n(u)\text{d}u\\
+    &=\frac{1}{2\pi}\int_{-\pi}^\pi f(x-u)\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}\text{d}u
+\end{aligned}$$
+Now use that $D_n$ is an even function
+$$T_n(x)=\frac{1}{2\pi}\int_0^\pi \left(f(x-u)+f(x+u)\right)D_n(u)\text{d}u=\frac{1}{2\pi}\int_0^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}\text{d}u$$
 \end{document}
