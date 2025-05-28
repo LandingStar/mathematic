@@ -7510,7 +7510,7 @@ $$\norm{x-\sum\limits_{k=1}^nx_kl_k}^2=\norm{x}^2-\norm{\sum\limits_{k=1}^nx_kl_
 The RHS can be arbitrary small. That ends the proof.
 
 \chapter{}
-\section{Def: Hamal basis}A countable family of vectors $\{b_k\}$ is a \textbf{Hamal basis} of $V$ if any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ in $\mathbb{K}$ with $alpha_k=0$ for all but finitely many $k$ s.t. $$v=\sum\limits_k\alpha_kb_k$$
+\section{Def: Hamal basis}A countable family of vectors $\{b_k\}$ is a \textbf{Hamal basis} of $V$ if any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ in $\mathbb{K}$ with $\alpha_k=0$ for all but finitely many $k$ s.t. $$v=\sum\limits_k\alpha_kb_k$$
 (In this def we don't need to use the topological properties of $V$)
 \section{Def: Schauder basis}A countable family of vectors $\{b_k\}$ is a \textbf{Schauder basis} for $V$ if for any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ such that$$v=\sum\limits_k a_kb_k\quad \text{(as convergent series)}$$
 
@@ -7523,7 +7523,7 @@ In general it's FALSE that a complete family $\{b_k\}$ is a Schauder ($x\in \ove
 $V=\mathcal{C}([-1,1],\mathbb{R})\subseteq L^2([-1,1],\mathbb{R})$
 we induce on $V$ the inner product from $L^2([-1,1],\mathbb{R})$. We've proved that $\{x^k\mid k\geq0\}$ is a complete family in $V$ Now we show that it's not a Schauder basis (in particular we show that not any element $v\in V$ can be expressed as convergent series)
 \subsection{}
-We show that if $\sum\limits_k\alpha_kx^k$ converges in the $L^2$-norm, then it converges pointwisely in $\rightbracket-1,1\leftbracket$. In fact $$\norm{\alpha_kx^k}_2^2=\int_{-1}^1(\alpha_kx^k)^2\text{d}x=\alpha_k^2\frac{2}{k+1}$$
+We will show that if $\sum\limits_k\alpha_kx^k$ converges in the $L^2$-norm, then it converges pointwisely in $\rightbracket-1,1\leftbracket$. In fact $$\norm{\alpha_kx^k}_2^2=\int_{-1}^1(\alpha_kx^k)^2\text{d}x=\alpha_k^2\frac{2}{k+1}$$
 $\norm{\alpha_kx^k}_2^2\rightarrow 0$, so it follows that for $k$ big enough $$\alpha_k^2<(2k+1)\frac{\epsilon}2<2k+1$$
 In other words for $k\geq N$ then $\alpha_k<\sqrt{2k+1}$
 Now take $x\in \rightbracket 0,1\leftbracket$ Consider $$\sum\limits_{k\geq N}\alpha_kx^k\leq\sum\limits_{k\geq N}(2k+1)^{\frac{1}{2}}x^k$$
@@ -7552,19 +7552,19 @@ Parseval equality
 \chapter{}
 \section{Gaol}
 what we want to prove here are:
-\subsection{1}
+\subsection*{1}
 $L^2(\leftbracket -\pi,\pi\leftbracket,\mathbb{K})$ is complete as topological vector space.
-\subsection{2}$\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family.
+\subsection*{2}$\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family.
 \section{The first one}
 For (1) we prove more.
 
 Let $(X,\mu)$ be a measure space 
+In particular$$X=\Omega\subseteq\mathbb{R}^n$$
+when $p=2$, $L^2(X,\mu)$ is an inner product space.$$\inprod{f}{g}=\int_Xf\overline g\text{d}\mu$$
+Recall $L^p(X,\mu)$ a normed vector space:
 $$L^p(X,\mu)=\{f:X\rightarrow\mathbb{K}\mid\int_X\abs{f}^p\text{d}\mu<+\infty\}$$
-where $p\in \mathbb{R}_{\geq 1}$. In particular$$X=\Omega\subseteq\mathbb{R}^n$$
-when $p=2$ $L^2(X,\mu)$ is a inner product space.$$\inprod{f}{g}=\int_Xf\overline g\text{d}\mu$$
-$L^p(X,\mu)$ is anyway a normed vector space:
+where $p\in \mathbb{R}_{\geq 1}$, and the norm on it:
 $$\norm{f}_p:=(\int_X\abs{f}^p\text{d}\mu)^{\frac{1}{p}}$$
-The normed vector space are called $L^p$-space.
 \section{Def}
 $f:X\setminus\{x_0\}\rightarrow\leftbracket 0,+\infty\leftbracket$ we say that $f$ is \textbf{unbounded} at $x_0$ if $\forall U\ni x_0,\ M>0$$$ \exists x\in U \text{ s.t. }f(x)>M$$
 \section{Def: extend by periodicity}
@@ -7578,12 +7578,13 @@ $$\tilde{f}=f(x-2k\pi)\quad k\in\mathbb{Z}$$
     \item Fatou lemma
 \end{itemize}
 \section{Theorem}
+\label{Lp complete}
 $L^p(X,\mu)$ is complete w.r.t the topology induced by $\norm\cdot_p$
 \subsection*{Proof}
 We need to show that any Cauchy sequence is convergent.
 
 Consider $\{f_n\}\subseteq L^p(X,\mu)$ Cauchy sequence. Choose $n_1<\cdots<n_j$ such that$$\norm{f_n-f_m}_p\leq 2^{-2j}\text{ for }m,n\geq n_j:=n_j(\epsilon)$$
-Define $g_j:=f_{n_j};\ h_k:=g_{k+1}-g_k$ Now we will study $\{h_k\}_{k\in \mathbb{N}}$ \label{69.4.(1)}Notice that:
+Let $g_j:=f_{n_j};\ h_k:=g_{k+1}-g_k$ Now we will study $\{h_k\}_{k\in \mathbb{N}}$ \label{69.4.(1)}\\Notice that:
 $$\int_X\abs{h_k}^p\text{d}\mu=\norm{h_k}^p=\norm{g_{k+1}-g_k}^p\leq 2^{-2pk}\qquad (*)$$
 \subsubsection{Step 1}
 We show that $\sum\limits_{k=1}^\infty h_k(x)$ converges pointwisely almost everywhere in $X$
@@ -7633,7 +7634,7 @@ $$\norm{f_n-f}_p\leq\underbrace{\norm{f_n-g_k}_p}\limits_{\text{by }\hyperref[69
 this means $$f_n\stackrel{L^2}\rightarrow f$$
 
 In particular $L^2(\leftbracket -\pi,\pi\leftbracket,\mathbb{K})$ is complete.
-
+\chapter{Pointwise Convergence of Fourier Series}
 We want to prove $\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family.
 
 We need to study the pointwise convergence of Fourier series$$\sum\limits_k\frac{\inprod{v}{l_k}}{\inprod{l_k}{l_k}}l_k\rightarrow f(x)$$
@@ -7649,4 +7650,67 @@ $$\begin{aligned}
 \end{aligned}$$
 Now use that $D_n$ is an even function
 $$T_n(x)=\frac{1}{2\pi}\int_0^\pi \left(f(x-u)+f(x+u)\right)D_n(u)\text{d}u=\frac{1}{2\pi}\int_0^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}\text{d}u$$
+\section{Riemann-Lebesgue's Lemma}
+\label{Riemann-Lebesgue's Lemma}
+Let $f::[a,b]\rightarrow\mathbb{R}$ be an integrable function. Then $$\lim\limits_{\lambda\rightarrow+\infty}\int_a^bf(x)e^{i\lambda x}\text{d}x=0$$
+\subsection*{Proof}
+\subsubsection{Step 1}
+$f$ is a simple function, namely $f(x)=\sum\limits_{k=1}^nc_k\mathbbm{1}_{\leftbracket x_k,x_{k+1}\leftbracket}(x)$
+$$\int_a^bf(x)e^{i\lambda x}\text{d}x=\sum\limits_{k=1}^nc_k\int_{x_k}^{x_{k+1}}e^{i\lambda x}\text{d}x$$
+Note that 
+$$\begin{aligned}
+    \int_{x_k}^{x_{k+1}}e^{i\lambda x}\text{d}x&=\int_{x_k}^{x_{k+1}}\cos\lambda x\text{d}x+i\int_{x_k}^{x_{k+1}}\sin\lambda x\text{d}x\\
+    &=\left.\frac{1}{\lambda}\sin\lambda x\right|_{x_k}^{x_{k+1}}+\left.\frac{i}{\lambda}\cos\lambda x\right|_{x_k}^{x_{k+1}}\\
+    &=\frac{e^{i\lambda x_{k+1}}-e^{i\lambda x_k}}{\lambda}\\
+    &\rightarrow 0
+\end{aligned}$$
+\subsubsection{Step 2}
+Since $f$ is integrable, then $f$ can be approximated arbitrarily by simple functions (lemma \ref{Lemma 53.23}). Then for ant $\epsilon>0$, $\exists\phi:[a,b]\rightarrow\mathbb{R}$ simple, s.t.
+$$\int_a^b\abs{f(x)-\phi(x)}\text{d}x<\epsilon$$
+thus
+$$\begin{aligned}
+    \abs{\int_a^b f(x)e^{e\lambda x}\text{d}x} &=\abs{\int_a^b(f(x)-\phi(x))e^{i\lambda x}\text{d}x+\int_a^b\phi(x)e^{i\lambda x}\text{d}x}\\
+    &\leq\abs{\int_a^b(f(x)-\phi(x))e^{i\lambda x}\text{d}x}+\abs{\int_a^b\phi(x)e^{i\lambda x}\text{d}x}\\
+    &\leq\int_a^b\abs{f(x)-\phi(x)}\text{d}x+\abs{\int_a^b\phi(x)e^{i\lambda x}\text{d}x}\\
+    &\rightarrow 0
+\end{aligned}$$
+\section{Corollary}
+$$\lim\limits_{\lambda\rightarrow+\infty}\int_a^bf(x)\cos\lambda x\text{d}x=0$$
+$$\lim\limits_{\lambda\rightarrow+\infty}\int_a^bf(x)\sin\lambda x\text{d}x=0$$
+\textbf{Go back to Fourier series}
+$$\begin{aligned}
+    T_{n,f}(x) &=T_n(x)\\ &=\sum\limits_{k=-n}^n\left(\frac{1}{2\pi}\int_{-\pi}^\pi f(t)e^{-ikt}\right)e^{ikx}\\
+    &=\frac{1}{2\pi}\int_0^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u
+\end{aligned}$$
+Let $\delta\in \rightbracket 0,\pi\leftbracket$
+$$\begin{aligned}
+    &\frac{1}{2\pi}\int_0^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u\\
+    \leq&\frac{1}{2\pi}\int_0^\delta\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u\\+&\abs{\frac{1}{2\pi}\int_\delta^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u}
+\end{aligned}$$
+But
+$$\abs{\frac{1}{2\pi}\int_\delta^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u}\leq\abs{\frac{1}{2\pi}\int_\delta^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u}$$
+By Riemann-Lebesgue's Lemma \ref{Riemann-Lebesgue's Lemma}
+$$T_n(f)=\frac{1}{w\pi}\int_0^\delta\left(f(x-u)+f(x+u)\right)\frac{\sin(b+\frac{u}2)}{\sin\frac{u}2}\text{d}u+o(1)\quad n\rightarrow+\infty$$
+
+\section{Localization Principle}\label{Localization Principle}
+Let $f,g\in L^2([-\pi,\pi],\mathbb{K})$. If $f,g$ coincide in a neighborhood of $x_0\in \rightbracket -\pi,\pi\leftbracket\ (f=g)$, the Fourier series $$f\sim\sum\limits_{-\infty}^{+\infty}c_k(f)e^{i\lambda x}\quad g\sim\sum\limits_{-\infty}^{+\infty} c_k(g)e^{i\lambda x}$$
+\textit{either} both diverges \textit{or} both converges. Moreover if they converges ar $x_0$, then their limits are the same (NOT to be $f(x_0)=g(x_0)$)
+\subsection*{Proof}exercise, hint: use equation right above the theorem.
+\section{Def: Dini's Condition}\label{Dini's conditions}
+Let $U_x^0=\leftbracket-\delta,x\leftbracket\cup\rightbracket x,\delta\leftbracket$ and $f:U_x^0\rightarrow \mathbb{C}$. We say that $f$ satisfies \textbf{Dini's Condition} at $x$ if \begin{itemize}
+    \item $f(x_-)$ and $f(x_+)$ exists and finite
+    \item $\exists>0$ s.t. $$\int_0^\epsilon\abs{\frac{(f(x-t)-f(x_-))+(f(x+t)-f(x_+))}t}\text{d}t<+\infty$$ 
+\end{itemize}
+\subsection*{Example}Let $f:U_2\rightarrow \mathbb{C}$ be a continuous function satisfying the Holder inequality$$\abs{f(x+t)-f(x)}\leq M\abs t ^\alpha\quad M>0,\alpha\in \rightbracket 0,1\rightbracket$$
+Moreover
+$$\abs{\frac{f(x+t)-f(x)}t}\leq\frac{M}{\abs t ^{1-\alpha}}$$
+So condition (2) is satisfied. Dini's conditions are satisfied at $x$. Moreover, $f:U_2^0\rightarrow \mathbb{C}$, $f(x_-)$ and $f(x_+)$ exists and finite.
+
+Assume that $$\abs{f(x+t)-f(x_+)}\leq Mt^\alpha$$$$\abs{f(x-t)-f(x_-)}\leq Mt^\alpha$$
+Also in this case Dini's conditions at $x$ are satisfied
+\section{Theorem: pointwise convergence of Fourier series}
+Let $f:\mathbb{R}\rightarrow\mathbb{C}$ be a periodic function of period $2\pi$, such that $f$ is integrable in $[-\pi,\pi]$. If $f$ satisfies the Dini's condition at $x\in \mathbb{R}$, then its Fourier series converges at $x$ and $$\sum\limits_{-\infty}^{+\infty}c_k(f)e^{i\lambda x}=\frac{f(x_-)+f(x_+)}{2}$$
+\subsection*{Proof}
+$$T_n(x)-\frac{f(x_-)+f(x_+)}{2}=\frac{1}\pi\int_{-\pi}^\pi\frac{f(x-t)-f(x_-)+f(x+t)-f(x_+)}{2\sin\frac{t}2}\sin(n+\frac{1}2)t\text{d}t$$
+Now for $t\rightarrow 0^+,\ 2\sin\frac{t}2\sim t$, so use then Localization Principle \ref{Localization Principle}, the Dini's conditions \ref{Dini's conditions} and Riemann-Lebesgue's Lemma \ref{Riemann-Lebesgue's Lemma} to conclude that$$\left(T_n(x)-\frac{f(x_-)+f(x_+)}{2}\right)\stackrel{n\rightarrow +\infty}\rightarrow 0$$
 \end{document}
