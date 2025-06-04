@@ -7709,8 +7709,74 @@ So condition (2) is satisfied. Dini's conditions are satisfied at $x$. Moreover,
 Assume that $$\abs{f(x+t)-f(x_+)}\leq Mt^\alpha$$$$\abs{f(x-t)-f(x_-)}\leq Mt^\alpha$$
 Also in this case Dini's conditions at $x$ are satisfied
 \section{Theorem: pointwise convergence of Fourier series}
+\label{Fourier convergence}
 Let $f:\mathbb{R}\rightarrow\mathbb{C}$ be a periodic function of period $2\pi$, such that $f$ is integrable in $[-\pi,\pi]$. If $f$ satisfies the Dini's condition at $x\in \mathbb{R}$, then its Fourier series converges at $x$ and $$\sum\limits_{-\infty}^{+\infty}c_k(f)e^{i\lambda x}=\frac{f(x_-)+f(x_+)}{2}$$
 \subsection*{Proof}
 $$T_n(x)-\frac{f(x_-)+f(x_+)}{2}=\frac{1}\pi\int_{-\pi}^\pi\frac{f(x-t)-f(x_-)+f(x+t)-f(x_+)}{2\sin\frac{t}2}\sin(n+\frac{1}2)t\text{d}t$$
 Now for $t\rightarrow 0^+,\ 2\sin\frac{t}2\sim t$, so use then Localization Principle \ref{Localization Principle}, the Dini's conditions \ref{Dini's conditions} and Riemann-Lebesgue's Lemma \ref{Riemann-Lebesgue's Lemma} to conclude that$$\left(T_n(x)-\frac{f(x_-)+f(x_+)}{2}\right)\stackrel{n\rightarrow +\infty}\rightarrow 0$$
+\subsection*{Example}
+Consider $f=Id_{[-\pi,\pi]}$ and extend this by periodicity. Its Fourier series is $$\sum\limits_{-\infty}^{+\infty}2\frac{(-1)^{k+1}}k \sin kx$$
+Use Theo. above
+$$\sum\limits_{-\infty}^{+\infty}2\frac{(-1)^{k+1}}k \sin kx=\begin{cases}
+    x &\text{ if }\abs{x}<\pi\\0 &\text{ if }\abs{x}=\pi
+\end{cases}$$
+Consider $f:\mathbb{R}\rightarrow \mathbb{C}$ of period $2\pi$. Let $T_0(x),\cdots,T_n(x)$ be the trigonometric polynomial of $f$ of order $0,\cdots,n$. \\
+Let
+$$\sigma_n(x):=\frac{T_0(x)+\cdots+ T_n(x)}{n+1}$$
+Recall the expression of $T_i(x)$ in terms of the Dirichlet kernel $D_n(x)$
+$$T_i(x)=\frac{1}{2\pi}\int_0^\pi f(x-u)D_n(u)\text{d}u$$ So we have
+$$\sigma_n(x)=\frac{1}2\int_{-\pi}^\pi f(x-t)F_n(t)\text{d}t$$
+where 
+$$F_n(t)=\frac{1}{n+1}\left(D_0(t)+\cdots+D_n(t)\right)$$
+which is called the Fejer's kernel
+\section{Lemma}
+$$\sum\limits_{k=0}^n\sin(k+\frac12)t=\frac{\sin^2\left(\frac{n+1}2\right)}{\sin\frac{t}2}$$
+$$F_n(t)=\frac{\sin^2\frac{n+1}2t}{(n+1)\sin^2\frac{t}2}$$
+What happens when $t=2k\pi$? Use Tayor's expansion:
+$$F_n(t)=\frac{\left(\frac{(n+1)}2t+o(t)\right)^2}{(n+1)\left(\frac{t}2+o(t)\right)^2}\quad t\rightarrow 0$$
+$$F_n(t)=n+1$$
+Sso we can extend $F_n$ at all points $2l\pi$ by putting $F_n(2k\pi)=n+1$
+\section{Def: approximated(delta function)}
+A family of functions $\{K_n\}_{n\in\mathbb{N}}$ with $K_n:\mathbb{R}\rightarrow \mathbb{R}$ is called a \textbf{approximated identify} if
+\begin{itemize}
+    \item $\frac{1}{2\pi}\int_{-\infty}^\infty K_n(t)\text{d}t=1\quad \forall n\geq 0$
+    \item $K_n(t)\geq 0,\forall t\in \mathbb{R},n\geq 0$
+    \item For any $\delta>0$$$\lim\limits_{n\rightarrow+\infty}\int_{\abs{t}>\delta}K_n(t)\text{d}t=0$$
+
+\end{itemize}
+\section{Prop}
+\label{delta under Fourier}
+Consider $$\delta_n(x)=\begin{cases}
+    \frac{1}{2\pi}F_n(x)&\text{ if }\abs{x}\leq \pi\\0&\text{ otherwise}
+\end{cases}$$
+Then $\{\delta_n\}$ is an approximated identify
+\subsection*{Proof}
+\subsubsection{2}obvious
+\subsubsection{1}$$\int_\mathbb{R}\delta_n\text{d}\lambda=\frac{1}{2\pi(n+1)}\sum\limits_{k=0}^n\int_\mathbb{R}D_k(t)\text{d}\lambda=1$$
+\subsubsection{3}$$0\leq\int_{-\infty}^{-\delta}\delta_n(t)\text{d}t=\int_\delta^{+\infty}\delta_n(t)\text{d}t\leq\frac{1}{2\pi(n+1)}\int_\delta^\pi\frac{1}{\sin^2\frac{t}2}\text{d}t=\frac{2\delta}{2\pi(n+1)\tan\frac{\delta}2}\stackrel{n\rightarrow+\infty}{\rightarrow}0$$
+\section{Fejer Theorem}
+Let $f:\mathbb{R}\rightarrow\mathbb{C}$ continuous and with period of $2\pi$ and integrable in $[-\pi,\pi]$. Then $\sigma_{f,n}$ converges uniformly to $f$
+\subsection*{Proof}
+We want to prove that
+$$\lim\limits_{n\rightarrow+\infty}\sup\limits_{x\in[-\pi,\pi]}\abs{\sigma_n(x)-f(x)}=0$$
+Since $f$ is continuous in a compact set, it's uniformly continuous in $[\pi,\pi]$ then $\forall \epsilon>0$ $\exists \delta>0$ s.t.
+$$\abs{f(x-t)-f(x)}<\epsilon\quad \forall\abs{t}<\delta$$
+Now by theorem \ref{Fourier convergence}
+$$
+\begin{aligned}
+    \sigma_n(x)-f(x)&=\frac{1}{2\pi}\int_{-\pi}^\pi f(x-t)F_n(t)\text{d}t-f(x)\\
+    &=\frac{1}{2\pi}\int_{-\pi}^\pi\left(f(x-t)-f(x)\right)F_n(t)\text{d}t
+\end{aligned}
+$$
+Now split the integral into two parts:
+\begin{itemize}
+    \item[Near $t=0$]$\abs{t}<\epsilon$ For $f$ continuous and by prop \ref{delta under Fourier}
+        $$\int_{\abs{t}<\epsilon}\left(f(x-t)-f(t)\right)F_n(t)\text{d}t\leq\epsilon\int_{\abs{t}<\epsilon}F_n(t)\text{d}t\leq \epsilon 2\pi$$
+    \item[Away form 0]$t\in[\delta,\pi]$ By \ref{delta under Fourier} proof 3
+    $$\int_{t\in[\delta,\pi]}(f(x-t)-f(t))F_n(t)\text{d}t\leq 2\sup\limits_{[-\pi,\pi]}f\int_{t\in[\delta,\pi]}F_n(t)\text{d}t\rightarrow 0$$
+\end{itemize}
+\section{Weierstrass approximation}
+Let $f:[-\pi,\pi]\rightarrow\mathbb{C}$ be a continuous functions s.t. $f(-\pi)=f(\pi)$. Then such function can be approximated uniformly by $\sigma_n$ arbitrarily
+\subsection*{Proof}
+Since $f(-\pi)=f(\pi)$, when we extend this function by periodicity, we will get an continuous function over $\mathbb{R}$. Then we can apply Fejer's theorem
 \end{document}
