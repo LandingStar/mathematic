@@ -1,4 +1,4 @@
-\documentclass{article} 
+\documentclass{book} 
 \usepackage{graphicx} % Required for inserting images
 \usepackage{mathrsfs}
 \usepackage{amssymb}
@@ -563,4 +563,572 @@ A sesquilinear form $g:V\times \overline{V}\rightarrow K$ is \textbf{hermitian} 
 $$g(x,y)=\overline{g(y,x)}$$
 And note that inner product is any of symmetric symplectic or hermitian.
 
+\chapter{Classification (up to isometry) of vector spaces of small dim}
+Let $(V,g)$ be vector space over $K(=\mathbb{R},\mathbb{C})$ with inner product.
+\section{$\dim V=1$ and $g$ is symmetric}
+choose $v\in V\setminus\{0\}$ if $g(v,v)=0$, then $g$ is degenerated $\Rightarrow\ g=0$
+
+If $g$ is non-deg (non-degenerate) $\exists v$ s.t. $g(v,v)=a\neq0$$$\forall x\in K\quad g(xv,xv)=ax^2$$
+
+Any $v$ s.t. $g(v,v)=a\neq0$ induce a set
+$$\mathcal{C}(v):=\{ax^2:x\in K^*\}$$ this is an element in $K^*/\{x^2\mid x\in K^*\}$
+\subsection{Prop}Let $(V_1,g_1),(V_2,g_2)$ be two vector spaces of $\dim\ 1$ s.t. $g_1$ and $g_2$ are symmetric. Then $(V_1,g_1)$ and $(V_2,g_2)$ are isometric iff
+$$\exists v_1\in V_1,v_2\in V_2\text{ s.t. }\mathcal{C}_{g_1}(v_1)=\mathcal{C}_{g_2}(v_2)$$
+\subsection{Theorem}
+$(V,g)$ has dim 1, $g$ symmetric. Then $(V,g)$ is isometric to one of the following
+\begin{itemize}
+    \item $K=\mathbb{R}$$$(\mathbb{R},g(x,y)=xy)\quad(\mathbb{R},g(x,y)=-xy)\quad (\mathbb{R},g(x,y)=0)$$
+    \item $K=\mathbb{C}$$$(\mathbb{C},g(x,y)=xy)\quad (\mathbb{C},g(x,y)=0)$$ 
+\end{itemize}
+\section{$\dim V=1$ $g$ is hermitian}
+Again $g$ degenerate $\Rightarrow g=0$We use that same reason as above. $v\in V:g(v,v)=a\neq 0$, $\forall a\in \mathbb{C}^*$$$g(av,av)=\norm{a}^2g(v,v)$$
+So any element $v\in V\setminus\{0\}$ s.t. $g(v,v)=a$ induces a coset in $\mathbb{C}^*/\mathbb{R}_{> 0}$
+
+Inside $\mathbb{C}^*$, $\mathbb{R}_{>0}$ is a (mult) subgroup
+
+For any $z\in \mathbb{C}^*$ can be written uniquely as $z=re^{i\theta}$, hence
+$$\begin{aligned}
+    \mathcal{C}^* &\cong&\mathbb{R}_{>0}\times S^1&\rightarrow& S^1\\
+    z& \mapsto&(r,e^{i\theta}) &\mapsto& e^{i\theta} 
+\end{aligned}$$
+The kernel is $\mathbb{R}_{>0}$ and $S^1\cong\mathbb{C}^*/\mathbb{R}_{>0}$.
+
+But $g$ is hermitian, so$$g(v,v)\in \mathbb{R}$$
+If follows that the coset $$\{\norm{a}^2g(v,v)\mid a\in  \mathbb{C}^*\}\in (\mathbb{C}^*/\mathbb{R}_{>0})\cap(\mathbb{R}/\mathbb{R}_{>0})\cong\{\pm1\}$$
+We repeat the proposition before with $g$ hermitian and the following theorem
+\subsection{Theorem} $(V,g)$ if dim 1, with $g$ hermitian. Then $(V,g)$ is isometry to one of the following
+$$(\mathbb{C},g(x,y)=x\overline{y})\quad(\mathbb{C},g(x,y)=-x\overline{y})\quad(\mathbb{C},g(x,y)=0)$$
+\section{$\dim V=1$ $g$ symplectic}
+With dim 1 $\forall v_1,v_2\in V$ can be write as $v_1=ae,v_2=be$ with $e\in K^*$$$g(v_1,v_2)=ab\cdot g(v,v)=0$$
+\subsection{Theorem}$(V,g)$ of dim 1, $g$ symplectic, then $$(V,g)\cong(K,g=0)$$
+\section{$\dim V=2$ $g$ symplectic}
+Assume that $g$ is degenerated, then $\exists x\in V$ s.t. $g(x,y)=0,\forall y\in V$
+
+Extend $x$ to a basis $\{x,x'\}$ of $V$
+$$g(ax+a'x',bx+b'x')=ab\cdot g(x,x)+ab'\cdot g(x,x')-a'b\cdot g(x,x')+a'b'\cdot g(x',x')=0$$
+
+So when $g$ degenerated $g=0$
+
+
+Take $g$ non-degenerated $\exists v_1,v_2\in V$ s.t. $g(v_1,v_2)=a\neq0$. 
+
+For $g(a^{-1}v_1,v_2)=a^{-1}a=1$, we may assume that $a=1$
+
+Let's show that $v_1,v_2$ are linearly independent. Assume by contraction: $v_1=\lambda v_2$
+$$1=g(v_1,v_2)=g(\lambda v_2,v_2)=\lambda\cdot g(v_2,v_2)=0$$
+$\Rightarrow$ $\{v_1,v_2\}$ is a basis of $V$. Then
+$$\alpha_1\beta2-\alpha_2\beta_1=g(\alpha_1v_1+\alpha_2v_2,\beta_1v_1+\beta_2v_2)=(\alpha_1,\alpha_2)\begin{pmatrix}
+    0 &1\\-1&0
+\end{pmatrix}\begin{pmatrix}
+    \beta_1\\\beta_2
+\end{pmatrix}\stackrel{(?)}{=}\begin{pmatrix}
+    \ \overline{\beta_1}\ \\\overline{\beta_2}
+\end{pmatrix}$$
+\subsection{Theorem}
+$(V,g)$ is dim 2, $g$ symplectic. Then $(V,g)$ is isometric to one of the following
+$$(K^2,g(x,y)=0)\quad(K^2,g(x,y)=x_1y_2-x_2y_1)$$
+\chapter{Compliment}
+\section{Def: non-degenerate}
+Let $(V,g)$ be a inner product space. Let $V_0\subseteq V$ be a subspace. We say that $V_0$ is non-degenerate if $g\mid_{V_0}$ is non-degenerate.
+
+Moreover, $V_0$ is isotropic if $g\mid_{V_0}=0$
+\subsection*{Remark}Isotropic means degenerate
+\section{Def}
+Let $(V,g)$ be a inner product space. Let $V_0\subseteq V$ be a subspace. The orthogonal complement of $V_0$ is define as
+$$V_0^\bot:=\{v\in V\mid g(v,v_0)=0,\forall v_0\in V_0\}$$
+\section{Prop}
+Let $(V,g)$ be a inner product space. Let $V_0\subseteq V$ be a non-degenerate subspace. Then$$V=V_0\oplus V_0^\bot$$
+\section{Theorem}
+Let $(V,g)$ be an finite dimensional inner product space. If both $V_0$ and $V_0^\bot$ are non-degenerate, then $(V^\bot)^\bot=V_0$
+\section{Theorem}
+\label{theorem 58.5}
+Let $(V,g)$ be an finite dimensional inner product space. Then There exists a decomposition$$V=V_1\oplus\cdots\oplus V_n$$
+such that $\{V_i\}_{i=1}^n$ are pairwisely orthogonal and \begin{itemize}
+    \item [1] They are 1-dim if $g$ is symmetric or hermitian
+    \item [2]They are 1-dim but degenerated or 2-dim non-degenerate if $g$ is symplectic.
+\end{itemize}
+\chapter{Signature}
+Now we discuss the uniqueness of such decomposition
+\section{Def}
+Let $(V,g)$ be an inner product space with dim 1. Moreover, assume that $g$ is symmetric or hermitian. We say that $(V,g)$ is \textbf{positive} if $(V,g)$ is isometry to either $(\mathbb{R},g(x,y)=xy)$ or $(\mathbb{C},g(x,y)=x\overline{y})$
+
+We say that $(V,g)$ is \textbf{negative} if $(V,g)$ is isometry to either $(\mathbb{R},g(x,y)=-xy)$ or $(\mathbb{C},g(x,y)=-x\overline{y})$
+\section{Notation}
+By theorem \ref{theorem 58.5}, we can count the number of positive subspace of any inner product space.
+\begin{itemize}
+    \item $r_0:=\dim\ker g$
+    \item $r_+:=$ the number of positive subspaces
+    \item $r_-:=$ the number of negative subspaces
+\end{itemize}
+\section{Def}
+Let $(V,g)$ be an inner product space.
+\begin{itemize}
+    \item [1]If $g$ is real symmetric or, hermitian, then $(r_0,r_+,r_-)$ is signature of $V$
+    \item [2]If $g$ is symplectic or complex symmetric, then $(\dim V,r_0)$ is the signature of $V$
+\end{itemize}
+\section{Theorem}
+Let $(V,g)$ and $(V',g')$ be two inner product spaces, with $g,g'$ that are either (both) symplectic or complex symmetric.
+
+Then $(V,g)$ and $(V',g')$ are isometric iff$$(n,r_0)=(n',r_0')$$
+
+\section{Theorem}
+Let $(V,g)$ and $(V',g')$ be two inner product spaces, with $g,g'$ that are either (both) hermitian or real symmetric.
+
+Then $(V,g)$ and $(V',g')$ are isometric iff$$(r_0,r_+,r_-)=(r_0',r_+',r_-')$$
+\chapter{Orthonormal}
+\section{Def}
+Let $(V,g)$ be an inner product space. The basis $\{v_1,\cdots, v_n\}$ is said \textbf{orthogonal} if $g(v_i,v_j)=0,\forall i\neq j$
+
+Moreover, $g$ is said \textbf{orthonormal} if $g(v_i,v_i)\in \{0,-1,1\},\forall i$
+\subsection*{Remark}
+If $g$ is hermitian or symmetric. We can always find an orthonormal basis from an orthogonal basis.
+\section{Def}
+Let $V$ be a vector space over $K$($char K\neq 2$). A \textbf{quadratic form} on $V$ is a mapping $a:V\rightarrow K$ such that
+\begin{itemize}
+    \item $q(\alpha v)=\alpha^2q(v)\forall \alpha\in K,v\in V$
+    \item $f=(u,v)\mapsto\ q(u+v)-q(u)-q(v)$ is bilinear
+\end{itemize}
+\subsection*{Remark}
+Any symmetric bilinear form $h:V^2\rightarrow K$ is a quadratic form. Given a quadratic form $q:V\rightarrow K$, we can define a symmetric bilinear form$$h_p(u,v)=\frac{1}{2}\left(q(u+v)-q(u)-q(v)\right)$$
+\section{Gram-Schmidt algorithm}
+Let $(V,g)$ be an inner product space with $g$ symmetric or hermitian. Let $\{v'_1,\cdots,v'_n\}$ be a basis of $V$ such that $V_i=\left<v'_1,\cdots,v'_i\right>\ \forall i\in \{1,\cdots,n\}$ is non-degenerate.
+
+Then there exists an orthogonal basis $\{v_1,\cdots,v_n\}$ such that $V_i=\left<v_1,\cdots,v_i\right>$ $\forall i\in \{1,\cdots,n\}$ is non-degenerate.
+\chapter{Euclidean and Unitary Spaces}
+\newcommand{\inprod}[2]{\left<#1,#2\right>}
+\section{Def:Euclidean vector space}
+A euclidean vector space is a finite dimensional inner product space over $\mathbb{R}$ $(E,g)$ with $g$ symmetric and positive definite ($g(x,x)>0,\forall x\neq 0$)
+
+We denote$$\left<x,y\right>:=g(x,y)$$\
+\subsection*{Remark}
+Any non-zero subspace of $(E,\left<\cdot,\cdot\right>)$ is non-degenerated:
+
+The signature of $E$ is of the type $(0,\mathbcal{r}_+,\mathbcal{r}_-)$ denoted by $(P,Q)(P=\mathbcal{r}_+,Q=\mathbcal{r}_-)$
+
+An euclidean space is a normed vector space $$\norm{x}=\sqrt{\inprod{x}{x}}$$
+($\inprod{}{}$ positive defined required)
+
+Any euclidean vector admits an orthonormal basis $\{v_1,\cdots,v_n\},\inprod{v_i}{v_i}=1$ So orthonormal means $$\norm{v_1}=1$$
+In a euclidean space we have a distance $$d(x,y)=\norm{x-y}$$
+\section{Prop}
+A euclidean space $(E,\inprod{}{})$ of dim $n$ is isometric to $(\mathbb{R}^n,\underbrace{\inprod{}{}}\limits_{\text{usual scalar product}})$
+\section{Remark}
+\begin{itemize}
+    \item [Cauchy-Schwartz inequality]$$\inprod{x}{y}\leq\norm{x}\norm{y}$$
+    \item [Triangle inequality]$$\norm{x+y}\leq\norm{x}+\norm{y}$$
+\end{itemize}
+\section{Pythagoras's Theorem}
+\label{Pythagoras}
+If $x_1,\cdots,x_k$ are pairwise orthogonal, then
+$$\norm{\sum\limits_{i=1}^kx_i}^2=\sum\limits_{i=1}^k\norm{x_i}^2$$
+\section{Def:Angles}
+By Cauchy-Schwartz inequality:
+$$-1\leq\frac{\inprod{x}{y}}{\norm{x}\norm{y}}\leq1$$
+Then there exists a element $\phi\in [0,\pi]$ such that
+$$\cos\phi=\frac{\inprod{x}{y}}{\norm{x}\norm{y}}$$
+$\phi$ is defined as the angle between $x$ and $y$
+
+Notice that $\phi$ is not an oriented angle.
+\section{Notation}
+Let $U,V\subseteq E$ be two subspace, then $$d(U,V):=\inf\{\norm{u-v}\mid u\in U,v\in V\}$$
+\section{Def}
+$V\subsetneq E$ a vector subspace, $x\in E\setminus\{0\}$. Then $E=V\oplus V^\perp$ (proved) Then we write (uniquely)
+$$x=x_0,+x'_0$$ where $x_0\in V, x'_0\in V^\perp$.
+
+Then $x_0$ is called the orthogonal projection of $x$ on $V$, $x'_0$ is called the orthogonal projection of $x$ on $V^\perp$
+\section{Prop}
+Use the above notation:
+$$d(x,V)=\norm{x'_0}$$
+\section{Prop}
+Use the previous notations. Assume that $m=\dim V,\ V\subseteq E$, $\{v_1,\cdots,v_m\}$($m\leq n=\dim E$) is an orthonormal basis of $V$. Then
+$$x_0=\sum\limits_{i=1}^m\inprod{x}{v_i}v_i$$
+\section{Relationship with calculus}
+$(E,\inprod{}{})=(\mathbb{R}^n,\inprod{}{})$ on $\mathbb{R}^n$ we have the notion of volumes$$vol(B):=\lambda^n(B)$$
+where $B$ is a Borel set.
+
+A $n$-dimensional parallelepiped is :
+$$P_n=\left\{t_1v_1+\cdots+t_nv_n\mid t_i\in[0,1]\forall i\right\}$$
+Consider a linear mapping
+$$\begin{aligned}
+    A_{P_n}=A:\mathbb{R}^n&\rightarrow&\mathbb{R}^n\\x&\mapsto&Ax
+\end{aligned}$$
+where $A\in\mathcal{M}_{n\times n}(\mathbb{R})$, $A=(v_1\mid\cdots\mid v_n)$
+
+$A$ is invertible iff $\{v_1,\cdots,v_n\}$ is a basis. Let $\prod_n=[0,1]^n$ then$$A(\prod_n)=P_n$$
+If $A$ invertible
+$$\begin{aligned}
+    vol(P_n)&=\lambda^n(P_n)\\
+    &=\int_{A(\prod_n)}\chi_{P_n}\text{d}\lambda^n\\
+    \text{change of variables }&=\int_{A(\prod_n)}\abs{\det A}\text{d}\lambda^n\\
+    &=\abs{\det A}\\
+    \text{by the prop of det }&=\sqrt{\det A^TA}
+\end{aligned}$$
+\section{Prop}
+$$vol(P_n)=\sqrt{\det G}$$
+\chapter{Unitary Space}
+\section{Def}
+A complex inner vector space $(H,h)$ where $h$ is hermitian and positive define then it's called \textbf{unitary space}
+
+As in the Euclidean space, we have orthonormal basis and define a norm,then a distance.
+
+$$\norm{x}=\sqrt{h(x,x)}$$
+\section{Decomplexification}
+Let $V$ be a complex vector space of dimension $n$. We resist the module structure $\mathbb{C}\times V\rightarrow V$ to $\mathbb{R}\times V\rightarrow V$
+
+The $\mathbb{R}$-vector space denoted by $V_\mathbb{R}$ has the same vector of $V$. For any $\mathbb{C}$-linear mapping $f:V\rightarrow W$, the module induces a mapping $$f_\mathbb{R}\rightarrow W_\mathbb{W}$$
+\section{Theorem}
+Let $V$ be a complex vector of dim $n$
+\begin{itemize}
+    \item Let $V$ be a complex vector basis of $V$, then $\{v_1,\cdots, v_n,iv_1,\cdots, iv_n\}$ is a real basis of $V_\mathbb{R}$
+    \item $f:V\rightarrow W$ is a linear mapping. Assume that it's metric representation with respect to the basis $\{v_1,\cdots, v_n\}$ of $V$ and $\{w_1,\cdots, w_n\}$ of $W$ is $$A=B+iC$$
+    where $B,C\in\mathbb{R}$ Then the metric representation of $f_\mathbb{R}$ with respect to the basis $\{v_1,\cdots, v_n,iv_1,\cdots, iv_n\}$ and $\{w_1,\cdots, w_n,iw_1,\cdots, iw_n\}$ is$$\begin{pmatrix}
+        B&-C\\C&B
+    \end{pmatrix}$$
+\end{itemize}
+\section{Corollary}
+Let $f:V\rightarrow V$ be a $\mathbb{C}$-linear mapping. Then$$\det f_\mathbb{R}=\det f\overline{\det f}$$
+\chapter{Complexification}
+\section{Def: Complex structure}
+Let $W$ be a real vector space of dim $n$ Consider $J:W\rightarrow W$ a linear mapping such that $J^{\circ 2}=-Id$. Then $J$ is called the \textbf{complex structure} of $W$. Then couple $(W,J)$ is a vector space with a complex structure.
+\subsection*{Example}$$\begin{aligned}
+    J:V_\mathbb{R}&\rightarrow & V_\mathbb{R}\\
+    v&\mapsto&iv\\
+    iv&\mapsto&-v
+\end{aligned}$$
+\section{Theorem}
+Let $(W,J)$ be a real vector space with a complex structure. Then on $W$ we introduces the following complex module:
+$$(a+bi)w:=aw+bJ(w)$$
+We obtain a complex vector space $W$ such that $(W)_\mathbb{R}=W$
+\section{Corollary}
+If $(W,J)$ is a vector space with a complex structure,then $\dim W$ is even. Assume that if it's even, then it's possible to find a basis on $W$ such that $J$ is represented by$$\begin{pmatrix}
+    0&-I_n\\I_n&0
+\end{pmatrix}$$
+Consider a orthonormal basis on $H\{v_1,\cdots, v_n\}$. $G_h:\mathbb{C}^n\rightarrow C^n$ is the Gram matrix of $h$ with respect to $\{v_1,\cdots,v_n\}$ $$G_h=B_iC$$ Now$$G_\mathbb{R}=\begin{pmatrix}
+    B&-C\\C&B
+\end{pmatrix}$$
+Then $G_\mathbb{R}$ defines an inner product and $(H_\mathbb{R},\inprod{}{})$ is Euclidean.
+\section{Notation}
+Now fix a inner product space. Then $$h(x,y)=a(x,y)+ib(x,y)$$when $a,b: V\times V\rightarrow \mathbb{R}$
+\section{Prop}
+In the above notation the following structure holds:
+\begin{itemize}
+    \item [1] $a(x,y)$ and $b(x,y)$ are inner products on $V_\mathbb{R}$, with a symmetric and $b$ skew-symmetric. In addition:$$a(ix,iy)=a(x,y)\quad b(ix,iy)=b(x,y)$$In other word $a,b$ are invariant by the multiplication by $i$ Invariance w.r.t. the complex structure of $H_\mathbb{R}$
+    \item [2]The following relations hold. $$a(x,y)=b(ix,y)\quad b(x,y)=-a(ix,y)$$
+    \item [3]Any pair of $J$-invariant bilinear forms on $V_\mathbb{R}$ $a,b:V\times V\rightarrow \mathbb{R}$ that are symmetric and symplectic, respectively and s.t. (2) is satisfied. Define an hermitian inner product$$h(x,y):=a(x,y)+ib(x,y)$$ Moreover $h$ is positive define iff $a$ is positive define.
+\end{itemize}
+\section{Complex Cauchy-Schwartz inequality}
+$(H,h)$ is a unitary space with finite dim. Then the inequality$$\abs{h(x,y)}\leq\norm{x}\norm{y}$$holds iff $x$ and $y$ are propositional $(x=ty)$
+\section{Corollary:Complex triangle inequality}$$\norm{x+y}\leq\norm{x}+\norm{y}$$
+\section{Def:Angle for unitary space}
+For $$0\leq\frac{\abs{h(x,y)}}{\norm{x}\cdot\norm{y}}$$
+$\exists !\phi\in [0,\frac{\pi}{2}]$$$\cos\phi=\frac{\abs{h(x,y)}}{\norm{x}\cdot\norm{y}}$$
+The physical application is that $\phi$ can be considered as probability.
+\section{Prop}
+Let $(V,g)$ be an inner product space with a non-degenerate inner product hermitian or real symm and $f:V\rightarrow V$ be a linear mapping. Then the following statements are equivalent:
+\begin{itemize}
+    \item [0] $f$ is isometry
+    \item [1] $g(f(x),f(x))=g(x,x)\ \forall x\in V$
+    \item [2] Let $\{v_1,\cdots,v_n\}$ be a basis for $V$ and let $G$ be a Gram matrix of $g$ w.r.t. such baisi. If $A$ is the matrix of $f$ w.r.t. $\{v_1,\cdots,v_n\}$, then $$A^TGA=G\text{ or } A^TG\overline A=G$$
+    \item [3] $f$ transforms orthonormal basis into orthonormal basis
+    \item [4] If the signature of $g$ is $(p,q)\ (\mathbcal{r}_0=0)$, then the matrix of $f$ w.r.t. any orthonormal basis $\{v_1,\cdots,v_p,v_{p+1},\cdots,v_{p+q}\}$ where$$(v_i,v_i)=\begin{cases}
+    1&\text{ if }i\leq p\\-1&\text{ if }p<i\leq p+q
+    \end{cases}$$
+    satisfies the following property:\begin{itemize}
+        \item [symm case]$$A^T\begin{pmatrix}
+            I_p&0\\0&-I_q
+        \end{pmatrix}A=\begin{pmatrix}
+            I_p&0\\0&I_q\end{pmatrix}$$
+        \item [hermitian case]$$A^T\begin{pmatrix}
+            I_p&0\\0&-I_q
+        \end{pmatrix}\overline A=\begin{pmatrix}
+            I_p&0\\0&I_q\end{pmatrix}$$
+    \end{itemize}
+\end{itemize}
+\chapter{Special operators}
+\section{Def}
+$(E,\inprod{}{})$ is a Euclidean space, then an isometry $f:E\rightarrow E$ is called an \textbf{orthogonal operator}
+
+$(H,h)$ a unitary space, then an isometry $f:H\rightarrow H$ is said a \textbf{unitary operator}
+\section{Corollary}
+\label{corollary 63.11}
+Orthogonal and unitary operators have the following properties:
+
+w.r.t. an (all) orthonormal basis, they are represented by a matrix $U$
+$$UU^T=I_n\text{ or }UU^\dagger=I_n$$
+\section{Def: orthogonal matrices}
+$$O(n):=\{A\in GL_n(\mathbb{R})\mid AA^T=I_n\}$$
+\section{Def: unitary matrices}
+$$U(n):=\{A\in GL_n(\mathbb{C})\mid AA^\dagger=I_n\}$$
+\subsection*{Remark}
+By the corollary \ref{corollary 63.11}, we have\begin{itemize}
+    \item $O(n)$ is the set of orthogonal operators of $(\mathbb{R}^n,\inprod{}{})$
+    \item $U(n)$ is the set of unitary operators of $(\mathbb{C}^n,\inprod{}{})$
+\end{itemize}
+\subsection*{Remark}
+$$
+\begin{aligned}
+    O(n)\\\text{isometry}
+\end{aligned}
+\subseteq
+\begin{aligned}
+    GL_n(\mathbb{R})
+\end{aligned}
+\subseteq
+\begin{aligned}
+    M_{n,n}(\mathbb{R})\\\text{endomorphism}
+\end{aligned}$$
+Take $T\in O(n),TT^T=I_n$$$(\det T)^2=1\ \Rightarrow\ \det T=\pm 1$$
+\section{Notation}
+$$\begin{aligned}
+    SL_n(\mathbb{R})&:=\{A\in GL_n(\mathbb{R})\mid \det A=1\}\\
+    SO(n)&:=\{A\in O_n\mid\det A=1\}
+\end{aligned}$$
+\chapter{Classification of operators}
+$$\begin{aligned}
+    &U(1)=\{a\in \mathbb{C}\mid a\overline{a}=1\}=\{e^{i\phi}\mid \phi\in \mathbb{R}\}\\
+    &O(1)=\{1,-1\}=U(1)\cap\mathbb{R}
+\end{aligned}$$
+Let's study $O(2)$ and classify all its elements
+
+$O(n)/SO(n)=\{\pm1\}$ $SO(n)$ is a normal subgroup of $O(n)$ of index 2, namely $$\#(O(n)/SO(n))=2$$
+Take $T\in O(2)$, we have two cases:$\begin{cases}
+    T\in SO(2)\\T\in O(2)\setminus SO(2)
+\end{cases}$
+\subsection{$T\in SO(2)$}
+Assume $T=\begin{pmatrix}
+    a&b\\c&d
+\end{pmatrix}$, and $TT^T=Id_2$
+$$\begin{cases}
+    \det T=ad-bc=1\\a^2+b^2=1\\c^2+d^2=1\\ac+bd=0
+\end{cases}$$
+This implies $\exists\alpha$ unique op to add by $2k\pi$ s.t.$$a=\cos\alpha\quad b=\sin\alpha$$
+We have shown that
+$$SO(2)=\left\{\left.\begin{pmatrix}
+    \cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha
+\end{pmatrix}\right| \alpha\in \leftbracket 0,2\pi\leftbracket\right\}$$
+Note that $T$ doesn't have eigenvalues for $\alpha\neq 0,\pi$
+\subsection{$T\in O(2)\setminus SO(2)$}
+$A=\begin{pmatrix}
+    1&0\\0&-1
+\end{pmatrix}$ is the reflection with respect to the line $y=0$$$TA\in SO(2)$$since $$\det(TA)=\det T\cdot\det A=1$$
+By the previous reasoning,$$T=\begin{pmatrix}
+    \cos\alpha&-\sin\alpha\\-\sin\alpha&-\cos\alpha
+\end{pmatrix}$$
+The set $O(2)\setminus SO(2)$ represents reflections.
+
+Consider the mapping$$\begin{aligned}
+    U(1) &\stackrel{\cong}\rightarrow&SO(2)\\
+    e^{i\phi}&\mapsto&\begin{pmatrix}
+        \cos\phi&-\sin\phi\\\sin\phi&\cos\phi
+    \end{pmatrix}
+\end{aligned}$$
+$O(2)\cong U(1)\cup\left(O(2)\setminus SO(2)\right)$
+\subsection*{Remark}
+Reflections are diagonalizable with eigenvalues $\{\pm 1\}$ and the corresponding eigenvectors are orthogonal.
+\section{Theorem}
+\begin{itemize}
+    \item[1] Let $(H,h)$ be a unitary space. A linear mapping $f:H\rightarrow H$ is unitary iff it's diagonalizable in an orthonormal basis and with eigenvalues in $S^1$
+    \item Let $(E,\inprod{}{})$ be a Euclidean space. A linear mapping $f:E\rightarrow E$ is orthogonal iff in some orthonormal basis $f$ is represented by matrix:
+    $$\begin{pmatrix}
+        R(\phi_1)&&&&&\\
+        &\ddots&&&\\
+        &&R(\phi_n)&&\\
+        &&&Id_1&\\
+        &&&&\ddots&\\
+        &&&&&Id_m
+    \end{pmatrix}$$
+    where $$R(\phi_i)=\begin{pmatrix}
+        \cos\phi_i&-\sin\phi_i\\\sin\phi_i&\cos\phi_i
+    \end{pmatrix}\quad \phi_i\in \leftbracket 0,2\pi\leftbracket$$
+    \item[3] The eigenvectors of orthogonal/unitary operators corresponding to different eigenvalues are orthogonal.
+\end{itemize}
+\chapter{Fourier Coefficient}
+\begin{itemize}
+    \item[Goal]We have an infinite dim vector space (usually a space of function) we want to express the elements as combinations of "orthogonal" vectors. (w.r.t. some nice inner product)
+\end{itemize}
+\section{Def: Orthogonal and Orthonormal System}
+$V$ is a vector space over $\mathbb{R}$ or $\mathbb{C}$, $\inprod{}{}$ is an inner product which either symm or hermitian.. Moreover, $\inprod{}{}$ is non-degenerate and positive define. 
+
+A set of vectors $\{l_k\mid k\in I\}$ (where $I$ be the set of indexes) is said to be an orthogonal system if$$\inprod{l_j}{l_k}\text{ iff } j\neq k$$
+Moreover $\{l_k\}$ is an orthonormal system if$$\inprod{l_j}{l_k}=\delta_{jk}$$
+\section{Prop}
+Let $\{l_k\}$ be an orthogonal system, then $\{l_k\}$ is a set of non-zero linearly independent vectors.
+
+\section{Prop}
+\subsection*{}The inner product $\inprod{}{}$ is continuous (w.r.t. the Euclidean topology in the co-domain, and the product topology on the domain, where on $V$ we put the topology induced by $\inprod{}{}$)
+\subsection*{}If $\{f_k\}$ is orthogonal system and $x\in V=\sum\limits_{k=1}^\infty x_kl_k$, then $\forall y\in V$$$\inprod{x}y=\sum\limits_{k=1}^\infty\inprod{x_k}{y}$$
+\subsection*{}If $\{f_k\}$ is orthonormal system and $ x=\sum\limits_{k=1}^\infty x_kl_k$, $y=\sum\limits_{k=1}^\infty y_kl_k$, then $$\inprod{x}{y}=\sum\limits_{k=1}^\infty x_k\overline y_k$$or$$\inprod{x}{y}=\sum\limits_{k=1}^\infty x_ky_k$$
+
+\section{Corollary: Pythagoras}
+\label{Pythagoras}
+\begin{itemize}
+    \item [1]If $\{v_k\}$ is an orthogonal system and $v=\sum\limits_{k=1}^\infty v_k$, then$$\norm{v}^2=\sum\limits_i\abs{v_i}^2$$
+    \item [2]If $\{l_k\}$ is an orthonormal system and $x=\sum\limits_{k=1}^\infty x_kl_k$, then$$\norm{x}^2=\sum\limits_i\abs{x_i}^2$$
+\end{itemize}
+\section{Def: Fourier coefficient}
+Let $\{l_k\}$ be an orthogonal system in $V$. Assume that $x=\sum\limits_{k=1}^\infty x_kl_k$, then $$x_k:=\frac{\inprod{x}{l_k}}{\inprod{l_k}{l_k}}$$
+is called a \textbf{Fourier coefficient} of $x$ in $\{l_k\}$
+
+Consider $x\in V$, then the Fourier series of $x$ in $\{l_k\}$ is $$x\sim\sum\limits_{k=1}^\infty x_k l_k$$
+We don't know whether it converges to $x$ yet.
+\section{Main example}
+$$V=L^2(X,\mathbb{K})/\sim$$
+where $X\in \mathbb{K}^n$ a measurable subset (w.r.t. $\lambda^n$), $\mathbb{K}=\mathbb{R}\text{ or }=\mathbb{C}$
+$$L^2(X,\mathbb{K}):=\{f:X\rightarrow \mathbb{K}\mid \int_X\abs{f}^2\text{d}x<+\infty\}$$
+We define a equivalence relation on $L^2(X,\mathbb{K})$ by$$f\sim g\text{ iff }\lambda^n\left(\{x\in X\mid f(x)\neq g(x)\}\right)=0$$
+we identify two functions equal if they're equal on almost everywhere(only diff on set that measures zero) From now on, we write elements in $V$ simply by representatives.
+
+We define an inner product on $V$:
+$$\begin{aligned}
+    \inprod{}{}:V\times V &\rightarrow &\mathbb{K}\\
+    (f,g)&\mapsto&\int_Xf\overline g\text{d}\lambda^n
+\end{aligned}$$
+(Well defined w.r.t. $\sim$ ?) Check that is $\int_Xf\overline{g}\text{d}\lambda^n$ well defined? Recall that$$\norm{f(x)\overline{g(x)}}=\norm{f(x)}\norm{g(x)}$$ Then inequality:
+$$\begin{aligned}
+    &\norm{f(x)}\norm{g(x)}&\leq\frac{1}{2}(\norm{f(x)}^2+\norm{g(x)}^2)\\
+    \Leftrightarrow&0&\leq(\norm{f(x)}+\norm{g(x)})^2
+\end{aligned}$$
+We always have $\norm{f(x)}\norm{g(x)}\leq\frac{1}{2}(\norm{f(x)}^2+\norm{g(x)}^2)$ It follows that $\inprod{f}{g}$ is well-defined. It easy to show that $\inprod{}{}$ is hermitian. The only non-trivial thing is:
+$$0=\inprod{f}{f}\Leftrightarrow f(x)=0\text{ almost everywhere}$$
+This means that if we don't use $\sim$ that we cannot say $\inprod{}{} $is positive defined.
+
+Consider the following Integral:
+$$\int_{\pi}^\pi e^{imx}e^{-inx}\text{d}x=\begin{cases}
+    0 & \text{ if }m\neq n\\2\pi&\text{ if }m=n
+\end{cases}$$
+So $\{x\mapsto e^{imx}\mid m\in \mathbb{Z}\}$ is an orthogonal system for $V=L^2([-\pi,\pi],\mathbb{C})/\sim$. To make it orthonormal, consider
+$$\left\{\left.\frac{1}{\sqrt{2\pi}}e^{imx}\right| n\in \mathbb{Z}\right\}$$
+If you want to replace $[-\pi,\pi]$ by $[-a,a]$, consider:
+$$\left\{\left.\frac{1}{\sqrt{2\pi}}e^{\frac{imx}a}\right| n\in \mathbb{Z}\right\}$$
+This is an orthonormal system for $L^2([-a,a],\mathbb{C})/\sim$ In the real case, consider the following integrals:
+$$\int_{-\pi}^\pi\cos(mx)\cos(nx)\text{d}x=\begin{cases}
+    0 & \text{ if }m\neq n\\\pi &\text{ if }m=n\neq0\\2\pi&\text{ if }m=n=0
+\end{cases}$$
+$$\int_{-\pi}^\pi\cos(nx)\sin(nx)\text{d}x=0$$
+$$\int_{-\pi}^\pi\sin(nx)\sin(mx)\text{d}x=\begin{cases}
+    0 & \text{ if }m\neq n\text{ or }mn=0\\\pi &\text{ if }m=n\neq0
+\end{cases}$$
+If follows that $\{1,\cos(nx),\sin(mx)\mid(m,n)\in \mathbb{N}^2\}$ is an orthogonal system for $L^2([-\pi,\pi],\mathbb{R})$
+$$f\sim\frac{a_0}{2}+\sum\limits_{k=1}^\infty a_k\cos(kx)+b_k(f)\sin(kx)$$
+$$\begin{cases}
+    a_k=\frac{1}\pi\int_{-\pi}^\pi f(x)\cos(kx)\text{d}x\\
+    b_k=\frac{1}\pi\int_{-\pi}^\pi f(x)\sin(kx)\text{d}x
+\end{cases}$$
+For instance if $f=Id$ then $a_k=0,b_k=(-1)^{k+1}\frac{2}{k}$
+\chapter{Convergence}
+Always assume that the orthogonal system countable this chapter
+\section{Prop}Take $x\in V$ and let$$\overline x=\sum\limits_{k=1}^\infty\frac{\inprod{x}{l_k}}{\inprod{l_x}{l_x}}l_k$$
+Then if we write $x=\overline x+h$ then $h$ is orthogonal to $\overline{x}$ and $h$ is orthogonal to the topological closure of $\left<\{l_k\}\right>$
+\subsection*{Remark}
+By Pythagoras Theorem \ref{Pythagoras}, since $x=\overline{x}+h$
+$$\norm{x}^2=\norm{\overline{x}}^2+\norm{h}^2\geq\norm{\overline{x}}^2$$
+If we write that inequality with respect to the Fourier coefficients, we get \textbf{Bessel's inequality}\\Note that
+$$\norm{x}^2=\sum\limits_k^\infty\abs{\frac{\inprod{x}{l_m}}{\inprod{l_k}{l_k}}}\inprod{l_k}{l_k}=\sum\limits_k\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}$$
+$$\sum\limits_{k}^\infty\frac{\inprod{x}{l_k}}{\inprod{l_k}{l_k}}\leq\norm{x}^2\quad(\text{Bessel's inequality})
+$$
+So far we have assumed that the Fourier series converges to prove Bessel's inequality. But we DON'T NEED this assumption
+\section{Theorem}
+Assume $\{l_k\}$ is orthonormal. Let $x_k=\inprod{x}{l_k}$. If $V$ is complete. then $\sum\limits_{k}x_kl_k$ converges.
+\subsection*{Remark}In the proof we assumed $\{l_k\}$ orthogonal. But this is not essential.
+\textbf{We have studied the existence of the limit} $x$ \textbf{. What about the relation between } $\overline{x}$\textbf{ and }$x$
+\section{Prop}\label{Prop 67.3}
+Let $\{l_k\}$ be an orthogonal system. Take $x\in V$ and assume that
+$$V\ni\overline{x}=\sum\limits_{k=1}^\infty
+\frac{\inprod{x}{l_k}{\inprod{l_x}{l_x}}}l_k$$
+Then for any $y=\sum\limits_{k}d_kl_k\ (d_k\in \mathbb{F})$ it holds that:
+$$\norm{x-\overline{x}}\leq\norm{x-y}$$
+The equality is true iff $\overline{x}=y$
+\section{Def}
+A family of vectors $\mathcal{F}=\{x_\alpha\mid\alpha\in A\}$ in a normed vector space $V$ is \textbf{complete} in a subset $E\subseteq V$ if every vector $x\in E$ can be approximated with arbitrary accuracy by a \textbf{finite} linear combination of elements in $\mathcal{F}$
+\subsection*{Another statement}
+Let $L=\{\mathcal{F}\}$, then $\mathcal{F}$ is complete in $E$ if $E\subseteq\overline{L}$
+\section{Weierstrass Approximation Theorem}
+Let $f\in \mathcal{C}([a,b])$. For any $\epsilon>0$, there exists a polynomial $p\in \mathbb{F}[x]$ such that for any $x\in [a,b]$, we have
+$$\abs{f(x)-p(x)}<\epsilon$$
+In fact$$\norm{f-p}=\sqrt{\int_a^b\abs{f-p}^2\text{d}\lambda}<\epsilon\sqrt{b-a}$$
+\section{Prop}
+\label{Prop 63.1}
+Let $V$ be a complete vector space over $\mathbb{F}$ with inner product $\inprod{}{}$ hermitian or real symm, and positive define and non-degenerate.
+
+Moreover, $\{l_k\}$ is an orthogonal system at most countable. Then the following conditions are equivalent:
+\begin{itemize}
+    \item [1]$\{l_k\}$ is complete in $E\subseteq V$
+    \item [2]For any $x\in E$, we have $x=\sum\limits_{k}\frac{\abs{\inprod{x}{l_k}}}{\inprod{l_k}{l_k}}l_k$
+    \item [3]Any vector $x\in E$ satisfies$$\norm{x}^2=\sum\limits_{k}\frac{\abs{\inprod{x}{l_k}}^2}{\inprod{l_k}{l_k}}$$
+\end{itemize}
+\section{Def: Hamal basis}A countable family of vectors $\{b_k\}$ is a \textbf{Hamal basis} of $V$ if any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ in $\mathbb{K}$ with $\alpha_k=0$ for all but finitely many $k$ s.t. $$v=\sum\limits_k\alpha_kb_k$$
+(In this def we don't need to use the topological properties of $V$)
+\section{Def: Schauder basis}A countable family of vectors $\{b_k\}$ is a \textbf{Schauder basis} for $V$ if for any $v\in V$ there exists a unique sequence $\{\alpha_k\}$ such that$$v=\sum\limits_k a_kb_k\quad \text{(as convergent series)}$$
+
+A Hamal basis is a Schauder basis(? to prove an element in basis can't be represented by others). In particular, a Schauder basis is a complete family of vectors (in $E=V$)
+
+In pervious, we've proved that if $\{l_k\}$ is an orthogonal complete system (in $E=V$) with $V$ complete, then any $x\in V$ can be written as$$x=\sum\limits_k\alpha_kl_k$$ when $\alpha_k$ are the Fourier coefficients.
+
+In general it's FALSE that a complete family $\{b_k\}$ is a Schauder ($x\in \overline{\left<\{b_k\}\right>}$)
+\section{Important Result}
+\subsection*{1}
+$L^2(\leftbracket -\pi,\pi\leftbracket,\mathbb{K})$ is complete as topological vector space.
+\subsection*{2}$\{1,\cos kx,\sin kx\mid k\in \mathbb{N}_{\geq 1}\}$ is a complete family.
+\section{Def}
+$f:X\setminus\{x_0\}\rightarrow\leftbracket 0,+\infty\leftbracket$ we say that $f$ is \textbf{unbounded} at $x_0$ if $\forall U\ni x_0,\ M>0$$$ \exists x\in U \text{ s.t. }f(x)>M$$
+\section{Def: extend by periodicity}
+Let $f:\leftbracket -\pi,\pi\leftbracket\rightarrow \mathbb{R}$ extend this func by periodicity.
+$$\tilde{f}=f(x-2k\pi)\quad k\in\mathbb{Z}$$
+
+\section{Theorem}
+\label{Lp complete}
+$L^p(X,\mu)$ is complete w.r.t the topology induced by $\norm\cdot_p$
+\section{Def: Dirichlet kernel}$$D_n(x):=\sum\limits_{k=-n}^ne^{iku}=\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}$$
+this is called \textbf{Dirichlet kernel}, which has the prop
+$$\frac{1}{2\pi}\int_{-\pi}^\pi D_n(u)\text{d}u=\frac{1}{\pi}\int_0^\pi D_n(u)\text{d}u=1$$
+Back to $T_n$ putting $u=x-t$
+$$\begin{aligned}
+    T_n(x)&=\frac{1}{2\pi}\int_{-\pi}^\pi f(x-u)D_n(u)\text{d}u\\
+    &=\frac{1}{2\pi}\int_{-\pi}^\pi f(x-u)\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}\text{d}u
+\end{aligned}$$
+Now use that $D_n$ is an even function
+$$T_n(x)=\frac{1}{2\pi}\int_0^\pi \left(f(x-u)+f(x+u)\right)D_n(u)\text{d}u=\frac{1}{2\pi}\int_0^\pi\left(f(x-u)+f(x+u)\right)\frac{\sin(n+\frac{u}2)}{\sin\frac{u}2}\text{d}u$$
+\section{Riemann-Lebesgue's Lemma}
+\label{Riemann-Lebesgue's Lemma}
+Let $f::[a,b]\rightarrow\mathbb{R}$ be an integrable function. Then $$\lim\limits_{\lambda\rightarrow+\infty}\int_a^bf(x)e^{i\lambda x}\text{d}x=0$$
+\section{Corollary}
+$$\lim\limits_{\lambda\rightarrow+\infty}\int_a^bf(x)\cos\lambda x\text{d}x=0$$
+$$\lim\limits_{\lambda\rightarrow+\infty}\int_a^bf(x)\sin\lambda x\text{d}x=0$$
+\section{Localization Principle}\label{Localization Principle}
+Let $f,g\in L^2([-\pi,\pi],\mathbb{K})$. If $f,g$ coincide in a neighborhood of $x_0\in \rightbracket -\pi,\pi\leftbracket\ (f=g)$, the Fourier series $$f\sim\sum\limits_{-\infty}^{+\infty}c_k(f)e^{i\lambda x}\quad g\sim\sum\limits_{-\infty}^{+\infty} c_k(g)e^{i\lambda x}$$
+\textit{either} both diverges \textit{or} both converges. Moreover if they converges ar $x_0$, then their limits are the same (NOT to be $f(x_0)=g(x_0)$)
+
+\section{Def: Dini's Condition}\label{Dini's conditions}
+Let $U_x^0=\leftbracket-\delta,x\leftbracket\cup\rightbracket x,\delta\leftbracket$ and $f:U_x^0\rightarrow \mathbb{C}$. We say that $f$ satisfies \textbf{Dini's Condition} at $x$ if \begin{itemize}
+    \item $f(x_-)$ and $f(x_+)$ exists and finite
+    \item $\exists>0$ s.t. $$\int_0^\epsilon\abs{\frac{(f(x-t)-f(x_-))+(f(x+t)-f(x_+))}t}\text{d}t<+\infty$$ 
+\end{itemize}
+\section{Theorem: pointwise convergence of Fourier series}
+\label{Fourier convergence}
+Let $f:\mathbb{R}\rightarrow\mathbb{C}$ be a periodic function of period $2\pi$, such that $f$ is integrable in $[-\pi,\pi]$. If $f$ satisfies the Dini's condition at $x\in \mathbb{R}$, then its Fourier series converges at $x$ and $$\sum\limits_{-\infty}^{+\infty}c_k(f)e^{i\lambda x}=\frac{f(x_-)+f(x_+)}{2}$$
+\section{Lemma}
+$$\sum\limits_{k=0}^n\sin(k+\frac12)t=\frac{\sin^2\left(\frac{n+1}2\right)}{\sin\frac{t}2}$$
+$$F_n(t)=\frac{\sin^2\frac{n+1}2t}{(n+1)\sin^2\frac{t}2}$$
+What happens when $t=2k\pi$? Use Tayor's expansion:
+$$F_n(t)=\frac{\left(\frac{(n+1)}2t+o(t)\right)^2}{(n+1)\left(\frac{t}2+o(t)\right)^2}\quad t\rightarrow 0$$
+$$F_n(t)=n+1$$
+Sso we can extend $F_n$ at all points $2l\pi$ by putting $F_n(2k\pi)=n+1$
+\section{Def: approximated identity(delta function)}
+A family of functions $\{K_n\}_{n\in\mathbb{N}}$ with $K_n:\mathbb{R}\rightarrow \mathbb{R}$ is called a \textbf{approximated identify} if
+\begin{itemize}
+    \item $\frac{1}{2\pi}\int_{-\infty}^\infty K_n(t)\text{d}t=1\quad \forall n\geq 0$
+    \item $K_n(t)\geq 0,\forall t\in \mathbb{R},n\geq 0$
+    \item For any $\delta>0$$$\lim\limits_{n\rightarrow+\infty}\int_{\abs{t}>\delta}K_n(t)\text{d}t=0$$
+
+\end{itemize}
+\section{Prop}
+\label{delta under Fourier}
+Consider $$\delta_n(x)=\begin{cases}
+    \frac{1}{2\pi}F_n(x)&\text{ if }\abs{x}\leq \pi\\0&\text{ otherwise}
+\end{cases}$$
+Then $\{\delta_n\}$ is an approximated identify
+\section{Fejer Theorem}
+Let $f:\mathbb{R}\rightarrow\mathbb{C}$ continuous and with period of $2\pi$ and integrable in $[-\pi,\pi]$. Then $\sigma_{f,n}$ converges uniformly to $f$
+\section{Weierstrass approximation}
+Let $f:[-\pi,\pi]\rightarrow\mathbb{C}$ be a continuous functions s.t. $f(-\pi)=f(\pi)$. Then such function can be approximated uniformly by $\sigma_n$ arbitrarily
 \end{document}

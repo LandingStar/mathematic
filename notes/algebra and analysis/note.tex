@@ -16,8 +16,10 @@
 	breaklinks=true
 }
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert} 
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\leftbracket}{[}
 \newcommand{\rightbracket}{]}
+\newcommand{\inprod}[2]{\left<#1,#2\right>}
 \begin{document}
 \tableofcontents
 \part{Set}
@@ -686,7 +688,7 @@ Let $(a_N)_{n\in \mathbb{N} }\in(\mathbb{R} \backslash\{0\})^\mathbb{N} $\begin{
     \item If $\liminf\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert>1$, then $\sum\limits_{n\in \mathbb{N} }a_n$ does not converge (diverges)
 \end{itemize}
 \subsection*{Proof}
-\subsubsection*{(1)}Let $\alpha\in\mathbb{R} $ such that $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha<1$, $alpha$ isn't a lower bound of $(\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert)_{N\in\mathbb{N} }$\\
+\subsubsection*{(1)}Let $\alpha\in\mathbb{R} $ such that $\limsup\limits_{n\rightarrow+\infty}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha<1$, $\alpha$ isn't a lower bound of $(\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert)_{N\in\mathbb{N} }$\\
 So $\exists N\in\mathbb{N} $ such that $\sup\limits_{n\geq N}\lvert\frac{a_{n+1}}{a_n}\rvert<\alpha$Hence for $n\geq N\quad\lvert a_n\rvert\leq\alpha^{n-N}\lvert a_N\rvert$ since $$\frac{a_n}{a_N}=\frac{a_{N+1}}{a_N}
 \frac{a_{N+2}}{a_{N+1}}...\frac{a_n}{a_{n-1}}$$
 Therefore $a_n=O(\alpha^n)$ since $\sum\limits_{n\in\mathbb{N} }=\frac{1}{1-\alpha}<+\infty,\sum\limits_{n\in \mathbb{N} }a_n$ converge absolutely.
@@ -699,7 +701,6 @@ So there exists $N\in\mathbb{N} $ such that $\beta< \inf\limits_{n\geq N}\lvert 
 $\forall n\in \mathbb{N} ,n\geq N\quad \lvert \frac{a_{n+1}}{a_n}\rvert\geq\beta$\\
 Hence $(\lvert a_n\rvert)_{n\in \mathbb{N} }$ is not bounded since $\lvert a_n\rvert\geq\beta^{n-N}\lvert a_n\rvert $\\
 By the lemma: $\sum\limits_{n\in\mathbb{N} }a_n$ diverges.
-
 \section{Prop}
 Let $a\in \mathbb{R} ,a>1$ Then $n=o(a^n),n\rightarrow +\infty$
 \subsection*{Proof}
@@ -1957,7 +1958,7 @@ Hence $$\hat{K}=Cau(K)\setminus Cau_0(K)$$ is a quotient ring of $Cau(K)$\\
 $\lvert\cdot\rvert$ extend to $\hat{K}$:
 $$\lvert[(a_n)_{n\in \mathbb{N}}]\rvert=\lim\limits_{n\rightarrow+\infty}\lvert a_n\rvert$$ that forms an absolute value.
 \chapter{Norms}
-\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+
 In this chapter we fix a field K and an absolute value $\lvert\cdot\rvert$ on K.
 We assume that $(K,\lvert\cdot\rvert)$ forms a complete metric space with respect to the metric:$$\begin{aligned}
     &K\times K\rightarrow\mathbb{R}_{\geq 0}\\
@@ -5001,7 +5002,7 @@ $$\xymatrix{
     \cdot\ar[d]&\cdot\ar[d]&\cdot\ar[d]&&\cdot\ar[d]\\
     0&0&0&&0
 }$$
-(Last line of dots naturally be eigenvectors)
+(Last line of dots naturally be eigenvectors, others on chain are called general eigenvectors, the num of (general) eigenvectors is the scale of the Jordan block of this eigenvalue)
 
 We work by induction on $dim(V)$. If $dim(V)=1$, then $$f=\mu(\cdot),f^\mathbcal{r}=0\ \mu^\mathbcal{r}v=0\ \forall v\Rightarrow \mu=0$$
 But $0=J_1(0)$. Assume that the theorem is true for $dim(V)<n$ Let $$V_0=Ket f=\{\text{the set of eigenvalues}\}\cup\{0\}$$ Since $f$ is nilpotent $$dim(V_0)\geq 1$$. Therefore$$dim(V/V_0)<n$$ So define the following mapping
@@ -5052,7 +5053,7 @@ We need to prove that the elements of $\mathcal{D}$ are linearly independent
 \section{Prop}
 The Jordan matrix that represents a nilpotent mapping $f\in \mathscr{L}(V)$ is unique to permutations of the blocks.
 \subsection*{Proof}
-Recall that a Jordan basis of $f$ is given be diagram of the type $\mathcal{D}$
+Recall that a Jordan basis of $f$ is given by diagram $\mathcal{D}$ of the type
 $$\xymatrix{
     \cdot\ar[d]&&&&\\
     \cdot\ar[d]&\cdot\ar[d]&&\\
@@ -5071,7 +5072,7 @@ All the rows have length independent of the choice of basis.
 $$\ker(f^{\circ 3})/\ker(f^{\circ2})\rightarrow\ker(f^{\circ 2})/\ker(f)\rightarrow\ker f=V_0$$
 \section{Lemma}
 \label{Lemma 48.34}
-Let $f\in \mathscr{L}(V)$, $\lambda$ be an eigenvalue of $f$. Then there exists $r\in \mathbb{N}$ s.t.$$\forall v\in V(\lambda)\quad (f-\lambda Id)(v)=0$$
+Let $f\in \mathscr{L}(V)$, $\lambda$ be an eigenvalue of $f$. Then there exists $r\in \mathbb{N}$ s.t.$$\forall v\in V(\lambda)\quad (f-\lambda Id)^{\circ r}(v)=0$$
 \subsection*{Proof}
 Take a basis $\{v_1,\cdots,v_n\}$ of $V(\lambda)$. By definition, we have $(r_1,\cdots,r_n)$ such that $\forall i$ $r_i$ is the least integer that $$\forall v\in V\quad (f-\lambda Id)^{\circ r}(v)=0$$
 Take $r=\max\{r_i\}$,then proved by calculation.
@@ -5115,7 +5116,7 @@ $$P_f(t)=\prod\limits_i(t-\lambda_i)^{\dim (V(\lambda_i))}\quad\Rightarrow\quad 
 \section{Corollary}
 Let $K$ be an algebraically closed field. Let $f\in \mathscr{L}(V)$. $f$ is diagonalizable iff $$\forall\lambda_i\quad mult(\lambda_i)_{geo}=mult(\lambda_i)_{alg}$$
 \chapter{Inner Product}
-\newcommand{\inprod}[2]{\left<#1,#2\right>}
+
 \section{Def}Two matrices $G,G'\in M_{n\times n}(K)$ are said conjugate if $\exists A\in \mathcal{Q}_{n\times n}(K)$ s.t. $G=G'^T$
 \subsection*{Exercise}
 Verify that this is an equivalence relation
@@ -6723,7 +6724,7 @@ If $g$ is non-deg (non-degenerate) $\exists v$ s.t. $g(v,v)=a\neq0$$$\forall x\i
 
 Any $v$ s.t. $g(v,v)=a\neq0$ induce a set
 $$\mathcal{C}(v):=\{ax^2:x\in K^*\}$$ this is an element in $K^*/\{x^2\mid x\in K^*\}$
-\subsection{Prop}Let $(V_1,g_1),(V_2,g_2)$ be two vector spaces of $\dim\ 1$ s.t. $g_1$ and $g_2$ are symplectic. Then $(V_1,g_1)$ and $(V_2,g_2)$ are isometric iff
+\subsection{Prop}Let $(V_1,g_1),(V_2,g_2)$ be two vector spaces of $\dim\ 1$ s.t. $g_1$ and $g_2$ are symmetric. Then $(V_1,g_1)$ and $(V_2,g_2)$ are isometric iff
 $$\exists v_1\in V_1,v_2\in V_2\text{ s.t. }\mathcal{C}_{g_1}(v_1)=\mathcal{C}_{g_2}(v_2)$$
 \subsubsection*{Proof}
 \begin{itemize}
@@ -6757,7 +6758,7 @@ $(V,g)$ has dim 1, $g$ symmetric. Then $(V,g)$ is isometric to one of the follow
 Again $g$ degenerate $\Rightarrow g=0$We use that same reason as above. $v\in V:g(v,v)=a\neq 0$, $\forall a\in \mathbb{C}^*$$$g(av,av)=\norm{a}^2g(v,v)$$
 So any element $v\in V\setminus\{0\}$ s.t. $g(v,v)=a$ induces a coset in $\mathbb{C}^*/\mathbb{R}_{> 0}$
 
-Inside $\mathbb{C}^*$ $\mathbb{R}_{>0}$ is a (mult) subgroup
+Inside $\mathbb{C}^*$, $\mathbb{R}_{>0}$ is a (mult) subgroup
 
 For any $z\in \mathbb{C}^*$ can be written uniquely as $z=re^{i\theta}$, hence
 $$\begin{aligned}
@@ -6958,7 +6959,7 @@ Any euclidean vector admits an orthonormal basis $\{v_1,\cdots,v_n\},\inprod{v_i
 In a euclidean space we have a distance $$d(x,y)=\norm{x-y}$$
 It's a topological metric space
 \section{Prop}
-A euclidean space $(E,\inprod{}{})$ of dim $n$ is isometric to $(\mathbb{R}^n,\underbrace{\inprod{}{}}\limits_{usual scalar product})$
+A euclidean space $(E,\inprod{}{})$ of dim $n$ is isometric to $(\mathbb{R}^n,\underbrace{\inprod{}{}}\limits_{\text{usual scalar product}})$
 \subsection*{Proof}
 $\{v_1,\cdots,v_n\}$ is an orthonormal basis of $E$. Consider the mapping$$f:v_i\mapsto e_i=(0,\cdots,\underbrace{1}\limits_{i\text{-th}},\cdots,0)$$
 Let $x=\sum\alpha_iv_i, y=\sum\beta_iv_i$ then
@@ -7297,7 +7298,7 @@ We have shown that
 $$SO(2)=\left\{\left.\begin{pmatrix}
     \cos\alpha&-\sin\alpha\\\sin\alpha&\cos\alpha
 \end{pmatrix}\right| \alpha\in \leftbracket 0,2\pi\leftbracket\right\}$$
-Note that $T$ doesn't have eigenvalues for $\alpha=\neq 0,\pi$
+Note that $T$ doesn't have eigenvalues for $\alpha\neq 0,\pi$
 \subsection{$T\in O(2)\setminus SO(2)$}
 $A=\begin{pmatrix}
     1&0\\0&-1
@@ -7736,7 +7737,7 @@ What happens when $t=2k\pi$? Use Tayor's expansion:
 $$F_n(t)=\frac{\left(\frac{(n+1)}2t+o(t)\right)^2}{(n+1)\left(\frac{t}2+o(t)\right)^2}\quad t\rightarrow 0$$
 $$F_n(t)=n+1$$
 Sso we can extend $F_n$ at all points $2l\pi$ by putting $F_n(2k\pi)=n+1$
-\section{Def: approximated(delta function)}
+\section{Def: approximated identity(delta function)}
 A family of functions $\{K_n\}_{n\in\mathbb{N}}$ with $K_n:\mathbb{R}\rightarrow \mathbb{R}$ is called a \textbf{approximated identify} if
 \begin{itemize}
     \item $\frac{1}{2\pi}\int_{-\infty}^\infty K_n(t)\text{d}t=1\quad \forall n\geq 0$
@@ -7779,4 +7780,5 @@ Now split the integral into two parts:
 Let $f:[-\pi,\pi]\rightarrow\mathbb{C}$ be a continuous functions s.t. $f(-\pi)=f(\pi)$. Then such function can be approximated uniformly by $\sigma_n$ arbitrarily
 \subsection*{Proof}
 Since $f(-\pi)=f(\pi)$, when we extend this function by periodicity, we will get an continuous function over $\mathbb{R}$. Then we can apply Fejer's theorem
+
 \end{document}
