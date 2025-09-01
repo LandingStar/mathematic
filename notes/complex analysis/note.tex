@@ -1,0 +1,128 @@
+\documentclass{book} 
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{bbm}
+\usepackage{xeCJK}
+\usepackage{dutchcal}
+\usepackage{pgfplots}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} 
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\leftbracket}{[}
+\newcommand{\rightbracket}{]}
+\newcommand{\inprod}[2]{\left<#1,#2\right>}
+\begin{document}
+\tableofcontents
+\chapter{Preface}
+\section{Ref}
+\begin{itemize}
+    \item Ahlfors: Complex analysis.
+    \item 谭小江,伍胜健 复变函数简明教程
+    \item Stein,? complex analysis.(extra exercises)
+\end{itemize}
+\section{A brief history of complex analysis}
+Complex analysis refers studies on functions of complex variables, emerged in the 19th century. Cauchy proposed Cauchy 's integral theorem (1825) and the concept of residues. Riemann defined the Riemann Surface, which enlarge complex analysis to geometry field. Besides, he defined Riemann zeta function. And he gave Riemann mapping theorem. Weirstrass use power series to approach complex analysis.
+
+Complex analysis also deeply connects to other filed in math.
+\begin{itemize}
+    \item It's essential to analysis geometry and complex geometry.
+    \item Provide powerful tool to research prime numbers.
+    \item In dynamics, complex dynamics is active.
+    \item Deep connected with topology of 3-manifold.
+    \item Deep connection with harmonic analysis(Fourier analysis).
+\end{itemize}
+\chapter{Definition of complex numbers}
+$\mathbb{R}$ denotes the real numbers. Some polynomials equation like $x^2+1=0$ has no solutions in $\mathbb{R}$. So we formally introduce the number $i$ (an imaginary number) s.t.$$i^1+1=0$$
+A complex number $z=a+bi$, where $a,b\in \mathbb{R}$. Let $$\mathbb C=\{z=a+bi\mid a,b\in \mathbb R\}$$ 
+$\mathbb C$ is called complex plane. The real numbers $a,b$ are called the real and imaginary part of $z$ respectively. Denoted by $\Re z,\ \Im z$
+
+Similar with to $\mathbb R$, we can define a field structure on $\mathbb C$.\begin{itemize}
+    \item[Addition]$$(a+bi)+(c+di)=(a+c)+(b+d)i$$
+    \item[Multiplication]$$(a+bi)\cdot(c+di)=(ac-bd)+(ad+bc)i$$ 
+\end{itemize}
+To verify $\mathbb C$ a field, we need to show $\forall z\neq 0,\ \exists z^{-1}$
+\section{Def: complex conjugation}Let $z\in \mathbb C$. The complex conjugation $\overline z$ of $z=a+bi$ is
+$$\overline z=a-bi$$
+Ones can verify are $$\overline{z+w}=\overline z+\overline w$$
+$$\overline{zw}=\overline{z}\overline{w}$$
+As a corollary, we consider a polynomial equation
+$$a_nz^n+\cdots+a_0=0\quad a_i\in \mathbb{C}$$. If $z$ is a root, then $\overline z$ a root for:
+$$\overline{a_n}z^n+\cdots+\overline{a_0}=0$$
+In particular, $a_i\in\mathbb R$, then $\overline z$ is also a solution to original equation.
+\section{Def:absolute value}
+The absolute value of complex number $z$ is defined as:
+$$\abs{z}:=\sqrt{z\cdot\overline z}=\sqrt{a^2+b^2}$$ one can verify:
+$$\abs{zw}=\abs z\cdot\abs w$$
+$$\abs{z+w}^2=\abs{z}^2+\abs{w}^2+2\Re(z\overline w)$$
+$$\abs{z-w}^2=\abs{z}^2+\abs{w}^2-2\Re(z\overline w)$$
+\section{Def: division}
+Let $z_1,z_2\in \mathbb C$
+$$\frac{z_1}{z_2}:=\frac{z_1\overline {z_2}}{\abs{z_2}^2}$$
+In particular, if $z=a+bi$$$z^{-1}=\frac{\overline z}{\abs{z}^2}$$
+\chapter{Geometry picture of complex numbers}
+We can identify $\mathbb C\cong \mathbb R^2$ as $\mathbb R$-vector space, by using $z=a+bi$. We can also use the polar coordinates write $z=r(\cos\theta+i\sin\theta)$, where $r=\abs{z}$, $\theta$ is called the argument of $z$. Then conjugation flip $z$ along real axis. Addition is the same with vectors' addition. Multiplication multiplicate the length of vector and rotate the vector by the other's argument.
+
+Consider the equation $z^n=1, \ n\geq 1$. The solution of it is called $n$-th root of unity.
+
+\section{Some inequalities}
+By the definition of absolute value
+$$-\abs z\leq\Re z\leq\abs z$$
+$$-\abs z\leq\Im z\leq\abs z$$
+The equality $\Re z=\abs z$ iff $z$ is a non-negative real number. Since $Re(z\overline{w})\leq\abs z\abs w$ recall for $z,w \in \mathbb C$$$\abs{z+w}^2=\abs z^2+\abs w^2+2\Re(z\overline w)$$
+Then we get triangle inequality:
+$$\abs{z+w}\leq\abs z+\abs w$$
+\subsection{Cauchy's inequality}
+Let $n\geq 1$, then $$\abs{\sum\limits_{k=1}^nz_kw_k}^2\leq(\sum\limits_{k=1}^n\abs {z_k}^2)(\sum\limits_{k=1}^n\abs {w_k}^2)$$ with the equality holds iff $\exists t\in \mathbb C, \forall 1\leq k\leq n, z_k+t\overline{w_k}=0$
+\subsubsection*{Proof}
+Let $t\in \mathbb C$ be any complex number
+$$\begin{aligned}
+    0 &\leq\sum\limits_{k=1}^n\abs{z_k+t\overline {w_k}}^2=\sum\limits_{k=1}^n\abs{z_k}^2+\abs{t}^2\sum\limits_{k=1}^n\abs{w_k}^2+2\Re(\overline t\sum\limits_{k=1}^n z_kw_k)
+\end{aligned}$$
+choose $t=\frac{\sum\limits_{k=1}^nz_kw_k}{\sum\limits_{k=1}^n\abs{w_k}^2}$
+Then we get
+$$\sum\limits_{k=1}^n\abs{z_k}^2=\frac{\abs{\sum\limits_{k=1}^nz_kw_k}^2}{\sum\limits_{k=1}^n\abs{w_k}^2}\geq 0$$
+The condition of equality $\Leftarrow$ the equality $0=\sum\limits_{k=1}^n\abs{z_k+t\overline {w_k}}$
+\chapter{Topology and metrics on $\mathbb C$}
+\section{Basic definitions}
+Recall that a topology space is a set $X$ equipped with a collection of subsets of $X$ as open sets, satisfying:
+\begin{itemize}
+    \item $X$ and $\varnothing$ are open.
+    \item Arbitrary union of open sets is open
+    \item Finite intersection of open sets is open.
+\end{itemize}
+A closed set is by definition the complement of an open set.
+
+A metric space is a pair $(X,d)$, where $X$ be a set and $d:X^2\rightarrow \mathbb{R}_{\geq 0}$ a mapping s.t.
+\begin{itemize}
+    \item $d(x,x)=0\quad\forall x\in X$
+    \item $d(x,y)>0\quad\forall x\neq y\in X$
+    \item $d(x,y)=d(y,x)$
+    \item $d(x,y)\leq d(x,z)+d(z,y)$
+\end{itemize}
+let $x\in X, r>0\in \mathbb R$ the set $$\mathcal B(x,r):=\{y\in X\mid d(x,y)<r\}$$ is called an open ball. We say a subset $N\subseteq X$ is a neighborhood of $x$ if N contains an open ball centered at $x$. A subset N is open if $\forall x\in N$ N is a neighborhood of $x$
+\subsection*{Remark}
+For any subset $N\subseteq X$ $(N,d)$ is a metric space. The diameter of $X$:$$diam X:=\sup\limits_{x,y\in X}d(x,y)$$
+X is bounded if $diam X<+\infty$. A sequence of points $x_n$ in X is called converges to $x\in X$ if $\lim\limits_n\rightarrow+\infty d(x_n,x)=0$. A sequence $(x_n)$ is called Cauchy sequence if $\forall \epsilon>0,\exists N\geq1$ s.t. $\forall n>m\geq N, d(x_n,x_m)<\epsilon$
+
+The metric space is called complete if any Cauchy sequence converges.
+\section{Notations}
+$N\subseteq X$ any subset.
+\begin{itemize}
+    \item $\mathring N$ the interior of N, is the maximal open subset contained in N, i.e. $$\mathring N=\text{ union of all open subsets in N}$$
+    \item $\overline N$ the closure of $N$, the minimal closed set contains $N$.
+    \item $\partial N$ the boundary of $N$, $$\partial:=\overline N\setminus \mathring N$$let $N\subseteq X$. A point $x\in X$ is a limit point of $N$ if $x\in \overline N$ $\Leftrightarrow$ this means $\exists$ sequence $(x_n)$ in N s.t. $x_n\rightarrow x$ ($\lim\limits_{n\rightarrow+\infty}d(x_n,x)=0$)
+    \item We say $x\in X$ is called an isolated point if $\exists$ an open ball $\mathcal B(x,r)$ s.t. $$\mathcal B(x,r)\cap X=\{x\}$$
+    \item We say X is connected if X is not a disjoint union of non-empty open subsets.
+\end{itemize}
+\end{document}

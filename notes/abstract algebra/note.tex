@@ -126,22 +126,22 @@ For uniqueness, using induction on $l=\max\{s,t\}$ If $l=1$, $n=p_1=q_1$. If $p_
 \section{Corollary}
 $\forall n\in \mathbb{Z}\setminus\{0,\pm 1\}$, $n=\pm p_1^{\alpha_1}\cdots p_s^{\alpha_s}$ with $p_i$ are primes and $\alpha_i\in \mathbb{Z}_{\geq 0}$
 \chapter{Congruence in $\mathbb{Z}$}
-\section{Def} Let $a,b,n\in \mathbb{Z}$ with $n>0$ $a$ is \textbf{congruent} ot $b$ \textbf{modulo} $n$, written as $$a\cong b\mod n$$ if $n\mid a-b$
+\section{Def} Let $a,b,n\in \mathbb{Z}$ with $n>0$ $a$ is \textbf{congruent} ot $b$ \textbf{modulo} $n$, written as $$a\equiv b\mod n$$ if $n\mid a-b$
 \subsection*{Remark}
 \begin{itemize}
 	\item It is an equivalence relation.
-	\item Reflexive: $a\cong a\mod n$
-	\item Symmetric: $a\cong b\mod n\Rightarrow b\cong a\mod n$
-	\item Transitive: $a\cong b\mod n\& b\cong c\mod n\Rightarrow a\cong c\mod n$
+	\item Reflexive: $a\equiv a\mod n$
+	\item Symmetric: $a\equiv b\mod n\Rightarrow b\equiv a\mod n$
+	\item Transitive: $a\equiv b\mod n\& b\equiv c\mod n\Rightarrow a\equiv c\mod n$
 	\item $$\begin{aligned}
-		a\cong b\mod n\\c\cong d\mod n
+		a\equiv b\mod n\\c\equiv d\mod n
 	\end{aligned}\Rightarrow\begin{aligned}
-		a+c\cong b+d\mod n\\ac\cong bd\mod n
+		a+c\equiv b+d\mod n\\ac\equiv bd\mod n
 	\end{aligned}$$
 \end{itemize}
 
 So we can have congruence class modulo $n$:
-$$[a]_n:=\left\{b\in \mathbb{Z}\mid b\cong a\mod n\right\}=a+n\mathbb{Z}$$
+$$[a]_n:=\left\{b\in \mathbb{Z}\mid b\equiv a\mod n\right\}=a+n\mathbb{Z}$$
 They are only $n$ disjoint congruence class modulo $n$:
 $$[0]_n,\cdots, [n-1]_n$$
 The set of congruence classes modulo $n$ is denoted as $\mathbb{Z}/n\mathbb{Z}$
@@ -168,7 +168,7 @@ For $p\in \mathbb{Z}_{\geq2}$. The following are equivalent(TFAE):
 \end{itemize} 
 \subsection*{Proof}
 \subsubsection{$1\Rightarrow 2$}
-$0\neq [a]_p\Rightarrow p\neq a$ so $\gcd(a,p)=1$ then $\exists(x,y)\in \mathbb{Z}$ s.t. $ax+py=1$. So moduloing $p$ we get $ax\cong 1\mod p$. then $ax=1$ in $\mathbb{Z}/p\mathbb{Z}$ has a solution
+$0\neq [a]_p\Rightarrow p\neq a$ so $\gcd(a,p)=1$ then $\exists(x,y)\in \mathbb{Z}$ s.t. $ax+py=1$. So moduloing $p$ we get $ax\equiv 1\mod p$. then $ax=1$ in $\mathbb{Z}/p\mathbb{Z}$ has a solution
 \subsubsection{$2\Rightarrow 3$}
 Suppose $bc=0$ in $\mathbb{Z}/p\mathbb{Z}$, WLOG, we assume $b\neq 0$ in $\mathbb{Z}/p\mathbb{Z}$, $\exists\in \mathbb{Z}/p\mathbb{Z}$ s.t. $xb=1$. $$\Rightarrow c=c\cdot 1=xbc=0$$
 \subsubsection{$3\Rightarrow 1$}
