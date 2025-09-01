@@ -8,7 +8,9 @@
 \usepackage{hyperref}
 \usepackage{xypic}
 \usepackage{bbm}
+\usepackage{xeCJK}
 \usepackage{dutchcal}
+\usepackage{pgfplots}
 \hypersetup{hidelinks,
 	colorlinks=true,
 	allcolors=black,
@@ -22,5 +24,153 @@
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
 \begin{document}
 \tableofcontents
+\chapter{preface}
+\section{Aim}
+\begin{itemize}
+	\item abstract algebraic structures on math objects.
+	\item Basic language of modern math.
+\end{itemize}
+\section{Ref}
+\begin{itemize}
+	\item Dummit \& Foote: Abstract algebra, 3rd edition.
+	\item 聂灵沼\&丁石孙: 代数学引论(第二版)
+\end{itemize}
+\chapter{}
+\section{}
+for an equation: $$x^2+4x+3=0$$
+\begin{itemize}
+	\item [Analysis]$x^2+4x+3=0\Rightarrow(x+3)(x+1)=0\Rightarrow x=-1 $ or $ x=-3$
+	\item [Algebra]Vary the coefficients, consider $ax^2+bx+c=0$ general solution is $x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$
+	\item [Geometry]
+	\begin{tikzpicture}
+		\begin{axis}
+			\addplot[color=red]{x^2+4*x+3};
+		\end{axis}
+	\end{tikzpicture}
+\end{itemize}
+For the analysis, we solve the problem itself, for algebra,, we abstract the problem (using abstract def and notations) and for geometry, we care about the graph and shapes.
+\part{The integers $\mathbb{Z}$}
+$$\mathbb{Z}=\{0,\pm1,\pm2,\pm3,\cdots\}$$
+There are two binary operations: addition and multiplication.
+\section{Addition:}
+$\exists!$(exists uniquely) $0\in\mathbb{Z}$ such that $$n+0=n$$$\forall n,\exists-n\in \mathbb{Z}$ s.t. $n+(-n)=0$
 
+and
+$$n+m=m+n$$
+\section{multiplication}
+$\exists! 1\in \mathbb{Z}$ s.t. $$n\cdot 1=n$$
+and $$m\cdot n=n \cdot m\quad \forall m,n\in \mathbb{Z}$$
+Only $\pm 1$ have multiplication inverses.
+\chapter{The fundamental theorem of arithmetic}
+\section{Def}
+For $a,b\in \mathbb{Z}$ $a$ divides $b$ (written as $a\mid b$) if
+$$\exists c\text{ s.t }b=ac$$
+\section{Theorem: The division algorithm}
+\label{division theorem}
+Let $a,b\in \mathbb{Z}$ with $b>0$. Then $\exists! (q,r)\in \mathbb{Z}^2$ such that
+$$a=b\cdot q+r\text{ and }0\leq r<b$$
+\subsection*{Proof}
+Let $S=\{a-bk\mid k\in \mathbb{Z},a-bk\geq 0\}\subseteq \mathbb{N}$
+If $0\in S$ then $b\mid a$, then $q=\frac{a}b,r=0$
+Now assume $0\not\in S(\Rightarrow a\neq 0)$. Since $S\neq\varnothing$, by well ordering principle of $\mathbb{N}$, we have a smallest number, say $r=a-bq>0$. It remains to show $r<b$.
+If $r\geq b$ $$a-b(q+1)=a-bq-b=r-b\geq 0$$ and$$a-b(q+1)=r-b<r$$ contradiction.
+
+For uniqueness, assume $a=bq+r$ and $a=bq'+r'$. Suppose $r'\geq r$ then $$bq+r=a=bq'\ \Rightarrow\ b(q-q')=r'-r\geq 0$$
+$\Rightarrow b\mid r'-r$ and $0\leq r'-r\leq r'<b$, thus we have
+$$r'-r=0$$ so as $q=q'$
+\section{Def}
+\begin{itemize}
+	\item $\gcd (a,b)$ is the greatest common divisor of $a$ and $b$
+	\item If $\gcd (a,b)=1$ then we say $a$ and $b$ are relative prime or coprime.
+\end{itemize}
+\section{Corollary of \ref{division theorem}}
+\label{gcd exists}
+Let $a,b\in \mathbb{Z}$ no both zero, and let $c=\gcd(a,b)$. Then $\exists(xx,y)\in \mathbb{Z}^2$ such that $ax+by=c$
+\subsection*{Proof}
+Let $S=\{ax+by\mid(x,y)\in \mathbb{Z}^2\}\cap \mathbb{Z}_{> 0}\neq\varnothing$. Let $d=\min S$. We claim that $$d=c=\gcd(a,b)$$
+
+First note that $c\mid a\& c\mid b$$\Rightarrow c\mid ax+by\quad \forall x,y\in \mathbb{Z}$ $\Rightarrow c\mid d$. With division algorithm, we write $$a=dq+r\quad =\leq r<d$$
+Note that $r\in S$ Hence $r=0$ i.e. $d\mid a$ similarly $d\mid b\Rightarrow d\mid c$ They are positive hence $d=c$ 
+\section{Def}For $a\in \mathbb{Z}\setminus\{0,\pm 1\}$\begin{itemize}
+	\item $a$ is called \textbf{irreducible} in $\mathbb{Z}$, if $\forall$ factorization $a=bc$, we have $$b\in {\pm1}\text{ or }c\in {\pm1}$$
+	\item $a$ is called \textbf{prime} in $\mathbb{Z}$, if $a\mid bc\Rightarrow a\mid b\text{ or }a\mid c$
+\end{itemize}
+\section{Euclid's Lemma}
+\label{Euclid's Lemma}
+In $\mathbb{Z}$, irreducible $\Leftrightarrow$ prime.
+\subsection*{Proof}
+\subsubsection{$\subseteq$}
+Assume $a$ is irreducible and $a\mid bc$. Without loss of generality( WLOG), we assume $a>0$ and $a\not\mid b$. We show $a\mid c$ in the following way:
+$$\begin{aligned}
+	\left.\begin{aligned}
+		a \text{irreducible}\\ a>0\\ a\not\mid b
+	\end{aligned}\right\} &\Rightarrow gcd(a,b)=1\\
+	&\stackrel{\text{\ref{gcd exists}}}{\Rightarrow} \exists x,y\in \mathbb{Z} s.t ax+by=1\\
+	&\Rightarrow c=acx+acy=a(cx+\frac{bc}a y)\\
+	&\Rightarrow a\mid c
+\end{aligned}$$
+\subsubsection{$\supseteq$}
+Assume $a$ is prime and $a=bc$. WLOG, assume that $a\mid b$, then $$\abs{b}\stackrel{a=bc}{=}\gcd(a,b)\stackrel{a\mid b}{=}\abs{a} \Rightarrow c=\pm 1$$
+\section{The fundamental theorem of arithmetic}
+$\forall n\in \mathbb{Z}_{\geq 2}$ is a product of positive primes. This prime factorization is unique in the following sense:
+\begin{itemize}
+	\item if $n=p_1\cdots p_s$ and $n=q_1\cdots q_t$ with $p_i,q_j$ are primes. Then $s=t$ and after reordering and relabeling, $p_i=q_i\forall i$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{}
+For existence, using induction on $n$. For $n=2$, 2 is prime. Assume that the prime factorization exists for any integer $k$ that $k<n$
+
+If $n$ is prime, done. If $n$ not a prime, using Euclid's lemma \ref{Euclid's Lemma}, $n=bc$ with $1<b<n,1<c<n$ By induction hypothesis, $n$ is also a product of primes.
+
+For uniqueness, using induction on $l=\max\{s,t\}$ If $l=1$, $n=p_1=q_1$. If $p_s\mid q_1\cdots q_t\Rightarrow \exists i\text{ s.t. }p_s\mid q_i$ But $q_i$ is prime, so $p_s=p_i$. Reindex and we may assume $p_s=q_t$. Cancel $p_s$ with $q_t$ we get $$p_1\cdots p_{s-1}=q_1\cdots q_{t-1}$$. By induction hypothesis, $s-1=t-1$ and after reindex, $p_i=q_i\forall i$
+\section{Corollary}
+$\forall n\in \mathbb{Z}\setminus\{0,\pm 1\}$, $n=\pm p_1^{\alpha_1}\cdots p_s^{\alpha_s}$ with $p_i$ are primes and $\alpha_i\in \mathbb{Z}_{\geq 0}$
+\chapter{Congruence in $\mathbb{Z}$}
+\section{Def} Let $a,b,n\in \mathbb{Z}$ with $n>0$ $a$ is \textbf{congruent} ot $b$ \textbf{modulo} $n$, written as $$a\cong b\mod n$$ if $n\mid a-b$
+\subsection*{Remark}
+\begin{itemize}
+	\item It is an equivalence relation.
+	\item Reflexive: $a\cong a\mod n$
+	\item Symmetric: $a\cong b\mod n\Rightarrow b\cong a\mod n$
+	\item Transitive: $a\cong b\mod n\& b\cong c\mod n\Rightarrow a\cong c\mod n$
+	\item $$\begin{aligned}
+		a\cong b\mod n\\c\cong d\mod n
+	\end{aligned}\Rightarrow\begin{aligned}
+		a+c\cong b+d\mod n\\ac\cong bd\mod n
+	\end{aligned}$$
+\end{itemize}
+
+So we can have congruence class modulo $n$:
+$$[a]_n:=\left\{b\in \mathbb{Z}\mid b\cong a\mod n\right\}=a+n\mathbb{Z}$$
+They are only $n$ disjoint congruence class modulo $n$:
+$$[0]_n,\cdots, [n-1]_n$$
+The set of congruence classes modulo $n$ is denoted as $\mathbb{Z}/n\mathbb{Z}$
+\section{Lemma}
+If $[a]_n=[i]_n,[b]_n=[j]_n$ thenn $$[a+b]_n=[i+j]_n\quad [ab]_n=[ij]_n\quad [a-b]_n=[i-j]_n$$
+Therefore, we define the following binary operations on $\mathbb{Z}/n\mathbb{Z}$:
+$$
+\begin{aligned}
+	&[i]_n+[j]_n:=[i+j]_n\\
+	&[i]_n\cdot[j]_n:=[ij]_n
+\end{aligned}
+$$
+We have addition and multiplication satisfying associativity law, distribution law, additive inverse.
+\section{Remark}
+In $\mathbb{Z}$, if $a,b$ are non-zero, then $ab\neq 0$. But in $\mathbb{Z}/n\mathbb{Z}$, $[a]_n[b]_n=[0]_n$ if $n\mid ab$.
+
+In $\mathbb{Z}$ for $2x=1$ it have no solution. But in $\mathbb{Z}/3\mathbb{Z}$,$[2]_3x=[1]_3\Rightarrow x=[2]_3$
+\section{Theorem( The structure of $\mathbb{Z}/n\mathbb{Z},\ p$ prime)}
+For $p\in \mathbb{Z}_{\geq2}$. The following are equivalent(TFAE):
+\begin{itemize}
+	\item[1] $p$ is prime
+	\item[2] $\forall  a\neq 0$ in $\mathbb{Z}/p\mathbb{Z}$, $ax=1$ has a solution in $\mathbb{Z}/p\mathbb{Z}$
+	\item[3] whenever $bc=0$ in $\mathbb{Z}/p\mathbb{Z}$, $b=0$ or $c=0$
+\end{itemize} 
+\subsection*{Proof}
+\subsubsection{$1\Rightarrow 2$}
+$0\neq [a]_p\Rightarrow p\neq a$ so $\gcd(a,p)=1$ then $\exists(x,y)\in \mathbb{Z}$ s.t. $ax+py=1$. So moduloing $p$ we get $ax\cong 1\mod p$. then $ax=1$ in $\mathbb{Z}/p\mathbb{Z}$ has a solution
+\subsubsection{$2\Rightarrow 3$}
+Suppose $bc=0$ in $\mathbb{Z}/p\mathbb{Z}$, WLOG, we assume $b\neq 0$ in $\mathbb{Z}/p\mathbb{Z}$, $\exists\in \mathbb{Z}/p\mathbb{Z}$ s.t. $xb=1$. $$\Rightarrow c=c\cdot 1=xbc=0$$
+\subsubsection{$3\Rightarrow 1$}
+$bc=0$ in $\mathbb{Z}/p\mathbb{Z}\ \Rightarrow\ p\mid bc$ Hence it follows from the define of prime.
 \end{document}
