@@ -1,0 +1,154 @@
+\documentclass{book} 
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{xypic}
+\usepackage{bbm}
+\usepackage{xeCJK}
+\usepackage{dutchcal}
+\usepackage{pgfplots}
+\hypersetup{hidelinks,
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert} 
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\leftbracket}{[}
+\newcommand{\rightbracket}{]}
+\newcommand{\inprod}[2]{\left<#1,#2\right>}
+\begin{document}
+\tableofcontents
+\chapter{Countable sets}
+\section{Notation}
+$\mathbb N=\mathbb N\setminus \{0\}$
+\section{Def}
+$S$ is \textbf{infinitely countable} if $\exists S\rightarrow \mathbb N$ bijection, \textbf{countable} if $S$ is finite or inf-countable
+\subsection*{Remark}
+\begin{itemize}
+    \item for sequence $<S_n>_{n\in \mathbb N}$$$\begin{aligned}
+        \mathbb N &\rightarrow S\\ n&\mapsto S_n
+    \end{aligned}$$
+    \item if $S\neq \varnothing$ then TFAE:
+    \begin{itemize}
+        \item $S$ is countable
+        \item $\exists$ surjection $\mathbb N\rightarrow S$
+        \item $\exists$ injection $S\rightarrow \mathbb N$
+    \end{itemize}
+    \item $\mathbb Q$ is inf-countable
+    \item if $m\in \mathbb N_0$$S_1,\cdots,S_m$ are countable. Then $\prod\limits_{j=1}^m S_j$ is countable.
+\end{itemize}
+\section{Cantor Theorem}$\mathbb N$ is not equinumberous with $\mathbb{\wp(\mathbb N)}$
+\subsection*{Proof}
+$\wp(\mathbb N)\cong \{0,1\}^{\mathbb N}$ if $A\in \wp(\mathbb N)$ then $$\begin{aligned}
+    \mathbbm{1}_A:&\mathbb{N}&\rightarrow&\{0,1\}\\ & n&\mapsto &\left\{\begin{aligned}
+        1&\text{ if }n\in A\\ 0&\text{ if }n\notin A
+    \end{aligned}\right.
+\end{aligned}$$
+the identify of $A$:
+$$\begin{aligned}
+    \wp(\mathbb N) &\rightarrow\{0,1\}^{\mathbb{N}}\\A &\mapsto \mathbbm 1_A
+\end{aligned}$$
+is a bijection$$\{0,1\}^{\mathbb N}=\mathcal{F}(\mathbb N;\{0,1\})$$
+\subsecction*{Remark}
+A,B be sets. $\mathcal{F}(A;B)$ is the set of all functions from A to B.
+\subsection*{Proof}
+Assume that $\exists$ bijection
+$$\begin{align}
+    \mathbb N &\rightarrow \wp(\mathbb N)\\ n&\mapsto f_n
+\end{align}$$
+Define $$\begin{aligned}
+    f:&\mathbb N &\rightarrow &\{0,1\}\\ &n&\mapsto &\left\{\begin{aligned}
+        0 &\text{ if }f_n(n)=1\\ 1&\text{ if }f_n(n)=0
+    \end{aligned}\right.
+\end{aligned}$$
+$f\in \mathcal F(\mathbb N;\{0,1\})$ thus $\exists m\in \mathbb N$ s.t. $f=f_m$. Then $f_m(m)$ broken.
+\chapter{Number Series}
+\section{Def}
+$\sum\limits_{n=0}^{+\infty}a_n$ is \textbf{commutatively convergent} (CC) if for each permutation $\phi$ of $\mathbb N$ the series $\sum\limits_{n=0}^{+\infty}a_{\phi(n)}$ converges. 
+\subsectioin*{Remark}
+A.C. is \textbf{absolutely convergent}.
+
+C. is \textbf{convergent}.
+Let $\varphi:\mathbb N\rightarrow \mathbb N$ be a bijection.
+\begin{itemize}
+    \item if $\sum\limits_{n=0}^{+\infty}a_n$ is A.C. then $\sum\limits_{n=0}^{+\infty}a_n$ C.
+    \item $\sum\limits_{n=0}^{+\infty}\frac{(-1)^n}n$ C. but not A.C. or C.C.
+\end{itemize}
+\section{Riemann Theorem}
+Let $\sum\limits_{n=0}^{+\infty}a_n$ be a convergent series in $\mathbb R$ TFAE:
+\begin{itemize}
+    \item $\sum\limits_{n=0}^{+\infty}a_n$ is not A.C.
+    \item $\forall s\in \mathbb R\ \exists$ permutation of $\mathbb N$ s.t.$$\sum\limits_{n=0}^{+\infty}a_{\phi(n)}=s$$
+    \item $\forall s\in \mathbb R\cup\{-\infty,+\infty\}\ \exists$permutation of $\mathbb N$ s.t.$$\sum\limits_{n=0}^{+\infty}a_{\phi(n)}=s$$ 
+\end{itemize}
+\chapter{Kurzneil-Henstock integral}
+\section{Def}
+\textbf{Cell} is a non-degenerated interval
+\section{Nested cell theorem}
+If $<I_n>_{n\in \mathbb N}$ is a decreasing sequence ($I_{n+1}\subseteq I_n$) of compact cells s.t.$$\lim\limits_{N\rightarrow +\infty} diam I_n=0$$ then $\exists x\in \mathbb R$$$\bigcap\limits_{n\in \mathbb N}I_n=\{x\}$$
+\section{Exercises}
+Every cell is uncountable.
+\section{Def}
+Two cells are \textbf{non-overlapping} if their intersection either empty or a singleton.
+\section{Exercises}If $I_1,I_2,I_3$ are pairwise non-overlapping, then $$I_1\cap I_2\cup I_3= \varnothing$$ 
+\section{Lemma}
+If $I$ is a compact cell and $N\in \mathbb N_0$  are pairwise non-overlapping cells s.t. $\bigcup\limits_{n=1}^N I_n=I$ then renumbering them if necessary, we may get:
+$$\begin{aligned}
+    &\min I=\min I_1\\ &\max I_n=\min I_{n+1}\\ &\max I_N=\max I
+\end{aligned}$$
+\section{Def}
+A \textbf{partial division} $\Delta$ of $I$ is a finite set consisting of non-overlapping compact sub-cells of $I$. If
+$$\bigcup \Delta=I$$
+it's called a \textbf{division} of $I$
+\section{Lemma}If $\Delta$ is a partial division of $I$, then there exists a partial $\Delta'$ of $I$ s.t. $\Delta\cap\Delta'$ is a division of $I$
+\section{Def}
+A \textbf{gauge} on $I$ is a function$$\delta:I\rightarrow\mathbb R$$such that $\forall x\in I\ \delta(x)>0$
+\subsection*{Remark}
+If $\delta_1,\cdots,\delta_N$ are gauges on $I$ then $$\delta(x)=\min\{\delta_1(x),\cdots,\delta_N(x)\}$$
+is also a gauge.
+\section{Def}
+A \textbf{partial P-division} of a compact cell $I$, is a finite $\Pi$ of pairs $(J,x)$ s.t.
+\begin{itemize}
+    \item $J\subseteq I$
+    \item $J$ is a compact cell
+    \item $x\in J$
+    \item $\forall (J_1,x),(J_2,x_2)\in \Pi$ if $J_1\neq J_2$ then $J_1,J_2$ are non-overlapping
+\end{itemize} 
+$x$ is cal tag of the pair.
+\section{Def}
+Given a partial P-division $\Pi$ of I define
+$$body(\Pi)=\bigcup\{J:(J,x)\in\Pi\}$$
+A \textbf{P-division} $\Pi$ of $I$ is a partial P-division s.t. $body(\Pi)=I$
+\section{Lemmas}
+\begin{itemize}
+    \item If $\Pi_1,\cdots,\Pi_N$ are partial P-divisions of I s.t. for each $n,m\in \{1,\cdots,N\}, n\neq m $ $body \Pi_n$ and $body \Pi_m$ are either disjoint or their intersection is a singleton, then $\bigcup\limits_{n=1}^N\Pi_n$ is a partial P-division of I.
+    \item If $\Pi$ is a partial P-division of I and $\xi\in I$ then there're at most 2 $(J,x)\in \Pi$ s.t. $x=\xi$
+\end{itemize}
+\section{Def}Let $\delta$ be a gauge on I and $\Pi$ a (partial) P-division of I, we say that $\Pi$ is $\delta$-finite if$$\forall(J,x)\in \Pi\quad J\subseteq[x-\delta(x),x+\delta(x)]$$
+\section{Def}
+If $f:I\rightarrow\mathbb R$ and $\Pi$ is a (partial) P-division then the \textbf{Riemann sum} is defined as$$S(\Pi,f):=\sum\limits_{(J,x)\in \Pi}f(x)\abs{J}$$
+\section{Def}
+Let $f:I\rightarrow\mathbb R$ $f$ is \textbf{KH-integrable} on I if $\exists r\in \mathbb R, \forall \epsilon>0\exists$ gauge $\delta$ on I $\forall \delta$-finite P-division $\Pi$ of I$$\abs{S(\Pi,f)-r}<\epsilon$$
+\section{Prop}$r$ is unique
+\subsection*{Proof}
+Assume that $r_1$ and $r_2$. Fix $\epsilon>0$. For $i=1,2$, there's a gauge $\delta_i$ on I s.t. if $\Pi$ is a $\delta_i$-finite P-division of I then $$\abs{S(\Pi,f)-r_i}<\epsilon$$
+$$\begin{aligned}
+    \abs{r_1-r_2}&=\abs{r_1-S(\Pi,f)+S(\Pi,f)-r_2}\\ &\leq\abs{r_1-S(\Pi,f)}+\abs{S(\Pi,f)-r_2}\\ &<2\epsilon
+\end{aligned}$$
+Let $\delta(x)=\min\{\delta_1(x),\delta_2(x)\}$ then $\delta$ is a gauge on I. If $\Pi$ is $\delta$-finite then it's $\delta_1$-finite and $\delta_2$-finite.
+\section{Cousin Theorem}
+I be a compact cell and $\delta$ a gauge on I. Then there exists a $\delta$-finite then P-division of I.
+subsection*{Proof}
+assume there's no. Then divide I into $I_l,I_r$ by middle. Then either $I_l,I_r$ has no $\delta$-finite division. Then we get a decreasing sequence $(I_n)_{n\in \mathbb N}$ by keeping dividing. According to nested theorem, get their intersection a singleton $x$. Notice that $x$ is a point of I, for $N\in \mathbb N$ big enough
+$$diam I_N=2^{-N}\cdot diam I<\delta(x)$$then $\Pi=\{(I_N,x)\}$ is a $\delta$-finite P-division of $I_N$.
+\section{Notation}
+$$r=\int_If=\int_If(x)\text{d}x$$
+if $I=[a,b]$
+$$r=\int_a^bf=\int_a^bf(x)\text{d}x$$
+\end{document}
