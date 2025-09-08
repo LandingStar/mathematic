@@ -22,6 +22,7 @@
 \newcommand{\leftbracket}{[}
 \newcommand{\rightbracket}{]}
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
+\newcommand{\zmod}[1]{\mathbb Z/#1\mathbb Z}
 \begin{document}
 \tableofcontents
 \chapter{preface}
@@ -159,7 +160,7 @@ We have addition and multiplication satisfying associativity law, distribution l
 In $\mathbb{Z}$, if $a,b$ are non-zero, then $ab\neq 0$. But in $\mathbb{Z}/n\mathbb{Z}$, $[a]_n[b]_n=[0]_n$ if $n\mid ab$.
 
 In $\mathbb{Z}$ for $2x=1$ it have no solution. But in $\mathbb{Z}/3\mathbb{Z}$,$[2]_3x=[1]_3\Rightarrow x=[2]_3$
-\section{Theorem( The structure of $\mathbb{Z}/n\mathbb{Z},\ p$ prime)}
+\section{Theorem( The structure of $\mathbb{Z}/p\mathbb{Z},\ p$ prime)}
 For $p\in \mathbb{Z}_{\geq2}$. The following are equivalent(TFAE):
 \begin{itemize}
 	\item[1] $p$ is prime
@@ -173,4 +174,140 @@ $0\neq [a]_p\Rightarrow p\neq a$ so $\gcd(a,p)=1$ then $\exists(x,y)\in \mathbb{
 Suppose $bc=0$ in $\mathbb{Z}/p\mathbb{Z}$, WLOG, we assume $b\neq 0$ in $\mathbb{Z}/p\mathbb{Z}$, $\exists\in \mathbb{Z}/p\mathbb{Z}$ s.t. $xb=1$. $$\Rightarrow c=c\cdot 1=xbc=0$$
 \subsubsection{$3\Rightarrow 1$}
 $bc=0$ in $\mathbb{Z}/p\mathbb{Z}\ \Rightarrow\ p\mid bc$ Hence it follows from the define of prime.
+\section{Chinese remainder theorem}
+If we have $n$ and $n'$ are relative prime, $b,b'\in \mathbb Z$, then the congruence equation
+$$\begin{cases}
+	x\equiv b\mod n\\x\equiv b'\mod n'
+\end{cases}$$
+have a common solution in $\mathbb Z$, and any two solutions are congruence modulo $n\cdot n'$.
+\subsection*{Proof}
+$x\equiv b\mod n$$\Rightarrow$ $x=b+kn$ for some $k\in \mathbb Z$. We need to find $k$ s.t. $$b+kn=b'\mod n'$$i.e.$$kn\equiv b'-b\mod n'$$
+Since $\gcd(n,n')=1$, then $\exists u,v\in \mathbb Z$ s.t. $$nu+n'v=1$$
+$$b'-b=(b'-b)1=nu(b'-b)+n'v(b'-b)$$
+Therefore $k=u(b'-b)$ satisfies $b+kn\equiv b'\mod n'$. If $y$ in another solution in $\mathbb Z$, then $n\mid x-y,n'\mid x-y$. We write $$x-y=nt=n't'$$ for some $t,t'\in \mathbb Z$ 
+$$x-y=(x-y)1=(x-y)(nu+n'v)=nun't'+n'vnt$$
+$\Rightarrow nn'\mid x-y$
+\subsection*{Remark}
+In other words, CRT claims that the mapping
+$$\begin{aligned}
+	\mathbb Z/nn'\mathbb Z&\rightarrow \mathbb Z/n\mathbb Z\times\mathbb Z/n'\mathbb Z\\
+	[a]_{nn'}&\mapsto([a]_n,[a]_{n'})
+\end{aligned}$$ is surjective, hence bijective.
+\chapter{Rings}
+\section{Def}
+A \textbf{ring} is a nonempty set $R$ equipped with two binary operations (usually written as addition and multiplication) that satisfy the following:
+\begin{itemize}
+	\item [Addition]\begin{itemize}
+		\item If $a\in R,b\in R, a+b\in R$\quad(Close for addition)
+		\item $(a+b)+c=a+(b+c)$\quad(Associative)
+		\item $a+b=b+a$\quad(Commutative)
+		\item $\exists 0_R\in R$ s.t. $a+0_R=a$\quad(neutral element)
+		\item $\forall a\in R,a+x=0_R$ has a solution in $R$\quad(additive inverse)
+	\end{itemize}
+	\item[Multiplication]\begin{itemize}
+		\item If $a\in R,b\in R, ab\in R$\quad(Close for multiplication)
+		\item $(ab)c=a(bc)$\quad(Associative)
+		\item $\exists 1_R\in R$ s.t. $a\cdot 1_R=a=1\cdot a$\quad(neutral element)
+		\item $a(b+c)=ab+ac$ and $(b+c)a=ba+ca$\quad(Distribution law)
+	\end{itemize}
+\end{itemize}
+\subsection*{Warning}
+\begin{itemize}
+	\item A ring R cannot be empty.
+	\item All rings will have the identify element.
+\end{itemize}
+A \textbf{commutative ring} is a ring that satisfying$$ab=ba\quad\forall a,b\in R$$
+Let $S\subseteq R$ be a subset of a ring R. If S is a ring under the addition and multiplication in R, then  we say S is a \textbf{subring} of R
+\subsection*{Remark}\begin{itemize}
+	\item $\forall a\in R$, $a+x=0_R$ has a unique solution denoted as $-a$
+	\item In R, we have $a0_R=0_R=0_Ra$
+	\item $a+b=a+c\Rightarrow b=c$ and $-(a-b)=-a+b$
+\end{itemize}
+\section{Def}Let R be a non-trivial ring. 
+\begin{itemize}
+	\item An element $r\in R$ is called \textbf{unit} if $\exists s\in R$ s.t. $$rs=1_R=sr$$In this case, $s$ is called the \textbf{multiplicative inverse} of $r$
+	\item We denote $R^\times$ the set of all units in R.
+	\item An element $r\in R$ is called \textbf{zero-divisor} if $rs=0_R$ for some $s\neq 0\in R$ (then $0_R$ is also a zero divisor)
+\end{itemize}
+\subsection*{Remark}For a commutative ring R, $r\in R$ we can define $$\begin{aligned}
+	\varphi_r: &R&\rightarrow&R\\ &x&\mapsto&rx
+\end{aligned}$$
+a mapping of sets.$$r\text{ is a unit}\Leftrightarrow\varphi_r\text{ is bijective}$$
+$\Rightarrow$ $rs=1\Rightarrow \varphi_r\circ\varphi_s=Id=\varphi_s\circ\varphi_r$\\
+$\Leftarrow$ $\exists s\in R$ s.t. $1=\varphi_r(s)=rs$\\
+$r$ is non a zero divisor $\Leftrightarrow$ ($rs_1=rs_2\Rightarrow r(s_1-s_2)=0\Rightarrow s_1=s_2$)$\Leftrightarrow$ $\varphi_r$ is injective.
+\subsection*{Example}
+The only unit in $\mathbb Z$ are $\pm 1$, but ni non-zero divisor. And also 2 is neither a unit nor a zero divisor.
+\begin{itemize}
+	\item In $\mathbb Z/6\mathbb Z$ the zero-divisor:0,2,3,4; units: 1,5. So Any elements is either a unit or a zero-divisor in $\mathbb Z/6\mathbb Z$ (this holds for $\mathbb Z/n\mathbb Z$)
+\end{itemize}
+\section{Def}
+\begin{itemize}
+	\item A \textbf{division ring}(skew filed) is a non-trivial ring R s.t. $\forall 0_R\neq a\in R$, is a unit
+	\item A non-trivial commutative ring R is an \textbf{integral domain} if it has no non-zero zero-divisor.
+	\item A non-trivial commutative division ring is called a \textbf{filed}. 
+\end{itemize}
+\subsection*{EXample}
+\begin{itemize}
+	\item $\mathbb Q,\mathbb R,\mathbb C$ are fields.
+	\item $\mathbb Z/p\mathbb Z$ is a filed $\Leftrightarrow$ $p$ is a prime. 
+	\item $\mathbb Z$ is an integral domain, but $\mathbb Z/6\mathbb Z$ is not.
+	\item Any field is an integral domain($0\neq r\in R$ $\varphi_r$ is bijective $\Rightarrow$ is injective)
+	\item Real Hamilton quaternions is a division ring, but not a field.
+\end{itemize}
+\section{Theorem}
+Every finite integral domain R is a filed.
+\subsection*{Proof}
+$\forall r\neq 0\in R$ we define $\varphi_r:x\mapsto rx$ is injective. But $R$ is a finite set, hence $\varphi_r$ is bijective $\Rightarrow$ $r$ is a unit.
+\section{Def}Let R and S are rings. A mapping $f:R\rightarrow S$ is called a \textbf{ring homomorphism} if $$f(a+b)=f(a)+f(b)\quad f(ab)=f(a)f(b)\text{ and }f(1_R)=1_S$$ 
+A ring homomorphism is called ring isomorphism if it is bijective, denoted as $\cong$
+\subsection*{Remark}
+\begin{itemize}
+	\item We have $f(0_R)=0_S:f(0_R)=f(0_R+0_R)=f(0_R)+f(0_R)$
+	\item We require $f$ sending $1_R$ to $1_S$, hence $f\equiv 0$ is not a ring morphism unless $S=0$
+	\item $Id_R$ is a isomorphism 
+	\item If $f:R\rightarrow S,g:S\rightarrow T$ are morphism, then $f\circ g$ also morphism.
+	\item If $f:R\rightarrow S$ a ring isomorphism, so does $f^{-1}$.
+	\item The image of a ring homomorphism $f:R\rightarrow S$ is a subring of S
+	\item There's no morphism from $\mathbb Z$ to $\mathbb Z/n\mathbb Z$
+\end{itemize}
+\section{Def}
+For rings R and S, we have a ring structure on the Cartesian product $R\times S$ defined coordinatewise:
+$$(r_1,s_1)+(r_2,s_2)=(r_1+r_2,s_1+s_2)\quad (r_1,s_1)(r_2,s_2)=(r_1r_2,s_1s_2) $$
+We have a mapping:
+$$\begin{aligned}
+	f:&\mathbb Z/nn'\mathbb Z&\rightarrow&\mathbb Z/n\mathbb Z\times\mathbb Z/n'\mathbb Z\\
+	&[a]_{nn'}&\mapsto&([a]_n,[a]_{n'})
+\end{aligned}$$It's in fact a ring morphism
+$$
+\begin{aligned}
+	f([a]_{nn'}+[b]_{nn'})&\stackrel{\text{on }\mathbb Z/nn'\mathbb Z}{=}f([a+b]_{nn'})\\
+	&\stackrel{definition}{=}([a+b]_n,[a+b]_{n'})\\
+	(on \mathbb Z/n\mathbb Z and \mathbb Z/n'\mathbb Z)&=([a]_n+[b]_n,[a]_{n'}+[b]_{n'})\\
+	(\text{on }\mathbb Zn\mathbb Z\times\mathbb Zn'\mathbb Z)&=([a]_n,[a]_{n'})+([b]_n,[b]_{n})\\
+	&=f([a]_{nn'})+f([b]_{nn'})
+\end{aligned}$$
+Similarly, for $f([a]_{nn'}[b]_{nn'})=f([ab]_{nn})$. If $\gcd(n,n')=1$, by CRT, $f$ is surjective, hence bijective. We have a ring morphism:
+$$\mathbb Z/nn'\mathbb Z\rightarrow \mathbb Z/n\mathbb Z\times\mathbb Z/n'\mathbb Z$$ if $\gcd(n,n')=1$
+But injective is much easier:
+
+If $f([a]_{nn'})=0\Rightarrow ([a]_n,[a]_{n'})=0\Rightarrow n\mid a,n'\mid a\Rightarrow nn'\mid a\Rightarrow [a]_{nn'}=0$
+This gives an "abstract" proof of CRT.
+
+There are 24 bijections $f:\zmod 4\rightarrow\zmod 2\times \zmod 2$. But none of theses bijections is ring morphism. For $x\in \mathbb Z/n\mathbb Z\times\mathbb Z/n'\mathbb Z$ $x+x=0$ However,$$[1]_4+[1]_4=[2]_4\neq 0\quad \text{in } \mathbb Z/4\mathbb Z$$cannot be a ring morphism.
+\subsection*{Remark}
+In general, if $n=p_1^{\alpha_1}\cdots p_k^{\alpha_k}$ with $p_i$ primes.
+We have $$
+\begin{aligned}
+	\mathbb Z/n\mathbb Z&\stackrel{\cong}{\rightarrow}\mathbb Z/p_1^{\alpha_1}\mathbb Z\times\cdots\times\mathbb Z/p_s^{\alpha_s}\\
+	[a]_n&\mapsto([a]_{p_1^{\alpha_1}},\cdots,[a]_{p_s^{\alpha_s}})
+\end{aligned}
+$$
+Moreover, $[a]_n\in ^{\alpha_1}Z/n^{\alpha_1}Z$ is unit $\Leftrightarrow$ $[a]_{p_i^{\alpha_i}}$ is a unit in $\mathbb Z/p_i^{\alpha_i}\mathbb Z\ \forall i$. Therefore,
+$$(\zmod n)^\times\stackrel{1=1}{\rightarrow}(\zmod{p_1^{\alpha_1}})^\times\times\cdots\times(\zmod{p_s^{\alpha_s}})^\times$$bijective.
+\section{Def}
+Euler $\varphi$-function is defined as:$$\varphi(n):=\#\{x<n\in \mathbb N_+\mid \gcd(x,n)=1\}$$
+\section{Prop}
+Euler $\varphi$-function is multiplicative:$$\varphi(n)=\stackrel{CRT}{=}\varphi(p_1^{\alpha_1})\cdots\varphi(p_s^{\alpha_s})=n(1-\frac{1}{p_1})\cdots(1-\frac{1}{p_s})$$
+for $\varphi(p^\alpha)=(p^\alpha-1)-(p^{\alpha-1}-1)=p^\alpha(1-\frac{1}{p})$
 \end{document}

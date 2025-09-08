@@ -42,6 +42,7 @@ Complex analysis also deeply connects to other filed in math.
     \item Deep connected with topology of 3-manifold.
     \item Deep connection with harmonic analysis(Fourier analysis).
 \end{itemize}
+\part{Review of learnt}
 \chapter{Definition of complex numbers}
 $\mathbb{R}$ denotes the real numbers. Some polynomials equation like $x^2+1=0$ has no solutions in $\mathbb{R}$. So we formally introduce the number $i$ (an imaginary number) s.t.$$i^1+1=0$$
 A complex number $z=a+bi$, where $a,b\in \mathbb{R}$. Let $$\mathbb C=\{z=a+bi\mid a,b\in \mathbb R\}$$ 
@@ -120,9 +121,92 @@ The metric space is called complete if any Cauchy sequence converges.
 $N\subseteq X$ any subset.
 \begin{itemize}
     \item $\mathring N$ the interior of N, is the maximal open subset contained in N, i.e. $$\mathring N=\text{ union of all open subsets in N}$$
-    \item $\overline N$ the closure of $N$, the minimal closed set contains $N$.
-    \item $\partial N$ the boundary of $N$, $$\partial:=\overline N\setminus \mathring N$$let $N\subseteq X$. A point $x\in X$ is a limit point of $N$ if $x\in \overline N$ $\Leftrightarrow$ this means $\exists$ sequence $(x_n)$ in N s.t. $x_n\rightarrow x$ ($\lim\limits_{n\rightarrow+\infty}d(x_n,x)=0$)
-    \item We say $x\in X$ is called an isolated point if $\exists$ an open ball $\mathcal B(x,r)$ s.t. $$\mathcal B(x,r)\cap X=\{x\}$$
-    \item We say X is connected if X is not a disjoint union of non-empty open subsets.
+    \item $\overline N$ the \textbf{closure} of $N$, the minimal closed set contains $N$.
+    \item $\partial N$ the \textbf{boundary} of $N$, $$\partial:=\overline N\setminus \mathring N$$let $N\subseteq X$. A point $x\in X$ is a limit point of $N$ if $x\in \overline N$ $\Leftrightarrow$ this means $\exists$ sequence $(x_n)$ in N s.t. $x_n\rightarrow x$ ($\lim\limits_{n\rightarrow+\infty}d(x_n,x)=0$)
+    \item We say $x\in X$ is called an \textbf{isolated} point if $\exists$ an open ball $\mathcal B(x,r)$ s.t. $$\mathcal B(x,r)\cap X=\{x\}$$
+    \item We say X is \textbf{connected} if X is not a disjoint union of non-empty open subsets.
+    \item a point $x\in X$ is called a \textbf{limit point} of $N$ if $x\in \overline N$ $\Leftrightarrow$ this means $\exists$ sequence $(x_n)$ in N s.t. $x_n\rightarrow x$ ($\lim\limits_{n\rightarrow+\infty}d(x_n,x)=0$)
 \end{itemize}
+\chapter{Compactness}
+An open cover of $X$ is a collection of open sets $\{U_\alpha\}$, $X=\bigcup\limits_\alpha U_\alpha$
+
+X is called totally bounded if $\forall \epsilon>0, \exists$ finite open cover using $\epsilon-$radius balls. It's clear that totally bounded set is bounded.
+
+The metric space X is called compact if every open cover of X has a finite sub-cover.
+\section{Theorem}
+A metric space X is compact $\Leftrightarrow$ X is complete and totally bounded.
+\subsection*{Proof}
+\subsubsection{$\Rightarrow$}
+For completeness, assuming X isn't. Then exists a Cauchy sequence $(x_n)$ doesn't converges. Then $\forall y\in X, x_n\not\rightarrow y$. Then $\exists r>0$ s.t. $\cup_y:=\mathcal{B}(y,r)$ then $\cup_y$ contains finite many elements. Then we get an open cover $\{\cup_y\}_{y\in X}$. For X compact, we can get a finite subcover.$$X=\bigcup\limits_{y\in F}\cup_y$$where F finite.In particular $x_n\in \bigcup\limits_{y\in F}\cup_y$ so $X_n=\{x_n\mid n\in \mathbb N\}$ contains finite many elements. But finite Cauchy sequence converges. Contradiction.
+
+For total boundence. For every $\epsilon>0, y\in X$ let $\cup_y:=\mathcal{B}(y,\epsilon)$ Then $\{\cup_y\}_{y\in X}$ is an open cover. For compactness, we get a finite subcover $X\subseteq\bigcap\limits_{y\in F}\cup_y$ so X totally bounded.
+\subsubsection{$\Leftarrow$}Assume X is complete and totally bounded Assume X is not compact. Then $\exists$ open cover $\{U_\alpha\}$ s.t. $
+\not\exists$ finite subcover. For totally bounded, $X=\bigcap\limits_{x\in F}\mathcal{B}(x,1)$ F finite. Then consider the index in F s.t. $\mathcal{B}(x,1)\neq\bigcup\limits_{\alpha\in E}\cup_\alpha\cap\mathcal B(x,1)$ Then exist $x_0$ s.t. $\mathcal B(x_0,1)$ can not be covered by finite many $\cup_\alpha$ So $\exists x_1\in \mathcal{B}(x_0,1)$ s.t. $\mathcal B(x_1,2^{-1})$ cannot be covered by finite many $\cup_\alpha$. Inductively, we get a sequence $(x_n)_{n\in \mathbb N}$. $$d(x_n,x_{n+1})\leq 2^{-n}$$ which means $(x_n)$ is Cauchy sequence. Moreover, $\mathcal B(x_n,2^{-n})$ can't be covered by finite many $\cup_\alpha$. By completeness, $(x_n)\rightarrow y\in X$ Let $U$ be an open set s.t. $U\in \{U_\alpha\}$ and $y\in U$. Then for $n$ large$$\mathcal B(x_n,2^{-n})\subseteq U$$contradiction.
+\section{Theorem}A metric space X. Compact is equiv with Cauchy compact.
+\subsection*{Proof}
+\subsubsection{$\Leftarrow$}
+Assume X Cauchy compact. We prove it by prove X complete and totally bounded. 
+
+For a Cauchy sequence $(x_n)_{n\in \mathbb N}$ converges iff $\exists$ subsequence $(x_{n_i})$ converges. This means every sequence in X converges, meaning X complete.
+
+Assume X isn't totally bounded. Then $\exists \epsilon>0$ s.t. X isn't covered by finite $\epsilon$-balls. We inductively construct a sequence $(x_n)$ as following: We choose $x_{n+1}$ s.t. $x_{n+1}\not\in \bigcup\limits_{k=1}^n\mathcal B(x_k,\epsilon)$ It doesn't have a subsequence convergent. Contradiction.
+\subsubsection{$\Rightarrow$}
+Assume that $\exists(x_n)_{n\in \mathbb N}$ divergent. Then $\forall y\in X,\exists r>0$ s.t. $$\cup_y:=\mathcal B(y,r)$$
+$\cup_y$ contains finite points in $\{x_n\}$. Then consider the open cover $\{\cap_y\}_{y\in X}$. According to compactness, extract a finite sub-cover: $X\subseteq\bigcup\limits_{y\in F}\cup_y$. Then $\{x_n\}$ a finite set, which means $(x_n)$ has a convergent subsequence. For Cauchy sequence this implies convergence. Contradiction.
+\section{Def}
+Consider $X=\mathbb C$ $\forall z,w\in \mathbb C$ $$d(z,w):=\abs{z-w}$$ open balls in $\mathbb C$ is called open disks $\mathcal D(z,r)$ $$\mathbb D:=D(0,1)$$ is called unit disk.
+\section{Lemma}A sequence $z_n\rightarrow z$ in $\mathbb C$$\Leftrightarrow$ \begin{itemize}
+    \item $\Re z_n\rightarrow\Re z$
+    \item $\Im z_n\rightarrow =\Im z$
+\end{itemize}
+\section{Theorem} $\mathbb C$ is complete.
+\subsection*{Proof}This follows $\mathbb R$ is complete and the Lemma above.
+\section{Lemma} A bounded subset in $\mathbb C$ is totally bounded.
+\subsection*{Proof}
+Let $K\subseteq\mathbb C$ bounded. $\exists R>0$ s.t. $K\subseteq \mathcal{D}(0,R)$. It suffice to show $\mathcal D(0,R)$ is totally bounded. It's clear, since $\mathcal{D}(0,R)$ can be covered by finitely many $\epsilon-$balls.
+\section{Corollary}
+A subset $K\subseteq \mathbb C$ is compact $\Leftrightarrow$ K is bounded and K is closed. 
+\subsection*{Proof}K is compact $\Leftrightarrow$ K is totally bounded and complete. Since $\mathbb C$ complete, K is complete iff K is closed. Then $K$ compact $\Leftrightarrow$  K closed and bounded.
+\section{Continuous mapping}
+$f:X\rightarrow Y$ between metric space is continuous if $\forall$ open set $U\subseteq Y\ f^{-1}(U)$ is open
+
+A homomorphism $f:X\rightarrow Y$ continuous and $f^{-1}$ is also continuous.
+\section{Lemma}
+Let $f:X\rightarrow Y$ between metric space $f$ is continuous $\Leftrightarrow$ $\forall$ sequence $(x_n)$ in X $x_n\rightarrow x\Rightarrow f(x_n)\rightarrow f(x)$
+\section{Theorem}
+$f:X\rightarrow Y$ continuous mapping between metric spaces. Let $K\subseteq X$ compact. Then $f(K)$ is compact in Y.
+\subsection*{Proof}
+Any open cover $\{V_\alpha\}$ of $f(K)$ induces an open cover $U_\alpha:=f^{-1}V_\alpha$ of K. Since K is compact, $\exists$ finite set $F$ s.t. $$K=\bigcup\limits_{\alpha\in F}U_\alpha$$
+then $$f(K)=\bigcup\limits_{\alpha\in F}V_\alpha$$
+so $f(K)$ is compact.
+\section{Corollary}
+Let X compact metric space. Let $f:X\rightarrow \mathbb R$ continuous function. Then $f(X)$ can take maximal and minimal values.
+\subsection*{Proof}
+$f(x)$ is compact in $\mathbb R$
+\section{Theorem}$f:X\rightarrow Y$ continuous. If X is connected, then $f(X)$ is connected.
+\subsection{Proof}
+Assume that $f(X)=A\cup B$, with A, B non-empty and disjoint. Then $X=f^{-1}(A)\cup f^{-1}(B)$ is a union of non-empty open sets, meaning X not connected.
+\section{Def}
+Let $f:X\rightarrow Y$ continuous mapping $f$ is called uniformly continuous if $\forall \epsilon>0,\exists \delta>0$ s.t. if $d(x,y)<\delta$, then $d(f(x),f(y))<\epsilon$.
+\section{Theorem}Let $f:X\rightarrow Y$ continuous. X compact. Then $f$ uniformly continuous.
+\chapter{Path connected and homotopy}
+A curve in $\mathbb C$ is a continuous mapping $\gamma:[a,b]\rightarrow \mathbb C$
+\section{Def}
+A subseteq $S\subseteq \mathbb C$ is called path-connected if $\forall z,w\in S,\exists \gamma:[a,b]\rightarrow S$ curve s.t. $\gamma(a)=z,\gamma(b)=w$
+\section{Theorem}Let $U\subseteq \mathbb C$ open set. $U$ is connected $\Leftrightarrow$ path connected.
+\subsection*{Proof}
+Let $U\subseteq \mathbb C$ open $\forall z\in U$ let $$V_z:=\{\text{points} w\in U\text{ s.t.}\exists\text{curve connecting }z,w\}$$
+Since every open disk is path connected, $V_z$ is open, $U\setminus V_z$ is open.
+\subsubsection{$\Rightarrow$}
+Assume U not path connected. Then $\exists z\in U$ s.t. $V_z\neq U$. Let $V_1:=V_z, V_2:=U\setminus V_z$. Then $V_1,V_2$ are non-empty open disjoint sets, then U not connected. Contradiction.
+\subsubsection{$\Leftarrow$}
+Assume U not connected. We can write $$U=V_1\cup V_2$$$V_1,V_2$ non-empty and disjoint open sets. Let $z\in V_1,w\in V_2$ and $\gamma:[a,b]\rightarrow U$ curve $\gamma(a)=z,\gamma(b)=w$. Let $$I_1:=\gamma^{-1}V_1\quad I_2:=\gamma^{-1}V_2$$ $I_1,I_2$ open non-empty and disjoint and $[a,b]\cup I_1,I_2$, telling $[a,b]$ not connected. Contradiction.
+
+
+\subsection{Remark}This conclusion isn't true in general when U is not open. Consider $$S:\{i y\mid\abs y\leq 1\}\cup\{x+i\sin\frac{1}x\mid 0<x\leq 1\}$$
+S closed. Try to prove:\begin{itemize}
+    \item S connected
+    \item S not path connected
+\end{itemize}
+
 \end{document}
