@@ -310,4 +310,107 @@ Euler $\varphi$-function is defined as:$$\varphi(n):=\#\{x<n\in \mathbb N_+\mid 
 \section{Prop}
 Euler $\varphi$-function is multiplicative:$$\varphi(n)=\stackrel{CRT}{=}\varphi(p_1^{\alpha_1})\cdots\varphi(p_s^{\alpha_s})=n(1-\frac{1}{p_1})\cdots(1-\frac{1}{p_s})$$
 for $\varphi(p^\alpha)=(p^\alpha-1)-(p^{\alpha-1}-1)=p^\alpha(1-\frac{1}{p})$
+\chapter{The polynomial ring}
+The polynomial rings enjoy one feature that $\mathbb Z$ does not:
+
+The notion of a root of a polynomial. $\leadsto $ The theory of equations.
+
+\section{Def}Let R be a ring
+\begin{itemize}
+	\item A \textbf{polynomial with coefficients} in R is defined to be an infinite sequence $(a_n)_{n\in \mathbb N}$ such that $a_i\in R$ and only finitely many of the $a_i$ are nonzero. That's, for some index k, $a_i=0_R,\forall i>k$
+	\item Two polynomial $(a_n)_{n\in \mathbb N}$ and $(b_n)_{n\in \mathbb N}$ are \textbf{equal} if they are equal as sequence; That's $a_i=b_i\forall i\geq 0$
+	\item \textbf{Addition}:$$(a_n)_{n\in \mathbb N}+(b_n)_{n\in \mathbb N}=(a_n+b_n)_{n\in \mathbb N}$$
+	\textbf{Multiplication}:$$(a_n)_{n\in \mathbb N}(b_n)_{n\in \mathbb N}=(\sum\limits_{i+j=n}a_ib_j)_{n\in \mathbb N}$$
+\end{itemize}
+\section{Theorem}
+Let R be a ring, and let P be the set of all polynomials with coefficients in R. Then\begin{itemize}
+	\item[1] P is a ring. If R is commutative, so as P
+	\item[2] Let $\tilde{R}$ be the set of all polynomial in P of the form $(r_n)_{n\in \mathbb N}$ with $r\in R$. Then $\tilde{R}$ is a subring of P and is isomorphic to R
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{2}
+Consider the mapping from R to $\tilde{R}$$$\begin{aligned}
+	f:&R&\rightarrow&\tilde{R}\\ &r&\mapsto&(r,0,0,\cdots)
+\end{aligned}$$
+This recovers the old notion for polynomials $$(a,0,\cdots)\in \tilde R$$ will be denoted as $a$$$(0,1,0,\cdots)$$ will be denoted as $x$. Hence$$x_n=(\underbrace{0,0,\cdots}\limits_{n},1,0,\cdots)$$
+\section{Theorem}
+Let P be the polynomials with coefficients in R. Then P contains an isomorphic copy $\tilde R$ of R and an element $x$ s.t. \begin{itemize}
+	\item [1]$ax=xa,\forall a\in \tilde R$
+	\item [2]Every element in P can be written in the form $$a_0+a_1x+\cdots+a_nx^n\quad\text{for some }n\in \mathbb Z_{\geq 0}$$
+	\item [3]If $a_0+a_1x+\cdots+a_nx^n=b_0+b_1x+\cdots+b_mx^m$ with $n\leq m$, then $a_i=b_i$ for $i\leq n$ and $b_i=0_R$ for $i>n$
+\end{itemize}
+\subsection*{Proof}
+\begin{itemize}
+	\item[2]If $(a_n)\in P$ then $\exists n$ s.t. $a_i=0_R$ for i>n$$(a_i)= a_0+a_1x+\cdots+a_nx^n$$
+\end{itemize}
+\section{Def}
+\begin{itemize}
+	\item Let $f(x)=a_0+a_1x+\cdots+a_nx^n\in R[x]$ with $a_n\neq 0$ Then $a_n$ is called the leading coefficients of $f(x)$ $n$ is called the degree of $f(x)$ denoted as $\deg f(x)$
+	
+	Remark:leading coefficients of 0 is 0, $$\deg(0_R)=-\infty$$
+	\item Let $f(x),g(x)\in R[x]$ with $g(x)\neq 0_R$, we say $g(x)$ divide $f(x)$ written as $g(x)\mid f(x)$, if $f(x)=g(x)q(x)$ for some $q\in R[x]$
+\end{itemize}
+\section{Theorem}
+Let R be a ring 
+\begin{itemize}
+	\item [1]For any $f(x),g(x)\in R[x]$, $$\deg(f(x)+g(x))\leq \max\{\deg f(x),\deg g(x)\}$$
+	$$\deg(f(x)g(x))\leq\deg f(x)+\deg g(x)$$
+	\item [2]If R is an integral domain. So as $R[x]$ and $(R[x])^\times=R^\times$
+\end{itemize}
+\subsection{Proof}
+\begin{itemize}
+	\item [1]Assume $f,g\neq 0_R$ Suppose $f(x)=a_0+a_1x+\cdots+a_nx^n,g(x)=b_0+b_1x+\cdots+b_mx^m$ with $a_n\neq 0_R,b_m\neq 0_R$ WLOG we assume $n\geq m$$$f(x)+g(x)=(a_0+b_0)+(a_1+b_1)x+\cdots+(a_n+b_m)x^n+(a_{n+1}b_{n+1})x^{n+1}+\cdots$$$\Rightarrow$$$\deg(f(x)+g(x))\leq \max\{\deg f(x),\deg g(x)\}$$ similarly for multiplication.
+	\item [2]By expression of $f(x)g(x)$ the product of two nonzero polynomials in $R[x]$ is nonzero ($\deg(f(x)g(x))=\deg f+\deg g$)
+	
+	It's clear that $R^\times\subset(R[x])^\times$ For any $f(x)\in (R[x])^\times$, there exists $g(x)\in R[x]$, s.t. $f(x)g(x)=1_R$
+	$$0\leq\deg f(x)+\deg g(x)=\deg(f(x)g(x))=\deg(1_R)=0$$ so $\deg f=\deg g=0$ meaning $$f(x)=a\in R,g(x)=b\in R$$ with $ab=1_R\Rightarrow f(x)=a\in R^\times$ 
+\end{itemize}
+\section{Division algorithm}
+Let $k$ be a field. $f(x),g(x)\in k[x]$ with $g(x)\neq 0$ Then there exists $q(x),r(x)\in k[x]$ uniquely s.t.
+$$f(x)=q(x)g(x)+r(x)$$ and $$\deg r<\deg g$$
+\subsection*{Proof}
+\subsubsection{Existence} If $g(x)\mid f(x)$ then $f(x)=q(x)g(x)$ for some $q(x)\in k[x]$
+
+If $g(x)\not\mid f(x)$, then consider$$S=\{f(x)-q(x)g(x)\in k[x]\mid f(x)-q(x)g(x)\neq 0,q(x)\in k[x]\}$$
+Let $r(x)=f(x)-q(x)g(x)\in S$ be a polynomial of the minimal deg. It suffices to show $$\deg r<\deg g$$
+We write $$g(x)=s_0+s_1x+\cdots+s_nx^n\quad r(x)=r_0+r_1x+\cdots+r_mx^m$$with $s_n,r_m\neq 0$. 
+
+If $\deg r\geq\deg g$, then we could define:
+$$h(x)=r(x)-t_ms_n^{-1}x^{m-n}g(x)$$but $\deg h<\deg r$. By the minimal degree of $r(x)$, we have $h(x)=0$ Then $$f(x)=q(x)g(x)+t_ms_n^{-1}x^{m-n}g(x)$$$\Rightarrow\quad g(x)\mid f(x)$
+\subsubsection{Uniqueness}
+$f(x)=q(x)g(x)+r(x)=\tilde q(x)g(x)+\tilde r(x)$ $\Rightarrow$
+$$\tilde r(x)-r(x)=(q(x)-\tilde q(x))g(x)$$$$\tilde r(x)=r(x)\quad \tilde q(x)=q(x)$$
+$$\deg(\tilde r(x)-r(x))<\deg g(x)$$
+$$\deg(\tilde r(x)+r(x))=\deg g+\deg(q(x)-\tilde q(x))$$
+\subsubsection{Remark}The division algorithm holds for
+\begin{itemize}
+	\item $k$ a filed $\leadsto$ R any commutative ring
+	\item $g(x)\neq 0$$\leadsto$ the leading coefficients of $g$ is unit
+\end{itemize} 
+\section{Corollary}
+\label{Division Corollary}
+Let R a commutative ring. $a\in R$ and $f(x)\in R[x]$. When we divide $f(x)$ by $x-a$, the remainder if $f(a)$
+\subsection*{Proof}
+We have $f(x)=q(x)(x-a)+r(x)$ with $\deg r<1$ Then $r(x)$ is a constant.
+
+Evaluating both sides at $x=a$, we get $r=:f(a)$
+\section{Def}
+Let R be a commutative ring. \begin{itemize}
+	\item $\forall r\in R$, the evaluation mapping is $$\begin{aligned}
+		\varphi_r: &R[x]&\rightarrow &R\\
+		&f(x)=\sum\limits_{i=0}^na_ix^i&\mapsto&f(r):=\sum\limits_{i=0}^na_ir^i
+	\end{aligned}$$which is a ring homomorphism.
+	\item If $f(r)=0_R$, then we say that $r$ is a root of $f(x)$
+\end{itemize}
+\section{Theorem}
+Let R be an \textbf{integral domain}. Then a nonzero polynomial $f(x)\in R[x]$ of degree n has at most n roots $\in R$ counting multiplicity.
+\subsection*{Proof}
+If $f(a_1)=0$, then possibly applied coro\ref{Division Corollary} several times, we have$$f(x)=q_1(x)(x-a_1)^{n_1}$$ with $q_1(a_1)\neq 0$, $\deg q_1=n-n_1$. If $a_2\in R$ is another root of $f(x)$, the $$0=f(a_2)=q(a_2)(a_2-a_1)^{n_1}$$
+$\Rightarrow$ $q_1(a_2)0$ so $$q_1(x)=q_2(x)(x-a_2)^{n_2}$$ with $q_2(a_2)\neq 0$ and $\deg q_2=n-n_1-n_2$.
+
+After n application of coro\ref{Division Corollary}, the quotient becomes constant, and we write $$f(x)=c(x-a_1)^{n_1}\cdots(x-a_k)^{n_k}$$with $n=n_1+\cdots+n_k$ Since R is an integral domain, the only possible roots are $a_1,\cdots,a_k$ 
+
+(This is a tricky proof, for $a_n$ 's existence doesn't guaranteed. But we can use induction to prove it)
+\subsection*{Remark}
+$f(x)=x^3$ in $\mathbb Z/8\mathbb Z[x]$ but $$f(0)=f(2)=f(4)=f(6)=0$$ in $\mathbb Z/8\mathbb Z$
 \end{document}

@@ -208,5 +208,126 @@ S closed. Try to prove:\begin{itemize}
     \item S connected
     \item S not path connected
 \end{itemize}
+\section{Def:homotopy}
+Let $U\subseteq \mathbb C$ be an open set. Let $\gamma_0:[a,b]\rightarrow U$, $\gamma_1:[a,b]$ be two curves. A homotopy between $\gamma_0$ and $\gamma_1$ is a continuous mapping $$H:[0,1]\times[a,b]\rightarrow U$$ s.t. $$H(0,t)=\gamma_0(t)\quad H(1,t)=\gamma_1(t)$$
+and $\forall s\in [0,1]$
+$$H(s,a)=\gamma_0(a)\quad H(s,b)=\gamma_0(b)$$
+We call $\gamma_0,\gamma_1$ are homotopic if $\exists$ such a mapping.
+\section{Def}
+Let $U\subseteq \mathbb C$ be a connected open set. U is called simply connected if $\forall$ two curves in U with same starting and end pts are homotopic.
+\chapter{Complex value function and holomorphic function}
+\section{Def:Complex valued function}
+$U\subseteq \mathbb C$ a open set. \textbf{Complex value function} is a mapping $f:U\rightarrow \mathbb C$ We can view $$f=u(x,y)+i(x,y)$$ via $\mathbb C\cong\mathbb R^2, z=x+iy$. We say that $f$ is differentiable if $u,v$ are differentiable. In particular, $\exists$ partial derivatives $$\frac{\partial u}{\partial x},\frac{\partial u}{\partial y},\frac{\partial v}{\partial x},\frac{\partial v}{\partial y}$$
+For $z=x+iy\in U$, define:
+$$\frac{\partial f}{\partial x}(z):=\frac{\partial u}{\partial x}(z)+i\frac{\partial v}{\partial x}(z)$$
+\section{Def: Differential form}
+Let $U\subseteq \mathbb C$ open. A differential form is a formal sum $g\text{d}x+h+\text{d}y$, where $g,h:U\rightarrow \mathbb C$ complex valued function.
 
+Let $f:U\rightarrow \mathbb C$ differentiable. Define $$\text{d}f:=\frac{\partial f}{\partial x}\text{d}x+\frac{\partial f}{\partial y}\text{d}y$$
+\section{Prop}
+Let $f,g:U\rightarrow \mathbb C$ differentiable
+\begin{itemize}
+    \item[Linearity] $$\text{d}(f+g)=g\text{d}f+f\text{d}g$$
+    \item[Leibniz rule]$$\text{d}(fg)=\text{d}f g+g\text{d}f$$ 
+\end{itemize}
+
+$z:\mathbb C\rightarrow\mathbb C,\overline z:\mathbb C\rightarrow \mathbb C$, then 
+$$\text{d}z=\text{d}x+i\text{d}y,\text{d}\overline z=\text{d}x-i\text{d}y$$
+$\Rightarrow$$$\text{d}x=\frac{1}2(\text{d}z+\text{d}\overline z)\quad \text{d}y=\frac{1}{2i}(\text{d}z-\text{d}\overline z)$$
+$\Rightarrow$$$\text{d}f=\frac{1}2(\frac{\partial f}{\partial x}-i\frac{\partial f}{\partial y})\text{d}z+\frac{1}2(\frac{\partial f}{\partial x}+i\frac{\partial f}{\partial y})\text{d}\overline z$$
+This motivates $$\partial f:=\frac{\partial f}{\partial z}\text{d}z$$
+$$\frac{\partial f}{\partial z}:=\frac{1}2(\frac{\partial f}{\partial x}-i\frac{\partial f}{\partial y})$$
+Similarly$$\overline{\partial f}:=\frac{\partial f}{\partial\overline z}\text{d}\overline z$$
+$$\frac{\partial f}{\partial\overline z}:=\frac{1}2(\frac{\partial f}{\partial x}+i\frac{\partial f}{\partial y})$$
+\section{Def:Holomorphic functions}
+Let $U\subseteq \mathbb C$ open $f:U\rightarrow \mathbb C$. Let $z\in U$ we say $f$ is complex differentiable at $z$ if$$\lim\limits_{u\rightarrow z}\frac{f(u)-f(z)}{u-z}=f'(z)$$exists.
+
+Geometrically: in the tangent space level, $f$ acts not just like a $\mathbb R$-linear mapping, but also a $\mathbb C$-linear mapping.
+
+If $f:\mathbb R^2\rightarrow\mathbb R^2$ is $\mathbb R$-linear, then $f$ is complex differentiable iff $\exists a\in \mathbb C$, s.t.$$f(z)=az$$
+\section{Def}
+Let $U\subseteq \mathbb C$ open. $f:U\rightarrow \mathbb C$ is called holomorphic if $f$ is complex differentiable at every point in U.
+\section{Lemma}
+$U\subseteq \mathbb C$ open. $z\in U$, $f:U\rightarrow \mathbb C$, THen $f$ is complex differentiable at $z$ iff $f$ is real differentiable and satisfies the following Cauchy-Riemann equations:$$\frac{\partial f}{\partial \overline z}(z)=0$$
+\subsection*{Proof}
+\subsubsection{$\Leftarrow$} We can write $f(w)-f(z)=A(w-z)_o(\abs{w-z})$, where A is a real $2\times 2$ matrix. In the coordinate $z=x+iy,f=u+iv$$$A=\begin{pmatrix}
+    \frac{\partial u}{\partial x}(z)&\frac{\partial u}{\partial y}(z)\\
+    \frac{\partial v}{\partial x}(z)&\frac{\partial v}{\partial y}(z)
+\end{pmatrix}$$
+C-R equation:
+$$\frac{\partial f}{\partial \overline z}\Leftrightarrow\begin{cases}
+    \frac{\partial u}{\partial x}(z)&=\frac{\partial v}{\partial y}(z)\\
+    \frac{\partial u}{\partial y}(z)&=-\frac{\partial v}{\partial x}(z)
+\end{cases}$$
+Define $$b:=\frac{\partial u}{\partial x}(z)=\frac{\partial v}{\partial y}(z)\in \mathbb R$$
+$$c:=-\frac{\partial u}{\partial y}(z)=\frac{\partial v}{\partial x}(z)\in \mathbb R$$
+Let $a:=b+ci\in \mathbb C$, then $$A(z)=az$$we can write$$f(u)-f(z)=a(w-z)+o(\abs{w-z})$$$\Rightarrow$ $f'(z)$exists.
+\subsubsection{$\Rightarrow$}Trivial.
+\section{Corollary}
+$U\subseteq \mathbb C$ open set. $f:U\rightarrow \mathbb C$ $f$ is holomorphic on U iff $f$ is real differentiable on U and the C-R equation $$\frac{\partial f}{\partial \overline z}(z)=0\quad\text{holds }\forall z\in U$$
+\chapter{Conformal matrix}
+Let $A\in M_{2\times 2}(\mathbb R)$ be a matrix. $A:\mathbb R^2\rightarrow \mathbb R^2$ linear mapping. The inner product $v=(x_1,y_2),w=(x_2,y_2)$$$\inprod{v}{w}:=x_1x_2+y_1y_2$$$z,w\in \mathbb C$$$\inprod{z}{w}=\Re(z\overline w)$$
+
+Let $J:\mathbb R^2\rightarrow\mathbb R^2, z\mapsto \overline z$ be the complex conjugation matrix. $\forall z,w\in \mathbb C$$$\inprod{Jz}{Jw}=\inprod{z}w$$
+reflexction w.r.t. real axis.
+\section{Def}A is called a rotation matrix if $$A=\begin{pmatrix}
+    \cos\theta &-\sin\theta\\\sin\theta&\cos\theta
+\end{pmatrix}$$
+($\Leftrightarrow$ A present inner product and $\det A>0$)
+\section{Prop}
+A matrix A is given by $z\mapsto az,a\in \mathbb C$ $\Leftrightarrow$ $\exists\rho\geq 0$ and a rotation matrix $R_\theta$ s.t. $A=\rho R_\theta$$$\begin{cases}
+    \rho=\abs{a}\\\theta=\arg z
+\end{cases}$$
+\section{Polar decomposition}
+Any $A\in M_{2\times 2}(\mathbb R)$ can be written as $$A= R_\theta P$$or $$A=JR_\theta P$$, where $R_\theta$ is a rotation matrix, P is positive, semi-definite matrix.
+\section{Def}
+$A\in M_{2\times 2}(\mathbb R)$ is called conformal if A preserves the angle between two vectors i.e. $\forall z,w\in \mathbb C$$$\frac{\inprod{Az}{Aw}}{\abs{Az}\abs{Aw}}=\frac{\inprod{z}w}{\abs{z}\abs{w}} $$
+\section{Remark}Conformal matrix is invertible. A circle in $\mathbb C$ is given by $$\{z\in \mathbb C\mid \abs{z-z_0}=r\}\quad r>0,z_0\in \mathbb C$$
+\section{Prop}Let $A\in M_{2\times 2}(\mathbb R)$ s.t. $\det A>0$
+
+(such matrix are called orientation preserving)
+
+Then the following conditions are equivalent:
+\begin{itemize}
+    \item [1]A is conformal
+    \item [2]A is given by $z\mapsto az, a\in C$
+    \item [3]A maps a circle to a circle
+\end{itemize}
+\subsection*{Proof}
+Since $\det A>0$ by polar decomposition$$A=\begin{cases}
+    R_\theta P\\JR_\theta P
+\end{cases}\Rightarrow A=R_\theta P$$
+$R_\theta$ rotation, P positive semi-definite.
+
+It suffices to prove the prop for P.
+$$P=R_\beta DR_\beta^{-1}$$ where $D=\begin{pmatrix}
+    \lambda_1&\\ &\lambda_2
+\end{pmatrix},\lambda_1,\lambda_2>0$, and $R_\beta$ rotation.
+
+It suffice to prove the prop for D. In this case (2)$\Leftrightarrow\lambda_1=\lambda_2$ It suffices to show (1)$\Rightarrow \lambda_1=\lambda$ and (3)$\Rightarrow\lambda_1=\lambda_2$
+
+We first show (1)$\Rightarrow\lambda_1=\lambda_2$:
+
+$D(1)=\lambda_1,D(1+i)=\lambda_1+\lambda_2i$, $$D=\begin{pmatrix}
+    \lambda_1&\\ &\lambda_2
+\end{pmatrix}$$. D conformal $\Rightarrow$ $$\frac{\inprod{Dz}{Dw}}{\abs{Dz}\abs{Dw}}=\frac{\inprod{z}{w}}{\abs{z}\abs{w}}$$
+Take $z=1,w=1+i$
+$$\frac{\inprod{\lambda_1}{\lambda_1+\lambda_2i}}{\lambda_1\sqrt{\lambda_1^2+\lambda_2^2}}=\frac{1,1+i}{\sqrt{2}}$$
+Hence
+$$\frac{\lambda_1^2}{\lambda_1\sqrt{\lambda_1^2+\lambda_2^2}}=\frac{1}{\sqrt 2}$$$\Rightarrow\ \lambda_1=\lambda_2$
+
+Next (3)$\Rightarrow\ \lambda_1=\lambda_2$. Assume D maps circle to circle. Consider $\partial D(0,\sqrt 2)$. Then the image of $\partial D(0,\sqrt 2)$ is a circle, which is central symmetry w.r.t. $D(0)=0$. So the image is a circle centred at 0. Consider pts $\sqrt 2,1+i\in \partial D(0,\sqrt 2)$. Since $$D(\sqrt 2)=\lambda_1\sqrt 2\quad D(1+i)=\lambda_1+\lambda_2i$$ we have $$\abs{\lambda_1\sqrt 2}=\abs{\lambda_1+\lambda_2i}$$
+$\Rightarrow \lambda_1=\lambda_2$
+\chapter{Power series}
+Let $n\in \mathbb Z$ one can verify
+$$\begin{aligned}
+    z^n:&\mathbb C&\rightarrow&\mathbb C\\ &z&\mapsto&z^n
+\end{aligned}\quad n\geq0$$
+$$\begin{aligned}
+    z^{-n}:&\mathbb C\setminus\{0\}&\rightarrow&\mathbb C\\ &z&\mapsto&z^{-n}
+\end{aligned}\quad n\geq0$$
+we have
+$$\frac{\partial z^n}{\partial z}=nz^{n-1}\quad\frac{\partial z^n}{\partial\overline z}=0$$
+$$\frac{\partial \overline z^{-n}}{\partial z}=0\quad\frac{\partial \overline z^n}{\partial\overline z}=nz^{n-1}$$
+so $z^n$ holomorphic but $\overline z$ not holomorphic.
 \end{document}
