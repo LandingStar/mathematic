@@ -55,13 +55,13 @@ $$\begin{aligned}
     \wp(\mathbb N) &\rightarrow\{0,1\}^{\mathbb{N}}\\A &\mapsto \mathbbm 1_A
 \end{aligned}$$
 is a bijection$$\{0,1\}^{\mathbb N}=\mathcal{F}(\mathbb N;\{0,1\})$$
-\subsecction*{Remark}
+\subsection*{Remark}
 A,B be sets. $\mathcal{F}(A;B)$ is the set of all functions from A to B.
 \subsection*{Proof}
 Assume that $\exists$ bijection
-$$\begin{align}
+$$\begin{aligned}
     \mathbb N &\rightarrow \wp(\mathbb N)\\ n&\mapsto f_n
-\end{align}$$
+\end{aligned}$$
 Define $$\begin{aligned}
     f:&\mathbb N &\rightarrow &\{0,1\}\\ &n&\mapsto &\left\{\begin{aligned}
         0 &\text{ if }f_n(n)=1\\ 1&\text{ if }f_n(n)=0
@@ -71,7 +71,7 @@ $f\in \mathcal F(\mathbb N;\{0,1\})$ thus $\exists m\in \mathbb N$ s.t. $f=f_m$.
 \chapter{Number Series}
 \section{Def}
 $\sum\limits_{n=0}^{+\infty}a_n$ is \textbf{commutatively convergent} (CC) if for each permutation $\phi$ of $\mathbb N$ the series $\sum\limits_{n=0}^{+\infty}a_{\phi(n)}$ converges. 
-\subsectioin*{Remark}
+\subsection*{Remark}
 A.C. is \textbf{absolutely convergent}.
 
 C. is \textbf{convergent}.
@@ -144,11 +144,268 @@ $$\begin{aligned}
 Let $\delta(x)=\min\{\delta_1(x),\delta_2(x)\}$ then $\delta$ is a gauge on I. If $\Pi$ is $\delta$-finite then it's $\delta_1$-finite and $\delta_2$-finite.
 \section{Cousin Theorem}
 I be a compact cell and $\delta$ a gauge on I. Then there exists a $\delta$-finite then P-division of I.
-subsection*{Proof}
+\subsection*{Proof}
 assume there's no. Then divide I into $I_l,I_r$ by middle. Then either $I_l,I_r$ has no $\delta$-finite division. Then we get a decreasing sequence $(I_n)_{n\in \mathbb N}$ by keeping dividing. According to nested theorem, get their intersection a singleton $x$. Notice that $x$ is a point of I, for $N\in \mathbb N$ big enough
 $$diam I_N=2^{-N}\cdot diam I<\delta(x)$$then $\Pi=\{(I_N,x)\}$ is a $\delta$-finite P-division of $I_N$.
 \section{Notation}
 $$r=\int_If=\int_If(x)\text{d}x$$
 if $I=[a,b]$
 $$r=\int_a^bf=\int_a^bf(x)\text{d}x$$
+\section{Prop of Riemann Sum}
+\begin{itemize}
+    \item [linearity]$\forall\Pi$(partial)P-division, $\forall f_1,f_2:I\rightarrow \mathbb R,\ \forall \alpha\in \mathbb R$$$S(\Pi,\alpha f_1+f_2)=\alpha S(\Pi,f_1)+S(\Pi,f_2)$$
+    \item [monotonicity]$$f_1\leq f_2\ \Rightarrow\ S(\Pi,f_1)\leq S(\Pi,f_2)$$
+    \item [additivity]if $\Pi_1,\Pi_2$ are partial P-division of I and $(body \Pi_1)\cap(body\Pi_2)$ is either empty or a finite set, then $\forall f$$$S(\Pi_1\cup\Pi_2)=S(\Pi_1,f)+S(\Pi_2,f)$$
+\end{itemize}
+\section{Prop of KH-integral}
+I a compact cell
+\section{Prop: Constant functions}
+If $f:I\rightarrow \mathbb R$ is constant then $f\in KH(I)$ and $\int_If=y\cdot\abs{I}.$ ($y$ is the constant value of $f$)
+\subsection*{Proof}
+$\forall \Pi$ P-division of I$$S(\Pi,f)=\sum\limits_{(J,x)\in \Pi}f(x)\abs{J}=y\sum\limits_{(J,x)\in \Pi}\abs{J}=y\abs{I}$$
+\section{Theorem} $KH(I)$ is a vector space and $KH(I)\rightarrow\mathbb R,f\mapsto \int_If$ is linear and monotone.
+\subsection*{Proof}
+$0,\mathbbm 1_I\in KH(I)$
+
+If $f_1,f_2\in KH(I)$ and $\alpha\in \mathbb R$, we want to show that $\alpha f_1+f_2\in KH(I)$ and $$\int_I(\alpha f_1+f_2)=\alpha\int_If_1+\int_If_2$$
+Let $\epsilon>0$, $\delta_1$ be a gauge on I, $\frac{\epsilon}{2(\abs \alpha+1)}$-adapted to $f_1$ and $\delta_2$ $\frac{\epsilon}2$-adapted. Def $$\delta=\min\{\delta_1,\delta_2\}$$
+Let $\Pi$ be a $\delta$-finite P-division of I
+$$
+\begin{aligned}
+    \abs{S(\Pi,\alpha S(\Pi,f_1)+S(\Pi,f_2))-(\alpha\int_If_1+\int_If_2)}&=\abs{\alpha S(\Pi,f_1)+S(\Pi,f_2)-(\alpha\int_If_1+\int_If_2)}\\
+    &\leq\abs{\alpha}\abs{S(\Pi,f_1)-\int_If_1}+\abs{S(\Pi,f_2)-\int_If_2}\\
+    &\leq\abs{\alpha}\frac{\epsilon}{2(\abs \alpha+1)}+\frac{\epsilon}2\leq \epsilon
+\end{aligned}$$
+\section{Cauchy criterion}
+Let $f:I\rightarrow \mathbb R$, TFAE:
+\begin{itemize}
+    \item $f\in KH(I)$
+    \item $\forall \epsilon>0\ \exists \text{gauge}\ \delta$ on I s.t. $\forall \Pi, \Pi$ is $\delta$-finite P-division of I
+    $$\abs{S(\Pi,f)-\int_If}<\epsilon$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{$1\Rightarrow2$}
+trivial
+\subsubsection{$2\Rightarrow1$}
+For each $n\in \mathbb N_0$, we apply hypothesis (2) with $\epsilon=\frac{1}n$ and we obtain a gauge $\delta_n$, define
+$$\hat{\delta_n}=\min\limits_{i=1}^n\delta_i$$
+choose $\Pi_n$ a  $\hat{\delta_n}$-finite
+
+Let $r_n:=S(\Pi_n,f)$. We show that $\left<r_n\right>_{n\in \mathbb N_0}$ is a Cauchy sequence. Let $0<p<q\in \mathbb N_0$
+$$\abs{r_p-r_q}=\abs{S(\Pi_p,f)-S(\Pi_q,f)}<\frac{1}p$$
+Name $r:=\lim\limits_{n\rightarrow +\infty}r_n$, now we show that $f$ is KH-integrable with $\int_If=r$. Let $\epsilon>0$, choose $n_0\in \mathbb N_0$ large enough for $\frac{1}{n_0}<\epsilon$. We claim that $\hat{\delta_n}$ is a gauge with integrability of $f$. $\forall \Pi\hat{\delta_n}$-finite, for each $n\geq n_0$, we have:
+$$\begin{aligned}
+    \abs{S(\Pi,f)-r}&\leq\abs{S(\Pi,f)-S(\Pi_n,f)}+\abs{S(\Pi_n,f)-r}\\
+    &\leq\frac{1}{n_0}+\abs{r_n-r}\\
+    &\leq \epsilon+\epsilon
+\end{aligned}$$
+\section{Example: Dirichlet function}
+$$f:\mathbb R\rightarrow\mathbb R:\mathbbm{1}_{\mathbb Q}$$
+Let $I$ be a compact cell, we want to show
+$$f\mid_I\in KH(I)\quad\int_If\mid_i=0$$
+We deal with $S(\Pi,\mathbbm 1_{\mathbb Q})=\sum\limits_{(J,x)\in \Pi,x\in \mathbb Q}\abs{J}$. For $\mathbb Q$ countable:
+$$\exists q:\mathbb N\stackrel{q}{\cong}I\cap \mathbb Q$$
+Let $\epsilon>0$, we define $\delta$ on $I\cap\mathbb Q$ as follows:\begin{itemize}
+    \item If $x\in I\cap \mathbb Q$, then $x=q(n)$ for some $n$ and let $\delta(x)=\frac{\epsilon}{2^n}$
+    \item If $x\in I\setminus\mathbb Q$, then define $\delta(x)=1$
+\end{itemize}
+Let $\Pi$ be $\delta$-finite,
+$$\begin{aligned}
+    S(\Pi,\mathbbm{1}_{\mathbb Q})&=\sum\limits_{(J,x)\in \Pi,x\in \mathbb Q}\abs{J}\\
+    &\leq\sum\limits_{n=0}^\infty\sum\limits_{(J,x)\in \Pi,x\in \mathbb Q}\abs J\\
+    &\leq \sum\limits_{n=0}^\infty2\cdot2\cdot\frac{\epsilon}{2^n}=8\epsilon
+\end{aligned}$$
+\section*{Exercises}
+If $\mathbbm 1_{\mathbb Q\cap I}$ Riemann integrable?
+\section{Theorem}
+Let $f\in KH(I),g:I\rightarrow\mathbb R$ s.t. $\{f\neq g\}$ is countable. Then $g\in KH(I)$ and $\int_Ig=\int_If$
+\section{Theorem: subordinate P-division}
+Let I be a compact cell and $\Delta$ be a division of I. There exists a gauge $\delta$ on I satisfying the following properties:
+
+$\forall \delta$-finite P-division $\Pi$ of I,
+\begin{itemize}
+    \item $\forall K\in \Delta,\ \exists$P-division $\Pi_K$ of K
+    \item There exists a P-division $\tilde\Pi$ of I s.t.\begin{itemize}
+        \item [A]$\tilde{\Pi}=\bigcup\limits_{K\in \Delta}\Pi_K$
+        \item [B]$\forall f:I\rightarrow\mathbb R$$$S(\Pi,f)=S(\tilde\Pi,f)=\sum\limits_{K\in \Delta}S(\Pi_K,f_K)$$
+        \item [C]For every gauge $\eta$ on I, if $\Pi$ is $\eta$-finite, then each $\Pi_K$ is $\eta\mid_K$-finite, $K\in \Delta$
+    \end{itemize}
+\end{itemize}
+\subsection*{Proof}
+$$\delta(x)=\begin{cases}
+    dist(x,F)&\text{if }x\notin F\\
+    dist(x,F\setminus\{x\})\text{if }x\in F
+\end{cases}$$
+\section{Finite-additivity}
+Let $\{I_1,\cdots,I_N\}$ be a division of a compact cell I and $f:I\rightarrow \mathbb R$ TFAE
+\begin{itemize}
+    \item $f\in KH(I)$
+    \item $f\mid_{I_n}\in KH(I_n),\forall n\in\{1,\cdots,N\}$, In this case, $$\int_If=\sum\limits_{I_n}f\mid_{I_n}$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{$1\Rightarrow 2$}
+Let $J\subseteq I$ be a compact cell and assume $$I=J_1\sqcup J\sqcup J_2\quad(J_1\leq J\leq J_2)$$
+We want to show that $f\mid_J\in KH(J)$. Apply Cauchy criterion for this. Let $\epsilon>0$ We need to find a gauge $\delta_0$ on J s.t. $\Pi_0$ is $delta_0$-finite P-division, then $$\abs{S(\Pi_0,f\mid_J)-S(\Pi_0,f\mid_J)}<\epsilon$$
+For $\epsilon>0$, $\exists \delta$ gauge on I $\epsilon$-adapted to $f$. We define:
+\begin{itemize}
+    \item $\delta_1=\delta\mid_{J_1}$ then $\Pi_1$ is $\delta_1$-finite
+    \item $\delta_0=\delta\mid_J$ then $\Pi_0$ is $\delta_0$-finite
+    \item $\delta_2=\delta\mid_{J_2}$ then $\Pi_2$ is $\delta_2$-finite
+\end{itemize}
+so 
+$$S(\Pi,f)=S(\Pi_1,f\mid_{J_1})+S(\Pi_0,f\mid_J)+S(\Pi_2,f\mid_{J_2})$$
+\subsubsection{$2\Rightarrow 1$}trivial
+\section{Theorem}
+If $f\in KH(I)$ and $J\subseteq I$ is a compact cell, then $f\mid_J\in KH(I)$ and $$\int_Jf\mid_J=\int_I\mathbbm 1_J\cdot f$$
+\section{Def: step function}
+$f:I\rightarrow\mathbb R$ is a \textbf{step function} if there exists a division $\Delta$ of I s.t. $\forall J\in \Delta,f\mid_{\mathring J}$ is constant.
+\section{Theorem}
+Every step function on I is JH-integrable.
+\section{Theorem}
+If $(f_n)$ a sequence in $KH(I)$ that converges uniformly on I to $f:I\rightarrow\mathbb R$, then $f\in KH(I)$
+\section{Def:regulated function}
+A \textbf{regulated function} $f:I\rightarrow\mathbb R$ is a function which is a limit of a sequence of step functions.
+\section{Corollary}Every regulated function on I is KH-integrable.
+\section{Prop}
+\begin{itemize}
+    \item Every continuous function $f:I\rightarrow\mathbb R$ is regulated
+    \item Every monotone function $f:I\rightarrow\mathbb R$ is regulated.
+\end{itemize}
+\chapter{Fundamental theorem of calculus}
+\section{Theorem}
+If $F:I\rightarrow\mathbb R$ is diff. (differentiable) everywhere, then $F'\in KH(I)$ and $$\int_IF'=F(\max I)-F(\min I)$$
+\subsection{Lemma}
+\label{Lemma 2.52}
+If $f$ is diff. at $x\in I$ then$\forall\epsilon$ $\exists\delta>0$ s.t. $\forall y\leq x\leq z$, $y,z\in I$, $\max\{\abs{y-x},\abs{x-z}\}<\delta$, then$$\abs{F(z)-F(y)-F'(x)(z-y)}<\epsilon\abs{z-y}$$
+\subsubsection*{Proof of lemma}$$\begin{aligned}
+    &\abs{F(z)-F(x)+F(x)-F(y)-F'(x)(z-x+x-y)}\\\leq& \epsilon\abs{z-x}+\epsilon\abs{y-x}\\ =&\epsilon\abs{y-z}
+\end{aligned}
+$$
+\subsection*{Proof}
+Let $\epsilon>0$, $\forall x\in I$, there exists $\delta(x)>0$ s.t. $\forall$ compact cell $J\subseteq I$, with $x\in J\subseteq[x-\delta(x),x+\delta(x)]$
+$$\abs{F(\max J)-F(\min J)-F'(x)\abs J}<\epsilon\abs J$$
+If $\Pi$ is a $\delta$-finite P-division of I. We want to show $$\abs{S(\Pi,F')-F(\max I)+F(\min I)}<\epsilon\abs I$$
+Basically$$S(\Pi,F')=\sum\limits_{(J,x)\in \Pi}F'(x)\abs J$$
+$$F(\max I)-F(\min I)=\sum\limits_{(J,x)\in \Pi}\left(F(\max J)-F(\min J)\right)$$
+$$\begin{aligned}
+    &\abs{S(\Pi,F')-F(\max I)+F(\min I)}\\
+    \leq &\sum\limits_{(J,x)\in \Pi}\abs{F'(x)\abs J-F(\max J)+F(\min J)}\\
+    \leq &\epsilon\abs I
+\end{aligned}$$
+\chapter{Change of variables}
+\section{Theorem: change of variable}
+$$I\stackrel{\phi}{\longrightarrow}\tilde I\stackrel{f}\longrightarrow\mathbb R$$
+I and $\tilde I$ be compact cells, $\phi:I\leftrightarrow \tilde I$ be a (monotone) bijection which is diff. everywhere on I. If $f\in KH(\tilde I)$ then $(f\circ\phi)\abs{\phi'}\in KH(I)$ and $$\int_I(f\circ\phi)\abs{\phi'}=\int_{\tilde I}f\abs{f'}$$
+\subsection*{Proof}
+Let $\epsilon>0$, exists a gauge $\tilde\delta$ on $\tilde I$ s.t. if $\tilde\Pi$ is a $\tilde\delta$-finite P-division, then $$\abs{S(\tilde\Pi,f)-\int_{\tilde I}f\abs{f}}<\epsilon$$
+If $\Pi$ is any P-division, then we can associate with if $\tilde\Pi=\{(\phi(J),\phi(x))\mid(J,x)\in \Pi\}$ which is a P-division of $\tilde I$
+
+Since $\phi$ is uniformly continuous on I, there exists $\eta:\rightbracket0,+\infty\leftbracket\rightarrow\rightbracket0,+\infty\leftbracket$ s.t. $\forall\delta>0,\forall x,y\in I$ have $$\abs{x-y}\leq\eta(\delta)\ \Rightarrow\ \abs{\phi(x)-\phi(y)}\leq\delta$$
+Only a different interpretation of uniformly continuous. We define a gauge $\delta_1$ on I:
+$$\delta_1(x)=\eta\circ\tilde\delta\circ\phi(x)$$
+\subsection*{Remark}
+If $\Pi$ is a $\delta_1$-finite P-division of I then $\tilde\Pi$ is a $\tilde\delta$-finite P-division of $\tilde I$
+$$J=[y,z]\subseteq[x-\delta_1(x),x+\delta_1(x)]$$
+$$\max\{\abs{y-x},\abs{x-z}\}\leq \delta_1(x)=\eta\circ\tilde\delta\circ\phi(x)$$
+$$\max\{\abs{\phi(y)-\phi(x)},\abs{\phi(x)-\phi(z)}\}\leq\tilde\delta\circ\phi(x)$$
+
+Given $x\in I$, we define $\epsilon(x)=\frac{\epsilon}{1+\abs{f\circ\phi(x)}}$. By lemma\ref{Lemma 2.52}, there exists a $\delta_2(x)>0$ s.t. if $J=[y,z]\subseteq[x-\delta_2(x),x+\delta_2(x)]\subseteq I$ contains $x$ and then 
+$$\begin{aligned}
+    \abs{\abs{\phi(J)}-\abs{\phi'(x)}\cdot\abs J} &= \abs{\abs{\phi(y)-\phi(z)}-\abs{\phi'(x)}\cdot\abs{z-y}}\\
+    &=\abs{\phi(z)-\phi(y)-\phi'(x)(z-y)}\\
+    &<\epsilon(x)\abs{z-y}=\epsilon(x)\abs J
+\end{aligned} $$
+Define a gauge $\delta$ on I by $\delta=\min\{\delta_1,\delta_2\}$. If $\Pi $ is a $\delta$-finite P-division of I then 
+$$\begin{aligned}
+    \abs{\int_{\tilde I}f-S(\Pi,(f\circ\phi)\cdot\abs{\phi'})}&\leq\abs{\int_{\tilde I}f-S(\tilde\Pi,f)}+\abs{S(\tilde\Pi,f)-S(\Pi,(f\circ\phi)\cdot\abs{\phi'})}\\
+    &\leq\sum\limits_{(J,x)\in \Pi}\abs{f\circ\phi(x)}\cdot\abs{\abs{\phi(J)}-\abs{\phi'(x)}\cdot\abs J}\\
+    &\leq\sum\limits_{(J,x)\in \Pi}\abs{f\circ\phi(x)}\cdot\epsilon(x)\cdot\abs{J}\\
+    &\leq \epsilon\abs I
+\end{aligned}$$
+\chapter{Integral on the real line}
+\section{Saks-Henstock's theorem}
+Let I be a compact cell and $f\in KH(I)$ and $\epsilon>0$ and $\delta$ a gauge on I which is $\epsilon$-adapted to $f$. If $\Pi$ is a partial $\delta$-finite P-division of I then:
+\begin{itemize}
+    \item $$\abs{\sum\limits_{(J,x)\in \Pi}\left(\int_Jf\mid_J-f(x)\abs J\right)}\leq\epsilon$$
+    \item $$\sum\limits_{(J,x)\in \Pi}\abs{\int_Jf\mid_J-f(x)\abs J}$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{$1\Rightarrow2$}
+Given $\Pi$ define
+$$\Pi^+=\Pi\cap\left\{(J,x)\mid\int_Jf\mid_J-f(x)\abs J\geq 0\right\}$$
+$$\Pi^-=\Pi\cap\left\{(J,x)\mid\int_Jf\mid_J-f(x)\abs J<0\right\}$$
+let $\pi=\Pi^+\sqcup\Pi^-$, then 
+$$\sum\limits_{(J,x)\in \Pi^+}\abs{\int_Jf\mid_J-f(x)\abs J}+\abs{\sum\limits_{(J,x)\in \Pi^+}\int_Jf\mid_J-f(x)\abs J}\leq\epsilon$$
+the same for $\Pi^-$
+\subsubsection{prove (1)}
+$\Delta_\Pi=\{J\mid(J,x)\in \Pi\}$ is a partial division of I. There exists another partial division $\Delta'$ of I s.t. $\Delta\cup\Delta_\Pi$ is a division of I.
+
+Let $\eta>0$, $\forall K\in \Delta'$, there exists a gauge $\delta_K$ on $K$, $\eta$-adapted to $f\mid_K\in KH(K)$. Define $\tilde\delta_K(x)=\min\{\delta_K(x),\delta(x)\},x\in K$, a gauge on K. Let $\Pi_K$ be a $\delta\delta_K$-finite P-division of K. Then
+$$\abs{\int_K-S(\Pi_K,f)}<\eta$$
+Define $\tilde\Pi=\Pi\cup\left(\bigcup\limits_{K\in \Delta'}\Pi_K\right)$ is a P-division of I and is $\delta$-finite. Since $\delta$ is a $\epsilon$-adpated to $f$ and $\tilde\Pi$ is $\delta$-finite on I, we have:
+$$\abs{\int_If-S(\tilde\Pi,f)}<\epsilon$$
+$$\begin{aligned}
+    S(\tilde\Pi,f)&=\sum\limits_{(J,x)\in \Pi}f(x)\abs J+\sum\limits_{K\in \Delta'}S(\Pi_K,f)\\
+    \int_If&=\sum\limits_{(J,x)\in \Pi}\int_If\mid_J+\sum\limits_Kf\mid_K
+\end{aligned}$$then
+$$\begin{aligned}
+    \abs{\sum\limits_{(J,x)\in \Pi}\int_Jf\mid_J-f(x)\abs J}&\leq\abs{\int_If-S(\tilde\Pi,f)}+\abs{\sum\limits_{K\in \Delta'}\left(\int_Kf-S(\Pi_K,f\right)}\\
+    &<\epsilon+\sum\limits_{K\in \Delta'}\abs{\int_Kf-S(\Pi_K,f)}\\
+    &\leq\epsilon+\eta\cdot(card\Delta')
+\end{aligned}$$
+\section{Hake Theorem}
+\label{Hake Theorem}
+Let I be a compact cell, $f:I\rightarrow\mathbb R$ and for $0<\eta<\abs I$, put $$I_\eta=[\eta+\min I,\max I]$$
+TFAE
+\begin{itemize}
+    \item $f\in KH(I)$
+    \item $\forall\eta$,$$f\mid_{I_\eta}\in KH(I_\eta)\text{ and }\lim\limits_{\eta\rightarrow0}\int_{I_\eta}f\mid_{I_\eta}\text{ exists}$$
+\end{itemize}
+In this case, $$\int_If=\lim\limits_{eta\rightarrow0}\int_{I_\eta}f\mid_{I_\eta}$$
+\section{Corollary}
+If $f\in KH(I)$, then the \textbf{indefinite integral} of $f$
+$$\begin{aligned}
+    F:&I&\rightarrow&\mathbb R\\
+    &x&\mapsto&\begin{cases}
+        \int_{[\min I,x]}f\quad&\text{if}x>\min I\\
+        0&\text{if}x=\min I
+    \end{cases}
+\end{aligned}$$
+is continuous by Hake Theorem\ref{Hake Theorem}$$\int f:=F$$
+\section{Prop}
+TFAE\begin{itemize}
+    \item $f\in KH(I)$
+    \item $\exists$ continuous function $F:I\rightarrow\mathbb R$ s.t. $\forall \epsilon>0$ $\exists$ a gauge $\delta$ on I, $\forall$ partial $\delta$finite P-division $\Pi$ of I:
+    $$\sum\limits_{(J,x)\in \Pi}\abs{f(x)\abs J-F(\max J)+F(\min J)}<\epsilon$$
+\end{itemize}
+\section{Def: KH-integral}
+A function $f:\mathbb R\rightarrow\mathbb R$ is KH-integrable if:
+
+$\exists F:\mathbb R\rightarrow\mathbb R$ and $\lim\limits_{x\rightarrow-\infty}F(x)$ and $\lim\limits_{x\rightarrow+\infty}F(x)$ exists. $\forall \epsilon>0$ $\exists$ a gauge $\delta$ on $\mathbb R$ s.t. $\forall \Pi$ partial $\delta$-finite P-division :
+$$\sum\limits_{(J,x)\in \Pi}\abs{f(x)\abs J-F(\max J)+F(\min J)}<\epsilon$$
+and define
+$$\int_{\mathbb R}f:=\lim\limits_{x\rightarrow+\infty}F(x)-\lim\limits_{x\rightarrow-\infty}F(x)$$
+\chapter{Monotone Converges \& Lebesgue's Measure}
+I be a $\textbf{closed}$ cell.
+\section{Def: AKH-integrable}
+$$AKH(I)=KH(I)\cap\{f\mid\abs f\in KH(I)\}$$
+\section{Prop}TFAE
+\begin{itemize}
+    \item $f\in AKH(I)$
+    \item $$f^+:=\max\{f,0\}\in KH(I)\quad f^-\min\{f,0\}\in KH(I)$$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{$1\Rightarrow2$}
+$$f^+=\frac{\abs f+f}2\quad f^-=\frac{\abs f-f}2$$
+\subsubsection{$2\Rightarrow1$}
+$$f=f^+-f^-\quad \abs f=f^++f^-$$
+\section{Prop}Let $f\in AKH(I)$, then 
+\begin{itemize}
+    \item [1]$\abs{\int_If}\leq\int_I\abs f$
+    \item [2]$\forall J\subseteq I$, closed cell, $$f\mid_J\in AKH(J)$$
+\end{itemize}
+\section{Prop}
+Let $f\in KH(I)$, then $$f\in AKH(I)$$
+iff
+$$\sup\left\{\left.\sum\limits_{K\in \Delta}\abs{\int_Kf\mid_K}\right|\Delta\text{ is a partial division of }I\right\}<+\infty$$
 \end{document}
