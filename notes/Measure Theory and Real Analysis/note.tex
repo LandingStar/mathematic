@@ -22,6 +22,7 @@
 \newcommand{\leftbracket}{[}
 \newcommand{\rightbracket}{]}
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
+\newcommand{\fpartial}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
 \begin{document}
 \tableofcontents
 \chapter{Countable sets}
@@ -408,4 +409,11 @@ $$f=f^+-f^-\quad \abs f=f^++f^-$$
 Let $f\in KH(I)$, then $$f\in AKH(I)$$
 iff
 $$\sup\left\{\left.\sum\limits_{K\in \Delta}\abs{\int_Kf\mid_K}\right|\Delta\text{ is a partial division of }I\right\}<+\infty$$
+\section{Theorem}
+Let S be a power series with convergent radius R. Then on $D(z_0,R)$, S is holomorphic, and $$f'(z)=\sum\limits_{n=0}^\infty na_n(z-z_0)^{n-1}$$
+\subsection*{Proof}
+\begin{itemize}
+    \item$$\limsup\limits_{n\to+\infty}\abs{a_n}^{\frac{1}n}=\limsup\limits_{n\to+\infty}\abs{na_n}^{\frac{1}{n-1}}$$ The series $f'$ exists.
+    \item $\frac{\partial f}{\partial\overline z}=0$$\fpartial{f}{z}$
+\end{itemize}
 \end{document}

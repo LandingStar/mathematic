@@ -11,6 +11,7 @@
 \usepackage{xeCJK}
 \usepackage{dutchcal}
 \usepackage{pgfplots}
+\usepackage{expl3}
 \hypersetup{hidelinks,
 	colorlinks=true,
 	allcolors=black,
@@ -22,6 +23,17 @@
 \newcommand{\leftbracket}{[}
 \newcommand{\rightbracket}{]}
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
+% \newcommand{\mapping}[5][]{
+% \ExplSyntaxOn
+% \cs_if_exist:NTF {#1}
+% {\begin{aligned}
+%     #1:&#2&\rightarrow&#3\\ &#4&\mapsto&#5
+% \end{aligned}}  
+% {\begin{aligned}
+%     &#2&\rightarrow&#3\\ &#4&\mapsto&#5
+% \end{aligned}}
+% \ExplSyntaxOff
+% }
 \begin{document}
 \tableofcontents
 \chapter{Preface}
@@ -331,4 +343,38 @@ $$\frac{\partial z^n}{\partial z}=nz^{n-1}\quad\frac{\partial z^n}{\partial\over
 $$\frac{\partial \overline z^{-n}}{\partial z}=0\quad\frac{\partial \overline z^n}{\partial\overline z}=nz^{n-1}$$
 so $z^n$ holomorphic but $\overline z$ not holomorphic.
 
+In following we fix $n\in \mathbb Z$, $z^n:\mathbb C\rightarrow \mathbb C$, differentiable
+\section{Def}
+Let $z_0\in \mathbb C$ A \textbf{power series} centered at $z_0$ is of the form $$S=\sum\limits_{n=0}^{+\infty}a_n(z-z_0)^n\quad a_n\in \mathbb C$$
+Let $z\in \mathbb C$. We say that S converges at $z$ if the number series $\sum\limits_{n=0}^{+\infty}a_n(z-z_0)^n$ converges, otherwise called diverges at $z$
+\section{Def}
+Let $K\subseteq \mathbb C$, $z_0\in K$ and $S=\sum\limits_{n=0}^{+\infty}a_n(z-z_0)^n$ is a power series. We say $S$ is uniformly convergent on $K$ is $S(z)$ converges uniformly to a function on $K$
+\section{Cauchy's criteria}
+S uniformly convergent on K iff $(\forall \epsilon>0)(\exists N)(\forall n>m\geq N)(\forall z\in K)$
+$$\abs{\sum\limits_{k=m}^na_k(z-z_0)^k}<\epsilon$$
+\section{Corollary: Dominated convergence}
+If $(\forall n)(\exists M_n\in \mathbb R_{\geq 0})(\abs{a_n(z-z_0)^n}\leq M_n)$
+$$\sum\limits_{n=0}^{+\infty}a_n(z-z_0)^n<+\infty$$
+then S uniformly convergent on K.
+\section{Abel Theorem}
+Let $S=\sum\limits_{n=0}^{+\infty}a_n(z-z_0)^n$ be a power series converges at $z\neq z_0$ Let $R:=\abs{z'-z_0}$. $\forall 0<r<R$ S uniformly converges on the closed disk $\overline D(z_0,r)$
+\section{Def:convergent radius}
+Let S be a power series
+$$R:=\sup\left\{\abs{z-z_0}\mid S \text{ converges at }z\right\}\in [0,+\infty]$$
+\section{Prop}
+Let $\Omega$ be the convergent set of $S$. Then $\exists! D$ disk s.t. $\Omega\subseteq\overline D$ and $D\subseteq \Omega$
+\section{Lemma}
+Let S be a power series, R be the convergent radius of S. Then 
+$$\frac{1}R=\limsup\limits_{n\to +\infty}\abs{a_n}^{\frac{1}n}$$
+\section{Theorem}
+Let S be a power series with convergent radius R. Then on $D(z_0,R)$, S is holomorphic, and $$f'(z)=\sum\limits_{n=1}^{+\infty}na_n(z-z_0)^{n-1}$$
+\subsection*{Proof}
+\begin{itemize}
+    \item $$\limsup\limits_{n\to +\infty}\abs{a_n}^{\frac{1}n}=\limsup\limits_{n\to +\infty}\abs{na_n}^{\frac{1}{n-1}}$$The series $f'$ exists
+    \item $\frac{\partial f}{\partial \overline z}=0$ complex differentiable.
+    \item uniformly convergence $\Rightarrow$ $f'$ is the derivative of limit function of $f$.
+\end{itemize}
+\section{Prop}
+Convergent radius of $(S_1+S_2)$($S_1$ and $S_2$ shares the same center)
+$$R\geq\min\{R_1,R_2\}$$
 \end{document}

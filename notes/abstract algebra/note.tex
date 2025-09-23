@@ -23,6 +23,7 @@
 \newcommand{\rightbracket}{]}
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
 \newcommand{\zmod}[1]{\mathbb Z/#1\mathbb Z}
+\newcommand{\set}[1]{\left\{#1\right\}}
 \begin{document}
 \tableofcontents
 \chapter{preface}
@@ -413,4 +414,102 @@ After n application of coro\ref{Division Corollary}, the quotient becomes consta
 (This is a tricky proof, for $a_n$ 's existence doesn't guaranteed. But we can use induction to prove it)
 \subsection*{Remark}
 $f(x)=x^3$ in $\mathbb Z/8\mathbb Z[x]$ but $$f(0)=f(2)=f(4)=f(6)=0$$ in $\mathbb Z/8\mathbb Z$
+\chapter{Unique factorization for the polynomial ring}
+In $\mathbb Z$, we deduce the existence of the gcd and unique factorization property from the division algorithm. There results will follow identically for the polynomial ring once we have the appropriate notions of primes and gcd.
+\section{Def}
+Let $k$ bea non-constant polynomial $f(x)\in k[x]$ is called \textbf{irreducible} in $k[x]$ if it cannot be expressed as a product of non-constant polynomials in $k[x]$.
+
+\section*{Remark}
+The irreducibility of a polynomial depends on the field $k$. For instance, $x^2-2$ is irreducible in $\mathbb Q[x]$, but reducible in $\mathbb R[x]$.
+\section{Theorem}
+Given two nonzero polynomials $f(x),g(x)\in k[x]$. Let $$S:=\left\{a(x)f(x)+b(x)g(x)\in k[x]\mid a(x),b(x)\in k[x]\right\}$$
+Then there's certain polynomial $d(x)\in S$ of smallest degree, and every $h(x)\in S$ is divisible by $d(x)$.\subsection*{Proof}Use well-ordering principle for $S\setminus\{0\}$
+\section{Def}
+Let $k$ be a field. Let $f(x),g(x)\in k[x]$ be two nonzero polynomials.
+\begin{itemize}
+	\item We define the greatest common divisor of $f(x),g(x)$ is $$d(x):=\gcd(f(x),g(x))$$ to be the monic polynomial in $k[x]$ satisfying:\begin{itemize}
+		\item $d(x)\mid f(x)$ and $d(x)\mid g(x)$
+		\item $\forall e(x)\in k[x]$ if $e(x)\mid f(x)$ and $e(x)\mid g(x)$, then $d(x)\mid e(x)$
+	\end{itemize}
+	\item if $$\gcd(f(x),g(x))=1$$then we say $f(x)$ and $g(x)$ are relative prime.
+\end{itemize}
+\section{Theorem}
+Let $k$ be a field. 
+\begin{itemize}
+	\item Suppose that $f(x)$ is irreducible in $k[x]$ and $$f(x)\mid g(x)h(x)$$ then$$f(x)\mid g(x)\text{ or }f(x)\mid h(x)$$
+	\item (unique factorization in $k[x]$) Every common non-constant polynomial $f(x)\in k[x]$ can be written as a product of irreducible polynomials in $k[x]$; the resulting expression is unique, except for rearrangement and non-zero constant factors.
+\end{itemize}
+\subsection*{Proof}
+As before in $\mathbb Z$
+\section*{Remark}
+We have pointed out how similar the situation is for $\mathbb Z$ and $k[x]$. This suggests that there should be a wider class of rings, of which $\mathbb Z$ and $k[x]$ are special cases, for which much of the argumentation works.
+\section{Def}\label{Def:Euclidean domain}
+An integral domain R is a \textbf{Euclidean domain}( or \textit{Euclidean ring}) if there is a function $d:R^*:=R\setminus\set 0\to\mathbb Z_{\geq 0}$ s.t.\begin{itemize}
+	\item[i] For $a\in R^*,b\in R^*$, have $$d(a)\leq d(ab)$$
+	\item[ii] For $a\in R,b\in R^*$, there exists $q,r\in R$ s.t.$$a=qb+r$$ where $r=0$ or $d(r)<d(b)$
+\end{itemize}
+\section{Example}
+The following are standard examples, we have seen before:
+\begin{itemize}
+	\item The ring of integers $\mathbb Z$ with $d(n)=\abs n$ the absolute value of $n$. Note that when we use the absolute value, then the quotient $q$ and the reminder $r$ are not unique anymore. For instance $51=6\times 8+3=6\times 9-3$
+	\item The polynomial ring $k[x]$ with coefficients in a field $k$, and $d$ is given by degree.
+	\item The ring of Gaussian integers $$\mathbb Z[i]=\set{a+bi\mid a,b\in \mathbb Z}$$ with $$d(a+bi)=a^2+b^2$$
+\end{itemize}
+\subsection*{Remark}
+\subsubsection{1}
+In Definition\ref{Def:Euclidean domain}, (i) is not essential. Indeed, given $(R,d)$ which only satisfies (ii) there, we can define $\tilde d$ as
+$$\tilde d(a)=\min\set{d(ab)\mid b\in R^*}$$
+for any $a\in R^*$. Then $(R,\tilde d)$ is a Euclidean domain defined as in Def\ref{Def:Euclidean domain}(Exercise)
+\subsubsection{2}
+Division in $\mathbb Z[i]$ does not have a unique quotient and a remainder. For example:
+$$1+8i=(2-4i)(-1+i)-1+2i$$
+$$1+8i=(2-4i)(-2+i)+1-2i$$
+which both remainders have norm 5 and less then $N(2-4i)=20$
+\subsubsection{3}
+We have the following fact: If R is a Euclidean domain where the quotient and remainder are unique, then R is a field or $R=k[x]$ for a field $k$.
+\chapter{Ideals and Quotients}
+We start from a special kind of ideals.
+\section{Def}
+Let $f:R\to S$ be a ring homomorphism between two rings. Then kernel of $f$ is denoted as $$\ker f=\set{a\in R\mid f(a)=0_S}$$
+
+Note that, if $a_1,a_2\in \ker f$, then $a_1\pm a_2\in \ker f$, $r_1,r_2\in \ker f$ and $r_2,r_1\in \ker f$. This set is almost to be a ring but $1_R\notin \ker f$. But this set is more special, it satisfies a absorptive properties: if $a_1\in \ker f$ and $a\in R$, then we have:
+$$f(aa_1)=f(a)f(a_1)=f(a)\cdot0_S=0_S$$
+hence $aa_1\in \ker f$, similarly, we also have $a_1a\in \ker f$. This type subset has its own name.
+\section{Def}
+Let R be a ring, let $I\subseteq R$ be a subset. I is called an ideal of R if it satisfies:
+\begin{itemize}
+	\item $0\in I$
+	\item if $a_1,a_2\in I$, then $$a_1+a_2\in I$$
+	\item if $a_1\in I$, $\forall a\in R$, then $$aa_1\in I\text{ and }a_1a\in I$$
+\end{itemize}
+\subsection*{Example}
+\begin{itemize}
+	\item If $b\in I$, then $-b=(-1_R)\cdot b\in I$. Therefore $a-b\in I$ if $a,b\in I$
+	\item Let $\varphi_n:\mathbb Z\to\mathbb Z/n\mathbb Z$ be the natural ring homomorphism $a\mapsto[a]_n$. Then, $$\ker(\varphi_n)=n\mathbb Z$$is an ideal.
+	\item $\forall f(x)\in R[x]$ be a polynomial with coefficients in a ring R, then $$f(x)R[x]:=\set{f(x)g(x)\mid g(x)\in R[x]}$$
+	is an ideal of $R[x]$
+\end{itemize}
+\section{Def}
+Let R be a commutative ring
+\begin{itemize}
+	\item $\forall a\in R$, $aR:=\set{ab\mid b\in R}$ is an ideal of R, denoted as $(a)$, called the principal ideal generated by $a$
+	\item Let $a_1,\cdots, a_n\in R$. The ideal generated by $a_1,\cdots,a_n$ is denoted as $$(a_1,\cdots,a_n):=\set{r_1a_1+\cdots+r_na_n\mid r_i\in R,\forall i}$$
+\end{itemize}
+\section{Example}
+\begin{itemize}
+	\item Given $m,n\in \mathbb Z$, the ideal generated by $(m,n)$ is $$\set{mx+ny\mid x,y\in \mathbb Z}=(gcd(m,n))$$which is a principal ideal.
+	\item Let R be a commutative ring, consider the evaluation map at $a\in R$:$$\begin{aligned}
+		ev_a:&R[x]&\to&R\\ &f(r)&\mapsto&f(a)
+	\end{aligned}$$The kernel of this mapping is given by$$\begin{aligned}
+		\ker(ev_a)&=\set{f(x)\in R[x]\mid f(a)=0_R}\\ &=\set{f(x)\in R[x]\left| x-a\mid f(x)\right.}
+	\end{aligned}$$
+	which is just the ideal $(x-a)$. It also a principal ideal.
+\end{itemize}
+\section{Def}
+Let R be a ring, $I\subseteq R$ be an ideal. For $a,b\in R$, we say $a$ is congruent to $b$ modulo I, written as $a\equiv b\mod I$ if $a-b\in I$
+\section{Lemma}
+Let R be a ring, $I\subseteq R$ be an ideal.\begin{itemize}
+	\item Congruence modulo I is an equivalence relation
+	\item If $a\equiv b\mod I$ and $c\equiv d\mod I$, then $a\pm c\equiv b\pm d\mod I$. That is, this congruence relation is compatible with addition and multiplication on R.
+\end{itemize}
 \end{document}
