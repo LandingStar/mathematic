@@ -23,6 +23,7 @@
 \newcommand{\rightbracket}{]}
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
 \newcommand{\fpartial}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\set}[1]{\left\{#1\right\}}
 \begin{document}
 \tableofcontents
 \chapter{Countable sets}
@@ -221,6 +222,7 @@ If $\mathbbm 1_{\mathbb Q\cap I}$ Riemann integrable?
 \section{Theorem}
 Let $f\in KH(I),g:I\rightarrow\mathbb R$ s.t. $\{f\neq g\}$ is countable. Then $g\in KH(I)$ and $\int_Ig=\int_If$
 \section{Theorem: subordinate P-division}
+\label{subordinate P-division theorem}
 Let I be a compact cell and $\Delta$ be a division of I. There exists a gauge $\delta$ on I satisfying the following properties:
 
 $\forall \delta$-finite P-division $\Pi$ of I,
@@ -325,6 +327,7 @@ $$\begin{aligned}
 \end{aligned}$$
 \chapter{Integral on the real line}
 \section{Saks-Henstock's theorem}
+\label{Saks-Henstock's theorem}
 Let I be a compact cell and $f\in KH(I)$ and $\epsilon>0$ and $\delta$ a gauge on I which is $\epsilon$-adapted to $f$. If $\Pi$ is a partial $\delta$-finite P-division of I then:
 \begin{itemize}
     \item $$\abs{\sum\limits_{(J,x)\in \Pi}\left(\int_Jf\mid_J-f(x)\abs J\right)}\leq\epsilon$$
@@ -405,15 +408,127 @@ $$f=f^+-f^-\quad \abs f=f^++f^-$$
     \item [1]$\abs{\int_If}\leq\int_I\abs f$
     \item [2]$\forall J\subseteq I$, closed cell, $$f\mid_J\in AKH(J)$$
 \end{itemize}
-\section{Prop}
+\section{Theorem}
+\label{Theorem KH derive AKH}
 Let $f\in KH(I)$, then $$f\in AKH(I)$$
 iff
 $$\sup\left\{\left.\sum\limits_{K\in \Delta}\abs{\int_Kf\mid_K}\right|\Delta\text{ is a partial division of }I\right\}<+\infty$$
-\section{Theorem}
-Let S be a power series with convergent radius R. Then on $D(z_0,R)$, S is holomorphic, and $$f'(z)=\sum\limits_{n=0}^\infty na_n(z-z_0)^{n-1}$$
+\subsection*{Proof}
+\subsubsection{$\Rightarrow$}Trivial
+\subsubsection{$\Leftarrow$}
+Let $\epsilon>0$. There exists a partial division $\Delta$ of I s.t.
+$$v(f)<\frac{\epsilon}2+\sum\limits_{K\in \Delta}\abs{\int_Kf\mid_K}$$
+WLOG(without loss of generality), we assume that $\Delta$ is a division of I.
+
+Let $\delta_1$ be the gauge associated with $\Delta$ in the subordinate P-division theorem \ref{subordinate P-division theorem}, $\delta_2$ be $\frac{\epsilon}4$-adapted to $f$. Define $$\delta=\min\set{\delta_1,\delta_2}$$
+we claim that
+$$\abs{S(\Pi,\abs{f})-v(f)}<\epsilon$$
+whenever $\Pi$ is a $\delta$-finite P-division of I.
+
+Let $\Pi_K,K\in \Delta$, a P-divsion coming from the subordinate P-division theorem \ref{subordinate P-division theorem}. Since $\Pi$ is $\delta_1$-finite
+$$
+\begin{aligned}
+    \sum\limits_{(J,x)\in \Pi}\abs{\int_Jf} &\leq v(f)\\ &\leq \frac{\epsilon}2+\sum\limits_{K\in \Delta}\abs{\int_Kf}\\
+    &=\frac{\epsilon}2+\sum\limits_{K\in \Delta}\abs{\sum\limits_{(J,x)\in \Pi_K}\int_Jf}\\
+    &\leq \frac{\epsilon}2+\sum\limits_{K\in \Delta}\sum\limits_{(J,x)\in \Pi_K}\abs{\int_Jf}\\
+    &=\frac{\epsilon}2+\sum\limits_{(J,x)\in \Pi}\abs{\int_Jf}
+\end{aligned}$$
+$\Rightarrow$$$\abs{v(f)-\sum\limits_{(J,x)\in \Pi}\abs{\int_Jf}}<\frac{\epsilon}2$$
+Since $\Pi$ is $\delta_2$-finite
+$$\begin{aligned}
+    \abs{S(\Pi,\abs f)-\sum\limits_{(J,x)\in \Pi}\abs{\int_Jf}} &=\abs{\sum\limits_{(J,x)\in \Pi}\abs{f(x)}\abs J-\abs{\int_J f}}\\
+    &\leq\sum\limits_{(J,x)\in \Pi}\abs{\abs{f(x)}\abs J-\abs{\int_J f}}\\
+    &\leq\sum\limits_{(J,x)\in \Pi}\abs{f(x)\abs J-\int_J f}\\
+    &\leq\frac{\epsilon}2\quad \text{by Saks-Henstock's theorem}\ref{Saks-Henstock's theorem}
+\end{aligned}$$
+\section{Prop(comparison test)}
+$f,g\in KH(I)$. If $\abs f\leq g$, then $\abs f\in KH(I)$
+\subsection*{Proof}
+If $K\subseteq I$ is a sub-cell, then $\abs{\int_Kf}\leq\int_Kg$
+$$\sum\limits_{K\in \Delta}\abs{\int_Kf}\leq \sum\limits_{K\in \Delta}\int_Kg\leq\int_Ig<+\infty$$
+Then finish by theorem \ref{Theorem KH derive AKH}
+\section{Prop}
+$AKH(I)$ is a vector space
 \subsection*{Proof}
 \begin{itemize}
-    \item$$\limsup\limits_{n\to+\infty}\abs{a_n}^{\frac{1}n}=\limsup\limits_{n\to+\infty}\abs{na_n}^{\frac{1}{n-1}}$$ The series $f'$ exists.
-    \item $\frac{\partial f}{\partial\overline z}=0$$\fpartial{f}{z}$
+    \item $0\cdot\mathbbm 1_I\in AKH(I)$
+    \item Let $f,g \in AKH(I), \alpha\in \mathbb R$$$\abs{\alpha f+g}\leq\abs\alpha\cdot\abs f+\abs g$$
+\end{itemize}
+\section{Def}
+\begin{itemize}
+    \item $$\norm\cdot:AKH(I)\rightarrow\mathbb R$$is a semi norm
+    \item A sequence $(F_N:i\to\mathbb R)$ of functions is \textbf{increasing} if $(\forall x\in I)(\forall n\in \mathbb N):$$$f_n(x)\leq f_{n+1}(x)$$
+    \item $(f_n)$ \textbf{converges pointwisely} to $f:I\to\mathbb R$ if $\forall x\in I$$$f(x)=\lim\limits_{n\to+\infty}f_n(x)$$
+\end{itemize}
+\section{Monotone convergence theorem}
+\label{Monotone convergence theorem}
+Let $(f_n)$ be a sequence in $KH(I)$ s.t.\begin{itemize}
+    \item[A] $(f_n)$ is increasing
+    \item[B] $(f_n)$ converges pointwisely to $f:I\to\mathbb R$
+    \item[C] $\sup\limits_{n\in \mathbb N}\int_If_n\leq+\infty$
+\end{itemize}
+then $f\in KH(I)$ and$$\int_If=\lim\limits_{n\to+\infty}\int_If_n$$
+\subsection*{Proof( R. Henstock)}
+Since $f_n\leq f_{n+1}$, $$\int_If_n\leq\int_If_{n+1}\quad \forall n\in \mathbb N$$
+Then $(\int_If_n)$ is a increasing sequence in $\mathbb R$ and is bounded by (C). Thus it's convergent$$r:=\lim\limits_{n\to+\infty}\int_If_n$$
+We'll check that $f$ is KH-integrable on I by showing that $f$ satisfies the def of KH-integral with $r$.
+
+Let $\epsilon>0$
+\begin{itemize}
+    \item $(\exists n_0\in \mathbb N)(\forall n\geq n_0\in \mathbb N)$$$r-\frac{\epsilon}3<\int_If_n\leq r$$
+    \item with (B): $(\forall x\in I)(\exists n(x)\geq n_0)(\forall n>n_0\in \mathbb N)$:$$f(x)-\frac{\epsilon}{3\abs I}<f_n(x)\leq f(x)$$
+    \item Let $\epsilon_n=\frac{\epsilon}{3\cdot 2^{n+2}}$. $\forall n\in \mathbb N$ there's a gauge $\delta_n$ on I which $\epsilon_n$-adapted to $f_n$. Let$\delta(x)=\delta_{n(x)}(x)$
+\end{itemize}
+Let $\Pi$ be a P-division of I:
+$$\begin{aligned}
+    S(\Pi,f)=\sum\limits_{(J,x)\in \Pi}f(x)\abs J\\
+    &=\sum\limits_{(J,x)\in \Pi}\left(f(x)-f_{n(x)}(x)\right)\abs J+\sum\limits_{(J,x)\in \Pi}\left(f_{n(x)}(x)\abs J-\int_Jf_{n(x)}\right)+\sum\limits_{(J,x)\in \Pi}\int_Jf_{n(x)}\\
+    \abs{S(\Pi,f)-r}&\leq\sum\limits_{(J,x)\in \Pi}\frac{\epsilon}{3\abs I}\abs J+\underbrace{\sum\limits_{(J,x)\in \Pi}\frac{\epsilon}{3\cdot 2^{n(x)+2}}}\limits_{\text{Saks-Henstock theorem}}+\underbrace{\abs{r-\sum\limits_{(J,x)\in \Pi}\int_Jf_n(x)}}\limits_{\text{monotonicity}}\\
+    \leq \frac{\epsilon}3+\frac{\epsilon}3+\frac{\epsilon}3
+\end{aligned}$$
+\chapter{Lebesgue's measure}
+\section{Def: integrability}
+$A\subseteq \mathbb R$ is \textbf{integrable} if $\mathbb 1_A\in KH(\mathbb R)$ and define$$L^1(A)=\int_{\mathbb R}\mathbb 1_A$$ the \textbf{measure} of A.
+\section{Prop}
+\begin{itemize}
+    \item If I is a bounded cell then I is integrable and$$L^1(I)=L^1(\mathring{I})=L^1(\overline I)=\abs{\overline I}$$
+    \item If A is integrable, then $$L^1\geq 0$$
+    \item If $A$ and $B \supseteq A$ are integrable, then $B\setminus A$ is integrable and $$L^1(B\setminus A)=L^1(B)-L^1(A)$$
+    \item If A and B are integrable, then $A\cup B$ can $A\cap B$ are integrable.
+    \item $N\in\mathbb N$ and $A_1,\cdots, A_N$ are disjoint integrable sets, then $\bigsqcup\limits_{i=1}^N A_i$ is integrable and $$L^1(\bigsqcup\limits_{i=1}^N A_i)=\sum\limits_{i=1}^NL^1(A_i)$$
+    \item $(A_n)_{n\in \mathbb N}$ an increasing sequence of integrable sets and $$\sup\limits_{n\in \mathbb N}A_n<+\infty$$ then $\bigcup\limits_{n\in \mathbb N}A_n$ is integrable and $$L^1(\bigcup\limits_{n\in \mathbb N}A_n)=\lim\limits_{n\to+\infty}L^1(A_n)$$
+    \item if $(A_n)_{n\in \mathbb N}$ disjoint sequence of integrable sets and $\sum\limits_{n\in \mathbb N}L^1(A_n)<+\infty$, then $\bigsqcup\limits_{n\in \mathbb N}A_n$ is integrable and $$L^1(\bigsqcup\limits_{n\in \mathbb N}A_n)=\sum\limits_{n\in \mathbb N}L^1(A_n)$$
+    \item If $(A_n)_{n\in \mathbb N}$ a sequence of integrable sets s.t. $\sum\limits_{n\in \mathbb N}L^1(A_n)<+\infty$, then $\bigcup\limits_{n\in \mathbb N}A_n$ is integrable and $$L^1(\bigcup\limits_{n\in \mathbb N}A_n)=\sum\limits_{n\in \mathbb N}L^1(A_n)$$
+    \item If $(A_n)_{n\in\mathbb N}$ a decreasing sequence of integrable sets, then $\bigcap\limits_{n\in \mathbb N}A_n$ is integrable and $$L^1(\bigcap\limits_{n\in \mathbb N}A_n)=\lim\limits_{n\to+\infty}L^1(A_n)=\inf_{n\in\mathbb N}A_n$$
+\end{itemize}
+\section{Prop}
+\begin{itemize}
+    \item Each bounded open set if integrable
+    \item Each bounded closed set is integrable
+\end{itemize}
+\section{Def:measurable}
+Set $A\subseteq \mathbb R$ is \textbf{measurable} if $\forall I$ as compact cell $A\cap I$ is integrable.$$\mathscr{M}(\mathbb R)=\wp(\mathbb R)\cap\set{A\mid A\text{ measurable}}$$
+$L^1$ now is a mapping $L^1:\mathscr M(\mathbb R)\to [0,+\infty]$ sending $A\in \mathscr{M}(\mathbb R)$ to $\int_{\mathbb R}\mathbbm 1_A$ if A is integrable, otherwise $+\infty$
+\subsection*{Remark}$$\begin{aligned}
+    L^1: &\mathscr M(\mathbb R)&\to &[0,+\infty]\\
+    &A&\mapsto &\begin{cases}
+        \int_{\mathbb R}\mathbbm 1_A\quad &\text{ if A integrable}\\ 
+        +\infty\quad &\text{otherwise}
+    \end{cases}
+\end{aligned}$$
+\section{Prop}
+\begin{itemize}
+    \item $\varnothing\in \mathscr M(\mathbb R)$
+    \item If $A\in \mathscr M(\mathbb R)$, then $\mathbb R\setminus\setminus A\mathscr M(\mathbb R)$
+    \item If $(A_n)$ is a sequence in $\mathscr M(\mathbb R)$ then$$\bigcup\limits_{n\in \mathbb N}A_n\in \mathscr M(\mathbb R)$$$$\bigcap\limits_{n\in \mathbb N}A_n\in \mathscr M(\mathbb R)$$ 
+\end{itemize}
+\section{Lemma}If $A\subseteq B$ A and B are measurable and B is integrable, then A is integrable.
+\section{Theorem}
+\begin{itemize}
+    \item If A and B are both measurable and $A\subseteq B$ then $L^1(A)\leq L^1(B)$
+    \item If $(A_n)$ is a disjoint sequence in $\mathscr M(\mathbb R)$ then $$L^1(\bigcup\limits_{n\in \mathbb N}A_n)=\sum\limits_{n\in \mathbb N}L^1(A_n)$$
+    \item $(A_n)$ increasing sequence in $\mathscr M(\mathbb R)$$$L^1(\bigcup\limits_{n\in \mathbb N}A_n)=\sup\limits_{n\in \mathbb N}L^1(A_n)$$
+    \item $(A_n)$ sequence in $\mathscr M(\mathbb R)$$$L^1(\bigcup\limits_{n\in \mathbb N}A_n)\leq\sum\limits_{n\in \mathbb N}L^1(A_n)$$
+    \item All open and closed sets are measurable.
 \end{itemize}
 \end{document}
