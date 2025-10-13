@@ -24,6 +24,7 @@
 \newcommand{\rightbracket}{]}
 \newcommand{\inprod}[2]{\left<#1,#2\right>}
 \newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\fpart}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}
 % \newcommand{\mapping}[5][]{
 % \ExplSyntaxOn
 % \cs_if_exist:NTF {#1}
@@ -378,4 +379,133 @@ Let S be a power series with convergent radius R. Then on $D(z_0,R)$, S is holom
 \section{Prop}
 Convergent radius of $(S_1+S_2)$($S_1$ and $S_2$ shares the same center)
 $$R\geq\min\{R_1,R_2\}$$
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Fundamental Theo. of Calculus}
+$U\subseteq \mathbb C $ open $f,g:U\to \mathbb C$ continuous. Assume $\exists F$ s.t. $$\fpart{F}{x}=f\quad\fpart{F}{y}=g$$
+Let $\gamma:[a,b]\to U$ rectifiable curve,$$\int_\gamma\text d{x}+g\text d y=F(\gamma(b))-F(\gamma(a))$$
+\section{Corollary}
+Let $f:U\to \mathbb C$ continuous, assume $\exists$ $F:U\to \mathbb C$, s.t. $$\fpart{F}{x}=f\quad \fpart{F}{y}=if$$
+then 
+$$\int_\gamma f\text dz=F(\gamma(b))-F(\gamma(a))$$
+\section{Remark}
+$F$ is differentiable C-R equation$$\fpart{F}{x}=f\quad \fpart{F}{y}=if$$
+$\Rightarrow$ $F$ is holomorphic.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Winding number}
+Let $\gamma:[a,b]\to \mathbb C$ be a closed curve. Let $w\notin I_m\gamma$. 
+
+
+Define $u:[a,b]\to S^1$$$U(t):=\frac{\gamma(t)-w}{\abs{\gamma(t)-w}}$$
+Let $$\begin{aligned}
+    \pi:&\mathbb R&\to& S^1\\ &s&\mapsto&e^{2\pi is}
+\end{aligned}$$
+$\Rightarrow$ $\exists$ lift of $u$, $$\tilde u:[a,b]\to \mathbb R$$continuous and $$\pi\circ \tilde u=u$$
+such choice of $\tilde u$ is not unique, but if $\tilde u_1,\tilde u_2$ are two lift of $u$ $\Rightarrow$ $$\tilde u_1-\tilde u_2=l\in \mathbb Z$$
+\section{Def}The winding number$$n(\gamma,w):=\tilde u(b)-\tilde u(a)$$
+\section{prop}
+\begin{itemize}
+    \item[1] $n(\gamma,w)\in \mathbb Z$
+    \item[2] $n(\gamma,w)$ take the same value when $w$ in a connected comp of $\mathbb C\setminus I_m\gamma$
+    \item[3] Let $\Omega_\infty$ be the unbounded component of $\mathbb C\setminus Im\gamma$
+\end{itemize}
+\subsection*{Proof}
+\subsubsection{1}Since $\gamma$ closed $\Rightarrow$$$e^{i2\pi\tilde u(b)}=e^{i2\pi\tilde u(a)}$$
+$\Rightarrow$ $$\tilde u(b)-\tilde u(a)\in \mathbb Z$$
+\subsubsection{2}
+For a fixed $\gamma$ $n(\gamma,\cdot)$ is a continuous function w.r.t. $w$. SSince $\Omega$ connected, $$n(\gamma,\cdot):\Omega\to \mathbb Z$$the image $n(\gamma,\cdot)$ is connected in $\mathbb Z$, which implies single point, so $n(\gamma,\cdot)$ is a constant mapping.
+\subsubsection{3}For $w\in \Omega_\infty$ $n(\gamma,\cdot)\to 0$ when $w\to \infty$, but $n(\gamma,w)\in \mathbb Z$ so $$n(\gamma,\cdot)=0\ \forall w\in \Omega_\infty$$
+\section{Corollary}
+$\mathbb D^*:=\mathbb D\setminus\{0\}$ is not simply connected.
+\section{Prop}
+(Winding number is homotopy invariant)
+Given two closed curves.
+$$\gamma_0:[a,b]\to\mathbb C\quad\gamma_1[a,b]\to\mathbb C$$
+$H:[a,b]\times[0,1]\to \mathbb C\setminus\{w\}$ be a homotopy. Then$$n(\gamma_0,w)=n(\gamma_1,w)$$
+\subsection*{Proof}Let $U:[a,b]\times[0,1]\to S^1$$$U(t,s):=\frac{H(t,s)-w}{\abs{H(t,s)-w}}$$
+Then $\exists$ $\tilde U:[a,b]\times[0,1]\to \mathbb R$ continuous s.t.$$\pi\circ\tilde U=U$$where$\pi:\mathbb R\to S^1$ is the universal cover. Then $\forall s\in [0,1]$$$n(\gamma_s,w)=\tilde U(b,s)-\tilde U(a,s)$$
+Since $\tilde U$ is continuous, $n(\gamma_s,w)\in \mathbb Z$, so $n(\gamma_s,w)$ is a constant $\forall s\in [0,1]$$\Rightarrow$$$n(\gamma_0,w)=n(\gamma_1,w)$$
+\section{Lemma: Winding number formula for rectifiable curves}
+$\gamma:[a,b]\to \mathbb C$ rectifiable, closed curve, let $w\notin Im\gamma$$$n(\gamma,w)=\frac{1}{2\pi i}\int_\gamma\frac{1}{z-w}\text dz$$
+\subsection*{Proof}
+Assume $\gamma$ is piecewise smooth. Consider $h:[a,b]\to\mathbb C$$$h(t):=\frac{1}{2\pi i}\int_a^t\frac{\gamma'(s)}{\gamma(s)-w}\text ds$$ $h$ piecewise smooth.$$h'(t)=\frac{1}{2\pi i}\frac{\gamma'(t)}{\gamma(t)-w}$$
+and $$\left(e^{-2\pi ih(t)}(\gamma(t)-w)\right)'=0$$ outside a finite set. So$$e^{2\pi ih(t)}=\frac{\gamma(t)-w}{\gamma(a)-w}\quad\forall t\in [a,b]$$
+On the other hand, $\tilde u:[a,b]\to\mathbb R$$$e^{2\pi i\tilde u(t)}=\frac{\gamma(t)-w}{\abs{\gamma(a)-w}}$$
+Let $v(t):=\ln\abs{\gamma(t)-w}$, then we have:
+$$e^{2\pi i\tilde u(t)+v(t)}=\gamma(t)-w$$$\Rightarrow$$\exists$ constant $\alpha\in \mathbb C$ s.t.$$2\pi i h(t)=2\pi i\tilde u(t)+\alpha$$then we have$$n(\gamma,w):=\tilde u(b)-\tilde u(a)=h(b)-h(a)$$
+\section{Jordan Curve Theorem}
+$\gamma$ a closed curve, $\gamma$ is simple(no self crossing: if $\forall t\neq s\in (a,b)$, have $\gamma(t)\neq \gamma(s)$)
+
+Let $\gamma$ a simple closed curve. Then $\mathbb C\setminus Im\gamma$ has two connected components.
+
+
+\chapter{Cauchy's integral formula}
+\section{Lemma}
+(A generalization of Gousat's theorem)
+Let $R$ be an rectangle, and let $E\subseteq R$ be a finite set, let U be an open set s.t. $\overline R\subseteq U$ let $f:U\setminus E\to \mathbb C$ holomorphic, moreover$$\lim\limits_{z\to \xi}(z-\xi)f(z)=0\ \forall \xi\in E$$ then$$\in_{\partial R}f\text dz=0$$
+\subsection{Proof}
+We can decompose R into small rectangles s.t small rectangle contains one pt in E, We can assume $E=\{\xi\}$ $\forall \epsilon>0$, we can decompose R into 9 rectangle s.t. in the center rectangle $R_0$$$\abs{f(z)}\leq\frac{\epsilon}{\abs{z-\xi}}\quad\forall z\in \partial R_0$$ 
+By original Gousat's theorem$$\int_{\partial R}f\text dz=\int_{\partial R_0}f\text dz$$
+Hence$$\abs{\int_{\partial R}f\text dz}\leq\epsilon\int_{\partial R_0}\frac{1}{\abs{z-\xi}}\text dz\leq 8\epsilon$$
+Since $\epsilon$ can be arbitrarily small$$\int_{\partial R}f\text dz=0$$
+\section{Corollary}
+Let $D\subseteq\mathbb C$ disk let $E\subseteq D$ a finite set. Let $f:D\to \mathbb C$ continuous holomorphic in $D\setminus E$ moreover$$\lim\limits_{z\to \xi}(z-\xi)f(z)=0\quad\forall \xi \in E$$
+Let $\gamma $ be a closed rectifiable curve in D, then $$\int_\gamma f\text dz=0$$
+\section{Cauchy integral formula}
+Let $D\subseteq \mathbb C$ disk. Let $f:D\to \mathbb C$ holomorphic let $a\in D$, let $\gamma$ be a closed rectifiable curve s.t. $a\notin Im\gamma$, Then $$n(\gamma,a)f(a)=\frac{1}{2\pi i}\int_\gamma\frac{f(z)}{z-a}\text dz$$
+\subsection*{Proof}
+Define function $g:D\setminus\{a\}\to \mathbb C$$$g(z):=\frac{f(z)-f(a)}{z-a}$$\\
+$g$ is holomorphic on $D\setminus\{a\}$, $g$ can be continuously extend to D.
+
+Then by the previous Corollary, since $$\lim\limits_{z\to a}(z-a)g(z):=\lim\limits_{z\to a}f(z)-f(a)=0$$then$$\int_\gamma g(z)\text da=0$$
+This implies$$n(\gamma,a)f(a):=\frac{1}{2\pi i}\int_\gamma\frac{f(a)}{z-a}\text dz\stackrel{\text{coro}}{=}\frac{f(z)}{z-a}\text dz$$
+\section{Corollary}
+Let $D\subseteq \mathbb C$ disk. Let $f:\overline D\to \mathbb C$ be a holomorphic functions. Then $$f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}\text dw\quad\forall z\in D$$
+\section{Theorem}Holomorphic functions is locally a power series, in particular, it's $C^\infty$
+\section{Theorem}Let $\gamma$ be a rectifiable curve, $\phi:Im\gamma\to \mathbb C$ continuous. For $z\notin Im \gamma$, define $$f(z):=\int_\gamma\frac{\phi(w)}{w-z}\text dw$$
+Then $\forall z_0\in \mathbb C\setminus Im\gamma$ let $\gamma:=dist(z_0,Im\gamma)$ $f$ is a power series on $D(z_0,r)$
+$$f(z)=\sum\limits_{n=0}^\infty\left(\int_\gamma\frac{\phi(w)}{(w-z_0)^{n}}\text dw\right)(z-z_0)^n$$
+In particular, $f$ is holomorphic.\
+subsection*{Proof}
+Fix $z_0$,$w\in Im\gamma$, consider function $\frac{\phi(w)}{w-z}$ (as func of $z$). It has a power series expansion on $D(z_0,r)$
+$$\frac{\phi(w)}{w-z}=\sum\limits_{n=0}^\infty\frac{\phi(w)}{(w-z_0)^n}(z-z_0)^n$$
+The above formula holds for every $w\in Im\gamma$ and $z\in D(z_0,r)$ Define $g_n:Im\gamma\to \mathbb C$(function of w)
+$$g_n(w):=\sum\limits_{k=0}^n\frac{\phi(w)}{(w-z_0)^{n+1}}(z-z_0)^{k}$$
+We are going to show $g_n$ converges uniformly to $\frac{\phi(w)}{w-z}$ on $Im\gamma$. Let $M:=\max\limits_{w\in Im\gamma}\abs{\phi(w)}$ and $r':=\abs{z-z_0}<r$
+$$\begin{aligned}
+    \abs{g_n(w)-\frac{\phi(w)}{w-z}}&=\abs{\sum\limits_{k=n}^\infty\frac{\phi(w)}{(w-z_0)^{k+1}}(z-z_0)^k}\\
+    &\leq M\sum\limits_{k=n}^\infty\abs{\frac{(z-z_0)^k}{(w-z_0)^{k+1}}}\\
+    &\leq M\sum\limits_{k=n+1}^\infty(\frac{r'}r)^k\frac{1}{r'}
+\end{aligned}$$
+
+Then we have 
+$$\begin{aligned}
+    \int_\gamma\frac{\phi(w)}{w-z}&=\lim\limits_{n\to+\infty}\int_\gamma\frac{\phi(w)}{(w-z_0)^n}\text dw\\
+    &=\lim\limits_{n\to\infty}\left(\int_\gamma\frac{\phi(w)}{(w-z_0)^n}\text dw(z-z_0)^n\right)\\
+    &=\sum\limits_{k=0}^\infty(\int_\gamma\frac{\phi(w)}{(w-z_0)^n}\text dw)(z-z_0)^n
+\end{aligned}$$
+
 \end{document}
