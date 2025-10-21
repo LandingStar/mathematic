@@ -380,40 +380,177 @@ Let S be a power series with convergent radius R. Then on $D(z_0,R)$, S is holom
 Convergent radius of $(S_1+S_2)$($S_1$ and $S_2$ shares the same center)
 $$R\geq\min\{R_1,R_2\}$$
 
+\chapter{Line integrals on piecewise smooth or rectifiable curves}
+\section{Def}
+A \textbf{smooth curve} $\gamma=\gamma_1+i\gamma_2:[a,b]\to \mathbb C$ is a curve such that the derivatives $$\gamma'(t):=\gamma'_1(t)+i\gamma'_2(t)$$ exist and form a continuous function. 
 
+A curve is called \textbf{piecewise smooth} if we can decompose $$[a,b]=\bigcup\limits_{j=1}^n[a_j,b_j]$$ as finite union of closed intervals, where $I_j\cap I_{j+1}$ is a single point s.t. $\gamma\mid_{I_j}$ is smooth on each intervals.
+\section{Def}
+Let $z,w\in \mathbb C$ and L be the line segment in $\mathbb C$ connecting $z,w$. Then $\gamma:[0,1]\to \mathbb C:=\ t\mapsto tz+(1-t)w$ is a smooth curve s.t. $$Im\gamma=\gamma([a,b]) =:L$$
+Given finitely many points $\set{z_1,\cdots,z_n}\in \mathbb C$, we can connect them one by one using line segments. This gives us a piecewise smooth curve. Those curves are \textbf{piecewise linear curves}
 
+By definition, a curve $\gamma:[a,b]\to \mathbb C$ is called \textbf{piecewise linear} if we can decompose $[a,b]$ as finite union of closed intervals s.t. $\gamma$ is $\mathbb R$-linear on each closed sub-intervals.
+\section{Def}
+Let $\gamma:[a,b]\to \mathbb C$ be a piecewise smooth curve. Let $f:Im\gamma\to \mathbb C$ be a continuous function. We define the \textbf{line integral} of $f$ along $\gamma$ as
+$$\int_\gamma f\text dz:=\int_a^bf(\gamma(t))\gamma'(t)\text dt$$
+To introduce the weakest condition for curves s.t. integration theory makes sense, we first define the \textbf{length} of a curve:
+$$l(\gamma):=\sup\limits_{a\leq t_0\leq\cdots\leq t_N\leq b}\sum\limits_{j=1}^N\abs{\gamma(t_j)-\gamma(t_{j-1})}\ \in [0,+\infty]$$
+\section{Def}
+A curve $\gamma:[a,b]\to \mathbb C$ is called \textbf{rectifiable} if $$l(\gamma)<+\infty$$
+\section{Prop}
+Let $\gamma:[a,b]\to \mathbb C$ be a rectifiable curve. Let $$f:\gamma([a,b])\to \mathbb C$$ be a continuous function. Then the line integral$$\int_\gamma f\text dz$$ exists in the sense for every $\epsilon>0$ s.t. if $a\leq t_0\leq \cdots\leq t_N\leq b$ satisfies $\abs{t_j-t_{j-1}}<\delta,\ t^*_j\in [t_{j-1},t_j]$, then 
+$$\abs{\sum\limits_{i=1}^Nf(\gamma(t^*_j))(\gamma(t_j)-\gamma(t_{j-1}))-\int_\gamma f\text dz}<\epsilon$$
 
+We call $a\leq t_0\leq \cdots\leq t_N\leq b$ a \textbf{partition} of $[a,b]$. If $\abs{t_j-t_{j-1}}<\delta$ we call the size of this partition is at most $\delta$.
+\subsection*{Proof}
+It suffices to show for every $\epsilon>0$, there exists $\delta>0$ s.t. for any two partitions $a\leq t_0\leq \cdots\leq t_N\leq b$ and $a\leq s_0\leq\cdots\leq s_N\leq b$ with size at most $\delta$, for $t^*_j\in [t_{j-1},t_j],s^*_j\in[s_{j-1},s_j]$, we have
+$$\abs{\sum\limits_{i=1}^Nf(\gamma(t^*_j))(\gamma(t_j)-\gamma(t_{j-1}))-\sum\limits_{i=1}^Nf(\gamma(s^*_j))(\gamma(s_j)-\gamma(s_{j-1}))}<\epsilon$$
 
+From the triangle inequality, and from the fact that any two partitions have a common refinement, it suffices to prove this under the additional assumption that the second partition is a refinement of the first. This means that there's an increasing sequence $0=m_0<\cdots<m_N=M$ s.t.$$s_{m_j}=t_j\quad 0\leq j\leq N$$
+Then the above difference is equal to 
+$$\abs{\sum\limits_{j=1}^NE_j}$$
+where $$E_j:=f(\gamma(t^*_j))(\gamma(t_j)-\gamma(t_{j-1}))-\sum\limits_{k=m_{j-1}+1}^{m_j}f(\gamma(s^*_k))(\gamma(s_k)-\gamma(s_{k-1}))$$
+we can rearrange $E_j$ as$$E_j=\sum\limits_{k=m_{j-1}+1}^{m_j}(f(\gamma(t^*_j)-f(\gamma(s^*_k))))(\gamma(s_k)-\gamma(s_{k-1}))$$
 
+Since $\gamma:[a,b]\to\mathbb C$ is uniformly continuous, $l(\gamma)<+\infty$, for $\delta$ small enough, $$\abs{f(\gamma(t^*_j))-f(\gamma(s^*_k))}<\frac{\epsilon}{l(\gamma)}$$
+By the triangle inequality, $$\abs{E_j}\leq\frac{\epsilon}{l(\gamma)}\sum\limits_{k=m_{j-1}+1}^{m_j}\abs{\gamma(s_k)-\gamma(s_{k-1})}$$
+Summing on $j$ and, again, by triangle inequality$$\abs{\sum\limits_{j=1}^NE_j}\leq\sum\limits_{j=1}^N\abs{E_j}\leq\epsilon$$
+which finishes the proof.
+\section{Lemma}
+\label{Lemma gamma integral converge}
+Let $U\subseteq \mathbb C$ open, $f:U\to \mathbb C$ continuous. Let $\gamma:[a,b]\to U$ rectifiable curve. Then there exists a sequence of piecewise linear curves $\gamma_n:[a,b]\to U$ s.t. $(\gamma_n)\to \gamma$ uniformly and $\gamma_n(a)=\gamma(a),\gamma_n(b)=\gamma(b)$, moreover:
+$$\lim\limits_{n\to +\infty}\int_{\gamma_n}f\text dz=\int_\gamma f\text dz$$
+\section{Def}
+Let $\gamma:[a,b]\to \mathbb C$ be a curve. Let $\phi:[c,d]\to[a,b]$ a homeomorphism s.t. $\phi(c)=a,\ \phi(d)=b$(this implies $\phi$ is strictly increasing). A \textbf{reparametrization} of $\gamma$ by $\phi$ is the curve $\gamma\circ \phi$. 
 
+We can also define the reverse of $\gamma$ by $$-\gamma:[-b,-a]\to\mathbb C:=t\mapsto\gamma(-t)$$
+We have $-\gamma(-b)=\gamma(b)$ and $-\gamma(-a)=\gamma(a)$
 
-
-
-
-
+\section{Prop}
+Let $\gamma$ be a rectifiable curve and $\gamma\circ \phi$ be a reparametrization curve. Let $f:Im\gamma\to\mathbb C$ be a continuous function. Then \begin{itemize}
+    \item $$\int_\gamma f\text dz=\int_{\gamma\circ \phi}f\text dz$$
+    \item $$-\int_\gamma f\text dz=\int_{-\gamma}f\text dz$$
+\end{itemize}
+\section{Prop}
+One can easily check the following properties with the def of line integral on curves:
+\begin{itemize}
+    \item Linearity: If $a,b\in \mathbb C$, then $$\int_\gamma(af+bg)\text dz=a\int_\gamma f\text dz+b\int_\gamma g\text dz$$
+    \item Additivity: Let $\gamma_1:[a,b]\to\mathbb C,\gamma_2:[b,c]\to\mathbb C$ be two rectifiable curves s.t. $\gamma_1(b)=\gamma_2(b)$. Then one can define $\gamma_1+\gamma_2:=[a,c]\to \mathbb C$. Then$$\int_{\gamma_1+\gamma_2}f\text dz=\int_{\gamma_1}f\text dz+\int_{\gamma_2}f\text dz$$
+    \item Absolutely value inequality:$$\abs{\int_\gamma f\text dz}\leq\int_\gamma\abs{f}\text dz$$
+    \item Monotonicity: Let $f:Im\gamma\to\mathbb C$ be continuous. If $f$ is increasing on $Im\gamma$, then $$\int_\gamma f\text ds\geq 0$$where $\text ds=\text d\abs z=\sqrt{\text dx^2+\text dy^2}$
+\end{itemize}
+\section{Lemma: Uniform convergence}
+Let $\gamma$ be a rectifiable curve. Let $f_n$ be a sequence of continuous functions on $Im\gamma$ s.t. $f_n$ converges to $f$ uniformly. Then $f$ is continuous on $Im\gamma$ and $$\lim\limits_{n\to +\infty}\int_\gamma f_n\text dz=\int_\gamma f\text dz$$
 \section{Fundamental Theo. of Calculus}
+\label{fundamental theorem of calculus}
 $U\subseteq \mathbb C $ open $f,g:U\to \mathbb C$ continuous. Assume $\exists F$ s.t. $$\fpart{F}{x}=f\quad\fpart{F}{y}=g$$
 Let $\gamma:[a,b]\to U$ rectifiable curve,$$\int_\gamma\text d{x}+g\text d y=F(\gamma(b))-F(\gamma(a))$$
+\subsection*{Proof}
+By lemma \ref{Lemma gamma integral converge}(actually we need a slightly generalized version of this lemma for $\int_\gamma f\text dx+g\text dy$), it suffices to show the result if $\gamma=\gamma_1+i\gamma_2$ is a piecewise linear curve. For such $\gamma$, it's in particular piecewise smooth.
+
+Define $$G(t):=F\circ \gamma(t)$$ then $$G'(t)=f(\gamma(t))\gamma'_1(t)+g(\gamma(t))\gamma'_2(t)$$
+
+By fundamental theorem of calculus\ref{fundamental theorem of calculus}
+$$\begin{aligned}
+    \int_\gamma f\text dx+ g\text dy&:=\int_a^b(f(\gamma(t))\gamma'_1(t)+g(\gamma(t))\gamma'_2(t))\text dt\\
+    &=\int_a^b G'(t)\text dt\\
+    &=G(b)-G(a)\\
+    &=F(\gamma(b))-F(\gamma(a))
+\end{aligned}$$
 \section{Corollary}
 Let $f:U\to \mathbb C$ continuous, assume $\exists$ $F:U\to \mathbb C$, s.t. $$\fpart{F}{x}=f\quad \fpart{F}{y}=if$$
 then 
 $$\int_\gamma f\text dz=F(\gamma(b))-F(\gamma(a))$$
+\subsection*{Proof}
+We have $$\int_\gamma f\text dz=\int_\gamma f\text dx+i\int_\gamma f\text dy$$then apply the Theorem above
+\section{Remark}
+\label{remark1}
+In Corollary and Theorem above, since the partial derivatives $\fpart{F}{x}$ and $\fpart{F}{y}$ are continuous, F is real differentiable. In Theorem, the condition $\fpart{F}{x}=f,\fpart{F}{y}=if$ implies the Cauchy-Riemann equation $\fpart{F}{\overline{z}}=0$ holds, hence F is actually holomorphic.
 \section{Remark}
 $F$ is differentiable C-R equation$$\fpart{F}{x}=f\quad \fpart{F}{y}=if$$
 $\Rightarrow$ $F$ is holomorphic.
+\section{Def}
+A curve is \textbf{closed} if $$\gamma(a)=\gamma(b)$$
+\section{Corollary}
+\label{polynomial holomorphic}
+Let $n\in \mathbb Z, n\neq -1$. Let $\gamma:[a,b]\to \mathbb C$ be a closed rectifiable curve. If $n\leq -2$ assume further $0\notin Im\gamma$. Then
+$$\int_\gamma z^n \text dz=0$$
+\subsection*{Proof}
+Since $$\left(\frac{z^{n+1}}{n+1}\right)'=z^n$$
+apply \ref{remark1} we get the result
 
+\chapter{Cauchy's Integral Theorem}
+\section{Def}
+A curve $\gamma:[a,b]\to \mathbb C$ is called \textbf{simple} if $\gamma$ is injective.
 
+Let R be an rectangle defined by inequalities$$a<x<b\quad c<y<d$$
+Let $\partial R$ be the positively oriented simple closed curve. The following is an example of positively oriented $\partial R$
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figure/1.png}
+\end{figure}
 
+We say a function is holomorphic in $\overline R$ if there's an open neighborhood of U, $\overline R\subseteq U$ s.t. $f$ is holomorphic in U.
 
+\section{Goursat Theorem}
+\label{Goursat Theorem}
+Let R be an rectangle and $f$ be a holomorphic function in $\overline R$, then $$\int_{\partial R}f\text dz=0$$
+\subsection*{Proof}
+For a rectangle R, define $$\eta(R):=\int_{\partial R}f\text dz$$
+Divide R into four congruent rectangles $R^{(1)},R^{(2)},R^{(3)},R^{(4)}$, then 
+$$\eta(R)=\eta(R^{(1)})+\eta(R^{(2)})+\eta(R^{(3)})+\eta(R^{(4)})$$
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figure/2.png}
+\end{figure}
 
+At most one small rectangle $R^{(k)}$ satisfies $$\abs{\eta(R^{(k)})}\geq \frac{1}4\abs{\eta(R)}$$
+for some $1\leq k\leq 4$. We denote this rectangle by $R_1$. Continue this procession for $R_1$, we get a sub-rectangle $R_2\subseteq R_1$. By induction, we get sequence of nested rectangles $R_n$ s.t. $$\abs{\eta R(_n)}\geq 4^{-n}\abs{\eta(R)}$$
+The rectangles $R_n\to z_0\in \overline R$
 
+$\forall \epsilon>0$, choose $\delta>0$ s.t. $f$ is holomorphic in $D(z_0,\delta)$, and $\forall z\in D(z_0,\delta)$:
+$$\abs{f(z)-f(z_0)-(z-z_0)f'(z_0)}\leq\epsilon\abs{z-z_0}$$
 
+For $n$ large, $\overline {R_n}\subseteq D(z_0,\delta)$. By Corollary\ref{polynomial holomorphic}, we have
+$$\int_{\partial {R_n}}\text dz=0$$
+and $$\int_{\partial R_n}z\text dz=0$$
+Hence
+$$\begin{aligned}
+    \abs{\eta(R_n)} &=\abs{\int_{\partial R_n}f(z)-f(z_0)-(z-z_0)f'(z_0)\text dz}\\
+    &\leq \int_{\partial R_n}\abs{f(z)-f(z_0)-(z-z_0)f'(z_0)}\text dz\\
+    &\leq \epsilon\int_{\partial R_n}\abs{z-z_0}\text ds\\
+    &\leq \epsilon d_nL_n
+\end{aligned}$$
+where $d_n$ is the diameter of $R_n$, $L_n$ is the perimeter of $\partial R_n$. If $d$ is the diameter of R, and L is the perimeter of $\partial R$, then $$d_n=2^{-n}d\quad L_n=2^{-n}L$$
+Hence we have
+$$\abs{\eta(R_n)}\leq \epsilon 4^{-n}\text dL$$
+By our assumption that $$\abs{\eta(R_n)}\geq 4^{-n}\abs{\eta(R)}$$
+we have
+$$\abs{\eta(R)}\leq \epsilon dL$$
 
+Since $\epsilon$ is arbitrary, we have $\eta(R)=0$, which ends the proof.
 
+\section{Cauchy's integral theorem on a disk}
+Let $D\subseteq \mathbb C$ be a disk, $f:D\to \mathbb C$ a holomorphic function, $\gamma$ a closed rectifiable curve in D, then 
+$$\int_\gamma f\text dz=0$$
+\subsection*{Proof}
+By theorem\ref{remark1}, it suffice to show there exists a function $F:D\to \mathbb C$, s.t. $$\fpart{F}{x}=f\quad \fpart{F}{y}=if$$
 
+Without loss of generality we assume $D=\mathbb D$. Let $w=x+iy$, and  $\gamma_w$ be the piecewise linear curve $\gamma_w(0)= x$ and $\gamma_w(x) = x+iy$. Define
+$$F(w):=\int_{\gamma_w}f\text dz$$
+This implies $\fpart{F}{y}(w)=if(w)$. Actually, by the def of parital derivatives:
+$$
+\begin{aligned}
+    \fpart{F}{y}(w) &:=\lim\limits_{\epsilon\to 0}\frac{F(w+\epsilon i)-F(w)}{\epsilon }\\
+    &=\lim\limits_{\epsilon\to 0}\frac{\int_{\gamma_\epsilon}f\text dz}{\epsilon }\\
+    &=if(w)
+\end{aligned}
+$$
+where $\gamma_w$ is the linear curve $\gamma_w(x+iy)=x+iy+i\epsilon$. Let $\tilde {\gamma_w}$ be the piecewise linear curve that $\tilde {\gamma_w}(0)=iy$ and $\tilde {\gamma_w}(iy)=x+iy$. By theorem\ref{Goursat Theorem},we have $$F(w)=\int_{\tilde{\gamma_w}}f\text dz$$
 
+This implies $\fpart{F}{x}(w)=f(w)$ by repeating the same argument for $\fpart{F}{y}(w)$, which finishes the proof.
 
-
+(Note that the equality above is not a definition, it's actually equivalent to Goursat's theorem)
 
 \chapter{Winding number}
 Let $\gamma:[a,b]\to \mathbb C$ be a closed curve. Let $w\notin I_m\gamma$. 
@@ -468,13 +605,18 @@ Let $\gamma$ a simple closed curve. Then $\mathbb C\setminus Im\gamma$ has two c
 Let $R$ be an rectangle, and let $E\subseteq R$ be a finite set, let U be an open set s.t. $\overline R\subseteq U$ let $f:U\setminus E\to \mathbb C$ holomorphic, moreover$$\lim\limits_{z\to \xi}(z-\xi)f(z)=0\ \forall \xi\in E$$ then$$\in_{\partial R}f\text dz=0$$
 \subsection{Proof}
 We can decompose R into small rectangles s.t small rectangle contains one pt in E, We can assume $E=\{\xi\}$ $\forall \epsilon>0$, we can decompose R into 9 rectangle s.t. in the center rectangle $R_0$$$\abs{f(z)}\leq\frac{\epsilon}{\abs{z-\xi}}\quad\forall z\in \partial R_0$$ 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figure/3.png}
+\end{figure}
 By original Gousat's theorem$$\int_{\partial R}f\text dz=\int_{\partial R_0}f\text dz$$
 Hence$$\abs{\int_{\partial R}f\text dz}\leq\epsilon\int_{\partial R_0}\frac{1}{\abs{z-\xi}}\text dz\leq 8\epsilon$$
 Since $\epsilon$ can be arbitrarily small$$\int_{\partial R}f\text dz=0$$
 \section{Corollary}
 Let $D\subseteq\mathbb C$ disk let $E\subseteq D$ a finite set. Let $f:D\to \mathbb C$ continuous holomorphic in $D\setminus E$ moreover$$\lim\limits_{z\to \xi}(z-\xi)f(z)=0\quad\forall \xi \in E$$
 Let $\gamma $ be a closed rectifiable curve in D, then $$\int_\gamma f\text dz=0$$
-\section{Cauchy integral formula}
+\section{Cauchy integral formula on a disk}
+\label{Cauchy's integral formula on a disk}
 Let $D\subseteq \mathbb C$ disk. Let $f:D\to \mathbb C$ holomorphic let $a\in D$, let $\gamma$ be a closed rectifiable curve s.t. $a\notin Im\gamma$, Then $$n(\gamma,a)f(a)=\frac{1}{2\pi i}\int_\gamma\frac{f(z)}{z-a}\text dz$$
 \subsection*{Proof}
 Define function $g:D\setminus\{a\}\to \mathbb C$$$g(z):=\frac{f(z)-f(a)}{z-a}$$\\
@@ -483,13 +625,18 @@ $g$ is holomorphic on $D\setminus\{a\}$, $g$ can be continuously extend to D.
 Then by the previous Corollary, since $$\lim\limits_{z\to a}(z-a)g(z):=\lim\limits_{z\to a}f(z)-f(a)=0$$then$$\int_\gamma g(z)\text da=0$$
 This implies$$n(\gamma,a)f(a):=\frac{1}{2\pi i}\int_\gamma\frac{f(a)}{z-a}\text dz\stackrel{\text{coro}}{=}\frac{f(z)}{z-a}\text dz$$
 \section{Corollary}
+\label{Corollary 4.4}
 Let $D\subseteq \mathbb C$ disk. Let $f:\overline D\to \mathbb C$ be a holomorphic functions. Then $$f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}\text dw\quad\forall z\in D$$
+\subsection*{Proof}
+$\forall z\in D$, we have $n(\partial D,z)=1$. Let $D'$ be a slightly larger disk with the same center, $\overline D\subseteq D$, s.t. $f$ is holomorphic in $D'$. Apply Theorem\ref{Cauchy's integral formula on a disk}, and end the proof.
 \section{Theorem}Holomorphic functions is locally a power series, in particular, it's $C^\infty$
-\section{Theorem}Let $\gamma$ be a rectifiable curve, $\phi:Im\gamma\to \mathbb C$ continuous. For $z\notin Im \gamma$, define $$f(z):=\int_\gamma\frac{\phi(w)}{w-z}\text dw$$
+\section{Theorem}
+\label{Theorem 4.5}
+Let $\gamma$ be a rectifiable curve, $\phi:Im\gamma\to \mathbb C$ continuous. For $z\notin Im \gamma$, define $$f(z):=\int_\gamma\frac{\phi(w)}{w-z}\text dw$$
 Then $\forall z_0\in \mathbb C\setminus Im\gamma$ let $\gamma:=dist(z_0,Im\gamma)$ $f$ is a power series on $D(z_0,r)$
 $$f(z)=\sum\limits_{n=0}^\infty\left(\int_\gamma\frac{\phi(w)}{(w-z_0)^{n}}\text dw\right)(z-z_0)^n$$
-In particular, $f$ is holomorphic.\
-subsection*{Proof}
+In particular, $f$ is holomorphic.
+\subsection*{Proof}
 Fix $z_0$,$w\in Im\gamma$, consider function $\frac{\phi(w)}{w-z}$ (as func of $z$). It has a power series expansion on $D(z_0,r)$
 $$\frac{\phi(w)}{w-z}=\sum\limits_{n=0}^\infty\frac{\phi(w)}{(w-z_0)^n}(z-z_0)^n$$
 The above formula holds for every $w\in Im\gamma$ and $z\in D(z_0,r)$ Define $g_n:Im\gamma\to \mathbb C$(function of w)
@@ -508,4 +655,64 @@ $$\begin{aligned}
     &=\sum\limits_{k=0}^\infty(\int_\gamma\frac{\phi(w)}{(w-z_0)^n}\text dw)(z-z_0)^n
 \end{aligned}$$
 
+For function in $\mathbb R$, differentiable does not imply infinitely differentiable, but in $\mathbb C$:
+\section{Corollary}
+Let $D\subseteq \mathbb C$ be a disk. Let $f:\overline D\to \mathbb C$ be a holomorphic function. Then $f$ is equal to a power series on D.
+\subsection*{Proof}
+By Corollary\ref{Corollary 4.4}, we have$$f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}\text dw$$
+Apply Theorem\ref{Theorem 4.5} and get the result.
+\section{Morera Theorem}
+Let $U\subseteq \mathbb C$ be an open set. Let $f:U\to \mathbb C$ be a continuous function. Assume for every closed rectifiable curve $\gamma$ in U, we have $$\int_\gamma f\text dz=0$$Then $f$ is holomorphic in U.
+\subsection*{Proof}\label{locally power series}
+(Holomorphic function is locally a power series)
+
+If suffice to show the result on each connected component of U. So we can assume Y is connected. Fix $z_0\in U$, $\forall z\in U$, let $\gamma_z$ be any rectifiable curve connecting $z_0$ and $z$, define $$F(z):=\int_{\gamma_z}f\text dz$$
+This def is independent of the choice of $\gamma_z$ be our assumption that $$\int_\gamma f\text dz=0$$
+We have $F'=f$, which is holomorphic in U. Since $f$ is the derivative of a holomorphic function, by Corollary\ref{locally power series}, $f$ is holomorphic in U.
+\section{Formula for higher derivatives}
+\label{Formulae for higher derivatives}
+Let $D:=D(z_0,r)\subseteq \mathbb C$ be a disk. Let $f:\overline D\to \mathbb C$ be a holomorphic function. Then the $n$-th derivative at $z_0$ satisfies
+$$f^{(n)}(z_0)=\frac{n!}{2\pi i}\int_{\partial D}\frac{f(w)}{(w-z_0)^{n+1}}\text dw$$
+\subsection*{Proof}
+Apply Theorem\ref{Theorem 4.5} to the formula:
+$$f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z_0}\text dw$$
+we get
+$$f(z)=\sum\limits_{n=0}^\infty\left(\int_{\partial D}\frac{f(w)}{(w-z_0)^n}\text dw\right)(z-z_0)^n$$
+By Tayler expansion:
+$$f(z)=\sum\limits_{n=0}^\infty\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n$$
+We get the result by comparing the coefficient.
+\section{Cauchy's estimate}
+\label{Cauchy's estimate}
+Let $D:=D(z_0,r)\subseteq \mathbb C$ be a disk. Let $f:\overline D\to \mathbb C$ be a holomorphic function. Let $$M:=\max_{z\in \partial D}\abs{f(z)}$$then
+$$\abs{f^{(n)}}\leq Mn!r^{-n}$$
+\subsection*{Proof}
+By Theorem\ref{Formulae for higher derivatives}
+$$
+\begin{aligned}
+    \abs{f^{(n)}(z_0)}&=\abs{\frac{n!}{2\pi i}\int_{\partial D}\frac{f(w)}{(w-z_0)^{n+1}}\text dw}\\
+    &\leq\abs{\frac{n!}{2\pi i}\int_{\partial D}Mr^{-(n+1)}\text ds}\\
+    &=Mn!r^{-n}
+\end{aligned}
+$$
+\section{Liouvile's theorem}
+\label{Liouville's theorem}
+Let $f:\mathbb C\to \mathbb C$ be bounded holomorphic function. Then $f$ is a constant.
+\subsection*{Proof}
+Assume $\abs{f(z)}\leq M$ on $\mathbb C$. Let $R>0$ and $z_0\in \mathbb C$. Aplly Theorem\ref{Cauchy's estimate} to $D(z_0,R)$, we get $$\abs{f'(z_0)}\leq MR^{-1}$$
+Let $R\to +\infty$ we get $f'(z_0)=0$ for every $z_0\in \mathbb C$ This implies $f$ is a constant, by the fundamental theorem of calculus.
+\section{Fundamental Theorem of Algebra}
+Let $f$ be a polynomial with complex coefficient, $\deg f\geq 1$. Then $f$ has at least one root in  $\mathbb C$.
+\subsection*{Proof}
+Assume by contradiction that $f$ has no roots in $\mathbb C$. Then $g:=\frac{1}{f}:\mathbb C\to \mathbb C$ is a holomorphic function. Since $\deg f\geq 1$, $$\abs{f(z)}\to +\infty\quad \abs{z}\to \infty$$
+This implies $g$ is a bounded holomorphic function. By theorem\ref{Liouville's theorem}, $g$ is a constant, which implies $f$ is a constant, contradiction.
+\section{Theorem}
+(Local uniform limit of holomorphic functions is holomorphic)
+
+Let $U\subseteq \mathbb C$ be an open set. Let $f_n:U\to \mathbb C$ be a sequence of holomorphic functions, converges uniformly to a function $f$ on any compact subset $K\subseteq U$. Then $f$ is holomorphic in U.
+\subsection*{Proof}
+Let D be a disk s.t. $\overline D\subseteq U$. By Cauchy integral formula\ref{Corollary 4.4}, we have $\forall z\in D$
+$$f_n(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f_n(w)}{w-z}\text dw$$
+Since $f_n\to f$ uniformly on $\overline D$, we have
+$$f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}\text dw$$
+This implies $f$ holomorphic in D, by Theorem\ref{Theorem 4.5}
 \end{document}

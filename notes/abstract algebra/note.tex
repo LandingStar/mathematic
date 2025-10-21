@@ -512,5 +512,64 @@ Let R be a ring, $I\subseteq R$ be an ideal.\begin{itemize}
 	\item Congruence modulo I is an equivalence relation
 	\item If $a\equiv b\mod I$ and $c\equiv d\mod I$, then $a\pm c\equiv b\pm d\mod I$. That is, this congruence relation is compatible with addition and multiplication on R.
 \end{itemize}
+\section{Def}
+Let R be a ring, $I\subseteq R$ be an ideal.
+\begin{itemize}
+	\item We denote the congruence equivalent class of $a$ as $a+I$, for any $a\in R$
+	\item We denote $R/I$ as the set of equivalence classes of congruence modulo I. I has a ring structure:$$(a+I)+(b+I):=(a+b)+I\quad(a+I)\cdot(b+I):+ab+I$$It's called the quotient ring of R modulo I. There's a natural mapping$$\begin{aligned}
+		\pi:&R\to& R/I\\&a&\mapsto&a+I
+	\end{aligned}$$which is a surjective ring homomorphism. Moreover, if R is commutative, then so is $R/I$
+\end{itemize}
+\section{Theorem}
+Let $f:R\to S$ be a surjective ring homomorphism. Let $I=\ker f$. Then $S\cong R/I$. More precisely, there is unique ring isomorphism $\overline f:R/I\to S$ given by $a+I\mapsto f(a)$ s.t. the following diagram commutes$$\xymatrix{
+	&R\ar[r]^f\ar[d]_\pi&S\\
+	&R/I\ar@{..>}[ur]_f
+}$$
+\section{Example}
+\begin{itemize}
+	\item Let R be a commutative ring. For $a\in R$, the evaluation mapping $$\begin{aligned}
+		ev_a:&R[x]&\to &R\\ &f(x)&\mapsto&f(a)
+	\end{aligned}$$We already see that $\ker(ev_a)=(x-a).$ Hence we have$$R[x]/(x-a)\cong R$$
+	\item For $i\in \mathbb C$ be the square root of $-1$. The evaluation mapping $$\begin{aligned}
+		ev_i:&\mathbb R[x]&\to &\mathbb C\\ &f(x)&\mapsto&f(i)
+	\end{aligned}$$
+	It's surjective since $ax+b\mapsto a+bi$ for any $a,b\in \mathbb R$. Using division algorithm, we have $\ker(ev_i)=(x^2+1)$. Therefore,$$\mathbb R[x]/(x^2+1)\cong\mathbb C\quad x\mapsto i$$
+	\item We could construct many new rings: Let R be a commutative ring, for any nonzero polynomial $f(x)\in R[x]$, $R[x].(f(x))$ is a commutative ring.
+\end{itemize}
+\section{Theorem}
+Let $k$ be a field and $p(x)$ ne a non-constant polynomial in $k[x]$. The following are equivalent:
+\begin{itemize}
+	\item The polynomial $p(x)$ is irreducible in $k[x]$
+	\item The quotient $k[x]/(p(x))$ is a field
+	\item The quotient $k[x]/(p(x))$ is an integral domain
+\end{itemize}
+\section{Theorem}
+Let $k$ be a field, and $p(x)$ be an irreducible polynomial in $k[x]$. Then \begin{itemize}
+	\item [i]the field $K:=k[x]/(p(x))$ contains a subfield which is isomorphic to $k$ (called an extension of $k$) Moreover, K contains a root $\alpha$ of $p(x)$
+	\item If $g(x)\in k[x]$ and $\alpha$ is a root of $g(x)$, then $p(x)\mid g(x)$ in $k[x]$
+\end{itemize}
+\subsection*{Proof}
+This root $\alpha$ is given by the image of $x$ under the canonical mapping $$k[x]\to k[x]/(p(x))$$
+\section{Corollary}
+Let $k$ be a field and $f(x)$ be a non-constant polynomial in $k[x]$. Then there is an extension field K of $k$ that contains a root of $f(x)$
+\subsection*{Proof}
+Since $f(x)$ has always an irreducible factor, then use the above theorem.
+\section{Remark}
+ \begin{itemize}
+	\item Corollary above may be false if $k$ is not a field. Let K be any ring that contains $\mathbb Z/6\mathbb Z$. Then $$f(x)=3x^2+1\in \mathbb Z/6\mathbb Z$$ has no root in K: if $\alpha$ is a root of $f(x)$ in K, then $$0=2(3\alpha^2+1)=6\alpha^2+2=2\in K$$which is impossible.
+	\item The implication of Theo above runs much deeper than might first appear. Throughout the history of mathematics, the passage form a known number system to a new, larger system has often been greeted with doubt and distrust. For examples, $i\in \mathbb C$ is accepted almost after 100 years. This is due to the lack of a suitable framework. That is the job of abstract algebra.
+ \end{itemize}
+\section{Def}
+Let K be an extension of the field $k$
+\begin{itemize}
+	\item An element $\alpha\in K$ is a algebraic over $k$ if there exists a non-zero polynomial $f(x)\in k[x]$ having $\alpha$ as a root.
+	\item If $\alpha\in K$ is algebraic, then the unique monic irreducible polynomial $p(x)\in k[x]$ having $\alpha$ as a root is called the minimal polynomial of $\alpha$
+	\item For $\alpha\in K$, we denote $k(\alpha)\subseteq K$ to be the smallest subfield of K containing $k$ and $\alpha$; that's, if $K'$ is any subfield of K containing $k$ and $\alpha$ then $k(\alpha)\subseteq K'$. This field $k(\alpha)$ is called the subfield of K obtained by adjoining $\alpha$ to $k$.
+	
+	For $\alpha\in K$ is algebraic over $k$, $p(x)$ is the minimal polynomial of $\alpha$. By the isomorphism in Theo, we have an isomorphism$$\begin{aligned}
+		k[x]/(p(x))&\cong k(\alpha)\\ x+(p(x))&\mapsto \alpha
+	\end{aligned}$$
+\end{itemize}
+\chapter{Theory of Groups}
 
 \end{document}
