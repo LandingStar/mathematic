@@ -488,7 +488,7 @@ $$\begin{aligned}
 \end{aligned}$$
 \chapter{Lebesgue's measure}
 \section{Def: integrability}
-$A\subseteq \mathbb R$ is \textbf{integrable} if $\mathbb 1_A\in KH(\mathbb R)$ and define$$L^1(A)=\int_{\mathbb R}\mathbb 1_A$$ the \textbf{measure} of A.
+$A\subseteq \mathbb R$ is \textbf{integrable} if $\mathbb 1_A\in KH(\mathbb R)$ and define$$L^1(A)=\int_{\mathbb R}\mathbbm 1_A$$ the \textbf{measure} of A.
 \section{Prop}
 \begin{itemize}
     \item If I is a bounded cell then I is integrable and$$L^1(I)=L^1(\mathring{I})=L^1(\overline I)=\abs{\overline I}$$
@@ -530,5 +530,75 @@ $L^1$ now is a mapping $L^1:\mathscr M(\mathbb R)\to [0,+\infty]$ sending $A\in 
     \item $(A_n)$ increasing sequence in $\mathscr M(\mathbb R)$$$L^1(\bigcup\limits_{n\in \mathbb N}A_n)=\sup\limits_{n\in \mathbb N}L^1(A_n)$$
     \item $(A_n)$ sequence in $\mathscr M(\mathbb R)$$$L^1(\bigcup\limits_{n\in \mathbb N}A_n)\leq\sum\limits_{n\in \mathbb N}L^1(A_n)$$
     \item All open and closed sets are measurable.
+\end{itemize}
+\chapter{Vitali sets}
+\section{Def}
+Define a equivalence relation for any pair $x,y\in \mathbb R$
+$$x\sim y\Leftrightarrow x-y\in \mathbb Q$$
+\section{Prop}
+Each equivalence class $[x]$ is dense in $\mathbb R$.
+\section{Def: Vitali set}
+$V\subseteq \mathbb R$ is a \textbf{Vitali set} if $\forall x\in \mathbb R$:$$V\cap[x]\text{ is a singleton}$$
+\section{Prop}
+If V is a Vitali set and $q\in \mathbb Q$ then $q+V$ is a Vitali set.
+\section{Theorem}
+There exists a Vitali set.
+\subsection*{Proof}
+Let $\wp:=\wp(\mathbb R)\cap\set{[x]\mid x\in \mathbb R}$ be a partition of $\mathbb R$. Consider a selector (AC):$$\Gamma:\wp\to \mathbb R$$
+s.t $\forall C\in \wp$$$\Gamma(C)\in C$$
+Define $$V:=\mathbb R\cap\set{\Gamma(C)\mid C\in \wp}=\Im\Gamma$$
+To finish the proof, check that $\forall C\in \wp$\begin{itemize}
+    \item $V\cap C\neq\varnothing$
+    \item $y_1,y_2\in C\cap V\ \Rightarrow\ y_1=y=2$
+\end{itemize}
+\section{Lemma}
+\label{lemma 3.3.4}
+Let V be Vitali set, $q\in \mathbb Q$ ($V_q:=q+V$)\begin{itemize}
+    \item[A] $\mathbb R=\bigcup\limits_{q\in \mathbb Q}V_q$
+    \item[B] $\forall q,r\in \mathbb Q$:$$q\neq r\ \Rightarrow\ V_q\cap V_r=\varnothing$$
+\end{itemize}
+\section{Theorem}
+If V is a Vitali set, $A\subseteq V$ is measurable, then $L^1(A)=0$
+\subsection*{Proof}
+For $n\in N_0$ define $A_0:=A\cap[-n,n]$ which is integrable. Define $$Q:=\mathbb Q\cap\set{q\mid\abs{q}\leq 1}$$and $$B_{n,q}=q+A_n\subseteq q+A\subseteq q+V$$
+By (B) in Lemma, the family $(B_{n,q})_{n,q\in Q}$ is disjoint. Moreover, $B_{n,q}\subseteq[-n-1,n+1]$ and $\forall q\in Q$
+$$L^1(B_{n,q})=L^1(A_n)$$
+If $F\subseteq \mathbb Q$
+$$(card F)L^1(A_n)=\sum\limits_{q\in F}L^1(B_{n,q})=L^1\left(\bigcup\limits_{q\in F}B_{n,q}\right)$$
+Since F is infinite, $card F$ can be chosen as large as Filip wishes, thus $L^1(A)=0$
+$$A=\bigcup\limits_{n\in \mathbb N_0}A_n$$
+and $(A_n)_{n\in \mathbb N_0}$ is increasing$$L^1(A)=\lim\limits_nL^1(A_n)=0$$
+\section{Theorem}
+If V is Vitali set, then V is not measurable
+\subsection*{Proof}
+If V were measurable, then $L^1(V)=0$. By the previous theorem adn each $V_q$ would be measurable with
+$$L^1(V_q)=L^1(q+V)=L^1(V)=0$$
+By (A) of lemma\ref{lemma 3.3.4}$$\mathbb R=\bigcup\limits_{q\in \mathbb Q}V_q$$
+$$L^1(\mathbb R)=\sum\limits_{q\in \mathbb Q}L^1(V_q)=0$$
+\chapter{Measurable sharp}
+\section{Def:refinement}
+Let X be a set and P, Q be two partitions of X. We say that Q is a \textbf{refinement} of P if each member of Q is contained in a member of P.
+
+That's $\forall q\in Q$, $\exists p\in P$ s.t. $q\subseteq p$
+\section{Prop}
+\begin{itemize}
+    \item [A] If Q is a refinement of P and $p\in P$, then$$Q_p:=Q\cap\set{q\mid q\subseteq p}$$is a partition of P
+    \item [B] If Q is a refinement of P, R is a refinement of Q, then R is a refinement of P.
+\end{itemize}
+\section{Def: dyodic cell}
+$I\subseteq \mathbb R$ is a \textbf{dyodic cell} there exists $k,j\in \mathbb Z$ s.t.
+$$I(k,j):=\rightbracket \frac{j}{2^k},\frac{j+1}{2^k}\rightbracket$$
+\subsection*{Remark}
+Notice $j,k$ are uniquely determined by I. $L^1(I)=2^{-k}$$$gen I:=k$$
+is called the \textbf{generation} of I
+$$\mathscr{D}_k^1:=\set{\text {dyodic cells of generation }k}$$
+$$\mathscr{D}^1:=\bigcup\limits_{k\in \mathbb Z}\mathscr{D}_k^1$$
+\section{Prop}
+\begin{itemize}
+    \item [A]$\forall x\in \mathbb R,k,j\in \mathbb Z$$$x\in I(k,j)\ \Leftrightarrow\ j=\left\lceil 2^kx \right\rceil-1$$
+    \item [B]$\forall k \in \mathbb Z$, $\mathscr D^1_k$ is a partition of $\mathbb R$ 
+    \item [C]$\forall k,n\in \mathbb Z$$$I(k,n)=I(k+1,2n)\cup I(k+1,2n+1)$$Thus, $\mathscr{D}^1_{k+1}$ is a refinement of $\mathscr D^1_k$ and $\forall I\in \mathscr D^1_k$$$card(\mathscr D^1_{k+1})_I=2$$
+    \item [D] 
+    \item [E]
 \end{itemize}
 \end{document}
